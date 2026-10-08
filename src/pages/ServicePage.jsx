@@ -6,6 +6,7 @@ const serviceData = {
   "civil-construction": {
   number: "01",
   title: "Civil Construction",
+  label: "KSC / CIVIL CONSTRUCTION",
   exploreImage: "/images/Civil-001.png",
   description:
     "Over the past years, we have developed a robust fleet of skilled manpower and advanced equipment, enabling us to undertake a wide variety of civil construction projects with confidence. Our dedication to safety, quality, and efficient production has established us as a trusted leader in the field. We pride ourselves on maintaining an excellent safety record while delivering top-notch work with a high production rate.",
@@ -41,7 +42,6 @@ constructionImages: [
 highlights: {
   label: "CIVIL CAPABILITIES",
   title: "Built for",
-  label: "KSC / CIVIL CONSTRUCTION",
   accent: "complex work.",
   description:
     "KSC combines planning, structural expertise and site execution across a broad range of civil construction activities.",
