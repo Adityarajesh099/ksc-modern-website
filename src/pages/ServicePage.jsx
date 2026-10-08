@@ -678,65 +678,79 @@ useEffect(() => {
 
       </aside>
     </section>
-    <section className="why-ksc">
-                    <div className="why-ksc-heading">
-                        <span className="eyebrow">WHY KSC</span>
 
-                        <h2>
-                        Experience that<br />
-                        <span>delivers.</span>
-                        </h2>
-                    </div>
+{service === "fire-detection-fire-fighting" && (
+  <section className="fire-expertise-section">
+    <div className="fire-expertise-corner"></div>
 
-                    <div className="why-ksc-list">
+    <div className="fire-expertise-inner">
 
-                        <div className="why-ksc-item">
-                        <span>01</span>
-                        <div>
-                            <h3>Skilled Manpower</h3>
-                            <p>
-                            Experienced teams supporting civil construction activities
-                            from planning through execution.
-                            </p>
-                        </div>
-                        </div>
+      <div className="fire-expertise-heading">
+        <h2>Fire Protection Systems Expertise</h2>
 
-                        <div className="why-ksc-item">
-                        <span>02</span>
-                        <div>
-                            <h3>Advanced Equipment</h3>
-                            <p>
-                            Equipment and site resources supporting efficient project
-                            execution and production.
-                            </p>
-                        </div>
-                        </div>
+        <p>
+          KSC — 20+ years delivering UL-listed pumps, FM200, CO2,
+          alarms and explosion-proof gas detectors for industrial clients
+        </p>
+      </div>
 
-                        <div className="why-ksc-item">
-                        <span>03</span>
-                        <div>
-                            <h3>Safety & Quality</h3>
-                            <p>
-                            A strong focus on safety, quality and dependable construction
-                            delivery.
-                            </p>
-                        </div>
-                        </div>
+      <div className="fire-expertise-list">
 
-                        <div className="why-ksc-item">
-                        <span>04</span>
-                        <div>
-                            <h3>Project Capability</h3>
-                            <p>
-                            Capability across site development, structures, buildings,
-                            roads and asphalt works.
-                            </p>
-                        </div>
-                        </div>
+        <div className="fire-expertise-item">
+          <span>01</span>
+          <p>
+            <strong>UL-listed fire water pumps</strong>
+            {" "}— Aurora, Clarke, Grundfos; installation &amp; maintenance
+          </p>
+        </div>
 
-                    </div>
+        <div className="fire-expertise-item">
+          <span>02</span>
+          <p>
+            <strong>FM200 gas suppression</strong>
+            {" "}systems — SFFECO; clean-agent protection for sensitive areas
+          </p>
+        </div>
 
-                    </section>
+        <div className="fire-expertise-item">
+          <span>03</span>
+          <p>
+            <strong>CO2 suppression</strong>
+            {" "}systems — FIKE; high-energy fire suppression for industrial hazards
+          </p>
+        </div>
+
+        <div className="fire-expertise-item">
+          <span>04</span>
+          <p>
+            <strong>Fire alarm detectors</strong>
+            {" "}— Honeywell, Esser; detection &amp; notification systems
+          </p>
+        </div>
+
+        <div className="fire-expertise-item">
+          <span>05</span>
+          <p>
+            <strong>Explosion-proof gas detectors</strong>
+            {" "}— hazardous-area gas monitoring and integration
+          </p>
+        </div>
+
+        <div className="fire-expertise-item">
+          <span>06</span>
+          <p>
+            Deployed for <strong>Almarai, Aujan Coca Cola, KACST</strong>
+            {" "}— proven industrial safety delivery
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+)}
+
+<section className="why-ksc"></section>
 
 
                     <section className="related-services">

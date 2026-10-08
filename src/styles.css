@@ -394,7 +394,13 @@ button:hover .arrow {
 .service-item span { color:var(--green); font-size:11px; font-weight:800; }
 .service-item strong { font-family:"Manrope"; font-size:20px; letter-spacing:-.03em; }
 .service-item .arrow { color:var(--green); border-color:var(--line); margin-left:0; }
-.service-item.active { padding-left:17px; background:rgba(255,255,255,.55); }
+.service-item.active {
+  background: transparent;
+}
+
+.service-item:hover {
+  background: rgba(255, 255, 255, 0.65);
+}
 .service-feature { min-height:590px; position:relative; overflow:hidden; background:var(--dark); }
 .service-image {
   width: 100%;
@@ -4489,4 +4495,398 @@ button:hover .arrow {
 
 .auxiliary-service-item:hover::before {
   animation-play-state: paused;
+}
+
+
+/* =========================================
+   FIRE PROTECTION SYSTEMS EXPERTISE
+   ========================================= */
+
+.fire-expertise-section {
+  position: relative;
+  overflow: hidden;
+  background: #F7F8F3;
+  padding: 105px 7vw 110px;
+  border-top: 1px solid rgba(32, 37, 26, 0.08);
+}
+
+.fire-expertise-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 1380px;
+  margin: 0 auto;
+}
+
+/* Technical eyebrow */
+
+.fire-expertise-heading::before {
+  content: "FIRE PROTECTION / TECHNICAL EXPERTISE";
+  display: block;
+  margin-bottom: 20px;
+  color: #869A3E;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+}
+
+.fire-expertise-heading {
+  max-width: 1180px;
+  margin-bottom: 90px;
+}
+
+.fire-expertise-heading h2 {
+  margin: 0 0 18px;
+  color: #20251A;
+  font-size: clamp(40px, 4.4vw, 64px);
+  line-height: 1.02;
+  font-weight: 700;
+  letter-spacing: -0.045em;
+}
+
+.fire-expertise-heading p {
+  margin: 0;
+  max-width: 1050px;
+  color: #6F756B;
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+/* Expertise list */
+
+.fire-expertise-list {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  max-width: 1180px;
+  padding-left: 0;
+}
+
+/* Vertical engineering line */
+
+.fire-expertise-list::before {
+  content: "";
+  position: absolute;
+  left: 15px;
+  top: 15px;
+  bottom: 15px;
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    rgba(93, 109, 54, 0.05),
+    rgba(93, 109, 54, 0.45),
+    rgba(93, 109, 54, 0.05)
+  );
+}
+
+/* Individual item */
+
+.fire-expertise-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 30px 1fr;
+  align-items: center;
+  column-gap: 22px;
+  min-height: 72px;
+  padding: 10px 20px 10px 0;
+  border-bottom: 1px solid rgba(32, 37, 26, 0.08);
+  transition:
+    transform 0.35s ease,
+    background 0.35s ease,
+    padding-left 0.35s ease;
+}
+
+.fire-expertise-item:first-child {
+  border-top: 1px solid rgba(32, 37, 26, 0.08);
+}
+
+/* Number */
+
+.fire-expertise-item > span {
+  position: relative;
+  z-index: 3;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #869A3E;
+  color: #FFFFFF;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  box-shadow: 0 0 0 6px #F7F8F3;
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease;
+}
+
+/* Text */
+
+.fire-expertise-item p {
+  margin: 0;
+  color: #30352C;
+  font-size: 19px;
+  line-height: 1.45;
+  font-weight: 400;
+  transition: color 0.3s ease;
+}
+
+.fire-expertise-item strong {
+  color: #20251A;
+  font-weight: 750;
+}
+
+/* Hover */
+
+.fire-expertise-item:hover {
+  transform: translateX(8px);
+  padding-left: 12px;
+  background: rgba(134, 154, 62, 0.08);
+}
+
+.fire-expertise-item:hover > span {
+  background: #5D6D36;
+  transform: scale(1.08);
+}
+
+.fire-expertise-item:hover p {
+  color: #20251A;
+}
+
+/* Large background watermark */
+
+.fire-expertise-section::before {
+  content: "KSC";
+  position: absolute;
+  right: 30vw;
+  bottom: 200px;
+  color: rgba(93, 109, 54, 0.045);
+  font-size: 280px;
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -0.08em;
+  pointer-events: none;
+}
+
+/* Corner */
+
+.fire-expertise-corner {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 145px;
+  height: 145px;
+  background: #5D6D36;
+  clip-path: polygon(0 0, 100% 0, 100% 100%);
+}
+
+/* Bottom accent */
+
+.fire-expertise-section::after {
+  content: "";
+  position: absolute;
+  left: 7vw;
+  bottom: 0;
+  width: 110px;
+  height: 4px;
+  background: #869A3E;
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+
+  .fire-expertise-section {
+    padding: 80px 25px 90px;
+  }
+
+  .fire-expertise-heading {
+    margin-bottom: 65px;
+  }
+
+  .fire-expertise-heading h2 {
+    font-size: 42px;
+  }
+
+  .fire-expertise-item p {
+    font-size: 17px;
+  }
+
+  .fire-expertise-section::before {
+    font-size: 200px;
+  }
+
+  .fire-expertise-corner {
+    width: 90px;
+    height: 90px;
+  }
+}
+
+@media (max-width: 600px) {
+
+  .fire-expertise-section {
+    padding: 65px 20px 75px;
+  }
+
+  .fire-expertise-heading::before {
+    font-size: 9px;
+  }
+
+  .fire-expertise-heading {
+    margin-bottom: 50px;
+  }
+
+  .fire-expertise-heading h2 {
+    font-size: 32px;
+  }
+
+  .fire-expertise-heading p {
+    font-size: 15px;
+  }
+
+  .fire-expertise-item {
+    grid-template-columns: 30px 1fr;
+    column-gap: 14px;
+    min-height: 80px;
+    padding-right: 5px;
+  }
+
+  .fire-expertise-item p {
+    font-size: 15px;
+  }
+
+  .fire-expertise-item:hover {
+    transform: none;
+    padding-left: 0;
+  }
+
+  .fire-expertise-section::before {
+    font-size: 140px;
+    bottom: -20px;
+  }
+
+  .fire-expertise-corner {
+    width: 65px;
+    height: 65px;
+  }
+}
+
+
+.services {
+  position: relative;
+  overflow: hidden;
+}
+
+.services-watermark {
+  position: absolute;
+  right: 59vw;
+  bottom: 303px;
+  color: rgba(93, 109, 54, 0.045);
+  font-size: 280px;
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -0.08em;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.services .container {
+  position: relative;
+  z-index: 2;
+}
+
+
+/* =========================================
+   SERVICES GREEN FLOW
+   ========================================= */
+
+.service-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.service-flow {
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 55%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(134, 154, 62, 0.08),
+    rgba(134, 154, 62, 0.28),
+    rgba(134, 154, 62, 0.08),
+    transparent
+  );
+  transform: skewX(-18deg);
+  pointer-events: none;
+  z-index: 0;
+  animation: serviceGreenFlow 7s ease-in-out infinite;
+}
+
+.service-item:nth-child(1) .service-flow {
+  animation-delay: 0s;
+}
+
+.service-item:nth-child(2) .service-flow {
+  animation-delay: 0.8s;
+}
+
+.service-item:nth-child(3) .service-flow {
+  animation-delay: 1.6s;
+}
+
+.service-item:nth-child(4) .service-flow {
+  animation-delay: 2.4s;
+}
+
+.service-item:nth-child(5) .service-flow {
+  animation-delay: 3.2s;
+}
+
+.service-item:nth-child(6) .service-flow {
+  animation-delay: 4s;
+}
+
+.service-item:nth-child(7) .service-flow {
+  animation-delay: 4.8s;
+}
+
+.service-item:nth-child(8) .service-flow {
+  animation-delay: 5.6s;
+}
+
+.service-item > span:not(.service-flow),
+.service-item > strong,
+.service-item > .arrow {
+  position: relative;
+  z-index: 2;
+}
+
+@keyframes serviceGreenFlow {
+  0% {
+    left: -120%;
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  45% {
+    left: 130%;
+    opacity: 1;
+  }
+
+  55% {
+    left: 130%;
+    opacity: 0;
+  }
+
+  100% {
+    left: 130%;
+    opacity: 0;
+  }
 }

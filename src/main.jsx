@@ -238,6 +238,7 @@ useEffect(() => {
         </section>
 
         <section id="services" className="services section">
+          <div className="services-watermark">KSC</div>
           <div className="container">
             <div className="section-heading">
               <div>
@@ -264,9 +265,10 @@ useEffect(() => {
                         "fitout-works"
                       ][index]
                     }`}
-                    className={activeService === index ? "service-item active" : "service-item"}
+                    className="service-item"
                     onMouseEnter={() => setActiveService(index)}
                   >
+                    <span className="service-flow"></span>
                     <span>{number}</span>
                     <strong>{title}</strong>
                     <Arrow small />
