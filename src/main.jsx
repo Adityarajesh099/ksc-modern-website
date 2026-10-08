@@ -561,35 +561,35 @@ useEffect(() => {
 
             <div className="quality-value-row">
               <div className="quality-value-text">
-                <strong>20+ years</strong> delivering high-quality construction
+               <strong>30+ </strong>YEARS DELIVERING HIGH-QUALITY CONSTRUCTION
               </div>
               <div className="quality-value-number">01</div>
             </div>
 
             <div className="quality-value-row">
               <div className="quality-value-text">
-                On-time delivery focused project management
+                ON-TIME DELIVERY FOCUSED PROJECT MANAGEMENT
               </div>
               <div className="quality-value-number">02</div>
             </div>
 
             <div className="quality-value-row">
               <div className="quality-value-text">
-                Cost-efficient solutions without compromising quality
+                COST-EFFICIENT SOLUTIONS WITHOUT COMPROMISING QUALITY
               </div>
               <div className="quality-value-number">03</div>
             </div>
 
             <div className="quality-value-row">
               <div className="quality-value-text">
-                Trusted partner ensuring <strong>peak facility performance</strong>
+                TRUSTED PARTNER ENSURING PEAK FACILITY PERFORMANCE
               </div>
               <div className="quality-value-number">04</div>
             </div>
 
             <div className="quality-value-row">
               <div className="quality-value-text">
-                Tailored, reliable solutions for factories and distribution centers
+                TAILORED, RELIABLE SOLUTIONS FOR FACTORIES AND DISTRIBUTION CENTERS
               </div>
               <div className="quality-value-number">05</div>
             </div>
