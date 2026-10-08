@@ -288,7 +288,7 @@ useEffect(() => {
                         "/images/Architectural-001.jpg",
                         "/images/Installation-001.png",
                         "/images/Fire-001.png",
-                        "/images/HVAC-001.jpg",
+                        "/images/HVAC-001.png",
                         "/images/Fitout-001.jpg" 
                       ][activeService]
                     })`,

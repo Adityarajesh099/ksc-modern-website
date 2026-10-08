@@ -350,7 +350,9 @@ button:hover .arrow {
 .scroll-note i { width:7px; height:7px; border-radius:50%; background:#b9c982; box-shadow:0 0 0 5px rgba(185,201,130,.12); }
 @keyframes heroZoom { from{transform:scale(1.05)} to{transform:scale(1)} }
 
-.intro { background:white; }
+.intro {
+  background: #F2E9DC;
+}
 .intro-grid { display:grid; grid-template-columns:1.05fr .95fr; gap:110px; }
 .intro-copy { padding-top:38px; }
 .lead { font-size:23px; line-height:1.45; font-weight:500; }
