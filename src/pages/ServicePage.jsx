@@ -39,7 +39,6 @@ constructionImages: [
 ],
 
 highlights: {
-  label: "CIVIL CAPABILITIES",
   title: "Built for",
   label: "KSC / CIVIL CONSTRUCTION",
   accent: "complex work.",
