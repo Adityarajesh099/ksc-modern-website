@@ -424,6 +424,122 @@ useEffect(() => {
           </div>
         </section>
 
+        <section className="auxiliary-services section">
+          <div className="auxiliary-services-inner">
+
+            <div className="auxiliary-services-list">
+
+              <div className="auxiliary-service-item item-1">
+                <div className="auxiliary-service-icon">
+                  <svg viewBox="0 0 48 48" aria-hidden="true">
+                    <path d="M8 40V15L24 7L40 15V40" />
+                    <path d="M15 40V23H33V40" />
+                    <path d="M19 17H19.1" />
+                    <path d="M29 17H29.1" />
+                    <path d="M19 29H19.1" />
+                    <path d="M29 29H29.1" />
+                  </svg>
+                </div>
+
+                <p>
+                  Design &amp; build <strong>staff and worker accommodations</strong>
+                </p>
+              </div>
+
+              <div className="auxiliary-service-item item-2">
+                <div className="auxiliary-service-icon">
+                  <svg viewBox="0 0 48 48" aria-hidden="true">
+                    <path d="M10 40V13H38V40" />
+                    <path d="M6 40H42" />
+                    <path d="M16 13V7H32V13" />
+                    <path d="M17 20H21" />
+                    <path d="M27 20H31" />
+                    <path d="M17 27H21" />
+                    <path d="M27 27H31" />
+                    <path d="M21 40V33H27V40" />
+                  </svg>
+                </div>
+
+                <p>
+                  Delivery of <strong>commercial buildings and retail spaces</strong>
+                </p>
+              </div>
+
+              <div className="auxiliary-service-item item-3">
+                <div className="auxiliary-service-icon">
+                  <svg viewBox="0 0 48 48" aria-hidden="true">
+                    <path d="M7 25H41" />
+                    <path d="M10 20C10 17 14 15 18 15C22 15 26 17 26 20" />
+                    <path d="M30 18C34 18 38 20 38 23V30H10V25" />
+                    <path d="M12 30V36" />
+                    <path d="M36 30V36" />
+                    <path d="M17 36H31" />
+                  </svg>
+                </div>
+
+                <p>
+                  Construction of <strong>swimming pools and sports facilities</strong>
+                </p>
+              </div>
+
+              <div className="auxiliary-service-item item-4">
+                <div className="auxiliary-service-icon">
+                  <svg viewBox="0 0 48 48" aria-hidden="true">
+                    <rect x="8" y="11" width="32" height="26" rx="3" />
+                    <circle cx="24" cy="24" r="7" />
+                    <path d="M17 11L20 7H28L31 11" />
+                    <path d="M24 21V24L27 26" />
+                  </svg>
+                </div>
+
+                <p>
+                  Full <strong>utilities and infrastructure</strong> support for turnkey projects
+                </p>
+              </div>
+
+              <div className="auxiliary-service-item item-5">
+                <div className="auxiliary-service-icon">
+                  <svg viewBox="0 0 48 48" aria-hidden="true">
+                    <rect x="9" y="8" width="30" height="32" rx="3" />
+                    <path d="M15 15H33" />
+                    <path d="M15 21H33" />
+                    <path d="M15 27H26" />
+                    <circle cx="32" cy="31" r="4" />
+                  </svg>
+                </div>
+
+                <p>
+                  Integrated delivery to enhance <strong>operational efficiency and workforce welfare</strong>
+                </p>
+              </div>
+
+            </div>
+
+            <div className="auxiliary-services-content">
+
+              <div className="auxiliary-corner auxiliary-corner-top"></div>
+              <div className="auxiliary-corner auxiliary-corner-bottom"></div>
+
+              <div className="auxiliary-divider"></div>
+
+              <div className="auxiliary-services-heading">
+                <h2>
+                  Comprehensive<br />
+                  <span>Auxiliary Services</span>
+                </h2>
+
+                <p>
+                  Turnkey support beyond industrial construction to boost operations and workforce welfare
+                </p>
+              </div>
+
+            </div>
+
+          </div>
+
+        </section>
+
+
         <section id="industries" className="industries section">
           <div className="container">
             <div className="industry-intro">
