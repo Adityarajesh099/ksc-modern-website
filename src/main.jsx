@@ -11,6 +11,8 @@ import SiteHeader from "./components/SiteHeader";
 import { createRoot } from "react-dom/client";
 import "./styles.css";
 
+
+
 const services = [
   ["01", "Civil Construction", "Structures, infrastructure and turnkey civil works."],
   ["02", "Electrical Works", "Reliable electrical systems for demanding facilities."],
@@ -44,7 +46,12 @@ const projects = [
 ];
 
 function Arrow({ small = false }) {
-  return <span className={small ? "arrow small" : "arrow"}>↗</span>;
+  return (
+    <span className={small ? "arrow small" : "arrow"} aria-hidden="true">
+      <span className="arrow-line"></span>
+      <span className="arrow-head">↗</span>
+    </span>
+  );
 }
 
 function App() {
@@ -160,8 +167,8 @@ useEffect(() => {
               ambitious projects across the Kingdom of Saudi Arabia.
             </p>
             <div className="hero-actions">
-              <a className="button primary" href="#projects">Explore Projects <Arrow /></a>
-              <a className="button ghost" href="#contact">Talk to KSC <Arrow small /></a>
+              <a className="button primary" href="#services">Explore Services <Arrow /></a>
+              <a className="button ghost" href="/contact">Talk to KSC <Arrow small /></a>
             </div>
           </div>
 

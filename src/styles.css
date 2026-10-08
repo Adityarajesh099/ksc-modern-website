@@ -25,9 +25,41 @@ img { max-width:100%; display:block; }
 h1,h2,h3 { margin-top:0; font-family:"Manrope",sans-serif; }
 h2 { font-size:clamp(42px,5.2vw,78px); line-height:.97; letter-spacing:-.06em; margin-bottom:0; }
 h2 span { color:var(--green-2); }
-.arrow { display:inline-flex; align-items:center; justify-content:center; width:42px; height:42px; border:1px solid rgba(255,255,255,.3); border-radius:50%; margin-left:16px; transition:.3s ease; }
-.arrow.small { width:24px; height:24px; font-size:11px; margin-left:8px; }
-a:hover .arrow,button:hover .arrow { transform:translate(3px,-3px); }
+.arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  margin-left: 14px;
+  border: 0;
+  background: transparent;
+  color: currentColor;
+  font-size: 22px;
+  line-height: 1;
+  transition: transform 0.4s cubic-bezier(.2,.7,.2,1);
+}
+
+.arrow.small {
+  width: 30px;
+  height: 30px;
+  margin-left: 9px;
+  font-size: 17px;
+}
+
+a:hover .arrow,
+button:hover .arrow {
+  transform: translate(4px, -4px);
+}
+
+.arrow-icon {
+  display: block;
+  font-family: Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 1;
+  transform: translateY(-1px);
+}
 
 /* =========================
    KSC HEADER
