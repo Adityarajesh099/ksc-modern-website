@@ -542,6 +542,63 @@ useEffect(() => {
         </section>
 
 
+        <section className="quality-value-section">
+
+          <div className="quality-value-corner"></div>
+
+          <div className="quality-value-header">
+            <p className="eyebrow">KSC STANDARD</p>
+
+            <h2>Commitment to Quality and Value</h2>
+
+            <p>
+              Reliable, cost-efficient construction tailored for peak factory
+              and distribution performance
+            </p>
+          </div>
+
+          <div className="quality-value-list">
+
+            <div className="quality-value-row">
+              <div className="quality-value-text">
+                <strong>20+ years</strong> delivering high-quality construction
+              </div>
+              <div className="quality-value-number">01</div>
+            </div>
+
+            <div className="quality-value-row">
+              <div className="quality-value-text">
+                On-time delivery focused project management
+              </div>
+              <div className="quality-value-number">02</div>
+            </div>
+
+            <div className="quality-value-row">
+              <div className="quality-value-text">
+                Cost-efficient solutions without compromising quality
+              </div>
+              <div className="quality-value-number">03</div>
+            </div>
+
+            <div className="quality-value-row">
+              <div className="quality-value-text">
+                Trusted partner ensuring <strong>peak facility performance</strong>
+              </div>
+              <div className="quality-value-number">04</div>
+            </div>
+
+            <div className="quality-value-row">
+              <div className="quality-value-text">
+                Tailored, reliable solutions for factories and distribution centers
+              </div>
+              <div className="quality-value-number">05</div>
+            </div>
+
+          </div>
+
+        </section>
+
+
         <section id="industries" className="industries section">
           <div className="container">
             <div className="industry-intro">
