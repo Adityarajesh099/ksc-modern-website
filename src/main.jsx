@@ -601,6 +601,32 @@ useEffect(() => {
         </section>
       </main>
 
+      
+    </div>
+  );
+}
+
+
+
+function SiteLayout() {
+  return (
+    <>
+      <SiteHeader />
+
+      <Routes>
+        <Route path="/" element={<App />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/projects" element={<ProjectsPage />} />
+        <Route path="/gallery" element={<GalleryPage />} />
+        <Route path="/clients" element={<ClientsPage />} />
+        <Route path="/careers" element={<CareersPage />} />
+        <Route path="/contact" element={<ContactPage />} />
+
+        <Route
+          path="/services/:service"
+          element={<ServicePage />}
+        />
+      </Routes>
       <footer className="service-footer">
   <div className="service-footer-main">
 
@@ -652,31 +678,6 @@ useEffect(() => {
     <span>Engineering What's Next.</span>
   </div>
 </footer>
-    </div>
-  );
-}
-
-
-
-function SiteLayout() {
-  return (
-    <>
-      <SiteHeader />
-
-      <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/projects" element={<ProjectsPage />} />
-        <Route path="/gallery" element={<GalleryPage />} />
-        <Route path="/clients" element={<ClientsPage />} />
-        <Route path="/careers" element={<CareersPage />} />
-        <Route path="/contact" element={<ContactPage />} />
-
-        <Route
-          path="/services/:service"
-          element={<ServicePage />}
-        />
-      </Routes>
     </>
   );
 }

@@ -430,6 +430,7 @@ highlights: {
   "fitout-works": {
   number: "08",
   title: "Fitout Works",
+  exploreImage: "/images/Fitout-001.png",
   label: "KSC / FITOUT WORKS",
   description:
     "KSC delivers complete interior fitout solutions for commercial, industrial and other built environments. Our fitout services combine careful planning, quality workmanship and coordinated execution to create functional and professionally finished spaces.",
@@ -774,54 +775,6 @@ useEffect(() => {
                           ))}
                       </div>
                     </section>
-
-
-            <footer className="service-footer">
-                <div className="service-footer-main">
-
-                    <div className="service-footer-brand">
-                    <img
-                        src="/images/ksc-logo.png"
-                        alt="KSC Contracting Co."
-                    />
-
-                    <p>
-                        Engineering capability built around experience,
-                        quality and dependable project delivery.
-                    </p>
-                    </div>
-
-                    <div className="service-footer-column">
-                    <span>COMPANY</span>
-                    <a href="/">Home</a>
-                    <a href="/#about">About KSC</a>
-                    <a href="/#services">Services</a>
-                    <a href="/#projects">Projects</a>
-                    </div>
-
-                    <div className="service-footer-column">
-                    <span>SERVICES</span>
-                    <a href="/services/civil-construction">Civil Construction</a>
-                    <a href="/services/electrical-works">Electrical Works</a>
-                    <a href="/services/mechanical-works">Mechanical Works</a>
-                    <a href="/services/hvac-works">HVAC Works</a>
-                    </div>
-
-                    <div className="service-footer-column">
-                    <span>CONTACT</span>
-                    <p>Saudi Arabia</p>
-                    <p>+966 (0) 5100 20030</p>
-                    <a href="/#contact">Contact KSC</a>
-                    </div>
-
-                </div>
-
-                <div className="service-footer-bottom">
-                    <span>© 2026 KSC Contracting Co. All rights reserved.</span>
-                    <span>Engineering What's Next.</span>
-                </div>
-
-                </footer>
   </main>
 );
 }

@@ -19,7 +19,7 @@ export default function ContactPage() {
         <div className="container contact-hero-inner">
           <div className="contact-hero-kicker">
             <span className="kicker-line"></span>
-            <p className="eyebrow light">07 / CONTACT KSC</p>
+            <p className="eyebrow light">CONTACT KSC</p>
           </div>
 
           <h1>
@@ -66,7 +66,7 @@ export default function ContactPage() {
             <div className="contact-form-card">
 
               <div className="contact-form-heading">
-                <p className="eyebrow">01 / SEND AN ENQUIRY</p>
+                <p className="eyebrow">SEND AN ENQUIRY</p>
                 <h3>How can we help?</h3>
               </div>
 
@@ -293,7 +293,7 @@ export default function ContactPage() {
             <aside className="contact-info">
 
               <div className="contact-info-heading">
-                <p className="eyebrow">02 / KSC INFORMATION</p>
+                <p className="eyebrow">KSC INFORMATION</p>
 
                 <h3>
                   Talk directly
@@ -408,7 +408,7 @@ export default function ContactPage() {
 
     <div className="contact-location-heading">
       <div>
-        <p className="eyebrow">03 / FIND KSC</p>
+        <p className="eyebrow">FIND KSC</p>
 
         <h2>
           Visit our
@@ -431,7 +431,7 @@ export default function ContactPage() {
       <div className="location-panel">
 
         <div className="location-panel-top">
-          <span>01 / KSC LOCATION</span>
+          <span>KSC LOCATION</span>
 
           <div className="location-status">
             <i></i>
@@ -482,13 +482,9 @@ export default function ContactPage() {
 
         <div className="location-panel-bottom">
 
-          <span>
-            KSC / RIYADH
-          </span>
+      
 
-          <span>
-            SAUDI ARABIA
-          </span>
+          
 
         </div>
 
@@ -551,7 +547,7 @@ export default function ContactPage() {
         <div className="container contact-final-inner">
 
           <p className="eyebrow light">
-            04 / LET'S WORK TOGETHER
+            LET'S WORK TOGETHER
           </p>
 
           <h2>
