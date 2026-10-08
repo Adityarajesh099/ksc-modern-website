@@ -670,7 +670,6 @@ useEffect(() => {
             <span>◯</span>
 
             <div>
-              <small>Free Consultation</small>
               <strong>+966 (0) 5100 20030</strong>
             </div>
           </div>
