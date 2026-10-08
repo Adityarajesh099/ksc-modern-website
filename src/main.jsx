@@ -192,7 +192,7 @@ useEffect(() => {
         <section id="about" className="intro section">
           <div className="container intro-grid">
             <div className="intro-title">
-              <p className="eyebrow">01 / ABOUT KSC</p>
+              <p className="eyebrow">ABOUT KSC</p>
               <h2>Engineering capability.<br /><span>Built around experience.</span></h2>
             </div>
             <div className="intro-copy">
@@ -241,7 +241,7 @@ useEffect(() => {
           <div className="container">
             <div className="section-heading">
               <div>
-                <p className="eyebrow">02 / CAPABILITIES</p>
+                <p className="eyebrow">CAPABILITIES</p>
                 <h2>What we <span>do.</span></h2>
               </div>
               <p>From groundworks to specialist systems, KSC brings the capabilities needed to deliver complex projects.</p>
@@ -543,7 +543,7 @@ useEffect(() => {
         <section id="industries" className="industries section">
           <div className="container">
             <div className="industry-intro">
-              <p className="eyebrow">04 / INDUSTRIES</p>
+              <p className="eyebrow">INDUSTRIES</p>
               <h2>Built for <span>demanding</span> environments.</h2>
             </div>
             <div className="industry-grid">
@@ -562,7 +562,7 @@ useEffect(() => {
           <div className="statement-pattern"></div>
           <div className="statement-logo"><img src="/images/ksc-logo.png" alt="" /></div>
           <div className="container statement-inner">
-            <p className="eyebrow light">05 / KSC STANDARD</p>
+            <p className="eyebrow light">KSC STANDARD</p>
             <h2>Safety is not a requirement.<br /><em>It is how we work.</em></h2>
             <div className="statement-links">
               <a href="#contact">HSE <Arrow small /></a>
@@ -575,7 +575,7 @@ useEffect(() => {
         <section id="careers" className="careers section">
           <div className="container career-grid">
             <div>
-              <p className="eyebrow">06 / CAREERS</p>
+              <p className="eyebrow">CAREERS</p>
               <h2>Build your<br /><span>career with KSC.</span></h2>
             </div>
             <div>
@@ -588,13 +588,13 @@ useEffect(() => {
         <section id="contact" className="contact section">
           <div className="container contact-inner">
             <div>
-              <p className="eyebrow light">07 / CONTACT KSC</p>
-              <h2>Let's build<br /><em>something together.</em></h2>
+              <p className="eyebrow light">CONTACT KSC</p>
+              <h2>Let's build<br /><h2>something together.</h2></h2>
             </div>
             <div className="contact-details">
               <p>Riyadh, Kingdom of Saudi Arabia</p>
-              <a href="mailto:info@ksc-sa.com">info@ksc-sa.com</a>
-              <a href="tel:+966000000000">+966 XX XXX XXXX</a>
+              <a href="mailto:info@ksc-sa.com">sales@ksc-sa.com</a>
+              <a href="tel:+966000000000">+966 5100 200 30</a>
               <a className="button white" href="mailto:info@ksc-sa.com">Start a conversation <Arrow /></a>
             </div>
           </div>
@@ -619,9 +619,11 @@ useEffect(() => {
     <div className="service-footer-column">
       <span>COMPANY</span>
       <a href="#home">Home</a>
-      <a href="#about">About KSC</a>
+      <a href="/about">About KSC</a>
       <a href="#services">Services</a>
-      <a href="#projects">Projects</a>
+      <a href="/projects">Projects</a>
+      <a href="#industries">Industries</a>
+      <a href="/careers">Careers</a>
     </div>
 
     <div className="service-footer-column">
@@ -629,7 +631,11 @@ useEffect(() => {
       <a href="/services/civil-construction">Civil Construction</a>
       <a href="/services/electrical-works">Electrical Works</a>
       <a href="/services/mechanical-works">Mechanical Works</a>
+      <a href="/services/architectural-interior-design">Architectural & Interior Design</a>
+      <a href="/services/equipment-machine-installations">Equipment & Machine Installations</a>
+      <a href="/services/fire-detection-fire-fighting">Fire Detection & Fire Fighting System</a>
       <a href="/services/hvac-works">HVAC Works</a>
+      <a href="/services/fitout-works">Fitout Works</a>
     </div>
 
     <div className="service-footer-column">
