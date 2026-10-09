@@ -2221,6 +2221,41 @@ button:hover .arrow {
   background: var(--dark);
 }
 
+.project-image-slideshow {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 320px;
+  overflow: hidden;
+  background: #20251a;
+}
+
+.project-slideshow-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1.2s ease-in-out;
+}
+
+.project-slideshow-image.active {
+  opacity: 1;
+}
+
+.project-slideshow-counter {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  z-index: 2;
+  padding: 7px 12px;
+  border-radius: 20px;
+  background: rgba(32, 37, 26, 0.8);
+  color: #fff;
+  font-size: 12px;
+}
+
 .project-detail-image img {
   width: 100%;
   height: 100%;
@@ -5786,4 +5821,931 @@ button:hover .arrow {
   .career-phone-field {
     grid-template-columns: 95px 1fr;
   }
+}
+
+
+
+
+/* =========================================================
+   KSC ADMIN PANEL
+   ========================================================= */
+
+.ksc-admin {
+  min-height: 100vh;
+  display: flex;
+  background: #F2E9DC;
+  color: #20251A;
+}
+
+
+/* =========================
+   SIDEBAR
+   ========================= */
+
+.ksc-admin-sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 270px;
+  background: #20251A;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+  padding: 32px 22px;
+}
+
+.ksc-admin-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 8px 12px 35px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.ksc-admin-brand img {
+  width: 185px;
+  height: auto;
+  object-fit: contain;
+  margin-bottom: 18px;
+}
+
+.ksc-admin-brand span {
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  color: #A5AD7A;
+}
+
+
+/* =========================
+   ADMIN NAVIGATION
+   ========================= */
+
+.ksc-admin-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-top: 32px;
+}
+
+.ksc-admin-nav-item {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 14px;
+  border: 0;
+  background: transparent;
+  color: rgba(255,255,255,0.55);
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.ksc-admin-nav-item span {
+  font-size: 10px;
+  font-weight: 800;
+  color: rgba(255,255,255,0.3);
+  letter-spacing: 0.08em;
+}
+
+.ksc-admin-nav-item strong {
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.ksc-admin-nav-item:hover {
+  color: #fff;
+  background: rgba(134,154,62,0.12);
+}
+
+.ksc-admin-nav-item.active {
+  color: #fff;
+  background: #5D6D36;
+}
+
+.ksc-admin-nav-item.active span {
+  color: #F2E9DC;
+}
+
+
+/* =========================
+   SIDEBAR BOTTOM
+   ========================= */
+
+.ksc-admin-sidebar-bottom {
+  margin-top: auto;
+  padding: 20px 12px 5px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.ksc-admin-sidebar-bottom span {
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  color: #A5AD7A;
+}
+
+.ksc-admin-sidebar-bottom small {
+  font-size: 10px;
+  color: rgba(255,255,255,0.4);
+}
+
+
+/* =========================
+   MAIN AREA
+   ========================= */
+
+.ksc-admin-main {
+  width: calc(100% - 270px);
+  margin-left: 270px;
+  min-height: 100vh;
+  padding: 80px 6vw 55px;
+  box-sizing: border-box;
+}
+
+
+/* =========================
+   HEADER
+   ========================= */
+
+.ksc-admin-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 30px;
+  padding-bottom: 35px;
+  margin-bottom: 45px;
+  border-bottom: 1px solid rgba(32,37,26,0.12);
+}
+
+.ksc-admin-header .eyebrow {
+  display: block;
+  margin-bottom: 12px;
+  color: #5D6D36;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+}
+
+.ksc-admin-header h1 {
+  margin: 0;
+  font-size: clamp(32px, 4vw, 52px);
+  line-height: 0.98;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+}
+
+.ksc-admin-view-site {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 45px;
+  padding: 0 20px;
+  border: 1px solid rgba(32,37,26,0.2);
+  color: #20251A;
+  text-decoration: none;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  transition: all 0.3s ease;
+}
+
+.ksc-admin-view-site:hover {
+  background: #5D6D36;
+  border-color: #5D6D36;
+  color: #fff;
+}
+
+
+/* =========================
+   DASHBOARD
+   ========================= */
+
+.ksc-admin-welcome {
+  max-width: 760px;
+  margin-bottom: 50px;
+}
+
+.ksc-admin-welcome .eyebrow {
+  color: #5D6D36;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+}
+
+.ksc-admin-welcome h2 {
+  margin: 15px 0 20px;
+  font-size: clamp(38px, 5vw, 68px);
+  line-height: 0.98;
+  letter-spacing: -0.05em;
+}
+
+.ksc-admin-welcome h2 span {
+  color: #5D6D36;
+}
+
+.ksc-admin-welcome p {
+  max-width: 650px;
+  margin: 0;
+  color: rgba(32,37,26,0.62);
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+
+/* =========================
+   STATS
+   ========================= */
+
+.ksc-admin-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid rgba(32,37,26,0.12);
+  border-left: 1px solid rgba(32,37,26,0.12);
+  margin-bottom: 55px;
+}
+
+.ksc-admin-stat {
+  min-height: 150px;
+  padding: 25px;
+  border-right: 1px solid rgba(32,37,26,0.12);
+  border-bottom: 1px solid rgba(32,37,26,0.12);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.ksc-admin-stat span {
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  color: #5D6D36;
+}
+
+.ksc-admin-stat strong {
+  font-size: 36px;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.ksc-admin-stat small {
+  color: rgba(32,37,26,0.45);
+  font-size: 10px;
+}
+
+
+/* =========================
+   DASHBOARD CARDS
+   ========================= */
+
+.ksc-admin-dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.ksc-admin-card {
+  position: relative;
+  min-height: 230px;
+  padding: 30px;
+  border: 1px solid rgba(32,37,26,0.12);
+  background: rgba(255,255,255,0.45);
+  text-align: left;
+  color: #20251A;
+  cursor: pointer;
+  transition: all 0.35s ease;
+}
+
+.ksc-admin-card:hover {
+  transform: translateY(-5px);
+  background: #5D6D36;
+  color: #fff;
+  box-shadow: 0 20px 45px rgba(32,37,26,0.15);
+}
+
+.ksc-admin-card > span {
+  font-size: 10px;
+  font-weight: 800;
+  color: #869A3E;
+}
+
+.ksc-admin-card h3 {
+  margin: 35px 0 12px;
+  font-size: 23px;
+  letter-spacing: -0.02em;
+}
+
+.ksc-admin-card p {
+  max-width: 420px;
+  margin: 0 0 25px;
+  color: rgba(32,37,26,0.58);
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.ksc-admin-card:hover p {
+  color: rgba(255,255,255,0.7);
+}
+
+.ksc-admin-card > strong {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+}
+
+
+/* =========================
+   GENERAL SECTIONS
+   ========================= */
+
+.ksc-admin-section {
+  width: 100%;
+}
+
+.ksc-admin-section-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 30px;
+  margin-top: 30px;
+  margin-bottom: 35px;
+}
+
+.ksc-admin-section-heading .eyebrow {
+  display: block;
+  margin-bottom: 10px;
+  color: #5D6D36;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+}
+
+.ksc-admin-section-heading h2 {
+  margin: 0;
+  font-size: 42px;
+  letter-spacing: -0.04em;
+}
+
+
+/* =========================
+   BUTTONS
+   ========================= */
+
+.ksc-admin-primary-button,
+.ksc-admin-secondary-button {
+  min-height: 48px;
+  padding: 0 22px;
+  border: 0;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.ksc-admin-primary-button {
+  background: #5D6D36;
+  color: #fff;
+}
+
+.ksc-admin-primary-button:hover {
+  background: #20251A;
+  transform: translateY(-2px);
+}
+
+.ksc-admin-secondary-button {
+  border: 1px solid rgba(32,37,26,0.18);
+  background: transparent;
+  color: #20251A;
+}
+
+.ksc-admin-secondary-button:hover {
+  background: #5D6D36;
+  border-color: #5D6D36;
+  color: #fff;
+}
+
+
+/* =========================
+   PROJECT TABS
+   ========================= */
+
+.ksc-admin-project-tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid rgba(32,37,26,0.12);
+  margin-bottom: 30px;
+}
+
+.ksc-admin-project-tabs button {
+  padding: 15px 24px;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  background: transparent;
+  color: rgba(32,37,26,0.45);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+}
+
+.ksc-admin-project-tabs button.active {
+  color: #5D6D36;
+  border-bottom-color: #5D6D36;
+}
+
+
+/* =========================
+   EMPTY STATE
+   ========================= */
+
+.ksc-admin-empty {
+  min-height: 330px;
+  border: 1px dashed rgba(32,37,26,0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px;
+}
+
+.ksc-admin-empty-icon {
+  width: 55px;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  background: #5D6D36;
+  color: #fff;
+  font-size: 25px;
+}
+
+.ksc-admin-empty h3 {
+  margin: 0 0 10px;
+  font-size: 22px;
+}
+
+.ksc-admin-empty p {
+  max-width: 500px;
+  margin: 0 0 25px;
+  color: rgba(32,37,26,0.55);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+
+/* =========================
+   MANAGEMENT CARDS
+   ========================= */
+
+.ksc-admin-management-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr));
+  gap: 24px;
+  align-items: stretch;
+  justify-items: start;
+}
+
+.ksc-admin-management-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  min-width: 0;
+  padding: 24px;
+  border: 1px solid rgba(32, 37, 26, 0.12);
+  background: rgba(255, 255, 255, 0.45);
+  width: 100%;
+  max-width: 560px;
+  box-sizing: border-box;
+}
+
+.ksc-admin-management-card .eyebrow {
+  color: #5D6D36;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+}
+
+.ksc-admin-management-card h3 {
+  margin: 16px 0 10px;
+  font-size: 24px;
+  letter-spacing: -0.025em;
+}
+
+.ksc-admin-management-card p {
+  margin: 0 0 20px;
+}
+
+
+/* =========================
+   UPLOAD BOX
+   ========================= */
+
+.ksc-admin-upload {
+  min-height: 150px;
+  border: 1px dashed rgba(93,109,54,0.5);
+  background: rgba(242,233,220,0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.ksc-admin-upload:hover {
+  border-color: #5D6D36;
+  background: rgba(93,109,54,0.08);
+}
+
+.ksc-admin-upload input {
+  display: none;
+}
+
+.ksc-admin-upload > span {
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+  background: #5D6D36;
+  color: #fff;
+  font-size: 20px;
+}
+
+.ksc-admin-upload strong {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+}
+
+.ksc-admin-upload small {
+  margin-top: 7px;
+  color: rgba(32,37,26,0.4);
+  font-size: 9px;
+}
+
+
+/* =========================
+   SERVICE SELECTOR
+   ========================= */
+
+.ksc-admin-service-selector {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-bottom: 45px;
+}
+
+.ksc-admin-service-selector button {
+  min-height: 70px;
+  padding: 12px 15px;
+  border: 1px solid rgba(32,37,26,0.12);
+  background: rgba(255,255,255,0.4);
+  color: #20251A;
+  text-align: left;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.ksc-admin-service-selector button span {
+  display: block;
+  margin-bottom: 7px;
+  color: #869A3E;
+  font-size: 9px;
+  font-weight: 800;
+}
+
+.ksc-admin-service-selector button:hover,
+.ksc-admin-service-selector button.active {
+  background: #5D6D36;
+  border-color: #5D6D36;
+  color: #fff;
+}
+
+.ksc-admin-service-selector button.active span {
+  color: #F2E9DC;
+}
+
+
+/* =========================
+   SELECTED SERVICE
+   ========================= */
+
+.ksc-admin-service-title {
+  margin-bottom: 25px;
+}
+
+.ksc-admin-service-title .eyebrow {
+  color: #5D6D36;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+}
+
+.ksc-admin-service-title h2 {
+  margin: 10px 0 0;
+  font-size: 32px;
+  letter-spacing: -0.035em;
+}
+
+
+/* =========================
+   CONTACT SETTINGS
+   ========================= */
+
+.ksc-admin-contact-card {
+  max-width: 850px;
+  padding: 45px;
+  background: #5D6D36;
+  color: #fff;
+}
+
+.ksc-admin-contact-card .eyebrow {
+  color: #F2E9DC;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+}
+
+.ksc-admin-contact-card h3 {
+  margin: 18px 0 12px;
+  font-size: 28px;
+  letter-spacing: -0.03em;
+}
+
+.ksc-admin-contact-card > p {
+  max-width: 620px;
+  margin: 0 0 30px;
+  color: rgba(255,255,255,0.68);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.ksc-admin-form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  margin-bottom: 22px;
+}
+
+.ksc-admin-form-field label {
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.75);
+}
+
+.ksc-admin-form-field input {
+  width: 100%;
+  height: 52px;
+  padding: 0 16px;
+  border: 1px solid rgba(255,255,255,0.2);
+  outline: none;
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+  font-family: inherit;
+  font-size: 13px;
+}
+
+.ksc-admin-form-field input::placeholder {
+  color: rgba(255,255,255,0.4);
+}
+
+.ksc-admin-form-field input:focus {
+  border-color: #A5AD7A;
+}
+
+.ksc-admin-contact-card .ksc-admin-primary-button {
+  background: #869A3E;
+}
+
+.ksc-admin-contact-card .ksc-admin-primary-button:hover {
+  background: #20251A;
+}
+
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 1100px) {
+
+  .ksc-admin-sidebar {
+    width: 220px;
+  }
+
+  .ksc-admin-main {
+    width: calc(100% - 220px);
+    margin-left: 220px;
+    padding: 45px 35px 70px;
+  }
+
+  .ksc-admin-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .ksc-admin-service-selector {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+
+@media (max-width: 800px) {
+
+  .ksc-admin {
+    display: block;
+  }
+
+  .ksc-admin-sidebar {
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: 20px;
+  }
+
+  .ksc-admin-brand {
+    padding-bottom: 20px;
+  }
+
+  .ksc-admin-brand img {
+    width: 155px;
+  }
+
+  .ksc-admin-nav {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 20px;
+  }
+
+  .ksc-admin-sidebar-bottom {
+    display: none;
+  }
+
+  .ksc-admin-main {
+    width: 100%;
+    margin-left: 0;
+    padding: 35px 20px 60px;
+  }
+
+  .ksc-admin-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .ksc-admin-dashboard-grid,
+  .ksc-admin-management-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+@media (max-width: 520px) {
+
+  .ksc-admin-nav {
+    grid-template-columns: 1fr;
+  }
+
+  .ksc-admin-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .ksc-admin-service-selector {
+    grid-template-columns: 1fr;
+  }
+
+  .ksc-admin-section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .ksc-admin-contact-card {
+    padding: 28px 22px;
+  }
+
+}
+
+
+
+
+
+.ksc-copyright {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.ksc-admin-link {
+  color: rgba(255,255,255,0.28);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  opacity: 0;
+  transition: opacity 0.25s ease, color 0.25s ease;
+}
+
+.ksc-copyright:hover .ksc-admin-link {
+  opacity: 1;
+}
+
+.ksc-admin-link:hover {
+  color: #A5AD7A;
+}
+
+
+/* ADMIN PROJECT IMAGE SLIDESHOW */
+.admin-project-slide {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1.2s ease-in-out;
+}
+
+.admin-project-slide.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.admin-project-slideshow-counter {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  z-index: 2;
+  padding: 6px 10px;
+  border-radius: 20px;
+  background: rgba(32, 37, 26, 0.8);
+  color: #fff;
+  font-size: 12px;
+}
+
+.admin-project-slideshow {
+  position: relative;
+  width: 100%;
+  height: 280px;
+  min-height: 280px;
+  overflow: hidden;
+  background: #20251a;
+  margin-bottom: 20px;
+  flex-shrink: 0;
+}
+
+.ksc-admin-management-card .admin-project-slideshow {
+  width: 100%;
+  height: 240px;
+  min-height: 240px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.ksc-admin-management-card .admin-project-slideshow img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ksc-admin-management-card .ksc-admin-secondary-button {
+  width: auto;
+  min-width: 130px;
+  align-self: flex-start;
+  margin-top: 10px;
+  padding: 14px 22px;
+}
+
+.admin-project-actions {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.admin-project-actions .ksc-admin-secondary-button {
+  width: auto;
+  min-width: 130px;
+  margin-top: 0;
+  align-self: auto;
 }

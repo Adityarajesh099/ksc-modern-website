@@ -8,8 +8,15 @@ import ClientsPage from "./pages/ClientsPage";
 import CareersPage from "./pages/CareersPage";
 import ContactPage from "./pages/ContactPage";
 import SiteHeader from "./components/SiteHeader";
+import AdminPage from "./pages/AdminPage";
 import { createRoot } from "react-dom/client";
+import { supabase } from "./supabase";
 import "./styles.css";
+
+let cachedServiceImages = null;
+let serviceImagesCacheTime = 0;
+
+const SERVICE_IMAGES_CACHE_DURATION = 50 * 60 * 1000;
 
 
 
@@ -59,6 +66,70 @@ function App() {
     const [activeService, setActiveService] = useState(0);
     const [scrolled, setScrolled] = useState(false);
     const [heroImage, setHeroImage] = useState(0);
+
+    const [serviceImages, setServiceImages] = useState({});
+    const [serviceImagesReady, setServiceImagesReady] = useState(false);
+
+
+    useEffect(() => {
+  const loadServiceImages = async () => {
+    const now = Date.now();
+
+    // Reuse cached URLs while they are valid
+    if (
+      cachedServiceImages &&
+      now - serviceImagesCacheTime < SERVICE_IMAGES_CACHE_DURATION
+    ) {
+      setServiceImages(cachedServiceImages);
+      setServiceImagesReady(true);
+      return;
+    }
+
+    const { data, error } = await supabase
+      .from("homepage_service_images")
+      .select("service_slug, image_path");
+
+    if (error) {
+      console.error("Could not load homepage service images:", error);
+      return;
+    }
+
+    const imageEntries = await Promise.all(
+      (data || []).map(async (item) => {
+        const { data: signedData, error: signedError } =
+          await supabase.storage
+            .from("homepage-service-images")
+            .createSignedUrl(item.image_path, 3600);
+
+        if (signedError) {
+          console.error("Could not load service image:", signedError);
+          return [item.service_slug, ""];
+        }
+
+        return [item.service_slug, signedData.signedUrl];
+      })
+    );
+
+
+    const images = Object.fromEntries(imageEntries);
+
+    cachedServiceImages = images;
+    serviceImagesCacheTime = Date.now();
+
+    setServiceImages(images);
+    setServiceImagesReady(true);
+
+    // Preload images in the background without delaying display
+    Object.values(images)
+      .filter(Boolean)
+      .forEach((url) => {
+        const image = new Image();
+        image.src = url;
+      });
+  };
+
+  loadServiceImages();
+}, []);
 
 const heroImages = [
   "/images/ksc-hero-03.jpg",
@@ -280,18 +351,18 @@ useEffect(() => {
                 <div
                   className="service-image"
                   style={{
-                    backgroundImage: `url(${
+                    backgroundImage: `url("${serviceImages[
                       [
-                        "/images/Civil-001.png",
-                        "/images/Electrical-001.png",
-                        "/images/Mechanical-001.jpg",
-                        "/images/Architectural-001.jpg",
-                        "/images/Installation-001.png",
-                        "/images/Fire-001.png",
-                        "/images/HVAC-001.png",
-                        "/images/Fitout-001.jpg" 
+                        "civil-construction",
+                        "electrical-works",
+                        "mechanical-works",
+                        "architectural-interior-design",
+                        "equipment-machine-installations",
+                        "fire-detection-fire-fighting",
+                        "hvac-works",
+                        "fitout-works",
                       ][activeService]
-                    })`,
+                    ] || serviceImages["civil-construction"] || ""}")`,
                     backgroundSize: "cover",
                     backgroundRepeat: "no-repeat",
                     backgroundPosition: "center 45%",
@@ -654,7 +725,7 @@ useEffect(() => {
               <p>Riyadh, Kingdom of Saudi Arabia</p>
               <a href="mailto:info@ksc-sa.com">sales@ksc-sa.com</a>
               <a href="tel:+966000000000">+966 5100 200 30</a>
-              <a className="button white" href="mailto:info@ksc-sa.com">Start a conversation <Arrow /></a>
+              <a className="button white" href="/contact">Start a conversation <Arrow /></a>
             </div>
           </div>
         </section>
@@ -680,6 +751,7 @@ function SiteLayout() {
         <Route path="/clients" element={<ClientsPage />} />
         <Route path="/careers" element={<CareersPage />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/admin" element={<AdminPage />} />
 
         <Route
           path="/services/:service"
@@ -733,7 +805,12 @@ function SiteLayout() {
   </div>
 
   <div className="service-footer-bottom">
-    <span>© 2026 KSC Contracting Co. All rights reserved.</span>
+    <span className="ksc-copyright">
+  © 2026 KSC Contracting Co. All rights reserved.
+  <a href="/admin" className="ksc-admin-link">
+    Admin
+  </a>
+</span>
     <span>Engineering What's Next.</span>
   </div>
 </footer>

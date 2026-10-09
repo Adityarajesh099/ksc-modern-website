@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { supabase } from "../supabase";
 
 const ongoingProjects = [
   {
@@ -55,6 +56,100 @@ const completedProjects = [
 ];
 
 export default function ProjectsPage() {
+
+  function ProjectImageSlideshow({ images, fallback, alt }) {
+  const validImages = (images || [])
+    .map((image) => image.url)
+    .filter(Boolean);
+
+  const slides = validImages.length ? validImages : [fallback];
+
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    if (slides.length <= 1) return;
+
+    const timer = setInterval(() => {
+      setActiveIndex((current) => (current + 1) % slides.length);
+    }, 4000);
+
+    return () => clearInterval(timer);
+  }, [slides.length]);
+
+  return (
+    <div className="project-image-slideshow">
+      {slides.map((src, index) => (
+        <img
+          key={`${src}-${index}`}
+          src={src}
+          alt={alt}
+          className={`project-slideshow-image ${
+            index === activeIndex ? "active" : ""
+          }`}
+        />
+      ))}
+
+      {slides.length > 1 && (
+        <div className="project-slideshow-counter">
+          {activeIndex + 1} / {slides.length}
+        </div>
+      )}
+    </div>
+  );
+}
+
+  const [projects, setProjects] = useState([]);
+
+  useEffect(() => {
+    const loadProjects = async () => {
+      const { data, error } = await supabase
+        .from("projects")
+        .select("*")
+        .order("created_at", { ascending: false });
+
+      if (error) {
+        console.error("Failed to load projects:", error.message);
+        return;
+      }
+
+      const projectsWithImages = await Promise.all(
+        (data || []).map(async (project) => {
+          const images = await Promise.all(
+            (project.images || []).map(async (image) => {
+              if (!image.path) return { ...image, url: "" };
+
+              const { data: signedData, error: signedError } =
+                await supabase.storage
+                  .from("project-images")
+                  .createSignedUrl(image.path, 3600);
+
+              if (signedError) {
+                console.error("Image loading failed:", signedError.message);
+                return { ...image, url: "" };
+              }
+
+              return { ...image, url: signedData.signedUrl };
+            })
+          );
+
+          return { ...project, images };
+        })
+      );
+
+      setProjects(projectsWithImages);
+    };
+
+    loadProjects();
+  }, []);
+
+  const ongoingProjects = projects.filter(
+    (project) => project.status === "Ongoing"
+  );
+
+  const completedProjects = projects.filter(
+    (project) => project.status === "Completed"
+  );
+
   return (
     <main className="projects-page">
 
@@ -129,9 +224,10 @@ export default function ProjectsPage() {
         <article className="project-detail-card" key={project.id}>
 
           <div className="project-detail-image">
-            <img
-              src={project.image}
-              alt={project.title}
+            <ProjectImageSlideshow
+              images={project.images}
+              fallback="/images/civil-1.jpeg"
+              alt={project.name || "KSC construction project"}
             />
 
             <span className="project-status ongoing">
@@ -142,15 +238,15 @@ export default function ProjectsPage() {
           <div className="project-detail-content">
         
 
-            <h3>{project.title}</h3>
+            <h3>{project.name || project.title}</h3>
 
-            <p>{project.description}</p>
+            <p>{project.description || "Project details will be updated soon."}</p>
 
             <div className="project-info-grid">
 
               <div>
                 <span>CLIENT</span>
-                <strong>{project.client}</strong>
+                <strong>{project.client || "—"}</strong>
               </div>
 
               <div>
@@ -160,7 +256,7 @@ export default function ProjectsPage() {
 
               <div>
                 <span>STARTED</span>
-                <strong>{project.startDate}</strong>
+                <strong>{project.start_date || project.startDate || "—"}</strong>
               </div>
 
               <div>
@@ -174,7 +270,7 @@ export default function ProjectsPage() {
               <span>SCOPE OF WORK</span>
 
               <div>
-                {project.scope.map((item) => (
+                {(project.scope || []).map((item) => (
                   <span key={item}>{item}</span>
                 ))}
               </div>
@@ -212,9 +308,11 @@ export default function ProjectsPage() {
         <article className="project-detail-card" key={project.id}>
 
           <div className="project-detail-image">
-            <img
-              src={project.image}
-              alt={project.title}
+            <ProjectImageSlideshow
+              images={project.images}
+              fallback="/images/"
+              alt={project.name || "KSC construction project"}
+              loading="lazy"
             />
 
             <span className="project-status completed">
@@ -225,15 +323,17 @@ export default function ProjectsPage() {
           <div className="project-detail-content">
 
 
-            <h3>{project.title}</h3>
+            <h3>{project.name || project.title || "KSC Project"}</h3>
 
-            <p>{project.description}</p>
+            <p>
+              {project.description || "Project details will be updated soon."}
+            </p>
 
             <div className="project-info-grid">
 
               <div>
                 <span>CLIENT</span>
-                <strong>{project.client}</strong>
+                <strong>{project.client || "—"}</strong>
               </div>
 
               <div>
@@ -243,7 +343,7 @@ export default function ProjectsPage() {
 
               <div>
                 <span>STARTED</span>
-                <strong>{project.startDate}</strong>
+                <strong>{project.start_date || project.startDate || "—"}</strong>
               </div>
 
               <div>
@@ -257,7 +357,7 @@ export default function ProjectsPage() {
               <span>SCOPE OF WORK</span>
 
               <div>
-                {project.scope.map((item) => (
+                {(project.scope || []).map((item) => (
                   <span key={item}>{item}</span>
                 ))}
               </div>
