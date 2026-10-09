@@ -46,7 +46,6 @@ const services = [
 
 export default function AdminPage() {
 const [activeSection, setActiveSection] = useState("dashboard");
-const [showHomepageServiceImages, setShowHomepageServiceImages] = useState(false);
 const [session, setSession] = useState(null);
 const [loginEmail, setLoginEmail] = useState("");
 const [loginPassword, setLoginPassword] = useState("");
@@ -128,113 +127,6 @@ const [selectedService, setSelectedService] = useState(
     "civil-construction"
   );
 
-const [serviceImageFiles, setServiceImageFiles] = useState({});
-const [serviceImageUrls, setServiceImageUrls] = useState({});
-const [savingServiceImage, setSavingServiceImage] = useState(false); 
-
-const handleSaveServiceImage = async () => {
-  const file = serviceImageFiles[selectedService];
-
-  if (!file) {
-    alert("Please choose an image first.");
-    return;
-  }
-
-  setSavingServiceImage(true);
-
-  try {
-    const fileExtension = file.name.split(".").pop().toLowerCase();
-    const filePath = `${selectedService}/${Date.now()}.${fileExtension}`;
-
-    const { error: uploadError } = await supabase.storage
-      .from("homepage-service-images")
-      .upload(filePath, file, {
-        upsert: true,
-        contentType: file.type,
-      });
-
-    if (uploadError) throw uploadError;
-
-    const { error: databaseError } = await supabase
-      .from("homepage_service_images")
-      .upsert(
-        {
-          service_slug: selectedService,
-          image_path: filePath,
-          updated_at: new Date().toISOString(),
-        },
-        { onConflict: "service_slug" }
-      );
-
-    if (databaseError) throw databaseError;
-
-    alert("Service image saved successfully!");
-    setServiceImageFiles((current) => ({
-      ...current,
-      [selectedService]: null,
-    }));
-  } catch (error) {
-    console.error("Error saving service image:", error);
-    alert(`Failed to save image: ${error.message}`);
-  } finally {
-    setSavingServiceImage(false);
-  }
-};
-
-const handleDeleteServiceImage = async () => {
-  const confirmed = window.confirm(
-    "Are you sure you want to delete this service image?"
-  );
-
-  if (!confirmed) return;
-
-  setSavingServiceImage(true);
-
-  try {
-    const { data: imageRecord, error: fetchError } = await supabase
-      .from("homepage_service_images")
-      .select("image_path")
-      .eq("service_slug", selectedService)
-      .maybeSingle();
-
-    if (fetchError) throw fetchError;
-
-    if (!imageRecord) {
-      alert("No saved image exists for this service.");
-      return;
-    }
-
-    const { error: storageError } = await supabase.storage
-      .from("homepage-service-images")
-      .remove([imageRecord.image_path]);
-
-    if (storageError) throw storageError;
-
-    const { error: deleteError } = await supabase
-      .from("homepage_service_images")
-      .delete()
-      .eq("service_slug", selectedService);
-
-    if (deleteError) throw deleteError;
-
-    setServiceImageUrls((current) => ({
-      ...current,
-      [selectedService]: "",
-    }));
-
-    setServiceImageFiles((current) => ({
-      ...current,
-      [selectedService]: null,
-    }));
-
-    alert("Service image deleted successfully!");
-  } catch (error) {
-    console.error("Error deleting service image:", error);
-    alert(`Failed to delete image: ${error.message}`);
-  } finally {
-    setSavingServiceImage(false);
-  }
-};
 
 useEffect(() => {
   if (!showProjectForm) return;
@@ -488,9 +380,8 @@ if (!session) {
               </h2>
 
               <p>
-                Upload project images, manage service imagery,
-                update homepage content and control the Get a Quote
-                contact email without editing the website code.
+                Manage projects, review homepage content, update service
+                pages and control Get a Quote contact settings.
               </p>
             </div>
 
@@ -547,8 +438,7 @@ if (!session) {
                 <span>02</span>
                 <h3>Manage Homepage</h3>
                 <p>
-                  Control the main hero and service images
-                  displayed on the homepage.
+                  View and manage the main homepage content.
                 </p>
                 <strong>Open →</strong>
               </button>
@@ -990,162 +880,23 @@ if (!session) {
 
 
 
-        {activeSection === "homepage" && (
-          <section className="ksc-admin-section">
-            {showHomepageServiceImages ? (
-              <>
-                <div className="ksc-admin-section-heading">
-                  <div>
-                    <span className="eyebrow">HOMEPAGE / SERVICES</span>
-                    <h2>Homepage Service Images</h2>
-                    <p>
-                      Manage the eight images displayed in the homepage Services section.
-                    </p>
-                  </div>
+        
 
-                  <button
-                    type="button"
-                    className="ksc-admin-secondary-button"
-                    onClick={() => setShowHomepageServiceImages(false)}
-                  >
-                    ← Back to Homepage
-                  </button>
-                </div>
+{activeSection === "homepage" && (
+  <section className="ksc-admin-section">
+    <div className="ksc-admin-section-heading">
+      <div>
+        <span className="eyebrow">HOMEPAGE</span>
+        <h2>Homepage Management</h2>
+        <p>
+          Homepage images are managed directly through the website files.
+        </p>
+      </div>
+    </div>
+  </section>
+)}
 
-                <div className="ksc-admin-service-selector">
-                  {services.map((serviceItem) => (
-                    <button
-                      key={serviceItem.slug}
-                      type="button"
-                      className={
-                        selectedService === serviceItem.slug ? "active" : ""
-                      }
-                      onClick={() => setSelectedService(serviceItem.slug)}
-                    >
-                      <span>{serviceItem.number}</span>
-                      {serviceItem.name}
-                    </button>
-                  ))}
-                </div>
 
-                <div className="ksc-admin-contact-card">
-                  <span className="eyebrow">SELECTED SERVICE</span>
-                  <h3>{services.find((item) => item.slug === selectedService)?.name}</h3>
-
-                  <p>
-                    Upload an image for {services.find(
-                      (item) => item.slug === selectedService
-                    )?.name}.
-                  </p>
-
-                  <label className="ksc-admin-upload">
-                    <input
-                      type="file"
-                      accept="image/jpeg,image/png,image/webp"
-                      onChange={(event) => {
-                        const file = event.target.files?.[0];
-                        if (file) {
-                          setServiceImageFiles((current) => ({
-                            ...current,
-                            [selectedService]: file,
-                          }));
-                          setServiceImageUrls((current) => ({
-                            ...current,
-                            [selectedService]: URL.createObjectURL(file),
-                          }));
-                        }
-                      }}
-                    />
-                    <span>+</span>
-                    <strong>Choose Service Image</strong>
-                    <small>JPG, PNG, WEBP</small>
-                  </label>
-
-                  {serviceImageUrls[selectedService] && (
-                    <img
-                      src={serviceImageUrls[selectedService]}
-                      alt="Selected service preview"
-                      style={{
-                        width: "100%",
-                        maxWidth: "420px",
-                        height: "240px",
-                        objectFit: "cover",
-                        marginTop: "20px",
-                      }}
-                    />
-                  )}
-
-                  <button
-                    type="button"
-                    className="ksc-admin-secondary-button"
-                    onClick={handleSaveServiceImage}
-                    disabled={savingServiceImage}
-                  >
-                    {savingServiceImage ? "Saving..." : "Save Service Image"}
-                  </button>
-
-                  <button
-                    type="button"
-                    className="ksc-admin-secondary-button"
-                    onClick={handleDeleteServiceImage}
-                    disabled={savingServiceImage}
-                    style={{
-                      marginTop: "12px",
-                      marginLeft: "12px",
-                      borderColor: "#b42318",
-                      color: "#b42318",
-                    }}
-                  >
-                    {savingServiceImage ? "Please wait..." : "Delete Image"}
-                  </button>
-
-                </div>
-              </>
-            ) : (
-              <>
-                <div className="ksc-admin-section-heading">
-                  <div>
-                    <span className="eyebrow">HOMEPAGE</span>
-                    <h2>Homepage Images</h2>
-                  </div>
-                </div>
-
-                <div className="ksc-admin-management-grid">
-                  <div className="ksc-admin-management-card">
-                    <span className="eyebrow">01 / MAIN HERO</span>
-                    <h3>Main Hero Images</h3>
-                    <p>
-                      Upload and manage the images used in the main homepage hero slideshow.
-                    </p>
-
-                    <label className="ksc-admin-upload">
-                      <input type="file" accept="image/*" multiple />
-                      <span>+</span>
-                      <strong>Upload Hero Images</strong>
-                      <small>JPG, JPEG, PNG, WEBP</small>
-                    </label>
-                  </div>
-
-                  <div className="ksc-admin-management-card">
-                    <span className="eyebrow">02 / SERVICES</span>
-                    <h3>Homepage Service Images</h3>
-                    <p>
-                      Manage the eight service images displayed in the main Services section.
-                    </p>
-
-                    <button
-                      type="button"
-                      className="ksc-admin-secondary-button"
-                      onClick={() => setShowHomepageServiceImages(true)}
-                    >
-                      Manage Service Images →
-                    </button>
-                  </div>
-                </div>
-              </>
-            )}
-          </section>
-        )}
 
 
         {activeSection === "services" && (

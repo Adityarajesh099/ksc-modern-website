@@ -10,13 +10,8 @@ import ContactPage from "./pages/ContactPage";
 import SiteHeader from "./components/SiteHeader";
 import AdminPage from "./pages/AdminPage";
 import { createRoot } from "react-dom/client";
-import { supabase } from "./supabase";
 import "./styles.css";
 
-let cachedServiceImages = null;
-let serviceImagesCacheTime = 0;
-
-const SERVICE_IMAGES_CACHE_DURATION = 50 * 60 * 1000;
 
 
 
@@ -67,71 +62,18 @@ function App() {
     const [scrolled, setScrolled] = useState(false);
     const [heroImage, setHeroImage] = useState(0);
 
-    const [serviceImages, setServiceImages] = useState({});
-    const [serviceImagesReady, setServiceImagesReady] = useState(false);
+const serviceImages = {
+  "civil-construction": "/images/services/Civil-001.png",
+  "electrical-works": "/images/services/Electrical-001.png",
+  "mechanical-works": "/images/services/Mechanical-001.png",
+  "architectural-interior-design": "/images/services/Architectural-001.jpg",
+  "equipment-machine-installations": "/images/services/Installation-001.png",
+  "fire-detection-fire-fighting": "/images/services/Fire-001.png",
+  "hvac-works": "/images/services/HVAC-001.png",
+  "fitout-works": "/images/services/Fitout-001.png",
+};
 
 
-    useEffect(() => {
-  const loadServiceImages = async () => {
-    const now = Date.now();
-
-    // Reuse cached URLs while they are valid
-    if (
-      cachedServiceImages &&
-      now - serviceImagesCacheTime < SERVICE_IMAGES_CACHE_DURATION
-    ) {
-      setServiceImages(cachedServiceImages);
-      setServiceImagesReady(true);
-      return;
-    }
-
-    const { data, error } = await supabase
-      .from("homepage_service_images")
-      .select("service_slug, image_path");
-
-    if (error) {
-      console.error("Could not load homepage service images:", error);
-      return;
-    }
-
-    const imageEntries = await Promise.all(
-      (data || []).map(async (item) => {
-        const { data: signedData, error: signedError } =
-          await supabase.storage
-            .from("homepage-service-images")
-            .createSignedUrl(item.image_path, 3600);
-
-        console.log("Service image path:", item.image_path);
-
-        if (signedError) {
-          console.error("Could not load service image:", signedError);
-          return [item.service_slug, ""];
-        }
-
-        return [item.service_slug, signedData.signedUrl];
-      })
-    );
-
-
-    const images = Object.fromEntries(imageEntries);
-
-    cachedServiceImages = images;
-    serviceImagesCacheTime = Date.now();
-
-    setServiceImages(images);
-    setServiceImagesReady(true);
-
-    // Preload images in the background without delaying display
-    Object.values(images)
-      .filter(Boolean)
-      .forEach((url) => {
-        const image = new Image();
-        image.src = url;
-      });
-  };
-
-  loadServiceImages();
-}, []);
 
 const heroImages = [
   "/images/ksc-hero-03.jpg",
@@ -230,14 +172,12 @@ useEffect(() => {
               <span className="kicker-line"></span>
               <p className="eyebrow light">KHAMIS AL SHARJAH CONTRACTING CO.</p>
             </div>
-            <h1>
-              <span>Building</span>
-              <em>what's next.</em>
-              <strong className="hero-tagline">Engineering what lasts.</strong>
-            </h1>
+            <h2>
+              <span>Building The Future</span><br/>
+              <h2>Driven by Excellence</h2>
+            </h2>
             <p className="hero-copy">
-              Integrated construction and engineering solutions for
-              ambitious projects across the Kingdom of Saudi Arabia.
+              Delivering innovative construction and engineering solutions that turn ambitious visions into lasting landmarks
             </p>
             <div className="hero-actions">
               <a className="button primary" href="#services">Explore Services <Arrow /></a>
@@ -350,8 +290,7 @@ useEffect(() => {
               </div>
 
               <div className="service-feature">
-                <div
-                  className="service-image"
+                <div className="service-image"
                   style={{
                     backgroundImage: `url("${serviceImages[
                       [
@@ -364,7 +303,7 @@ useEffect(() => {
                         "hvac-works",
                         "fitout-works",
                       ][activeService]
-                    ] || serviceImages["civil-construction"] || ""}")`,
+                    ] || serviceImages["civil-construction"]}")`,
                     backgroundSize: "cover",
                     backgroundRepeat: "no-repeat",
                     backgroundPosition: "center 45%",
