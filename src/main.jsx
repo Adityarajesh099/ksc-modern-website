@@ -74,6 +74,13 @@ const serviceImages = {
 };
 
 
+useEffect(() => {
+  Object.values(serviceImages).forEach((src) => {
+    const image = new Image();
+    image.src = src;
+  });
+}, []);
+
 
 const heroImages = [
   "/images/ksc-hero-03.jpg",
