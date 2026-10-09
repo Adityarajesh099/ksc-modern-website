@@ -6749,3 +6749,25 @@ button:hover .arrow {
   margin-top: 0;
   align-self: auto;
 }
+
+
+.service-feature-copy {
+  position: absolute;
+  inset: auto 0 0;
+  z-index: 2;
+  padding: 40px 36px;
+  color: #fff;
+  background: linear-gradient(
+    to top,
+    rgba(20, 25, 16, 0.9) 0%,
+    rgba(20, 25, 16, 0.5) 55%,
+    transparent 100%
+  );
+}
+
+.service-feature-copy span,
+.service-feature-copy h3,
+.service-feature-copy p {
+  color: #fff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}

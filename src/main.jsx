@@ -101,6 +101,8 @@ function App() {
             .from("homepage-service-images")
             .createSignedUrl(item.image_path, 3600);
 
+        console.log("Service image path:", item.image_path);
+
         if (signedError) {
           console.error("Could not load service image:", signedError);
           return [item.service_slug, ""];
@@ -368,7 +370,7 @@ useEffect(() => {
                     backgroundPosition: "center 45%",
                   }}
                 ></div>
-                <div className="service-feature-copy">
+                <div className="service-feature-copy service-image-content">
                   <span>{services[activeService][0]}</span>
                   <h3>{services[activeService][1]}</h3>
                   <p>{services[activeService][2]}</p>
@@ -719,7 +721,7 @@ useEffect(() => {
           <div className="container contact-inner">
             <div>
               <p className="eyebrow light">CONTACT KSC</p>
-              <h2>Let's build<br /><h2>something together.</h2></h2>
+              <h2>Let's build<br />something together.</h2>
             </div>
             <div className="contact-details">
               <p>Riyadh, Kingdom of Saudi Arabia</p>
