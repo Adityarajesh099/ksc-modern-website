@@ -47,14 +47,31 @@ const projects = [
   }
 ];
 
+
 function Arrow({ small = false }) {
   return (
-    <span className={small ? "arrow small" : "arrow"} aria-hidden="true">
-      <span className="arrow-line"></span>
-      <span className="arrow-head">↗</span>
+    <span
+      className={small ? "arrow small" : "arrow"}
+      aria-hidden="true"
+    >
+      <svg
+        viewBox="0 0 24 24"
+        width={small ? 16 : 20}
+        height={small ? 16 : 20}
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M7 17 17 7" />
+        <path d="M8 7h9v9" />
+      </svg>
     </span>
   );
 }
+
+
 
 function App() {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -153,6 +170,28 @@ useEffect(() => {
 
   const closeMenu = () => setMenuOpen(false);
 
+
+useEffect(() => {
+  const sections = document.querySelectorAll(".reveal-section");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.30 }
+  );
+
+  sections.forEach((section) => observer.observe(section));
+
+  return () => observer.disconnect();
+}, []);
+
+
   return (
     <div className="site">
             
@@ -179,11 +218,11 @@ useEffect(() => {
               <span className="kicker-line"></span>
               <p className="eyebrow light">KHAMIS AL SHARJAH CONTRACTING CO.</p>
             </div>
-            <h2>
-              <span>Building The Future</span><br/>
-              <h2>Driven by Excellence</h2>
+            <h2 className="hero-title">
+              <span className="hero-title-green">Building The Future</span>
+              <span className="hero-title-white">Driven by Excellence</span>
             </h2>
-            <p className="hero-copy">
+            <p className="hero-copy hero-description">
               Delivering innovative construction and engineering solutions that turn ambitious visions into lasting landmarks
             </p>
             <div className="hero-actions">
@@ -209,7 +248,7 @@ useEffect(() => {
           </div>
         </section>
 
-        <section id="about" className="intro section">
+        <section id="about" className="intro section reveal-section">
           <div className="container intro-grid">
             <div className="intro-title">
               <p className="eyebrow">ABOUT KSC</p>
@@ -561,7 +600,7 @@ useEffect(() => {
         </section>
 
 
-        <section className="quality-value-section">
+        <section className="quality-value-section reveal-section">
 
           <div className="quality-value-corner"></div>
 
@@ -636,19 +675,6 @@ useEffect(() => {
           </div>
         </section>
 
-        <section className="statement section">
-          <div className="statement-pattern"></div>
-          <div className="statement-logo"><img src="/images/ksc-logo.png" alt="" /></div>
-          <div className="container statement-inner">
-            <p className="eyebrow light">KSC STANDARD</p>
-            <h2>Safety is not a requirement.<br /><em>It is how we work.</em></h2>
-            <div className="statement-links">
-              <a href="#contact">HSE <Arrow small /></a>
-              <a href="#contact">Quality <Arrow small /></a>
-              <a href="#contact">Compliance <Arrow small /></a>
-            </div>
-          </div>
-        </section>
 
         <section id="careers" className="careers section">
           <div className="container career-grid">
@@ -748,6 +774,47 @@ function SiteLayout() {
       <p>Saudi Arabia</p>
       <p>+966 (0) 5100 20030</p>
       <a href="#contact">Contact KSC</a>
+    </div>
+
+    <div className="footer-socials">
+      <a
+        href="https://wa.me/966558156899"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="WhatsApp"
+        title="WhatsApp"
+      >
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M20 11.5a8 8 0 0 1-11.8 7L4 20l1.5-4A8 8 0 1 1 20 11.5Z" />
+          <path d="M9 8.5c.4 2.2 2.3 4.1 4.5 4.5l1.2-1.2 2 1c-.2 1.4-1.3 2.2-2.7 2-3.5-.6-6.3-3.4-6.9-6.9-.2-1.4.6-2.5 2-2.7l1 2Z" />
+        </svg>
+      </a>
+
+      <a
+        href="https://www.linkedin.com/company/khamis-al-sharjah-contracting-co/home/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="LinkedIn"
+        title="LinkedIn"
+      >
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M5 9v10M5 5v.1M10 19v-6a4 4 0 0 1 8 0v6M10 9v10" />
+        </svg>
+      </a>
+
+      <a
+        href="https://www.instagram.com/ksc_architecture/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Instagram"
+        title="Instagram"
+      >
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="3" y="3" width="18" height="18" rx="5" />
+          <circle cx="12" cy="12" r="4" />
+          <circle cx="17.5" cy="6.5" r="1" />
+        </svg>
+      </a>
     </div>
 
   </div>

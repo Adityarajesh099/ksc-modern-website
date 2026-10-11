@@ -374,6 +374,60 @@ export default function ProjectsPage() {
 </section>
 
 
+
+{/* KINGDOM-WIDE OPERATIONAL REACH */}
+<section className="kingdom-reach-section">
+  <div className="container kingdom-reach-container">
+
+    {/* LEFT SIDE — MAP */}
+    <div className="kingdom-reach-map">
+      <img
+        src="/images/saudi-arabia-map.png"
+        alt="KSC operational locations across Saudi Arabia"
+        className="kingdom-map-image"
+      />
+    </div>
+
+    {/* RIGHT SIDE — CONTENT */}
+    <div className="kingdom-reach-content">
+      <span className="eyebrow">OUR PRESENCE</span>
+
+      <h2>
+        KINGDOM-WIDE
+        <br />
+        <em>OPERATIONAL REACH</em>
+      </h2>
+
+      <p>
+        KSC operates across the entire Kingdom of Saudi Arabia,
+        with mobilized teams, supply chains, and engineering assets
+        enabling simultaneous project execution across major cities
+        and remote industrial zones.
+      </p>
+
+      <div className="kingdom-city-list">
+        {[
+          "Riyadh",
+          "Al Kharj",
+          "Hail",
+          "Turaif",
+          "Tayma",
+          "Dammam",
+          "Henakiyah",
+          "Hofuf",
+          "Jeddah",
+          "Sharourah",
+          "Najran",
+        ].map((city) => (
+          <span key={city}>{city}</span>
+        ))}
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
       {/* CTA */}
       <section className="projects-cta section">
         <div className="container projects-cta-inner">

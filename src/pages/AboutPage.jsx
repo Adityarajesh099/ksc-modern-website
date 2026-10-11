@@ -98,9 +98,13 @@ export default function AboutPage() {
 
           <div className="about-intro-text">
             <p>
-              Khamis Al Sharjah Contracting Co. is a construction and
-              engineering company delivering integrated solutions for
-              projects across the Kingdom of Saudi Arabia.
+              Khamis Al Sharjah Contracting company (KSC) is a reputed turnkey
+              contracting company since 2006 specializing in the design, construction,
+              and execution of industrial facilities for leading multinational
+              companies such as Almarai, Al Safi, PepsiCo, Obeikan, Aujan, Ornua
+              and many other valued Clients. With decades of experience in delivering
+              complex projects, we have built a strong reputation for quality, reliability,
+              and timely delivery in the food and beverage industry.
             </p>
 
             <p>

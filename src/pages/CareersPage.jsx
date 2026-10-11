@@ -498,8 +498,8 @@ export default function CareersPage() {
           </h2>
         </div>
 
-        <a href="mailto:careers@ksc-sa.com">
-          Send Your CV
+        <a href="mailto:khamiscontract@gmail.com">
+          Submit Your CV
           <span>↗</span>
         </a>
 
