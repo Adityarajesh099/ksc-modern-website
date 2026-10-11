@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { supabase } from "../supabase";
 
 const serviceData = {
     
@@ -30,13 +31,6 @@ const serviceData = {
   "/images/hero-002.jpg",
   "/images/hero-001.jpg",
   "/images/hero-003.jpg",
-],
-
-constructionImages: [
-  "/images/civil-1.jpeg",
-  "/images/civil-2.jpeg",
-  "/images/civil-3.jpeg",
-  "/images/civil-4.jpeg",
 ],
 
 highlights: {
@@ -93,13 +87,6 @@ highlights: {
     "/images/Electrical-001.png"
   ],
 
-  constructionImages: [
-  "/images/Electrical-001.png",
-  "/images/electrical-001.jpeg",
-  "/images/electrical-3.jpeg",
-  "/images/electrical-4.jpeg",
-],
-
   highlights: {
   label: "ELECTRICAL CAPABILITIES",
   title: "Powering",
@@ -153,13 +140,6 @@ highlights: {
     "/images/mechanical-3.jpeg",
     "/images/mechanical-4.jpeg"
   ],
-
-  constructionImages: [
-  "/images/civil-1.jpeg",
-  "/images/civil-2.jpeg",
-  "/images/civil-3.jpeg",
-  "/images/civil-4.jpeg",
-],
   
   highlights: {
   label: "MECHANICAL CAPABILITIES",
@@ -214,13 +194,6 @@ highlights: {
     "/images/architectural-4.jpeg"
   ],
 
-  constructionImages: [
-  "/images/civil-1.jpeg",
-  "/images/civil-2.jpeg",
-  "/images/civil-3.jpeg",
-  "/images/civil-4.jpeg",
-],
-
   highlights: {
   label: "DESIGN CAPABILITIES",
   title: "Designed for",
@@ -273,13 +246,6 @@ highlights: {
     "/images/equipment-3.jpeg",
     "/images/equipment-4.jpeg"
   ],
-
-  constructionImages: [
-  "/images/Installation-002.png",
-  "/images/civil-2.jpeg",
-  "/images/civil-3.jpeg",
-  "/images/civil-4.jpeg",
-],
 
   highlights: {
   label: "EQUIPMENT CAPABILITIES",
@@ -334,13 +300,6 @@ highlights: {
     "/images/fire-4.jpeg"
   ],
 
-  constructionImages: [
-  "/images/civil-1.jpeg",
-  "/images/civil-2.jpeg",
-  "/images/civil-3.jpeg",
-  "/images/civil-4.jpeg",
-],
-
   highlights: {
   label: "FIRE PROTECTION CAPABILITIES",
   title: "Protecting",
@@ -393,13 +352,6 @@ highlights: {
     "/images/hvac-3.jpeg",
     "/images/hvac-4.jpeg"
   ],
-
-  constructionImages: [
-  "/images/civil-1.jpeg",
-  "/images/civil-2.jpeg",
-  "/images/civil-3.jpeg",
-  "/images/civil-4.jpeg",
-],
 
   highlights: {
   label: "HVAC CAPABILITIES",
@@ -454,13 +406,6 @@ highlights: {
     "/images/fitout-4.jpeg"
   ],
 
-  constructionImages: [
-  "/images/civil-1.jpeg",
-  "/images/civil-2.jpeg",
-  "/images/civil-3.jpeg",
-  "/images/civil-4.jpeg",
-],
-
   highlights: {
   label: "FITOUT CAPABILITIES",
   title: "Spaces built",
@@ -493,6 +438,7 @@ export default function ServicePage() {
   const data = serviceData[service];
   const [heroSlide, setHeroSlide] = useState(0);
   const [detailSlide, setDetailSlide] = useState(0);
+  const [uploadedConstructionImages, setUploadedConstructionImages] = useState([]);
 
 
 useEffect(() => {
@@ -507,17 +453,63 @@ useEffect(() => {
 
 
 
-  useEffect(() => {
-  if (!data?.constructionImages?.length) return;
+useEffect(() => {
+  let cancelled = false;
+
+  const loadConstructionImages = async () => {
+    setUploadedConstructionImages([]);
+    setDetailSlide(0);
+
+    const { data: rows, error } = await supabase
+      .from("service_construction_images")
+      .select("id, image_path")
+      .eq("service_slug", service)
+      .order("created_at", { ascending: true });
+
+    if (error) {
+      console.error("Failed to load construction images:", error);
+      return;
+    }
+
+    const images = (rows || []).map((row) => ({
+      id: row.id,
+      url: supabase.storage
+        .from("service-construction-images")
+        .getPublicUrl(row.image_path).data.publicUrl,
+    }));
+
+    if (!cancelled) {
+      setUploadedConstructionImages(images);
+    }
+  };
+
+  loadConstructionImages();
+
+  return () => {
+    cancelled = true;
+  };
+}, [service]);
+
+const constructionImages =
+  uploadedConstructionImages.length > 0
+    ? uploadedConstructionImages
+    : (data?.constructionImages || []).map((url, index) => ({
+        id: `default-${index}`,
+        url,
+      }));
+
+useEffect(() => {
+  if (constructionImages.length < 2) {
+    setDetailSlide(0);
+    return;
+  }
 
   const timer = setInterval(() => {
-    setDetailSlide(
-      (current) => (current + 1) % data.constructionImages.length
-    );
+    setDetailSlide((current) => (current + 1) % constructionImages.length);
   }, 6000);
 
   return () => clearInterval(timer);
-}, [data]);
+}, [service, uploadedConstructionImages]);
 
 
 
@@ -585,15 +577,15 @@ useEffect(() => {
           <div className="service-slideshow-label">
             {data.label}
           </div>
-            {data.constructionImages?.map((image, index) => (
-                <img
-                key={image}
-                src={image}
+            {constructionImages.map((image, index) => (
+              <img
+                key={image.id}
+                src={image.url}
                 alt={`${data.title} construction project ${index + 1}`}
                 className={`service-slide-image ${
-                    index === detailSlide ? "active" : ""
+                  index === detailSlide ? "active" : ""
                 }`}
-                />
+              />
             ))}
             </div>
 

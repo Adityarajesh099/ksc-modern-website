@@ -127,6 +127,134 @@ const [selectedService, setSelectedService] = useState(
     "civil-construction"
   );
 
+const [constructionFiles, setConstructionFiles] = useState([]);
+const [existingConstructionImages, setExistingConstructionImages] =
+  useState([]);
+
+const [loadingConstructionImages, setLoadingConstructionImages] =
+  useState(false);
+
+const [replacingImageId, setReplacingImageId] = useState(null);
+const [uploadingConstruction, setUploadingConstruction] = useState(false);
+
+
+const handleConstructionUpload = async () => {
+  if (!constructionFiles.length) {
+    alert("Please select at least one image.");
+    return;
+  }
+
+  setUploadingConstruction(true);
+
+  try {
+    for (const file of constructionFiles) {
+      if (!file.type.startsWith("image/")) {
+        throw new Error(`${file.name} is not an image.`);
+      }
+
+      const extension = file.name.split(".").pop().toLowerCase();
+      const filePath = `${selectedService}/${crypto.randomUUID()}.${extension}`;
+
+      const { error: uploadError } = await supabase.storage
+        .from("service-construction-images")
+        .upload(filePath, file, {
+          contentType: file.type,
+          upsert: false,
+        });
+
+      if (uploadError) throw uploadError;
+
+      const { error: databaseError } = await supabase
+        .from("service_construction_images")
+        .insert({
+          service_slug: selectedService,
+          image_path: filePath,
+        });
+
+      if (databaseError) throw databaseError;
+    }
+
+    alert("Construction images uploaded successfully!");
+    setConstructionFiles([]);
+    await loadConstructionImages();
+  } catch (error) {
+    console.error("Construction image upload failed:", error);
+    alert(`Upload failed: ${error.message}`);
+  } finally {
+    setUploadingConstruction(false);
+  }
+};
+
+
+
+
+
+const loadConstructionImages = async () => {
+  setLoadingConstructionImages(true);
+
+  try {
+    const { data, error } = await supabase
+      .from("service_construction_images")
+      .select("id, service_slug, image_path, created_at")
+      .eq("service_slug", selectedService)
+      .order("created_at", { ascending: true });
+
+    if (error) throw error;
+
+    const images = (data || []).map((image) => ({
+      ...image,
+      url: supabase.storage
+        .from("service-construction-images")
+        .getPublicUrl(image.image_path).data.publicUrl,
+    }));
+
+    setExistingConstructionImages(images);
+  } catch (error) {
+    console.error("Failed to load construction images:", error);
+    alert(`Could not load images: ${error.message}`);
+  } finally {
+    setLoadingConstructionImages(false);
+  }
+};
+
+const handleDeleteConstructionImage = async (image) => {
+  const confirmed = window.confirm(
+    "Are you sure you want to permanently delete this construction image?"
+  );
+
+  if (!confirmed) return;
+
+  try {
+    const { error: deleteError } = await supabase
+      .from("service_construction_images")
+      .delete()
+      .eq("id", image.id)
+      .eq("service_slug", selectedService);
+
+    if (deleteError) throw deleteError;
+
+    const { error: storageError } = await supabase.storage
+      .from("service-construction-images")
+      .remove([image.image_path]);
+
+    if (storageError) {
+      console.error("Storage file removal failed:", storageError);
+    }
+
+    await loadConstructionImages();
+    alert("Construction image deleted.");
+  } catch (error) {
+    console.error("Image deletion failed:", error);
+    alert(`Could not delete image: ${error.message}`);
+  }
+};
+
+
+useEffect(() => {
+  loadConstructionImages();
+}, [selectedService]);
+
+
 
 useEffect(() => {
   if (!showProjectForm) return;
@@ -951,43 +1079,6 @@ if (!session) {
 
 
             <div className="ksc-admin-management-grid">
-
-              <div className="ksc-admin-management-card">
-
-                <span className="eyebrow">
-                  SERVICE HERO
-                </span>
-
-                <h3>Hero Images</h3>
-
-                <p>
-                  These images appear in the large hero
-                  slideshow at the top of this service page.
-                </p>
-
-                <label className="ksc-admin-upload">
-
-                  <input
-                    type="file"
-                    accept="image/*"
-                    multiple
-                  />
-
-                  <span>+</span>
-
-                  <strong>
-                    Upload Hero Images
-                  </strong>
-
-                  <small>
-                    Multiple images supported
-                  </small>
-
-                </label>
-
-              </div>
-
-
               <div className="ksc-admin-management-card">
 
                 <span className="eyebrow">
@@ -1003,11 +1094,16 @@ if (!session) {
 
                 <label className="ksc-admin-upload">
 
-                  <input
-                    type="file"
-                    accept="image/*"
-                    multiple
-                  />
+                  
+                <input
+                  type="file"
+                  accept="image/*"
+                  multiple
+                  onChange={(event) =>
+                    setConstructionFiles(Array.from(event.target.files || []))
+                  }
+                />
+
 
                   <span>+</span>
 
@@ -1021,42 +1117,64 @@ if (!session) {
 
                 </label>
 
-              </div>
+                {constructionFiles.length > 0 && (
+                  <div style={{ marginTop: "16px" }}>
+                    <p>{constructionFiles.length} image(s) selected</p>
 
+                    <button
+                      type="button"
+                      className="ksc-admin-primary-button"
+                      onClick={handleConstructionUpload}
+                      disabled={uploadingConstruction}
+                    >
+                      {uploadingConstruction ? "Uploading..." : "Upload Images"}
+                    </button>
+                  </div>
+                )}
 
-              <div className="ksc-admin-management-card">
+                <div style={{ marginTop: "24px" }}>
+                  <h3>Existing Construction Images</h3>
 
-                <span className="eyebrow">
-                  EXPLORE SERVICES
-                </span>
+                  {loadingConstructionImages ? (
+                    <p>Loading images...</p>
+                  ) : existingConstructionImages.length === 0 ? (
+                    <p>No images uploaded for this service yet.</p>
+                  ) : (
+                    <div
+                      style={{
+                        display: "grid",
+                        gridTemplateColumns: "repeat(auto-fill, minmax(160px, 1fr))",
+                        gap: "16px",
+                      }}
+                    >
+                      {existingConstructionImages.map((image, index) => (
+                        <div key={image.id}>
+                          <img
+                            src={image.url}
+                            alt={`Construction image ${index + 1}`}
+                            style={{
+                              width: "100%",
+                              height: "130px",
+                              objectFit: "cover",
+                              borderRadius: "8px",
+                            }}
+                          />
+                          <p>Image {index + 1}</p>
+                          <button
+                            type="button"
+                            className="ksc-admin-secondary-button"
+                            onClick={() => handleDeleteConstructionImage(image)}
+                          >
+                            Delete Image
+                          </button>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
 
-                <h3>Explore Service Image</h3>
+              </div>  
 
-                <p>
-                  Set the image used when this service
-                  appears in Explore Other Services.
-                </p>
-
-                <label className="ksc-admin-upload">
-
-                  <input
-                    type="file"
-                    accept="image/*"
-                  />
-
-                  <span>+</span>
-
-                  <strong>
-                    Upload Explore Image
-                  </strong>
-
-                  <small>
-                    One image
-                  </small>
-
-                </label>
-
-              </div>
 
             </div>
 
