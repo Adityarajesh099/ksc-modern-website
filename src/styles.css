@@ -359,7 +359,7 @@ button:hover .arrow {
 .intro-copy p:not(.lead) { color:var(--muted); line-height:1.75; }
 .text-link { display:inline-flex; align-items:center; margin-top:18px; color:var(--green); font-weight:700; }
 .text-link .arrow { border-color:var(--line); }
-.stats { margin-top:100px; padding-top:32px; border-top:1px solid var(--line); display:grid; grid-template-columns:repeat(4,1fr); }
+.stats { margin-top:200px;  margin-right: 5px; padding-top:10px;  display:grid; grid-template-columns:repeat(4,1fr); }
 .stats div { border-right:1px solid var(--line); padding-left:30px; }
 .stats div:first-child { padding-left:0; }
 .stats div:last-child { border-right:0; }

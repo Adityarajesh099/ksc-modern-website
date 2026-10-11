@@ -90,21 +90,24 @@ export default function AboutPage() {
             <span className="eyebrow">ABOUT KSC</span>
 
             <h2>
-              Experience that
-              <br />
-              <span>moves projects forward.</span>
+              Built on Experience.
+              <br /><br />
+              <span>Driven by Excellence.</span>
             </h2>
           </div>
 
           <div className="about-intro-text">
             <p>
-              Khamis Al Sharjah Contracting company (KSC) is a reputed turnkey
-              contracting company since 2006 specializing in the design, construction,
-              and execution of industrial facilities for leading multinational
-              companies such as Almarai, Al Safi, PepsiCo, Obeikan, Aujan, Ornua
-              and many other valued Clients. With decades of experience in delivering
-              complex projects, we have built a strong reputation for quality, reliability,
-              and timely delivery in the food and beverage industry.
+              Khamis Al Sharjah Contracting Co. (KSC) traces its roots back to 1989, 
+              when its management commenced operations in the Kingdom of Saudi Arabia 
+              under the sponsorship of Hussain Abdullah Al Hussain Contracting Company (HAH). 
+              As the Kingdom began permitting foreign investors to establish companies with 
+              100% foreign ownership, the same management established KSC alongside HAH. In 
+              2007, KSC became a 100% foreign-owned company, carrying forward the expertise, 
+              technical excellence, and commitment to quality developed since 1989. Today, 
+              KSC proudly represents more than 37 years of continuous construction experience 
+              in the Kingdom of Saudi Arabia, delivering reliable and high-quality solutions 
+              across the industrial, commercial, and infrastructure sectors.
             </p>
 
             <p>
@@ -132,10 +135,6 @@ export default function AboutPage() {
               </h2>
             </div>
 
-            <p>
-              KSC focuses on practical engineering, responsible
-              construction and consistent project delivery.
-            </p>
           </div>
 
           <div className="about-values">
