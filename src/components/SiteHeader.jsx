@@ -99,7 +99,7 @@ export default function SiteHeader() {
         </a>
 
         <a href="/Safety" onClick={closeMenu}>
-          Quality & HSE Policy
+          Quality & HSE 
         </a>
 
         <a href="/careers" onClick={closeMenu}>
