@@ -252,7 +252,7 @@ useEffect(() => {
           <div className="container intro-grid">
             <div className="intro-title">
               <p className="eyebrow">ABOUT KSC</p>
-              <h2>Engineering capability.<br /><span>Built around experience.</span></h2>
+              <h2>Engineering capability.<br /> <br /><span>Built around experience.</span></h2>
             </div>
             <div className="intro-copy">
               <p className="lead">
