@@ -121,9 +121,9 @@ button:hover .arrow {
 }
 
 .brand-mark img {
-  width: 450px;
-  height: 75px;
-  object-fit: contain;
+  width: 300px;
+  height: 80px;
+  object-fit: flex;
   object-position: left center;
 }
 
@@ -361,8 +361,8 @@ button:hover .arrow {
 .text-link .arrow { border-color:var(--line); }
 .stats {
   margin-top: 100px;
-  margin-left: 40px;
-  padding-top: 32px;
+  margin-left: 140px;
+  padding-top: 42px;
   border-top: none;
 
   display: grid;
