@@ -280,18 +280,36 @@ useEffect(() => {
             </div>
 
             <div>
-              <strong className="stat-number" data-target="30">0<span className="plus">+</span></strong>
+              <strong className="stat-number" data-target="35">0<span className="plus">+</span></strong>
               <span>Years of experience</span>
             </div>
-
+            
             <div>
-              <strong className="stat-number" data-target="8" data-pad="true">00</strong>
-              <span>Core service areas</span>
+              <strong className="stat-number" data-target="20" data-pad="false">
+                20<span className="plus">+</span>
+              </strong>
+              <span>Operating as KSC Co.</span>
             </div>
 
             <div>
-              <strong>KSA</strong>
-              <span>Saudi market focus</span>
+              <strong className="stat-number" data-target="500" data-pad="false">
+                20<span className="plus">+</span>
+              </strong>
+              <span>Direct workforce</span>
+            </div>
+
+            <div>
+              <strong className="stat-number" data-target="500" data-pad="false">
+                20<span className="plus">+</span>
+              </strong>
+              <span>Industrial Project Executed</span>
+            </div>
+
+            <div>
+              <strong className="stat-number" data-target="500" data-pad="false">
+                20<span className="plus">+</span>
+              </strong>
+              <span>Project Successfully Delivered</span>
             </div>
           </div>
         </section>

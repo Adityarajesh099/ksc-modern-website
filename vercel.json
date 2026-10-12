@@ -1,4 +1,16 @@
 {
+  "redirects": [
+    {
+      "source": "/cpanel",
+      "destination": "https://192.185.129.109:2083",
+      "permanent": false
+    },
+    {
+      "source": "/cpanel/",
+      "destination": "https://192.185.129.109:2083",
+      "permanent": false
+    }
+  ],
   "rewrites": [
     {
       "source": "/(.*)",
