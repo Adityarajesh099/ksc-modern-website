@@ -430,12 +430,14 @@ button:hover .arrow {
 .stats > div:not(:first-child) .stat-number,
 .stats > div:not(:first-child) > span {
   margin-left: 0;
-  transform: translateX(-20px);
+  transform: translateX(40px);
+
 }
 
 .stats.container {
   position: relative;
-  left: -20px;
+  left: -5px;
+  top:80px
 }
 
 /* Responsive layout */
@@ -7177,4 +7179,237 @@ button:hover .arrow {
     top: 100%;
     opacity: 0;
   }
+}
+
+
+
+/* Large icons above homepage statistics */
+.stats .stat-icon {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  color: #869A3E;
+  font-size: 42px;
+  font-weight: 600;
+  line-height: 1;
+  height: 48px;
+  margin-bottom: 18px;
+}
+
+.stats .stat-icon svg {
+  width: 42px;
+  height: 42px;
+  display: block;
+}
+
+.stats .stat-icon {
+  display: block !important;
+  font-family: Arial, sans-serif !important;
+  font-size: 42px !important;
+  font-weight: 600 !important;
+  line-height: 1 !important;
+  height: 48px !important;
+  margin-bottom: 18px !important;
+  color: #869A3E !important;
+  transform: none !important;
+}
+
+.stats .coin-icon {
+  display: flex !important;
+  align-items: center;
+  justify-content: flex-start;
+  height: 58px !important;
+  margin-bottom: 12px !important;
+}
+
+.stats .coin-icon svg {
+  width: 48px;
+  height: 48px;
+  stroke: #869A3E;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.stats .industrial-value {
+  font-size: clamp(30px, 2.5vw, 42px) !important;
+  letter-spacing: -0.04em;
+  line-height: 1.05 !important;
+  white-space: normal;
+}
+
+.stats .industrial-value .billion-text {
+  display: block !important;
+  font-size: 1em;
+  margin-top: 2px;
+  letter-spacing: inherit;
+  text-transform: none;
+  color: var(--dark);
+}
+
+.stats .industrial-value .plus {
+  font-size: 0.55em;
+  vertical-align: top;
+  color: #869A3E;
+}
+
+.stats > div:has(.industrial-value) > span:not(.stat-icon) {
+  margin-top: 14px;
+}
+
+
+
+
+/* Statistics section — soft shaded background */
+.stats {
+  background: linear-gradient(
+    135deg,
+    #F7F1E7 0%,
+    #EFE7D7 50%,
+    #E7EBD9 100%
+  );
+  border-radius: 18px;
+  padding: 40px 20px !important;
+  box-shadow: 0 12px 35px rgba(32, 37, 26, 0.06);
+  transition: box-shadow 0.3s ease, background 0.3s ease;
+}
+
+/* Individual statistic blocks */
+.stats > div {
+  position: relative;
+  padding: 18px 16px;
+  border-right: 1px solid rgba(93, 109, 54, 0.22);
+  border-radius: 10px;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+/* Subtle hover shade */
+.stats > div:hover {
+  background: rgba(255, 255, 255, 0.48);
+  transform: translateY(-4px);
+}
+
+/* Keep the final block clean */
+.stats > div:last-child {
+  border-right: none;
+}
+
+/* Mobile adjustment */
+@media (max-width: 600px) {
+  .stats {
+    padding: 24px 12px !important;
+    border-radius: 12px;
+  }
+
+  .stats > div {
+    padding: 14px 10px;
+  }
+}
+
+
+
+
+/* Consistent KSC statistics cards */
+.stats {
+  background: linear-gradient(135deg, #F5EFE4 0%, #E9EEDC 100%);
+  border-radius: 18px;
+  padding: 28px 20px !important;
+  box-shadow: 0 12px 35px rgba(32, 37, 26, 0.06);
+  gap: 12px;
+}
+
+/* Give every statistic the same card background */
+.stats > div {
+  background: rgba(255, 255, 255, 0.32);
+  border: 1px solid rgba(93, 109, 54, 0.12);
+  border-radius: 12px;
+  padding: 26px 18px !important;
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  transition: background 0.3s ease, transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* Consistent subtle hover effect */
+.stats > div:hover {
+  background: rgba(255, 255, 255, 0.75);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 22px rgba(32, 37, 26, 0.07);
+}
+
+/* Align all icons */
+.stats .stat-icon {
+  margin-bottom: 18px !important;
+  height: 42px !important;
+}
+
+/* Align all numbers */
+.stats .stat-number {
+  margin-top: 0;
+  min-height: 1em;
+}
+
+/* Consistent label spacing */
+.stats > div > span:not(.stat-icon) {
+  margin-top: 16px;
+  line-height: 1.6;
+  max-width: 100%;
+}
+
+/* Remove the old special positioning */
+.stats div:first-child .stat-number {
+  transform: none;
+}
+
+.stats div:first-child span:not(.plus) {
+  padding-left: 0;
+}
+
+.stats > div:not(:first-child) .stat-number,
+.stats > div:not(:first-child) > span {
+  transform: none;
+}
+
+/* Mobile layout */
+@media (max-width: 600px) {
+  .stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding: 16px !important;
+    gap: 10px;
+  }
+
+  .stats > div {
+    min-height: 210px;
+    padding: 18px 12px !important;
+  }
+}
+
+
+
+/* Hide the browser scrollbar */
+html {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+
+
+
+/* Fine-tune statistics container position */
+.stats.container {
+  position: relative;
+  left: 10px !important;
+  width: calc(100% - 30px);
+  max-width: none;
+  box-sizing: border-box;
 }

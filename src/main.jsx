@@ -123,15 +123,24 @@ const heroImages = [
 
 
 useEffect(() => {
-  const counters = document.querySelectorAll(".stat-number");
+  const counters = document.querySelectorAll(
+    ".stat-number:not(.industrial-value)"
+  );
 
   const animateCounter = (element) => {
     const target = Number(element.dataset.target);
+
+    if (!Number.isFinite(target)) return;
+
     const duration = 1800;
     const startTime = performance.now();
 
     const update = (currentTime) => {
-      const progress = Math.min((currentTime - startTime) / duration, 1);
+      const progress = Math.min(
+        (currentTime - startTime) / duration,
+        1
+      );
+
       const easedProgress = 1 - Math.pow(1 - progress, 3);
       const currentValue = Math.floor(target * easedProgress);
 
@@ -227,7 +236,13 @@ useEffect(() => {
             </p>
             <div className="hero-actions">
               <a className="button primary" href="#services">Explore Services <Arrow /></a>
-              <a className="button ghost" href="/contact">Talk to KSC <Arrow small /></a>
+              <a
+                className="button ghost"
+                href="/company-profile.pdf"
+                download="KSC-Company-Profile.pdf"
+              >
+                Download Company Profile <Arrow small />
+              </a>
             </div>
           </div>
 
@@ -275,37 +290,53 @@ useEffect(() => {
 
           <div className="container stats">
             <div>
+              <span className="stat-icon" aria-hidden="true">▦</span>
               <strong className="stat-number" data-target="1989">0</strong>
               <span>Established</span>
             </div>
 
             <div>
+              <span className="stat-icon" aria-hidden="true">★</span>
               <strong className="stat-number" data-target="35">0<span className="plus">+</span></strong>
               <span>Years of experience</span>
             </div>
             
             <div>
+              <span className="stat-icon" aria-hidden="true">▤</span>
               <strong className="stat-number" data-target="20" data-pad="false">
                 20<span className="plus">+</span>
               </strong>
-              <span>Operating as KSC Co.</span>
+              <span>Operating as Khamis Al Sharjah Contracting Co.</span>
             </div>
 
             <div>
+              <span className="stat-icon" aria-hidden="true">♙</span>
               <strong className="stat-number" data-target="500" data-pad="false">
                 20<span className="plus">+</span>
               </strong>
               <span>Direct workforce</span>
             </div>
 
-            <div>
-              <strong className="stat-number" data-target="500" data-pad="false">
-                20<span className="plus">+</span>
+             <div>
+              <span className="stat-icon coin-icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48" fill="none">
+                  <ellipse cx="17" cy="15" rx="11" ry="5" />
+                  <path d="M6 15v17c0 3 5 5 11 5s11-2 11-5V15" />
+                  <path d="M6 21c0 3 5 5 11 5s11-2 11-5M6 27c0 3 5 5 11 5s11-2 11-5" />
+                  <ellipse cx="32" cy="8" rx="10" ry="4" />
+                  <path d="M22 8v17c0 3 4 5 10 5s10-2 10-5V8" />
+                  <path d="M22 14c0 3 4 5 10 5s10-2 10-5M22 20c0 3 4 5 10 5s10-2 10-5" />
+                </svg>
+              </span>
+              <strong className="stat-number industrial-value">
+                SAR 1<span className="plus">+</span>
+                <span className="billion-text">Billion</span>
               </strong>
-              <span>Industrial Project Executed</span>
+              <span>Industrial Projects Executed</span>
             </div>
 
             <div>
+              <span className="stat-icon" aria-hidden="true">✓</span>
               <strong className="stat-number" data-target="500" data-pad="false">
                 20<span className="plus">+</span>
               </strong>

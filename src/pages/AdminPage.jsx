@@ -1014,11 +1014,39 @@ if (!session) {
   <section className="ksc-admin-section">
     <div className="ksc-admin-section-heading">
       <div>
-        <span className="eyebrow">HOMEPAGE</span>
-        <h2>Homepage Management</h2>
+        
         <p>
-          Homepage images are managed directly through the website files.
+          Manage your homepage content and company profile.
         </p>
+      </div>
+    </div>
+
+    <div className="ksc-admin-management-grid">
+      <div className="ksc-admin-management-card">
+        <span className="eyebrow">04 / COMPANY PROFILE</span>
+
+        <h3>Company Profile PDF</h3>
+
+        <p>
+          Select the latest company profile PDF for the
+          homepage download button.
+        </p>
+
+        <label className="ksc-admin-upload">
+          <input
+            type="file"
+            accept=".pdf,application/pdf"
+            onChange={(e) => {
+              const file = e.target.files?.[0];
+              if (file) {
+                alert("Selected file: " + file.name);
+              }
+            }}
+          />
+          <span>+</span>
+          <strong>Choose Company Profile PDF</strong>
+          <small>PDF files only</small>
+        </label>
       </div>
     </div>
   </section>
