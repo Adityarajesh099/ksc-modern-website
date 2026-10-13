@@ -13,8 +13,17 @@ export default function ContactPage() {
     <div className="contact-page">
 
       {/* CONTACT HERO */}
+      
       <section className="contact-hero">
+        <img
+          src="/images/contactimg.png"
+          alt=""
+          className="contact-hero-image"
+          aria-hidden="true"
+        />
+
         <div className="contact-hero-overlay"></div>
+
 
         <div className="container contact-hero-inner">
           <div className="contact-hero-kicker">

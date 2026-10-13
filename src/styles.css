@@ -7795,3 +7795,46 @@ body::-webkit-scrollbar {
     display: none;
   }
 }
+
+
+
+/* Contact Hero Image - Direct Image Fix */
+.contact-hero {
+  position: relative !important;
+  isolation: isolate;
+  min-height: 791px;
+  overflow: hidden;
+  background: #102a38 !important;
+}
+
+.contact-hero .contact-hero-image {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center 55%;
+  display: block !important;
+  z-index: 0 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: none;
+}
+
+.contact-hero .contact-hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 25, 55, 0.72),
+    rgba(0, 25, 55, 0.30) 55%,
+    rgba(0, 25, 55, 0.08)
+  );
+  pointer-events: none;
+}
+
+.contact-hero .contact-hero-inner {
+  position: relative !important;
+  z-index: 2 !important;
+}
