@@ -7,7 +7,7 @@ const serviceData = {
   "civil-construction": {
   number: "01",
   title: "Civil Construction",
-  label: "KSC / CIVIL CONSTRUCTION",
+  label: "CIVIL CONSTRUCTION",
   exploreImage: "/images/Civil-001.png",
   description:
     "Over the past years, we have developed a robust fleet of skilled manpower and advanced equipment, enabling us to undertake a wide variety of civil construction projects with confidence. Our dedication to safety, quality, and efficient production has established us as a trusted leader in the field. We pride ourselves on maintaining an excellent safety record while delivering top-notch work with a high production rate.",
@@ -63,7 +63,7 @@ highlights: {
   "electrical-works": {
   number: "02",
   title: "Electrical Works",
-  label: "KSC / ELECTRICAL WORKS",
+  label: "ELECTRICAL WORKS",
   exploreImage: "/images/Electrical-001.png",
   description:
     "KSC provides reliable electrical installation and project execution services for industrial, commercial and infrastructure developments. Our electrical works are delivered with a strong focus on safety, quality, efficiency and dependable project performance.",
@@ -117,7 +117,7 @@ highlights: {
   "mechanical-works": {
   number: "03",
   title: "Mechanical Works",
-  label: "KSC / MECHANICAL WORKS",
+  label: "MECHANICAL WORKS",
   exploreImage: "/images/Mechanical-001.png",
   description:
     "KSC provides dependable mechanical construction and installation services for industrial, commercial and infrastructure projects. Our teams support mechanical systems from installation through testing and commissioning, with a strong focus on safety, quality and efficient project execution.",
@@ -170,7 +170,7 @@ highlights: {
   "architectural-interior-design": {
   number: "04",
   title: "Architectural & Interior Design",
-  label: "KSC / ARCHITECTURAL & INTERIOR DESIGN",
+  label: "ARCHITECTURAL & INTERIOR DESIGN",
   exploreImage: "/images/Architectural-001.jpg",
   description:
     "KSC provides architectural and interior design solutions that combine functional planning, technical coordination and refined design. Our approach supports projects from concept development and design coordination through to detailed execution.",
@@ -223,7 +223,7 @@ highlights: {
   "equipment-machine-installations": {
   number: "05",
   title: "Equipment & Machine Installations",
-  label: "KSC / EQUIPMENT & MACHINE INSTALLATIONS",
+  label: "EQUIPMENT & MACHINE INSTALLATIONS",
   exploreImage: "/images/Installation-001.png",
   description:
     "KSC provides specialized equipment and machine installation services for industrial and commercial projects. Our teams support the complete installation process with careful positioning, alignment, connection, testing and commissioning to ensure reliable project performance.",
@@ -276,7 +276,7 @@ highlights: {
   "fire-detection-fire-fighting": {
   number: "06",
   title: "Fire Detection & Fire Fighting System",
-  label: "KSC / FIRE DETECTION & FIRE FIGHTING",
+  label: "FIRE DETECTION & FIRE FIGHTING",
   exploreImage: "/images/Fire-001.png",
   description:
     "KSC provides integrated fire detection and fire fighting solutions designed to support the safety and protection requirements of commercial, industrial and infrastructure facilities. Our services cover system installation, integration, testing and commissioning.",
@@ -329,7 +329,7 @@ highlights: {
   "hvac-works": {
   number: "07",
   title: "HVAC Works",
-  label: "KSC / HVAC WORKS",
+  label: "HVAC WORKS",
   exploreImage: "/images/HVAC-001.png",
   description:
     "KSC provides heating, ventilation and air-conditioning solutions for commercial, industrial and infrastructure facilities. Our HVAC services support efficient climate control, reliable system performance and comfortable working environments.",
@@ -383,7 +383,7 @@ highlights: {
   number: "08",
   title: "Fitout Works",
   exploreImage: "/images/Fitout-001.png",
-  label: "KSC / FITOUT WORKS",
+  label: "FITOUT WORKS",
   description:
     "KSC delivers complete interior fitout solutions for commercial, industrial and other built environments. Our fitout services combine careful planning, quality workmanship and coordinated execution to create functional and professionally finished spaces.",
   benefits: [
@@ -431,6 +431,55 @@ highlights: {
   ]
 },
 },
+
+
+"pharmaceutical-cleanroom-facilities": {
+  number: "07",
+  title: "Pharmaceutical & Cleanroom Facilities",
+  label: "PHARMACEUTICAL & CLEANROOM FACILITIES",
+  exploreImage: "/images/pharma.png",
+  description:
+    "KSC provides specialized construction and fitout solutions for pharmaceutical manufacturing facilities and cleanroom environments, with a focus on quality, hygiene, controlled conditions and reliable project execution.",
+  benefits: [
+    "Pharmaceutical Factory Construction",
+    "Cleanroom Design & Construction",
+    "Cleanroom Wall & Ceiling Systems",
+    "Cleanroom Flooring",
+    "HVAC & Air Filtration Systems",
+    "Controlled Environment Facilities",
+    "Cleanroom Doors & Windows",
+    "Utility & MEP Installation",
+    "Testing & Commissioning"
+  ],
+  images: [
+    "/images/pharma.png",
+  ],
+  highlights: {
+    label: "PHARMACEUTICAL & CLEANROOM CAPABILITIES",
+    title: "Built for",
+    accent: "controlled environments.",
+    description:
+      "KSC supports pharmaceutical facilities and cleanroom projects through coordinated construction, specialist finishes and building services.",
+    items: [
+      {
+        number: "01",
+        title: "Pharmaceutical Facilities",
+        text: "Construction solutions for pharmaceutical factories and production environments."
+      },
+      {
+        number: "02",
+        title: "Cleanroom Systems",
+        text: "Specialized cleanroom finishes, wall systems, ceilings and flooring."
+      },
+      {
+        number: "03",
+        title: "Building Services",
+        text: "Coordinated HVAC, filtration and MEP installations supporting controlled environments."
+      }
+    ]
+  }
+},
+
 };
 
 export default function ServicePage() {

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { supabase } from "../supabase";
 
+
 const services = [
   {
     slug: "civil-construction",
@@ -8,9 +9,9 @@ const services = [
     name: "Civil Construction",
   },
   {
-    slug: "electrical-works",
+    slug: "architectural-interior-design",
     number: "02",
-    name: "Electrical Works",
+    name: "Architectural & Interior Finishes",
   },
   {
     slug: "mechanical-works",
@@ -18,14 +19,14 @@ const services = [
     name: "Mechanical Works",
   },
   {
-    slug: "architectural-interior-design",
+    slug: "electrical-works",
     number: "04",
-    name: "Architectural & Interior Design",
+    name: "Electrical Works",
   },
   {
-    slug: "equipment-machine-installations",
+    slug: "hvac-works",
     number: "05",
-    name: "Equipment & Machine Installations",
+    name: "HVAC Works",
   },
   {
     slug: "fire-detection-fire-fighting",
@@ -33,14 +34,19 @@ const services = [
     name: "Fire Detection & Fire Fighting System",
   },
   {
-    slug: "hvac-works",
+    slug: "pharmaceutical-cleanroom-facilities",
     number: "07",
-    name: "HVAC Works",
+    name: "Pharmaceutical & Cleanroom Facilities",
   },
   {
     slug: "fitout-works",
     number: "08",
     name: "Fitout Works",
+  },
+  {
+    slug: "equipment-machine-installations",
+    number: "09",
+    name: "Equipment & Machine Installations",
   },
 ];
 
@@ -53,6 +59,9 @@ const [loginError, setLoginError] = useState("");
 const [checkingSession, setCheckingSession] = useState(true);
 const [projects, setProjects] = useState([]);
 const [adminSlideIndexes, setAdminSlideIndexes] = useState({});
+const [profileFile, setProfileFile] = useState(null);
+const [uploadingProfile, setUploadingProfile] = useState(false);
+const [currentProfileName, setCurrentProfileName] = useState(null);
 
 useEffect(() => {
   const interval = setInterval(() => {
@@ -217,6 +226,46 @@ const loadConstructionImages = async () => {
   }
 };
 
+
+
+
+
+const checkCompanyProfile = async () => {
+  setCurrentProfileName(null);
+
+  try {
+    const { data, error } = await supabase.storage
+      .from("company-profile")
+      .list("", {
+        limit: 100,
+        search: "KSC-Company-Profile.pdf",
+      });
+
+    if (error) {
+      console.error("Could not check company profile:", error);
+      return;
+    }
+
+    const exists = (data || []).some(
+      (file) =>
+        file.name === "KSC-Company-Profile.pdf" &&
+        file.id !== null
+    );
+
+    setCurrentProfileName(
+      exists ? "KSC-Company-Profile.pdf" : null
+    );
+  } catch (error) {
+    console.error("Company profile check failed:", error);
+    setCurrentProfileName(null);
+  }
+};
+
+
+
+
+
+
 const handleDeleteConstructionImage = async (image) => {
   const confirmed = window.confirm(
     "Are you sure you want to permanently delete this construction image?"
@@ -225,29 +274,62 @@ const handleDeleteConstructionImage = async (image) => {
   if (!confirmed) return;
 
   try {
-    const { error: deleteError } = await supabase
-      .from("service_construction_images")
-      .delete()
-      .eq("id", image.id)
-      .eq("service_slug", selectedService);
+    // Check that an administrator is signed in
+    const {
+      data: { session: currentSession },
+      error: sessionError,
+    } = await supabase.auth.getSession();
 
-    if (deleteError) throw deleteError;
+    if (sessionError) throw sessionError;
 
-    const { error: storageError } = await supabase.storage
-      .from("service-construction-images")
-      .remove([image.image_path]);
-
-    if (storageError) {
-      console.error("Storage file removal failed:", storageError);
+    if (!currentSession) {
+      throw new Error("Please sign in to the Admin Panel again.");
     }
 
+    // Call the Supabase Edge Function
+    const { data, error } = await supabase.functions.invoke(
+      "delete-service-construction-image",
+      {
+        body: {
+          id: image.id,
+          image_path: image.image_path,
+          service_slug: image.service_slug,
+        },
+      }
+    );
+
+    if (error) {
+      let details = error.message;
+
+      try {
+        const response = error.context;
+        if (response && typeof response.json === "function") {
+          const responseBody = await response.json();
+          details = responseBody.error || details;
+        }
+      } catch {
+        // Keep the original error message if no response body is available.
+      }
+
+      throw new Error(details);
+    }
+
+    if (!data?.success) {
+      throw new Error(data?.error || "The image could not be deleted.");
+    }
+
+    // Refresh the image list after successful deletion
     await loadConstructionImages();
-    alert("Construction image deleted.");
+
+    alert("Image deleted successfully from Supabase Storage and database.");
   } catch (error) {
     console.error("Image deletion failed:", error);
-    alert(`Could not delete image: ${error.message}`);
+    alert("Could not delete image: " + error.message);
   }
 };
+
+
+
 
 
 useEffect(() => {
@@ -279,6 +361,13 @@ useEffect(() => {
 
   setProjectStatus(editingProject?.status || "Ongoing");
 }, [showProjectForm, editingProject]);
+
+
+
+useEffect(() => {
+  checkCompanyProfile();
+}, []);
+
 
 
 useEffect(() => {
@@ -524,7 +613,7 @@ if (!session) {
 
               <div className="ksc-admin-stat">
                 <span>SERVICES</span>
-                <strong>08</strong>
+                <strong>09</strong>
                 <small>Service Pages</small>
               </div>
 
@@ -1010,47 +1099,161 @@ if (!session) {
 
         
 
+
 {activeSection === "homepage" && (
   <section className="ksc-admin-section">
     <div className="ksc-admin-section-heading">
       <div>
-        
         <p>
           Manage your homepage content and company profile.
         </p>
       </div>
     </div>
 
-    <div className="ksc-admin-management-grid">
-      <div className="ksc-admin-management-card">
-        <span className="eyebrow">04 / COMPANY PROFILE</span>
+    <div className="ksc-admin-management-card">
+      <span className="eyebrow">04 / COMPANY PROFILE</span>
 
-        <h3>Company Profile PDF</h3>
+      <h3>Company Profile PDF</h3>
 
-        <p>
-          Select the latest company profile PDF for the
-          homepage download button.
-        </p>
+      <p>
+        Upload the latest company profile PDF for the homepage download button.
+      </p>
 
-        <label className="ksc-admin-upload">
-          <input
-            type="file"
-            accept=".pdf,application/pdf"
-            onChange={(e) => {
-              const file = e.target.files?.[0];
-              if (file) {
-                alert("Selected file: " + file.name);
-              }
-            }}
-          />
-          <span>+</span>
-          <strong>Choose Company Profile PDF</strong>
-          <small>PDF files only</small>
+      <div className="ksc-admin-form-field">
+        <label htmlFor="companyProfileFile">
+          Select PDF File
         </label>
+
+        <input
+          id="companyProfileFile"
+          type="file"
+          accept=".pdf,application/pdf"
+          onChange={(e) =>
+            setProfileFile(e.target.files?.[0] || null)
+          }
+        />
+
+        {profileFile && (
+          <p className="selected-file-name">
+            Selected file: <strong>{profileFile.name}</strong>
+          </p>
+        )}
+
+                
+
+{currentProfileName && (
+  <div className="current-company-profile">
+    <p>
+      <strong>Current company profile:</strong>
+    </p>
+
+    <p>{currentProfileName}</p>
+
+    <a
+      href={`${import.meta.env.VITE_SUPABASE_URL}/storage/v1/object/public/company-profile/KSC-Company-Profile.pdf`}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      View / Download PDF
+    </a>
+  </div>
+)}
+
+
+
       </div>
+
+      <button
+        type="button"
+        className="ksc-admin-primary-button"
+        disabled={!profileFile || uploadingProfile}
+        onClick={async () => {
+          if (!profileFile) {
+            alert("Please select a PDF file.");
+            return;
+          }
+
+          if (
+            profileFile.type !== "application/pdf" &&
+            !profileFile.name.toLowerCase().endsWith(".pdf")
+          ) {
+            alert("Please select a valid PDF file.");
+            return;
+          }
+
+          setUploadingProfile(true);
+
+          try {
+            const filePath = "KSC-Company-Profile.pdf";
+
+            const { error } = await supabase.storage
+              .from("company-profile")
+              .upload(filePath, profileFile, {
+                contentType: "application/pdf",
+                upsert: true,
+              });
+
+            if (error) throw error;
+
+            setProfileFile(null);
+            await checkCompanyProfile();
+
+            const fileInput = document.getElementById(
+              "companyProfileFile"
+            );
+
+            if (fileInput) fileInput.value = "";
+
+            alert("Company profile uploaded successfully!");
+          } catch (error) {
+            console.error(
+              "Company profile upload failed:",
+              error
+            );
+            alert("Upload failed: " + error.message);
+          } finally {
+            setUploadingProfile(false);
+          }
+        }}
+      >
+        {uploadingProfile
+          ? "Uploading..."
+          : "Upload Company Profile"}
+      </button>
+      
+      <button
+        type="button"
+        className="ksc-admin-primary-button"
+        style={{ marginTop: "12px" }}
+        onClick={async () => {
+          const confirmed = window.confirm(
+            "Are you sure you want to permanently delete the company profile PDF?"
+          );
+
+          if (!confirmed) return;
+
+          try {
+            const { error } = await supabase.storage
+              .from("company-profile")
+              .remove(["KSC-Company-Profile.pdf"]);
+
+            if (error) throw error;
+            await checkCompanyProfile();
+            alert("Company profile PDF deleted successfully!");
+
+          } catch (error) {
+            console.error("Company profile deletion failed:", error);
+            alert("Delete failed: " + error.message);
+          }
+        }}
+      >
+        Delete Company Profile
+      </button>
+
     </div>
   </section>
 )}
+
 
 
 

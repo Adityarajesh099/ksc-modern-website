@@ -1,146 +1,226 @@
-import React, { useEffect, useState } from "react";
+  import React, { useEffect, useState } from "react";
+  import { supabase } from "../supabase";
 
-export default function SiteHeader() {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  export default function SiteHeader() {
+    const [menuOpen, setMenuOpen] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
+    const [currentProfileExists, setCurrentProfileExists] = useState(null);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 30);
-    };
+  
+useEffect(() => {
+  const cachedStatus = sessionStorage.getItem(
+    "kscCompanyProfileExists"
+  );
 
-    handleScroll();
-    window.addEventListener("scroll", handleScroll);
+  if (cachedStatus !== null) {
+    setCurrentProfileExists(cachedStatus === "true");
+  }
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  let active = true;
 
-  const closeMenu = () => {
-    setMenuOpen(false);
+  const checkCompanyProfile = async () => {
+    const { data, error } = await supabase.storage
+      .from("company-profile")
+      .list("", {
+        search: "KSC-Company-Profile.pdf",
+      });
+
+    // Keep the cached result if Supabase temporarily fails.
+    if (error || !active) return;
+
+    const exists = Boolean(
+      data?.some(
+        (file) => file.name === "KSC-Company-Profile.pdf"
+      )
+    );
+
+    sessionStorage.setItem(
+      "kscCompanyProfileExists",
+      String(exists)
+    );
+
+    setCurrentProfileExists(exists);
   };
 
-  return (
-    <header className={scrolled ? "header scrolled" : "header"}>
+  checkCompanyProfile();
 
-      <a
-        className="brand"
-        href="/"
-        onClick={closeMenu}
-        aria-label="KSC Home"
-      >
-        <span className="brand-mark">
-          <img src="/images/logo2.png" alt="KSC" />
-        </span>
-      </a>
+  return () => {
+    active = false;
+  };
+}, []);
 
-      <nav className={menuOpen ? "nav open" : "nav"}>
 
-        <a href="/" onClick={closeMenu}>
-            Home
-        </a>
+    useEffect(() => {
+      const handleScroll = () => {
+        setScrolled(window.scrollY > 30);
+      };
 
-        <a href="/about" onClick={closeMenu}>
-          About
-        </a>
+      handleScroll();
+      window.addEventListener("scroll", handleScroll);
 
-        <div className="nav-dropdown">
+      return () => {
+        window.removeEventListener("scroll", handleScroll);
+      };
+    }, []);
 
-          <a
-            href="/#services"
-            onClick={closeMenu}
-            className="nav-dropdown-trigger"
-          >
-            Services
-            <span className="nav-chevron">⌄</span>
-          </a>
+    const closeMenu = () => {
+      setMenuOpen(false);
+    };
 
-          <div className="services-dropdown">
-
-            <a href="/services/civil-construction">
-              Civil Construction
-            </a>
-
-            <a href="/services/electrical-works">
-              Electrical Works
-            </a>
-
-            <a href="/services/mechanical-works">
-              Mechanical Works
-            </a>
-
-            <a href="/services/architectural-interior-design">
-              Architectural & Interior Design
-            </a>
-
-            <a href="/services/equipment-machine-installations">
-              Equipment & Machine Installations
-            </a>
-
-            <a href="/services/fire-detection-fire-fighting">
-              Fire Detection & Fire Fighting
-            </a>
-
-            <a href="/services/hvac-works">
-              HVAC Works
-            </a>
-
-            <a href="/services/fitout-works">
-              Fitout Works
-            </a>
-
-          </div>
-
-        </div>
-
-        <a href="/projects" onClick={closeMenu}>
-          Projects
-        </a>
-
-        <a href="/Safety" onClick={closeMenu}>
-          Quality & HSE Policy
-        </a>
-
-        <a href="/careers" onClick={closeMenu}>
-          Careers
-        </a>
+    return (
+      <header className={scrolled ? "header scrolled" : "header"}>
 
         <a
-          className="nav-contact"
-          href="/contact"
+          className="brand"
+          href="/"
           onClick={closeMenu}
+          aria-label="KSC Home"
         >
-          Contact
-          <span className="contact-arrow" aria-hidden="true">
-            <svg
-              viewBox="0 0 24 24"
-              width="15"
-              height="15"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M7 17 17 7" />
-              <path d="M8 7h9v9" />
-            </svg>
+          <span className="brand-mark">
+            <img src="/images/logo2.png" alt="KSC" />
           </span>
         </a>
 
-      </nav>
+        <nav className={menuOpen ? "nav open" : "nav"}>
 
-      <button
-        className={`menu-button ${menuOpen ? "active" : ""}`}
-        onClick={() => setMenuOpen(!menuOpen)}
-        aria-label="Toggle navigation"
-        aria-expanded={menuOpen}
-      >
-        <span></span>
-        <span></span>
-      </button>
+          <a href="/" onClick={closeMenu}>
+              Home
+          </a>
 
-    </header>
-  );
-}
+          <a href="/about" onClick={closeMenu}>
+            About
+          </a>
+
+          <div className="nav-dropdown">
+
+            <a
+              href="/#services"
+              onClick={closeMenu}
+              className="nav-dropdown-trigger"
+            >
+              Services
+              <span className="nav-chevron">⌄</span>
+            </a>
+
+            <div className="services-dropdown">
+
+              <a href="/services/civil-construction">
+                Civil Construction
+              </a>
+
+              <a href="/services/architectural-interior-design">
+                Architectural & Interior Design
+              </a>
+
+              <a href="/services/mechanical-works">
+                Mechanical Works
+              </a>
+
+              <a href="/services/electrical-works">
+                Electrical Works
+              </a>
+
+              <a href="/services/hvac-works">
+                HVAC Works
+              </a>
+
+              <a href="/services/fire-detection-fire-fighting">
+                Fire Detection & Fire Fighting
+              </a>
+
+              <a href="/services/equipment-machine-installations">
+                Equipment & Machine Installations
+              </a>
+
+              <a href="/services/pharmaceutical-cleanroom-facilities">
+                Pharmaceutical & Cleanroom facilities
+              </a>
+              
+              <a href="/services/fitout-works">
+                Fitout Works
+              </a>
+
+            </div>
+
+          </div>
+
+          <a href="/projects" onClick={closeMenu}>
+            Projects
+          </a>
+
+          <a href="/Safety" onClick={closeMenu}>
+            Quality & HSE Policy
+          </a>
+
+          <a href="/careers" onClick={closeMenu}>
+            Careers
+          </a>
+
+          
+          
+            {currentProfileExists === true && (
+              <a
+                className="nav-download"
+                href={`${import.meta.env.VITE_SUPABASE_URL}/storage/v1/object/public/company-profile/KSC-Company-Profile.pdf?download`}
+                onClick={closeMenu}
+                aria-label="Download Company Profile PDF"
+              >
+                Download Profile
+                <svg
+                  viewBox="0 0 24 24"
+                  width="16"
+                  height="16"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                  <path d="m7 10 5 5 5-5" />
+                  <path d="M12 15V3" />
+                </svg>
+              </a>
+            )}
+
+
+
+          <a
+            className="nav-contact"
+            href="/contact"
+            onClick={closeMenu}
+          >
+            Contact
+            <span className="contact-arrow" aria-hidden="true">
+              <svg
+                viewBox="0 0 24 24"
+                width="15"
+                height="15"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M7 17 17 7" />
+                <path d="M8 7h9v9" />
+              </svg>
+            </span>
+          </a>
+
+        </nav>
+
+        <button
+          className={`menu-button ${menuOpen ? "active" : ""}`}
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle navigation"
+          aria-expanded={menuOpen}
+        >
+          <span></span>
+          <span></span>
+        </button>
+
+      </header>
+    );
+  }

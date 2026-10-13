@@ -11,19 +11,21 @@ import SiteHeader from "./components/SiteHeader";
 import AdminPage from "./pages/AdminPage";
 import { createRoot } from "react-dom/client";
 import "./styles.css";
+import { supabase } from "./supabase";
 
 
 
 
 const services = [
   ["01", "Civil Construction", "Structures, infrastructure and turnkey civil works."],
-  ["02", "Electrical Works", "Reliable electrical systems for demanding facilities."],
+  ["02", "Architectural & Interior Finishes", "Architectural finishes and interior fitout solutions."],
   ["03", "Mechanical Works", "Industrial mechanical installation and project delivery."],
-  ["04", "Architectural & Interior Design", "Functional spaces with a refined architectural finish."],
-  ["05", "Equipment & Machine Installations", "Specialized equipment and machine installation and commissioning."],
+  ["04", "Electrical Works", "Reliable electrical systems for demanding facilities."],
+  ["05", "HVAC Works", "Efficient heating, ventilation and air-conditioning solutions."],
   ["06", "Fire Detection & Fire Fighting System", "Integrated fire detection and fire fighting systems."],
-  ["07", "HVAC Works", "Efficient heating, ventilation and air-conditioning solutions."],
-  ["08", "Fitout Works", "End-to-end interior fitout for commercial and industrial spaces."]
+  ["07", "Pharmaceutical & Cleanroom Facilities", "Specialized pharmaceutical facilities and controlled cleanroom environments."],
+  ["08", "Fitout Works", "End-to-end interior fitout for commercial and industrial spaces."],
+  ["09", "Equipment & Machine Installations", "Specialized equipment and machine installation and commissioning."]
 ];
 
 const projects = [
@@ -78,16 +80,40 @@ function App() {
     const [activeService, setActiveService] = useState(0);
     const [scrolled, setScrolled] = useState(false);
     const [heroImage, setHeroImage] = useState(0);
+    const [currentProfileExists, setCurrentProfileExists] = useState(false);
+
+    
+useEffect(() => {
+  const checkCompanyProfile = async () => {
+    const { data, error } = await supabase.storage
+      .from("company-profile")
+      .list("", {
+        search: "KSC-Company-Profile.pdf",
+      });
+
+    const exists =
+      !error &&
+      data?.some(
+        (file) => file.name === "KSC-Company-Profile.pdf"
+      );
+
+    setCurrentProfileExists(Boolean(exists));
+  };
+
+  checkCompanyProfile();
+}, []);
+
 
 const serviceImages = {
   "civil-construction": "/images/services/Civil-001.png",
-  "electrical-works": "/images/services/Electrical-001.png",
+  "architectural-interior-finishes": "/images/services/Architectural-001.jpg",
   "mechanical-works": "/images/services/Mechanical-001.png",
-  "architectural-interior-design": "/images/services/Architectural-001.jpg",
-  "equipment-machine-installations": "/images/services/Installation-001.png",
-  "fire-detection-fire-fighting": "/images/services/Fire-001.png",
+  "electrical-works": "/images/services/Electrical-001.png",
   "hvac-works": "/images/services/HVAC-001.png",
+  "fire-detection-fire-fighting": "/images/services/Fire-001.png",
+  "pharmaceutical-cleanroom-facilities": "/images/services/.png",
   "fitout-works": "/images/services/Fitout-001.png",
+  "equipment-machine-installations": "/images/services/Installation-001.png"
 };
 
 
@@ -201,6 +227,26 @@ useEffect(() => {
 }, []);
 
 
+
+
+const aboutImages = [
+  "/images/Aboutimg.png",
+  "/images/Aboutimg2.png",
+];
+
+const [aboutSlide, setAboutSlide] = useState(0);
+
+useEffect(() => {
+  if (aboutImages.length <= 1) return;
+
+  const timer = setInterval(() => {
+    setAboutSlide((current) => (current + 1) % aboutImages.length);
+  }, 5000);
+
+  return () => clearInterval(timer);
+}, [aboutImages.length]);
+
+
   return (
     <div className="site">
             
@@ -236,13 +282,8 @@ useEffect(() => {
             </p>
             <div className="hero-actions">
               <a className="button primary" href="#services">Explore Services <Arrow /></a>
-              <a
-                className="button ghost"
-                href="/company-profile.pdf"
-                download="KSC-Company-Profile.pdf"
-              >
-                Download Company Profile <Arrow small />
-              </a>
+
+
             </div>
           </div>
 
@@ -264,29 +305,56 @@ useEffect(() => {
         </section>
 
         <section id="about" className="intro section reveal-section">
-          <div className="container intro-grid">
-            <div className="intro-title">
-              <p className="eyebrow">ABOUT KSC</p>
-              <h2>Engineering capability.<br /> <br /><span>Built around experience.</span></h2>
-            </div>
-            <div className="intro-copy">
-              <p className="lead">
-                KSC delivers integrated construction and engineering services
-                for industrial, commercial and infrastructure environments.
-              </p>
-              <p>
-                Our approach brings civil, mechanical, electrical and specialist
-                project capabilities together to create dependable turnkey solutions.
-              </p>
-              <a className="text-link" href="#contact">Discover KSC <Arrow small /></a>
-              <div className="about-image">
-                <img
-                  src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1400&q=90"
-                  alt="KSC construction and engineering"
-                />
+          
+            <div className="container intro-grid">
+              <div className="intro-title">
+                <p className="eyebrow">ABOUT KSC</p>
+
+              
+                    <h2 className="about-heading">
+                      <span className="about-heading-line">
+                        Engineering capability.
+                      </span>
+
+                      <span className="about-heading-line about-heading-green">
+                        Built around experience.
+                      </span>
+                    </h2>
+
+                <p className="lead">
+                  KSC delivers integrated construction and engineering services
+                  for industrial, commercial and infrastructure environments.
+                </p>
+              </div>
+
+              <div className="intro-copy">
+                
+                  <div className="about-image">
+                    {[
+                      "/images/Aboutimg.png",
+                      "/images/Aboutimg2.png",
+                    ].map((image, index) => (
+                      <img
+                        key={image}
+                        src={image}
+                        alt={`KSC construction and engineering ${index + 1}`}
+                        className={`about-fade-image ${index === aboutSlide ? "active" : ""}`}
+                      />
+                    ))}
+                  </div>
+
+
+                <p>
+                  Our approach brings civil, mechanical, electrical and specialist
+                  project capabilities together to create dependable turnkey solutions.
+                </p>
+
+                <a className="text-link" href="/contact">
+                  Discover KSC <Arrow small />
+                </a>
               </div>
             </div>
-          </div>
+
 
           <div className="container stats">
             <div>
@@ -332,7 +400,7 @@ useEffect(() => {
                 SAR 1<span className="plus">+</span>
                 <span className="billion-text">Billion</span>
               </strong>
-              <span>Industrial Projects Executed</span>
+              <span>TOTAL VALUE OF INDUSTRIAL PROJECTS EXECUTED</span>
             </div>
 
             <div>
@@ -363,15 +431,16 @@ useEffect(() => {
                     key={title}
                     href={`/services/${
                       [
-                        "civil-construction",
-                        "electrical-works",
-                        "mechanical-works",
-                        "architectural-interior-design",
-                        "equipment-machine-installations",
-                        "fire-detection-fire-fighting",
-                        "hvac-works",
-                        "fitout-works"
-                      ][index]
+                      "civil-construction",
+                      "architectural-interior-finishes",
+                      "mechanical-works",
+                      "electrical-works",
+                      "hvac-works",
+                      "fire-detection-fire-fighting",
+                      "pharmaceutical-cleanroom-facilities",
+                      "fitout-works",
+                      "equipment-machine-installations"
+                    ][index]
                     }`}
                     className="service-item"
                     onMouseEnter={() => setActiveService(index)}
@@ -533,120 +602,214 @@ useEffect(() => {
           </div>
         </section>
 
-        <section className="auxiliary-services section">
-          <div className="auxiliary-services-inner">
+        
+<section className="auxiliary-services section">
+  <div className="auxiliary-redesign">
 
-            <div className="auxiliary-services-list">
+    {/* Left side */}
+    <div className="auxiliary-redesign-left">
+      <p className="eyebrow">SUPPORTING CAPABILITIES</p>
 
-              <div className="auxiliary-service-item item-1">
-                <div className="auxiliary-service-icon">
-                  <svg viewBox="0 0 48 48" aria-hidden="true">
-                    <path d="M8 40V15L24 7L40 15V40" />
-                    <path d="M15 40V23H33V40" />
-                    <path d="M19 17H19.1" />
-                    <path d="M29 17H29.1" />
-                    <path d="M19 29H19.1" />
-                    <path d="M29 29H29.1" />
-                  </svg>
-                </div>
+      <h2>
+        Comprehensive
+        <br />
+        <span>Auxiliary Services</span>
+      </h2>
 
-                <p>
-                  Design &amp; build <strong>staff and worker accommodations</strong>
-                </p>
-              </div>
+      <p className="auxiliary-redesign-description">
+        Integrated facilities and infrastructure that support
+        project delivery, site operations and workforce welfare.
+      </p>
 
-              <div className="auxiliary-service-item item-2">
-                <div className="auxiliary-service-icon">
-                  <svg viewBox="0 0 48 48" aria-hidden="true">
-                    <path d="M10 40V13H38V40" />
-                    <path d="M6 40H42" />
-                    <path d="M16 13V7H32V13" />
-                    <path d="M17 20H21" />
-                    <path d="M27 20H31" />
-                    <path d="M17 27H21" />
-                    <path d="M27 27H31" />
-                    <path d="M21 40V33H27V40" />
-                  </svg>
-                </div>
+      <div className="auxiliary-redesign-image"></div>
+    </div>
 
-                <p>
-                  Delivery of <strong>commercial buildings and retail spaces</strong>
-                </p>
-              </div>
+    {/* Right side */}
+    <div className="auxiliary-redesign-list">
 
-              <div className="auxiliary-service-item item-3">
-                <div className="auxiliary-service-icon">
-                  <svg viewBox="0 0 48 48" aria-hidden="true">
-                    <path d="M7 25H41" />
-                    <path d="M10 20C10 17 14 15 18 15C22 15 26 17 26 20" />
-                    <path d="M30 18C34 18 38 20 38 23V30H10V25" />
-                    <path d="M12 30V36" />
-                    <path d="M36 30V36" />
-                    <path d="M17 36H31" />
-                  </svg>
-                </div>
+      <div className="auxiliary-redesign-item">
+        <span className="auxiliary-redesign-number">01</span>
+        <div className="auxiliary-redesign-icon">
+          <svg viewBox="0 0 48 48" aria-hidden="true">
+            <path d="M6 22L24 7L42 22" />
+            <path d="M11 20V41H37V20" />
+            <path d="M17 41V28H31V41" />
+            <path d="M18 20H30" />
+            <path d="M20 34H28" />
+          </svg>
+        </div>
+        <div className="auxiliary-redesign-copy">
+          <h3>Staff &amp; Worker Accommodation</h3>
+          <p>Design and build workforce housing</p>
+        </div>
+        
+          <span className="auxiliary-redesign-arrow" aria-hidden="true">
+            <svg
+              viewBox="0 0 24 24"
+              width="20"
+              height="20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M7 17L17 7M8 7H17V16"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </span>
 
-                <p>
-                  Construction of <strong>swimming pools and sports facilities</strong>
-                </p>
-              </div>
+      </div>
 
-              <div className="auxiliary-service-item item-4">
-                <div className="auxiliary-service-icon">
-                  <svg viewBox="0 0 48 48" aria-hidden="true">
-                    <rect x="8" y="11" width="32" height="26" rx="3" />
-                    <circle cx="24" cy="24" r="7" />
-                    <path d="M17 11L20 7H28L31 11" />
-                    <path d="M24 21V24L27 26" />
-                  </svg>
-                </div>
+      <div className="auxiliary-redesign-item">
+        <span className="auxiliary-redesign-number">02</span>
+        <div className="auxiliary-redesign-icon">
+          <svg viewBox="0 0 48 48" aria-hidden="true">
+            <path d="M7 41V15H24V41" />
+            <path d="M24 41V7H41V41" />
+            <path d="M12 21H16M12 28H16M12 35H16" />
+            <path d="M29 14H33M29 21H33M29 28H33M29 35H33" />
+            <path d="M4 41H44" />
+          </svg>
+        </div>
+        <div className="auxiliary-redesign-copy">
+          <h3>Commercial &amp; Retail Buildings</h3>
+          <p>Delivery of commercial buildings and retail spaces</p>
+        </div>
+        
+          <span className="auxiliary-redesign-arrow" aria-hidden="true">
+            <svg
+              viewBox="0 0 24 24"
+              width="20"
+              height="20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M7 17L17 7M8 7H17V16"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </span>
 
-                <p>
-                  Full <strong>utilities and infrastructure</strong> support for turnkey projects
-                </p>
-              </div>
+      </div>
 
-              <div className="auxiliary-service-item item-5">
-                <div className="auxiliary-service-icon">
-                  <svg viewBox="0 0 48 48" aria-hidden="true">
-                    <rect x="9" y="8" width="30" height="32" rx="3" />
-                    <path d="M15 15H33" />
-                    <path d="M15 21H33" />
-                    <path d="M15 27H26" />
-                    <circle cx="32" cy="31" r="4" />
-                  </svg>
-                </div>
+      <div className="auxiliary-redesign-item">
+        <span className="auxiliary-redesign-number">03</span>
+        <div className="auxiliary-redesign-icon">
+          <svg viewBox="0 0 48 48" aria-hidden="true">
+            <circle cx="31" cy="11" r="4" />
+            <path d="M28 17L22 24L13 22" />
+            <path d="M22 24L29 29L35 23" />
+            <path d="M7 33H41" />
+            <path d="M10 33L13 40H35L38 33" />
+            <path d="M8 29H40" />
+          </svg>
+        </div>
+        <div className="auxiliary-redesign-copy">
+          <h3>Swimming Pools &amp; Sports Facilities</h3>
+          <p>Construction of recreational and sports facilities</p>
+        </div>
+        
+          <span className="auxiliary-redesign-arrow" aria-hidden="true">
+            <svg
+              viewBox="0 0 24 24"
+              width="20"
+              height="20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M7 17L17 7M8 7H17V16"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </span>
 
-                <p>
-                  Integrated delivery to enhance <strong>operational efficiency and workforce welfare</strong>
-                </p>
-              </div>
+      </div>
 
-            </div>
+      <div className="auxiliary-redesign-item">
+        <span className="auxiliary-redesign-number">04</span>
+        <div className="auxiliary-redesign-icon">
+          <svg viewBox="0 0 48 48" aria-hidden="true">
+            <circle cx="24" cy="24" r="12" />
+            <circle cx="24" cy="24" r="5" />
+            <path d="M24 5V12M24 36V43M5 24H12M36 24H43" />
+            <path d="M10 10L15 15M33 33L38 38M38 10L33 15M15 33L10 38" />
+          </svg>
+        </div>
+        <div className="auxiliary-redesign-copy">
+          <h3>Utilities &amp; Infrastructure</h3>
+          <p>Utility networks and infrastructure support for turnkey projects</p>
+        </div>
+        
+          <span className="auxiliary-redesign-arrow" aria-hidden="true">
+            <svg
+              viewBox="0 0 24 24"
+              width="20"
+              height="20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M7 17L17 7M8 7H17V16"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </span>
 
-            <div className="auxiliary-services-content">
+      </div>
 
-              <div className="auxiliary-corner auxiliary-corner-top"></div>
-              <div className="auxiliary-corner auxiliary-corner-bottom"></div>
+      <div className="auxiliary-redesign-item">
+        <span className="auxiliary-redesign-number">05</span>
+        <div className="auxiliary-redesign-icon">
+          <svg viewBox="0 0 48 48" aria-hidden="true">
+            <rect x="9" y="6" width="30" height="36" rx="3" />
+            <path d="M15 15H33M15 22H33M15 29H25" />
+            <circle cx="32" cy="33" r="5" />
+            <path d="M30 33L32 35L35 31" />
+          </svg>
+        </div>
+        <div className="auxiliary-redesign-copy">
+          <h3>Integrated Project Support</h3>
+          <p>Coordinated delivery to improve operational efficiency and workforce welfare</p>
+        </div>
+        
+          <span className="auxiliary-redesign-arrow" aria-hidden="true">
+            <svg
+              viewBox="0 0 24 24"
+              width="20"
+              height="20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M7 17L17 7M8 7H17V16"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </span>
 
-              <div className="auxiliary-divider"></div>
+      </div>
 
-              <div className="auxiliary-services-heading">
-                <h2>
-                  Comprehensive<br />
-                  <span>Auxiliary Services</span>
-                </h2>
+    </div>
+  </div>
+</section>
 
-                <p>
-                  Turnkey support beyond industrial construction to boost operations and workforce welfare
-                </p>
-              </div>
-
-            </div>
-
-          </div>
-
-        </section>
 
 
         <section className="quality-value-section reveal-section">
@@ -809,14 +972,15 @@ function SiteLayout() {
     <div className="service-footer-column">
       <span>SERVICES</span>
       <a href="/services/civil-construction">Civil Construction</a>
-      <a href="/services/electrical-works">Electrical Works</a>
+      <a href="/services/architectural-interior-finishes">Architectural & Interior Finishes</a>
       <a href="/services/mechanical-works">Mechanical Works</a>
-      <a href="/services/architectural-interior-design">Architectural & Interior Design</a>
-      <a href="/services/equipment-machine-installations">Equipment & Machine Installations</a>
-      <a href="/services/fire-detection-fire-fighting">Fire Detection & Fire Fighting System</a>
+      <a href="/services/electrical-works">Electrical Works</a>
       <a href="/services/hvac-works">HVAC Works</a>
+      <a href="/services/fire-detection-fire-fighting">Fire Detection & Fire Fighting System</a>
+      <a href="/services/pharmaceutical-cleanroom-facilities">Pharmaceutical & Cleanroom Facilities</a>
       <a href="/services/fitout-works">Fitout Works</a>
-    </div>
+      <a href="/services/equipment-machine-installations">Equipment & Machine Installations</a>
+      </div>
 
     <div className="service-footer-column">
       <span>CONTACT</span>
