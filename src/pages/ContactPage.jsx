@@ -268,23 +268,6 @@ export default function ContactPage() {
                 </div>
 
 
-                <div className="form-group">
-                  <label htmlFor="attachment">
-                    Attach File
-                  </label>
-
-                  <input
-                    id="attachment"
-                    type="file"
-                    accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
-                  />
-
-                  <small>
-                    PDF, DOC, DOCX, JPG or PNG
-                  </small>
-                </div>
-
-
                 <button
                   type="submit"
                   className="button primary contact-submit"

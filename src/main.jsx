@@ -752,19 +752,6 @@ useEffect(() => {
         </section>
 
 
-        <section id="careers" className="careers section">
-          <div className="container career-grid">
-            <div>
-              <p className="eyebrow">CAREERS</p>
-              <h2>Build your<br /><span>career with KSC.</span></h2>
-            </div>
-            <div>
-              <p className="lead">Join teams working on challenging construction and engineering projects across Saudi Arabia.</p>
-              <a className="button primary" href="#contact">Explore opportunities <Arrow /></a>
-            </div>
-          </div>
-        </section>
-
         <section id="contact" className="contact section">
           <div className="container contact-inner">
             <div>
@@ -808,104 +795,128 @@ function SiteLayout() {
           element={<ServicePage />}
         />
       </Routes>
-      <footer className="service-footer">
+      
+<footer className="service-footer">
   <div className="service-footer-main">
 
+    {/* KSC BRAND */}
     <div className="service-footer-brand">
-      <img
-        src="/images/logo.png"
-        alt="KSC Contracting Co."
-      />
+      <a href="/" aria-label="KSC home">
+        <img src="/images/logo.png" alt="Khamis Al Sharjah Contracting Co." />
+      </a>
 
       <p>
-        Engineering capability built around experience,
-        quality and dependable project delivery.
+        Delivering reliable construction, engineering and
+        industrial facility solutions across Saudi Arabia.
       </p>
+
+      <div className="footer-socials">
+        <a
+          href="https://wa.me/966558156899"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="WhatsApp"
+          title="WhatsApp"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M20 11.5a8 8 0 0 1-11.8 7L4 20l1.5-4A8 8 0 1 1 20 11.5Z" />
+            <path d="M9 8.5c.4 2.2 2.3 4.1 4.5 4.5l1.2-1.2 2 1c-.2 1.4-1.3 2.2-2.7 2-3.5-.6-6.3-3.4-6.9-6.9-.2-1.4.6-2.5 2-2.7l1 2Z" />
+          </svg>
+        </a>
+
+        <a
+          href="https://www.linkedin.com/company/khamis-al-sharjah-contracting-co/home/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LinkedIn"
+          title="LinkedIn"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M5 9v10M5 5v.1M10 19v-6a4 4 0 0 1 8 0v6M10 9v10" />
+          </svg>
+        </a>
+
+        <a
+          href="https://www.instagram.com/ksc_architecture/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram"
+          title="Instagram"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="3" y="3" width="18" height="18" rx="5" />
+            <circle cx="12" cy="12" r="4" />
+            <circle cx="17.5" cy="6.5" r="1" />
+          </svg>
+        </a>
+      </div>
     </div>
 
+    {/* COMPANY LINKS */}
     <div className="service-footer-column">
-      <span>COMPANY</span>
-      <a href="#home">Home</a>
+      <span className="footer-heading">COMPANY</span>
+      <a href="/">Home</a>
       <a href="/about">About KSC</a>
-      <a href="#services">Services</a>
       <a href="/projects">Projects</a>
-      <a href="#industries">Industries</a>
       <a href="/careers">Careers</a>
+      <a href="/contact">Contact Us</a>
+      <a href="/#contact">Get in Touch</a>
     </div>
 
+    {/* SERVICES */}
     <div className="service-footer-column">
-      <span>SERVICES</span>
+      <span className="footer-heading">SERVICES</span>
       <a href="/services/civil-construction">Civil Construction</a>
-      <a href="/services/architectural-interior-finishes">Architectural & Interior Finishes</a>
       <a href="/services/mechanical-works">Mechanical Works</a>
       <a href="/services/electrical-works">Electrical Works</a>
       <a href="/services/hvac-works">HVAC Works</a>
-      <a href="/services/fire-detection-fire-fighting">Fire Detection & Fire Fighting System</a>
-      <a href="/services/pharmaceutical-cleanroom-facilities">Pharmaceutical & Cleanroom Facilities</a>
+      <a href="/services/fire-detection-fire-fighting">
+        Fire Detection &amp; Fire Fighting
+      </a>
+      <a href="/services/pharmaceutical-cleanroom-facilities">
+        Pharmaceutical &amp; Cleanroom Facilities
+      </a>
       <a href="/services/fitout-works">Fitout Works</a>
-      <a href="/services/equipment-machine-installations">Equipment & Machine Installations</a>
-      </div>
-
-    <div className="service-footer-column">
-      <span>CONTACT</span>
-      <p>Saudi Arabia</p>
-      <p>+966 (0) 5100 20030</p>
-      <a href="#contact">Contact KSC</a>
+      <a href="/services/equipment-machine-installations">
+        Equipment &amp; Machine Installations
+      </a>
     </div>
 
-    <div className="footer-socials">
-      <a
-        href="https://wa.me/966558156899"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="WhatsApp"
-        title="WhatsApp"
-      >
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M20 11.5a8 8 0 0 1-11.8 7L4 20l1.5-4A8 8 0 1 1 20 11.5Z" />
-          <path d="M9 8.5c.4 2.2 2.3 4.1 4.5 4.5l1.2-1.2 2 1c-.2 1.4-1.3 2.2-2.7 2-3.5-.6-6.3-3.4-6.9-6.9-.2-1.4.6-2.5 2-2.7l1 2Z" />
-        </svg>
-      </a>
+    {/* INDUSTRIES AND CONTACT */}
+    <div className="service-footer-column footer-industries-contact">
+      <span className="footer-heading">INDUSTRIES</span>
+      <p>Food &amp; Beverage</p>
+      <p>Dairy &amp; Poultry</p>
+      <p>Beverage Manufacturing</p>
+      <p>Pharmaceutical Facilities</p>
+      <p>Cleanroom Facilities</p>
 
-      <a
-        href="https://www.linkedin.com/company/khamis-al-sharjah-contracting-co/home/"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="LinkedIn"
-        title="LinkedIn"
-      >
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M5 9v10M5 5v.1M10 19v-6a4 4 0 0 1 8 0v6M10 9v10" />
-        </svg>
-      </a>
-
-      <a
-        href="https://www.instagram.com/ksc_architecture/"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Instagram"
-        title="Instagram"
-      >
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <rect x="3" y="3" width="18" height="18" rx="5" />
-          <circle cx="12" cy="12" r="4" />
-          <circle cx="17.5" cy="6.5" r="1" />
-        </svg>
+      <span className="footer-heading footer-contact-heading">
+        CONTACT
+      </span>
+      <p>Riyadh, Kingdom of Saudi Arabia</p>
+      <a href="tel:+966510020030">+966 5100 200 30</a>
+      <a href="mailto:sales@ksc-sa.com">sales@ksc-sa.com</a>
+      <a className="footer-contact-link" href="/contact">
+        Contact KSC <span aria-hidden="true">↗</span>
       </a>
     </div>
 
   </div>
 
+  {/* BOTTOM BAR */}
   <div className="service-footer-bottom">
     <span className="ksc-copyright">
-  © 2026 KSC Contracting Co. All rights reserved.
-  <a href="/admin" className="ksc-admin-link">
-    Admin
-  </a>
-</span>
-    <span>Engineering What's Next.</span>
+      © {new Date().getFullYear()} KSC Contracting Co. All rights reserved.
+      <a href="/admin" className="ksc-admin-link">
+        Admin
+      </a>
+    </span>
+
+    <span className="footer-tagline">Engineering What's Next.</span>
   </div>
 </footer>
+
     </>
   );
 }

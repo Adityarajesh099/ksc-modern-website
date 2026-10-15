@@ -242,13 +242,6 @@ export default function ProjectsPage() {
 
             <h3>{project.name || project.title}</h3>
 
-            <button
-              type="button"
-              className="view-project-images-btn"
-              onClick={() => setSelectedProject(project)}
-            >
-              View Images →
-            </button>
 
             <p>{project.description || "Project details will be updated soon."}</p>
 
@@ -272,6 +265,16 @@ export default function ProjectsPage() {
 
             </div>
 
+           <button
+              type="button"
+              className="view-project-images-btn"
+              onClick={() => {
+                setActiveGalleryIndex(0);
+                setSelectedProject(project);
+              }}
+            >
+              View Images →
+            </button>
           
 
           </div>
@@ -323,16 +326,6 @@ export default function ProjectsPage() {
 
             <h3>{project.name || project.title || "KSC Project"}</h3>
 
-            <button
-              type="button"
-              className="view-project-images-btn"
-              onClick={() => {
-                setActiveGalleryIndex(0);
-                setSelectedProject(project);
-              }}
-            >
-              View Images →
-            </button>
 
             <p>
               {project.description || "Project details will be updated soon."}
@@ -355,11 +348,22 @@ export default function ProjectsPage() {
                 <strong>{project.status}</strong>
               </div>
 
+              
+
 
 
             </div>
 
-            
+            <button
+              type="button"
+              className="view-project-images-btn"
+              onClick={() => {
+                setActiveGalleryIndex(0);
+                setSelectedProject(project);
+              }}
+            >
+              View Images →
+            </button> 
 
           </div>
 
