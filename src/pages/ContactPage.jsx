@@ -16,7 +16,7 @@ export default function ContactPage() {
       
       <section className="contact-hero">
         <img
-          src="/images/contactimg.png"
+          src="/images/Contacthero.png"
           alt=""
           className="contact-hero-image"
           aria-hidden="true"
@@ -554,7 +554,7 @@ export default function ContactPage() {
           </p>
 
           <a
-            href="mailto:info@ksc-sa.com"
+            href="/contact"
             className="button white"
           >
             Start a Conversation

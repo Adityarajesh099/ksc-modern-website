@@ -444,7 +444,7 @@ export default function ProjectsPage() {
             </h2>
           </div>
 
-          <a className="button primary" href="/#contact">
+          <a className="button primary" href="/contact">
             Talk to KSC
             <span className="arrow">↗</span>
           </a>
