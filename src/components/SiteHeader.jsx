@@ -108,9 +108,14 @@ useEffect(() => {
                 Civil Construction
               </a>
 
-              <a href="/services/architectural-interior-design">
-                Architectural & Interior Design
+              
+              <a
+                href="/services/architectural-interior-finishes"
+                onClick={closeMenu}
+              >
+                Architectural &amp; Interior Design
               </a>
+
 
               <a href="/services/mechanical-works">
                 Mechanical Works

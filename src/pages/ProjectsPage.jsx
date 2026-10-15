@@ -99,6 +99,8 @@ export default function ProjectsPage() {
 }
 
   const [projects, setProjects] = useState([]);
+  const [selectedProject, setSelectedProject] = useState(null); 
+  const [activeGalleryIndex, setActiveGalleryIndex] = useState(0);
 
   useEffect(() => {
     const loadProjects = async () => {
@@ -235,10 +237,18 @@ export default function ProjectsPage() {
             </span>
           </div>
 
-          <div className="project-detail-content">
+          <div className="project-detail-content project-detail-overlay">
         
 
             <h3>{project.name || project.title}</h3>
+
+            <button
+              type="button"
+              className="view-project-images-btn"
+              onClick={() => setSelectedProject(project)}
+            >
+              View Images →
+            </button>
 
             <p>{project.description || "Project details will be updated soon."}</p>
 
@@ -254,10 +264,6 @@ export default function ProjectsPage() {
                 <strong>{project.location}</strong>
               </div>
 
-              <div>
-                <span>STARTED</span>
-                <strong>{project.start_date || project.startDate || "—"}</strong>
-              </div>
 
               <div>
                 <span>STATUS</span>
@@ -266,15 +272,7 @@ export default function ProjectsPage() {
 
             </div>
 
-            <div className="project-scope">
-              <span>SCOPE OF WORK</span>
-
-              <div>
-                {(project.scope || []).map((item) => (
-                  <span key={item}>{item}</span>
-                ))}
-              </div>
-            </div>
+          
 
           </div>
 
@@ -320,10 +318,21 @@ export default function ProjectsPage() {
             </span>
           </div>
 
-          <div className="project-detail-content">
+          <div className="project-detail-content project-detail-overlay">
 
 
             <h3>{project.name || project.title || "KSC Project"}</h3>
+
+            <button
+              type="button"
+              className="view-project-images-btn"
+              onClick={() => {
+                setActiveGalleryIndex(0);
+                setSelectedProject(project);
+              }}
+            >
+              View Images →
+            </button>
 
             <p>
               {project.description || "Project details will be updated soon."}
@@ -342,26 +351,15 @@ export default function ProjectsPage() {
               </div>
 
               <div>
-                <span>STARTED</span>
-                <strong>{project.start_date || project.startDate || "—"}</strong>
+                <span>STATUS</span>
+                <strong>{project.status}</strong>
               </div>
 
-              <div>
-                <span>COMPLETED</span>
-                <strong>{project.completionDate}</strong>
-              </div>
+
 
             </div>
 
-            <div className="project-scope">
-              <span>SCOPE OF WORK</span>
-
-              <div>
-                {(project.scope || []).map((item) => (
-                  <span key={item}>{item}</span>
-                ))}
-              </div>
-            </div>
+            
 
           </div>
 
@@ -449,6 +447,88 @@ export default function ProjectsPage() {
 
         </div>
       </section>
+
+      {selectedProject && (
+      <div
+        className="project-gallery-modal"
+        onClick={() => setSelectedProject(null)}
+      >
+        <div
+          className="project-gallery-content"
+          onClick={(e) => e.stopPropagation()}
+        >
+          <button
+            className="project-gallery-close"
+            onClick={() => setSelectedProject(null)}
+            aria-label="Close gallery"
+          >
+            ×
+          </button>
+
+          <h2>{selectedProject.name || selectedProject.title}</h2>
+
+          {(() => {
+            const images = (selectedProject.images || [])
+              .map((image) => image.url)
+              .filter(Boolean);
+
+            if (!images.length) {
+              return <p>No images available for this project.</p>;
+            }
+
+            return (
+              <>
+                <img
+                  className="project-gallery-main-image"
+                  src={images[activeGalleryIndex]}
+                  alt={selectedProject.name || selectedProject.title}
+                />
+
+                <div className="project-gallery-controls">
+                  <button
+                    onClick={() =>
+                      setActiveGalleryIndex((i) =>
+                        i === 0 ? images.length - 1 : i - 1
+                      )
+                    }
+                  >
+                    ← Previous
+                  </button>
+
+                  <span>
+                    {activeGalleryIndex + 1} / {images.length}
+                  </span>
+
+                  <button
+                    onClick={() =>
+                      setActiveGalleryIndex((i) =>
+                        (i + 1) % images.length
+                      )
+                    }
+                  >
+                    Next →
+                  </button>
+                </div>
+
+                <div className="project-gallery-thumbnails">
+                  {images.map((src, index) => (
+                    <img
+                      key={src + index}
+                      src={src}
+                      alt={`Project image ${index + 1}`}
+                      className={
+                        index === activeGalleryIndex ? "active" : ""
+                      }
+                      onClick={() => setActiveGalleryIndex(index)}
+                    />
+                  ))}
+                </div>
+              </>
+            );
+          })()}
+        </div>
+      </div>
+    )}
 
     </main>
   );

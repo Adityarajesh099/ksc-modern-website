@@ -9,7 +9,7 @@ const services = [
     name: "Civil Construction",
   },
   {
-    slug: "architectural-interior-design",
+    slug: "architectural-interior-finishes",
     number: "02",
     name: "Architectural & Interior Finishes",
   },

@@ -82,9 +82,6 @@ highlights: {
   ],
   images: [
     "/images/Electrical-001.png",
-    "/images/Electrical-001.png",
-    "/images/Electrical-001.png",
-    "/images/Electrical-001.png"
   ],
 
   highlights: {
@@ -136,9 +133,6 @@ highlights: {
   ],
   images: [
     "/images/Mechanical-001.png",
-    "/images/mechanical-2.jpeg",
-    "/images/mechanical-3.jpeg",
-    "/images/mechanical-4.jpeg"
   ],
   
   highlights: {
@@ -167,11 +161,11 @@ highlights: {
 },
 },
 
-  "architectural-interior-design": {
+  "architectural-interior-finishes": {
   number: "04",
   title: "Architectural & Interior Design",
   label: "ARCHITECTURAL & INTERIOR DESIGN",
-  exploreImage: "/images/Architectural-001.jpg",
+  exploreImage: "/images/Architectural-New.jpeg",
   description:
     "KSC provides architectural and interior design solutions that combine functional planning, technical coordination and refined design. Our approach supports projects from concept development and design coordination through to detailed execution.",
   benefits: [
@@ -188,10 +182,7 @@ highlights: {
     "Residential Interior Design"
   ],
   images: [
-    "/images/Architectural-001.jpg",
-    "/images/architectural-2.jpeg",
-    "/images/architectural-3.jpeg",
-    "/images/architectural-4.jpeg"
+    "/images/Architectural-New.jpeg",
   ],
 
   highlights: {

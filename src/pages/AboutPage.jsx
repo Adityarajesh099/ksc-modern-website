@@ -22,8 +22,8 @@ const services = [
   {
     number: "04",
     title: "Architectural & Interior Design",
-    slug: "architectural-interior-design",
-    image: "/images/Architectural-001.jpg",
+    slug: "architectural-interior-finishes",
+    image: "/images/Architectural-New.jpeg",
   },
   {
     number: "05",
