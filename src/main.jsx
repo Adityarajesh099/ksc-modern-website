@@ -606,70 +606,209 @@ useEffect(() => {
         
 
 <section className="auxiliary-services section">
-  <div className="auxiliary-services-inner">
+  <div className="auxiliary-redesign">
 
-    {/* LEFT: COLOURED SERVICE LIST */}
-    <div className="auxiliary-services-list">
+    {/* Left side */}
+    <div className="auxiliary-redesign-left">
+      <p className="eyebrow">SUPPORTING CAPABILITIES</p>
 
-      <div className="auxiliary-service-item item-1">
-        <div className="auxiliary-service-icon">
-          <span>01</span>
+      <h2>
+        Comprehensive
+        <br />
+        <span>Auxiliary Services</span>
+      </h2>
+
+      <p className="auxiliary-redesign-description">
+        Integrated facilities and infrastructure that support
+        project delivery, site operations and workforce welfare.
+      </p>
+
+      <div className="auxiliary-redesign-image"></div>
+    </div>
+
+    {/* Right side */}
+    <div className="auxiliary-redesign-list">
+
+      <div className="auxiliary-redesign-item">
+        <span className="auxiliary-redesign-number">01</span>
+        <div className="auxiliary-redesign-icon">
+          <svg viewBox="0 0 48 48" aria-hidden="true">
+            <path d="M6 22L24 7L42 22" />
+            <path d="M11 20V41H37V20" />
+            <path d="M17 41V28H31V41" />
+            <path d="M18 20H30" />
+            <path d="M20 34H28" />
+          </svg>
         </div>
-        <p><strong>Staff &amp; Worker Accommodation</strong></p>
+        <div className="auxiliary-redesign-copy">
+          <h3>Staff &amp; Worker Accommodation</h3>
+          <p>Design and build workforce housing</p>
+        </div>
+        
+          <span className="auxiliary-redesign-arrow" aria-hidden="true">
+            <svg
+              viewBox="0 0 24 24"
+              width="20"
+              height="20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M7 17L17 7M8 7H17V16"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </span>
+
       </div>
 
-      <div className="auxiliary-service-item item-2">
-        <div className="auxiliary-service-icon">
-          <span>02</span>
+      <div className="auxiliary-redesign-item">
+        <span className="auxiliary-redesign-number">02</span>
+        <div className="auxiliary-redesign-icon">
+          <svg viewBox="0 0 48 48" aria-hidden="true">
+            <path d="M7 41V15H24V41" />
+            <path d="M24 41V7H41V41" />
+            <path d="M12 21H16M12 28H16M12 35H16" />
+            <path d="M29 14H33M29 21H33M29 28H33M29 35H33" />
+            <path d="M4 41H44" />
+          </svg>
         </div>
-        <p><strong>Commercial &amp; Retail Buildings</strong></p>
+        <div className="auxiliary-redesign-copy">
+          <h3>Commercial &amp; Retail Buildings</h3>
+          <p>Delivery of commercial buildings and retail spaces</p>
+        </div>
+        
+          <span className="auxiliary-redesign-arrow" aria-hidden="true">
+            <svg
+              viewBox="0 0 24 24"
+              width="20"
+              height="20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M7 17L17 7M8 7H17V16"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </span>
+
       </div>
 
-      <div className="auxiliary-service-item item-3">
-        <div className="auxiliary-service-icon">
-          <span>03</span>
+      <div className="auxiliary-redesign-item">
+        <span className="auxiliary-redesign-number">03</span>
+        <div className="auxiliary-redesign-icon">
+          <svg viewBox="0 0 48 48" aria-hidden="true">
+            <circle cx="31" cy="11" r="4" />
+            <path d="M28 17L22 24L13 22" />
+            <path d="M22 24L29 29L35 23" />
+            <path d="M7 33H41" />
+            <path d="M10 33L13 40H35L38 33" />
+            <path d="M8 29H40" />
+          </svg>
         </div>
-        <p><strong>Swimming Pools &amp; Sports Facilities</strong></p>
+        <div className="auxiliary-redesign-copy">
+          <h3>Swimming Pools &amp; Sports Facilities</h3>
+          <p>Construction of recreational and sports facilities</p>
+        </div>
+        
+          <span className="auxiliary-redesign-arrow" aria-hidden="true">
+            <svg
+              viewBox="0 0 24 24"
+              width="20"
+              height="20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M7 17L17 7M8 7H17V16"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </span>
+
       </div>
 
-      <div className="auxiliary-service-item item-4">
-        <div className="auxiliary-service-icon">
-          <span>04</span>
+      <div className="auxiliary-redesign-item">
+        <span className="auxiliary-redesign-number">04</span>
+        <div className="auxiliary-redesign-icon">
+          <svg viewBox="0 0 48 48" aria-hidden="true">
+            <circle cx="24" cy="24" r="12" />
+            <circle cx="24" cy="24" r="5" />
+            <path d="M24 5V12M24 36V43M5 24H12M36 24H43" />
+            <path d="M10 10L15 15M33 33L38 38M38 10L33 15M15 33L10 38" />
+          </svg>
         </div>
-        <p><strong>Utilities &amp; Infrastructure</strong></p>
+        <div className="auxiliary-redesign-copy">
+          <h3>Utilities &amp; Infrastructure</h3>
+          <p>Utility networks and infrastructure support for turnkey projects</p>
+        </div>
+        
+          <span className="auxiliary-redesign-arrow" aria-hidden="true">
+            <svg
+              viewBox="0 0 24 24"
+              width="20"
+              height="20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M7 17L17 7M8 7H17V16"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </span>
+
       </div>
 
-      <div className="auxiliary-service-item item-5">
-        <div className="auxiliary-service-icon">
-          <span>05</span>
+      <div className="auxiliary-redesign-item">
+        <span className="auxiliary-redesign-number">05</span>
+        <div className="auxiliary-redesign-icon">
+          <svg viewBox="0 0 48 48" aria-hidden="true">
+            <rect x="9" y="6" width="30" height="36" rx="3" />
+            <path d="M15 15H33M15 22H33M15 29H25" />
+            <circle cx="32" cy="33" r="5" />
+            <path d="M30 33L32 35L35 31" />
+          </svg>
         </div>
-        <p><strong>Integrated Project Support</strong></p>
+        <div className="auxiliary-redesign-copy">
+          <h3>Integrated Project Support</h3>
+          <p>Coordinated delivery to improve operational efficiency and workforce welfare</p>
+        </div>
+        
+          <span className="auxiliary-redesign-arrow" aria-hidden="true">
+            <svg
+              viewBox="0 0 24 24"
+              width="20"
+              height="20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M7 17L17 7M8 7H17V16"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </span>
+
       </div>
 
     </div>
-
-    {/* RIGHT: CENTRED HEADING */}
-    <div className="auxiliary-services-content">
-
-      <div className="auxiliary-divider"></div>
-      <div className="auxiliary-corner auxiliary-corner-top"></div>
-      <div className="auxiliary-corner auxiliary-corner-bottom"></div>
-
-      <div className="auxiliary-services-heading">
-        <h2>
-          Comprehensive
-          <br />
-          <span>Auxiliary Services</span>
-        </h2>
-
-        <p>
-          Integrated facilities and infrastructure that support
-          project delivery, site operations and workforce welfare.
-        </p>
-      </div>
-
-    </div>
-
   </div>
 </section>
 
