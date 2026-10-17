@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ServicePage from "./pages/ServicePage";
 import AboutPage from "./pages/AboutPage";
@@ -247,12 +247,40 @@ useEffect(() => {
 }, [aboutImages.length]);
 
 
+const heroVideos = [
+  "/images/ksc-hero.mp4",
+];
+
+const [activeVideo, setActiveVideo] = useState(0);
+
+const handleVideoEnded = () => {
+  setActiveVideo((current) => (current + 1) % heroVideos.length);
+};
+
+
   return (
     <div className="site">
             
 
       <main>
         <section id="home" className="hero">
+          
+        
+<video
+  className="hero-background-video"
+  autoPlay
+  muted
+  loop
+  playsInline
+  preload="auto"
+>
+  <source src="/images/ksc-hero.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
+
+
+
+
           <div className="hero-image">
             {heroImages.map((image, index) => (
               <img
@@ -304,8 +332,7 @@ useEffect(() => {
           </div>
         </section>
 
-        <section id="about" className="intro section reveal-section">
-          
+        <section id="about" className="intro section reveal-section">          
             <div className="container intro-grid">
               <div className="intro-title">
                 <p className="eyebrow">ABOUT KSC</p>
