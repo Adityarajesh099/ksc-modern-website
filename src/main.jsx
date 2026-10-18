@@ -302,8 +302,8 @@ const handleVideoEnded = () => {
               <p className="eyebrow light">KHAMIS AL SHARJAH CONTRACTING CO.</p>
             </div>
             <h2 className="hero-title">
-              <span className="hero-title-green">Building The Future</span>
-              <span className="hero-title-white">Driven by Excellence</span>
+              <span className="hero-title-green">Your Trusted Partner</span>
+              <span className="hero-title-white">for Turnkey Construction Solutions</span>
             </h2>
             <p className="hero-copy hero-description">
               Delivering innovative construction and engineering solutions that turn ambitious visions into lasting landmarks
