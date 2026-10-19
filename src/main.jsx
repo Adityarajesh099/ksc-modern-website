@@ -252,7 +252,7 @@ useEffect(() => {
 
 const heroVideos = [
   "/images/ksc-hero-edit1.mp4",
-  "/images/KSC v1.mp4",
+  "/images/Ksc V1.mp4",
   "/images/KSC v2.mp4",
 ];
 
