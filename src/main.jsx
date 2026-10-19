@@ -82,6 +82,9 @@ function App() {
     const [heroImage, setHeroImage] = useState(0);
     const [currentProfileExists, setCurrentProfileExists] = useState(false);
 
+
+const [showHeroText, setShowHeroText] = useState(false);
+
     
 useEffect(() => {
   const checkCompanyProfile = async () => {
@@ -248,15 +251,18 @@ useEffect(() => {
 
 
 const heroVideos = [
-  "/images/ksc-hero.mp4",
+  "/images/ksc-hero-edit1.mp4",
+  "/images/KSC v1.mp4",
+  "/images/KSC v2.mp4",
 ];
 
 const [activeVideo, setActiveVideo] = useState(0);
 
 const handleVideoEnded = () => {
-  setActiveVideo((current) => (current + 1) % heroVideos.length);
+  if (activeVideo < heroVideos.length - 1) {
+    setActiveVideo((current) => current + 1);
+  }
 };
-
 
   return (
     <div className="site">
@@ -266,16 +272,28 @@ const handleVideoEnded = () => {
         <section id="home" className="hero">
           
         
+
 <video
+  key={heroVideos[activeVideo]}
   className="hero-background-video"
   autoPlay
   muted
-  loop
   playsInline
   preload="auto"
+  onPlaying={() => setShowHeroText(true)}
+  onEnded={handleVideoEnded}
+  onError={(e) => {
+    console.error(
+      "Hero video error:",
+      e.currentTarget.currentSrc,
+      e.currentTarget.error
+    );
+  }}
 >
-  <source src="/images/ksc-hero.mp4" type="video/mp4" />
-  Your browser does not support the video tag.
+  <source
+    src={heroVideos[activeVideo]}
+    type="video/mp4"
+  />
 </video>
 
 
@@ -303,7 +321,8 @@ const handleVideoEnded = () => {
             </div>
             <h2 className="hero-title">
               <span className="hero-title-green">Your Trusted Partner</span>
-              <span className="hero-title-white">for Turnkey Construction Solutions</span>
+              <span className="hero-title-white">for Turnkey Construction</span>
+              <span className="hero-title-green">Solutions</span>
             </h2>
             <p className="hero-copy hero-description">
               Delivering innovative construction and engineering solutions that turn ambitious visions into lasting landmarks
