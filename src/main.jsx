@@ -252,8 +252,16 @@ useEffect(() => {
 
 const heroVideos = [
   "/images/ksc-hero-edit1.mp4",
-  "/images/KSC-v1-compressed.mp4",
-  "/images/KSC v2.mp4",
+  "/images/video1.mp4",
+  "/images/video2.mp4",
+  "/images/video3.mp4",
+  "/images/video4.mp4",
+  "/images/video5.mp4",
+  "/images/video6.mp4",
+  "/images/video7.mp4",
+  "/images/video8.mp4",
+  "/images/video10.mp4",
+  "/images/video11.mp4",
 ];
 
 const [activeVideo, setActiveVideo] = useState(0);
