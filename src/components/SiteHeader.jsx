@@ -7,7 +7,40 @@
     const [currentProfileExists, setCurrentProfileExists] = useState(null);
 
   
+
 useEffect(() => {
+  let active = true;
+
+  const checkCompanyProfile = async () => {
+    try {
+      const { data, error } = await supabase.storage
+        .from("company-profile")
+        .list("", {
+          search: "KSC-Company-Profile.pdf",
+        });
+
+      if (!active || error) {
+        return;
+      }
+
+      const exists = Boolean(
+        data?.some(
+          (file) => file.name === "KSC-Company-Profile.pdf"
+        )
+      );
+
+      sessionStorage.setItem(
+        "kscCompanyProfileExists",
+        String(exists)
+      );
+
+      setCurrentProfileExists(exists);
+    } catch (error) {
+      console.error("Could not check company profile:", error);
+    }
+  };
+
+  // Display the last known status immediately.
   const cachedStatus = sessionStorage.getItem(
     "kscCompanyProfileExists"
   );
@@ -16,38 +49,58 @@ useEffect(() => {
     setCurrentProfileExists(cachedStatus === "true");
   }
 
-  let active = true;
-
-  const checkCompanyProfile = async () => {
-    const { data, error } = await supabase.storage
-      .from("company-profile")
-      .list("", {
-        search: "KSC-Company-Profile.pdf",
-      });
-
-    // Keep the cached result if Supabase temporarily fails.
-    if (error || !active) return;
-
-    const exists = Boolean(
-      data?.some(
-        (file) => file.name === "KSC-Company-Profile.pdf"
-      )
-    );
-
-    sessionStorage.setItem(
-      "kscCompanyProfileExists",
-      String(exists)
-    );
-
-    setCurrentProfileExists(exists);
-  };
-
+  // Verify the current status from Supabase.
   checkCompanyProfile();
 
+
+  // Recheck when the user returns to this browser tab.
+  const handleVisibilityChange = () => {
+    if (document.visibilityState === "visible") {
+      checkCompanyProfile();
+    }
+  };
+
+  // Update the navbar when the admin uploads or deletes the PDF.
+  const handleCompanyProfileUpdated = () => {
+    const cachedStatus = sessionStorage.getItem(
+      "kscCompanyProfileExists"
+    );
+
+    if (cachedStatus !== null) {
+      setCurrentProfileExists(cachedStatus === "true");
+    }
+
+    // Verify the latest status from Supabase.
+    checkCompanyProfile();
+  };
+
+  document.addEventListener(
+    "visibilitychange",
+    handleVisibilityChange
+  );
+
+  window.addEventListener(
+    "companyProfileUpdated",
+    handleCompanyProfileUpdated
+  );
+
+
+  
   return () => {
     active = false;
+
+    document.removeEventListener(
+      "visibilitychange",
+      handleVisibilityChange
+    );
+
+    window.removeEventListener(
+      "companyProfileUpdated",
+      handleCompanyProfileUpdated
+    );
   };
 }, []);
+
 
 
     useEffect(() => {
@@ -188,6 +241,7 @@ useEffect(() => {
                   <path d="M12 15V3" />
                 </svg>
               </a>
+
 
             )}
 

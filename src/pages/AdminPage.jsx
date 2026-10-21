@@ -1251,6 +1251,8 @@ if (!session) {
               });
 
             if (error) throw error;
+            sessionStorage.setItem("kscCompanyProfileExists", "true");
+            window.dispatchEvent(new Event("companyProfileUpdated"));
 
             setProfileFile(null);
             await checkCompanyProfile();
@@ -1295,6 +1297,10 @@ if (!session) {
               .remove(["KSC-Company-Profile.pdf"]);
 
             if (error) throw error;
+
+            // Update the navbar immediately after successful deletion
+            sessionStorage.setItem("kscCompanyProfileExists", "false");
+            window.dispatchEvent(new Event("companyProfileUpdated"));
             await checkCompanyProfile();
             alert("Company profile PDF deleted successfully!");
 
