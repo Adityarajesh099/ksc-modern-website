@@ -1141,23 +1141,80 @@ if (!session) {
 
                 
 
+
+
+
+
 {currentProfileName && (
-  <div className="current-company-profile">
-    <p>
-      <strong>Current company profile:</strong>
+  <div
+    className="current-company-profile"
+    style={{
+      marginTop: "20px",
+      padding: "14px",
+      border: "1px solid #d8d8d0",
+      borderRadius: "8px",
+      background: "#ffffff",
+    }}
+  >
+    <p style={{ marginTop: 0, fontWeight: 600 }}>
+      Current company profile:
     </p>
 
-    <p>{currentProfileName}</p>
-
-    <a
-      href={`${import.meta.env.VITE_SUPABASE_URL}/storage/v1/object/public/company-profile/KSC-Company-Profile.pdf`}
-      target="_blank"
-      rel="noopener noreferrer"
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        gap: "12px",
+      }}
     >
-      View / Download PDF
-    </a>
+      <div
+        style={{
+          width: "48px",
+          height: "56px",
+          background: "#f5e8e6",
+          color: "#b42318",
+          borderRadius: "6px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          fontWeight: 700,
+          fontSize: "12px",
+          flexShrink: 0,
+        }}
+      >
+        PDF
+      </div>
+
+      <div style={{ flex: 1, minWidth: 0 }}>
+        <p
+          style={{
+            margin: "0 0 6px",
+            fontWeight: 600,
+            overflowWrap: "anywhere",
+          }}
+        >
+          {currentProfileName}
+        </p>
+
+        <a
+          href={`${import.meta.env.VITE_SUPABASE_URL}/storage/v1/object/public/company-profile/KSC-Company-Profile.pdf`}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            color: "#596c32",
+            fontWeight: 600,
+            textDecoration: "none",
+          }}
+        >
+          Open / Download PDF ↗
+        </a>
+      </div>
+    </div>
   </div>
 )}
+
+
+
 
 
 
