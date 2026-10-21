@@ -164,6 +164,7 @@ useEffect(() => {
           
           
             {currentProfileExists === true && (
+              
               <a
                 className="nav-download"
                 href={`${import.meta.env.VITE_SUPABASE_URL}/storage/v1/object/public/company-profile/KSC-Company-Profile.pdf?download`}
@@ -187,6 +188,7 @@ useEffect(() => {
                   <path d="M12 15V3" />
                 </svg>
               </a>
+
             )}
 
 
