@@ -267,9 +267,7 @@ const heroVideos = [
 const [activeVideo, setActiveVideo] = useState(0);
 
 const handleVideoEnded = () => {
-  if (activeVideo < heroVideos.length - 1) {
-    setActiveVideo((current) => current + 1);
-  }
+  setActiveVideo((current) => (current + 1) % heroVideos.length);
 };
 
   return (
