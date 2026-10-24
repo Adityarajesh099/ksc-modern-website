@@ -252,22 +252,15 @@ useEffect(() => {
 
 const heroVideos = [
   "/images/ksc-hero-edit1.mp4",
-  "/images/video1.mp4",
-  "/images/video2.mp4",
-  "/images/video3.mp4",
-  "/images/video4.mp4",
-  "/images/video5.mp4",
-  "/images/video6.mp4",
-  "/images/video7.mp4",
-  "/images/video8.mp4",
-  "/images/video10.mp4",
-  "/images/video11.mp4",
+  "/images/ksc-hero-compressed.mp4",
 ];
 
 const [activeVideo, setActiveVideo] = useState(0);
 
 const handleVideoEnded = () => {
-  setActiveVideo((current) => (current + 1) % heroVideos.length);
+  if (activeVideo < heroVideos.length - 1) {
+    setActiveVideo((current) => current + 1);
+  }
 };
 
   return (

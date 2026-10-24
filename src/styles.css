@@ -8329,8 +8329,8 @@ body::-webkit-scrollbar {
   background: linear-gradient(
     90deg,
     rgba(32, 37, 26, 0.95) 0%,
-    rgba(32, 37, 26, 0.68) 10%,
-    rgba(32, 37, 26, 0.25) 60%
+    rgba(32, 37, 26, 0.68) 0%,
+    rgba(32, 37, 26, 0.25) 100%
   ) !important;
 
   opacity: 1 !important;
@@ -8442,3 +8442,4 @@ body::-webkit-scrollbar {
     transform: none;
   }
 }
+
