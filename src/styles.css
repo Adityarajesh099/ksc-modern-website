@@ -8443,3 +8443,467 @@ body::-webkit-scrollbar {
   }
 }
 
+
+
+
+
+
+
+
+/* ==========================================
+   KSC DIAGONAL CLIENTS & PARTNERS
+   Premium ivory • olive • floating logo wall
+========================================== */
+
+.clients-section {
+  --clients-olive: #78894a;
+  --clients-olive-dark: #536536;
+  --clients-ink: #20251b;
+  --clients-muted: #64695e;
+  --clients-gap: 18px;
+  --clients-tile-height: 135px;
+
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: clamp(75px, 9vw, 120px) 0;
+  color: var(--clients-ink);
+  background:
+    radial-gradient(
+      ellipse at 78% 48%,
+      rgba(166, 188, 119, 0.18),
+      transparent 43%
+    ),
+    linear-gradient(
+      135deg,
+      #ffffff 0%,
+      #fafbf6 54%,
+      #f0f3e8 100%
+    );
+}
+
+/* Subtle architectural grid */
+.clients-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.35;
+  background-image:
+    linear-gradient(rgba(89, 108, 61, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(89, 108, 61, 0.045) 1px, transparent 1px);
+  background-size: 52px 52px;
+
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    #000 45%,
+    #000 100%
+  );
+  mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    #000 45%,
+    #000 100%
+  );
+}
+
+/* Layout */
+.clients-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  align-items: center;
+  gap: clamp(35px, 5vw, 75px);
+}
+
+/* ==========================================
+   LEFT SIDE — HEADING AND DESCRIPTION
+========================================== */
+
+.clients-copy {
+  position: relative;
+  z-index: 2;
+  max-width: 540px;
+}
+
+.clients-copy .eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  color: var(--clients-olive-dark);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.19em;
+  line-height: 1.5;
+}
+
+.clients-copy .eyebrow::before {
+  content: "";
+  width: 25px;
+  height: 2px;
+  flex-shrink: 0;
+  border-radius: 4px;
+  background: var(--clients-olive);
+}
+
+.clients-copy h2 {
+  margin: 25px 0 22px;
+  color: var(--clients-ink);
+  font-size: clamp(2.65rem, 4.5vw, 4.5rem);
+  font-weight: 750;
+  line-height: 1.04;
+  letter-spacing: -0.06em;
+  opacity: 1;
+}
+
+.clients-copy h2 span {
+  display: block;
+  margin-top: 10px;
+  color: var(--clients-olive);
+  font-weight: 750;
+  opacity: 1;
+}
+
+.clients-description {
+  max-width: 440px;
+  margin: 0;
+  color: var(--clients-muted);
+  font-size: 1rem;
+  line-height: 1.9;
+  opacity: 1;
+}
+
+.clients-caption {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  margin-top: 34px;
+  color: #656b5a;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  line-height: 1.7;
+  opacity: 1;
+}
+
+.clients-caption-dot {
+  width: 8px;
+  height: 8px;
+  flex: 0 0 8px;
+  border-radius: 50%;
+  background: var(--clients-olive);
+  box-shadow: 0 0 0 5px rgba(120, 137, 74, 0.14);
+}
+
+/* ==========================================
+   RIGHT SIDE — ANIMATED LOGO WALL
+========================================== */
+
+.clients-conveyor {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: start;
+  gap: var(--clients-gap);
+  height: 560px;
+  overflow: hidden;
+  isolation: isolate;
+
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    #000 10%,
+    #000 90%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    #000 10%,
+    #000 90%,
+    transparent 100%
+  );
+}
+
+.clients-column {
+  position: relative;
+  min-width: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Stagger each column */
+.clients-column-1 {
+  padding-top: 32px;
+}
+
+.clients-column-2 {
+  padding-top: 0;
+}
+
+.clients-column-3 {
+  padding-top: 50px;
+}
+
+/* Duplicated logos make the vertical loop */
+.clients-column-track {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--clients-gap);
+  width: 100%;
+  will-change: transform;
+  animation: clients-flow-up 28s linear infinite;
+}
+
+.clients-column-2 .clients-column-track {
+  animation-name: clients-flow-down;
+  animation-duration: 32s;
+}
+
+.clients-column-3 .clients-column-track {
+  animation-duration: 25s;
+}
+
+/* ==========================================
+   TILTED FLOATING CARDS
+========================================== */
+
+.clients-logo-tile {
+  position: relative;
+  display: flex;
+  flex: 0 0 var(--clients-tile-height);
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  height: var(--clients-tile-height);
+  padding: 16px;
+  overflow: hidden;
+
+  border: 1px solid rgba(111, 132, 75, 0.16);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.96);
+
+  box-shadow:
+    0 4px 12px rgba(39, 48, 30, 0.035),
+    0 15px 32px rgba(39, 48, 30, 0.055);
+
+  /* Slanted card shape */
+  transform: skewX(-10deg);
+  transition:
+    border-color 300ms ease,
+    box-shadow 300ms ease,
+    background 300ms ease;
+}
+
+/* Soft olive highlight */
+.clients-logo-tile::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    135deg,
+    rgba(173, 194, 128, 0.23),
+    transparent 68%
+  );
+  opacity: 0.45;
+  transition: opacity 300ms ease;
+}
+
+.clients-logo-tile:hover {
+  z-index: 2;
+  border-color: rgba(105, 130, 63, 0.55);
+  background: #ffffff;
+  box-shadow:
+    0 10px 25px rgba(43, 56, 30, 0.09),
+    0 22px 45px rgba(43, 56, 30, 0.09);
+}
+
+.clients-logo-tile:hover::before {
+  opacity: 1;
+}
+
+/* Keep logos straight and preserve their original colors */
+.clients-logo-tile img {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 92%;
+  max-height: 82px;
+  object-fit: contain;
+  filter: none;
+  opacity: 1;
+  mix-blend-mode: normal;
+  transform: skewX(10deg);
+  transition: transform 300ms ease;
+}
+
+.clients-logo-tile:hover img {
+  transform: skewX(10deg) scale(1.06);
+}
+
+/* ==========================================
+   CONTINUOUS VERTICAL FLOW
+   Each column moves in a different direction
+========================================== */
+
+@keyframes clients-flow-up {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(
+      0,
+      calc(-50% - var(--clients-gap) / 2),
+      0
+    );
+  }
+}
+
+@keyframes clients-flow-down {
+  from {
+    transform: translate3d(
+      0,
+      calc(-50% - var(--clients-gap) / 2),
+      0
+    );
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* Pause the conveyor when the visitor explores the logos */
+.clients-conveyor:hover .clients-column-track {
+  animation-play-state: paused;
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 900px) {
+  .clients-section {
+    padding: 76px 0;
+  }
+
+  .clients-layout {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .clients-copy {
+    max-width: 650px;
+  }
+
+  .clients-copy h2 {
+    font-size: clamp(2.7rem, 6.5vw, 4rem);
+  }
+
+  .clients-conveyor {
+    height: 440px;
+    --clients-tile-height: 112px;
+    --clients-gap: 13px;
+  }
+
+  .clients-logo-tile {
+    padding: 13px;
+    border-radius: 15px;
+  }
+
+  .clients-logo-tile img {
+    max-height: 66px;
+  }
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 520px) {
+  .clients-section {
+    padding: 60px 0;
+  }
+
+  .clients-layout {
+    gap: 26px;
+  }
+
+  .clients-copy h2 {
+    margin: 20px 0;
+    font-size: clamp(2.35rem, 10vw, 3.2rem);
+    letter-spacing: -0.055em;
+  }
+
+  .clients-description {
+    font-size: 0.93rem;
+    line-height: 1.8;
+  }
+
+  .clients-caption {
+    margin-top: 25px;
+    font-size: 0.59rem;
+  }
+
+  .clients-conveyor {
+    height: 350px;
+    --clients-tile-height: 88px;
+    --clients-gap: 9px;
+    gap: 9px;
+  }
+
+  .clients-column-1 {
+    padding-top: 20px;
+  }
+
+  .clients-column-2 {
+    padding-top: 0;
+  }
+
+  .clients-column-3 {
+    padding-top: 32px;
+  }
+
+  .clients-logo-tile {
+    padding: 8px;
+    border-radius: 11px;
+    transform: skewX(-7deg);
+  }
+
+  .clients-logo-tile img {
+    max-height: 50px;
+    transform: skewX(7deg);
+  }
+
+  .clients-logo-tile:hover img {
+    transform: skewX(7deg) scale(1.04);
+  }
+}
+
+/* ==========================================
+   REDUCED MOTION ACCESSIBILITY
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .clients-column-track {
+    animation: none !important;
+  }
+
+  .clients-conveyor {
+    overflow-y: auto;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+
+  .clients-logo-tile,
+  .clients-logo-tile img {
+    transition: none;
+  }
+}

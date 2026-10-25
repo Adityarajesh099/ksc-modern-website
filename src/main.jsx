@@ -28,6 +28,22 @@ const services = [
   ["09", "Equipment & Machine Installations", "Specialized equipment and machine installation and commissioning."]
 ];
 
+const clientLogos = [
+  { name: "Client One", src: "/images/client-1.png" },
+  { name: "Client Two", src: "/images/client-2.png" },
+  { name: "Client Three", src: "/images/client-3.png" },
+  { name: "Client Four", src: "/images/client-4.png" },
+  { name: "Client Five", src: "/images/client-5.png" },
+  { name: "Client Six", src: "/images/client-6.png" },
+  { name: "Client Six", src: "/images/client-7.png" },
+  { name: "Client Six", src: "/images/client-8.png" },
+  { name: "Client Six", src: "/images/client-9.png" },
+  { name: "Client Six", src: "/images/client-10.png" },
+  { name: "Client Six", src: "/images/client-11.png" },
+  { name: "Client Six", src: "/images/client-12.png" },
+  { name: "Client Six", src: "/images/client-13.png" },
+];
+
 const projects = [
   {
     title: "Industrial Facilities",
@@ -252,7 +268,8 @@ useEffect(() => {
 
 const heroVideos = [
   "/images/ksc-hero-edit1.mp4",
-  "/images/ksc-hero-compressed.mp4",
+  "/images/KSC VIDEO HB V2.mp4",
+  "/images/KSC v2.mp4",
 ];
 
 const [activeVideo, setActiveVideo] = useState(0);
@@ -917,23 +934,69 @@ const handleVideoEnded = () => {
         </section>
 
 
-        <section id="industries" className="industries section">
-          <div className="container">
-            <div className="industry-intro">
-              <p className="eyebrow">INDUSTRIES</p>
-              <h2>Built for <span>demanding</span> environments.</h2>
+        
+
+<section id="clients" className="clients-section section">
+  <div className="container">
+    <div className="clients-layout">
+      <div className="clients-copy">
+        <p className="eyebrow">OUR CLIENTS & PARTNERS</p>
+
+        <h2>
+          Trusted partnerships.
+          <span> Proven delivery.</span>
+        </h2>
+
+        <p className="clients-description">
+          Built on trust, strengthened by collaboration,
+          and delivered with a commitment to quality,
+          safety, and excellence.
+        </p>
+
+        <div className="clients-caption">
+          <span className="clients-caption-dot" />
+          PARTNERSHIPS THAT BUILD THE FUTURE
+        </div>
+      </div>
+
+      <div className="clients-conveyor">
+        {[0, 1, 2].map((column) => {
+          const columnLogos =
+            clientLogos.filter((_, index) => index % 3 === column);
+
+          const logos = [...columnLogos, ...columnLogos];
+
+          return (
+            <div
+              className={`clients-column clients-column-${column + 1}`}
+              key={column}
+            >
+              <div className="clients-column-track">
+                {logos.map((client, index) => (
+                  <div
+                    className="clients-logo-tile"
+                    key={`${client.name}-${index}`}
+                  >
+                    <img
+                      src={client.src}
+                      alt={index < columnLogos.length
+                        ? client.name
+                        : ""}
+                      aria-hidden={index >= columnLogos.length}
+                      loading={index < 3 ? "eager" : "lazy"}
+                    />
+                  </div>
+                ))}
+              </div>
             </div>
-            <div className="industry-grid">
-              {["Industrial", "Food & Beverage", "Commercial", "Infrastructure"].map((item, i) => (
-                <div className="industry-card" key={item}>
-                  <span>0{i + 1}</span>
-                  <h3>{item}</h3>
-                  <Arrow />
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+          );
+        })}
+      </div>
+    </div>
+  </div>
+</section>
+
+
 
 
         <section id="contact" className="contact section">
