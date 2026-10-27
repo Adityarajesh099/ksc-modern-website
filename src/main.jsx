@@ -124,7 +124,7 @@ useEffect(() => {
 
 
 const serviceImages = {
-  "civil-construction": "/images/Civil-001.jpg",
+  "civil-construction": "/images/Civil-Construction.jpg",
   "architectural-interior-finishes": "/images/Architectural-001.jpg",
   "mechanical-works": "/images/Mechanical-001.jpg",
   "electrical-works": "/images/Electrical-001.png",
