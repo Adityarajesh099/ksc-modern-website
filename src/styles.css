@@ -8907,3 +8907,4625 @@ body::-webkit-scrollbar {
     transition: none;
   }
 }
+
+
+
+
+
+
+/* =========================================
+   KSC AUXILIARY SERVICES — WHAT WE DO
+========================================= */
+
+.auxiliary-services.section {
+  --aux-green: #82964c;
+  --aux-green-bright: #96b45b;
+  --aux-white: #f4f4ef;
+  --aux-muted: #c2c5bd;
+
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 85px 5% 75px;
+  background: #111311;
+  color: var(--aux-white);
+}
+
+/* Subtle animated dotted background */
+.auxiliary-services.section::before {
+  content: "";
+  position: absolute;
+  inset: -40px;
+  z-index: -1;
+  pointer-events: none;
+
+  background-image: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.10) 1px,
+    transparent 1.5px
+  );
+
+  background-size: 27px 27px;
+  opacity: 0.42;
+  animation: aux-dot-flow 22s linear infinite;
+}
+
+.auxiliary-services.section::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 650px;
+  height: 450px;
+  top: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+
+  background: radial-gradient(
+    ellipse,
+    rgba(130, 150, 76, 0.10) 0%,
+    rgba(130, 150, 76, 0.035) 42%,
+    transparent 72%
+  );
+
+  animation: aux-glow-flow 12s ease-in-out infinite alternate;
+}
+
+.aux-what-container {
+  width: 100%;
+  max-width: 1350px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* Heading */
+.aux-what-heading {
+  max-width: 1000px;
+  margin: 0 auto 62px;
+  text-align: center;
+}
+
+.aux-what-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 13px;
+  margin-bottom: 42px;
+}
+
+.aux-what-title h2 {
+  margin: 0;
+  color: var(--aux-white);
+  font-size: clamp(27px, 3vw, 39px);
+  font-weight: 700;
+  letter-spacing: 1px;
+  line-height: 1.2;
+}
+
+.aux-what-title h2 span {
+  color: var(--aux-green-bright);
+  font-weight: 400;
+}
+
+.aux-what-line {
+  display: block;
+  width: 43px;
+  height: 2px;
+  flex-shrink: 0;
+  background: var(--aux-green);
+}
+
+.aux-what-intro,
+.aux-what-description {
+  max-width: 900px;
+  margin: 0 auto;
+  color: var(--aux-muted);
+  font-size: 15px;
+  line-height: 1.95;
+}
+
+.aux-what-description {
+  max-width: 1080px;
+  margin-top: 24px;
+}
+
+.aux-what-subheading {
+  margin: 27px 0 0;
+  color: var(--aux-green-bright);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.7;
+}
+
+/* Circular services */
+.aux-what-grid {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  column-gap: 12px;
+  row-gap: 30px;
+}
+
+.aux-what-item {
+  flex: 0 1 220px;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  animation: aux-item-enter 0.8s ease both;
+}
+
+.aux-what-item:nth-child(2) {
+  animation-delay: 0.08s;
+}
+
+.aux-what-item:nth-child(3) {
+  animation-delay: 0.16s;
+}
+
+.aux-what-item:nth-child(4) {
+  animation-delay: 0.24s;
+}
+
+.aux-what-item:nth-child(5) {
+  animation-delay: 0.32s;
+}
+
+.aux-what-circle {
+  width: 205px;
+  height: 205px;
+  max-width: 100%;
+  border: 3px solid var(--aux-green);
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+  background: rgba(255, 255, 255, 0.012);
+  transition:
+    border-color 0.3s ease,
+    background 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.aux-what-circle::before {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border: 1px solid rgba(130, 150, 76, 0.0);
+  border-radius: 50%;
+  transition: border-color 0.3s ease;
+}
+
+.aux-what-circle svg {
+  width: 55px;
+  height: 55px;
+  fill: none;
+  stroke: var(--aux-white);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition:
+    stroke 0.3s ease,
+    transform 0.3s ease;
+}
+
+.aux-what-item:hover .aux-what-circle {
+  border-color: var(--aux-green-bright);
+  background: rgba(130, 150, 76, 0.08);
+  transform: translateY(-5px);
+  box-shadow: 0 0 28px rgba(130, 150, 76, 0.12);
+}
+
+.aux-what-item:hover .aux-what-circle::before {
+  border-color: rgba(150, 180, 91, 0.35);
+}
+
+.aux-what-item:hover .aux-what-circle svg {
+  stroke: var(--aux-green-bright);
+  transform: scale(1.08);
+}
+
+.aux-what-item h3 {
+  max-width: 210px;
+  margin: 16px 0 0;
+  color: #dedfd9;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.6;
+  transition: color 0.3s ease;
+}
+
+.aux-what-item:hover h3 {
+  color: var(--aux-green-bright);
+}
+
+/* Closing statement */
+.aux-what-footer {
+  margin-top: 48px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(255, 255, 255, 0.10);
+  text-align: center;
+  color: #d2d4cc;
+  font-size: 14px;
+  letter-spacing: 0.3px;
+}
+
+/* Background movement */
+@keyframes aux-dot-flow {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: 108px 54px;
+  }
+}
+
+@keyframes aux-glow-flow {
+  from {
+    opacity: 0.55;
+    scale: 0.94;
+  }
+
+  to {
+    opacity: 1;
+    scale: 1.06;
+  }
+}
+
+@keyframes aux-item-enter {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Tablet */
+@media (max-width: 1100px) {
+  .auxiliary-services.section {
+    padding: 70px 4%;
+  }
+
+  .aux-what-grid {
+    column-gap: 18px;
+    row-gap: 30px;
+  }
+
+  .aux-what-item {
+    flex-basis: 190px;
+  }
+
+  .aux-what-circle {
+    width: 180px;
+    height: 180px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .auxiliary-services.section {
+    padding: 58px 18px;
+  }
+
+  .aux-what-heading {
+    margin-bottom: 42px;
+  }
+
+  .aux-what-title {
+    gap: 8px;
+    margin-bottom: 28px;
+  }
+
+  .aux-what-title h2 {
+    font-size: 25px;
+  }
+
+  .aux-what-line {
+    width: 23px;
+  }
+
+  .aux-what-intro,
+  .aux-what-description {
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  .aux-what-description {
+    margin-top: 17px;
+  }
+
+  .aux-what-subheading {
+    font-size: 14px;
+  }
+
+  .aux-what-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px 12px;
+  }
+
+  .aux-what-item {
+    width: 100%;
+  }
+
+  .aux-what-circle {
+    width: min(100%, 155px);
+    height: auto;
+    aspect-ratio: 1;
+    border-width: 2px;
+  }
+
+  .aux-what-circle svg {
+    width: 43px;
+    height: 43px;
+  }
+
+  .aux-what-item h3 {
+    margin-top: 12px;
+    font-size: 12px;
+    overflow-wrap: anywhere;
+  }
+
+  .aux-what-footer {
+    margin-top: 35px;
+    font-size: 12px;
+    line-height: 1.8;
+  }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .auxiliary-services.section::before,
+  .auxiliary-services.section::after,
+  .aux-what-item {
+    animation: none;
+  }
+
+  .aux-what-circle,
+  .aux-what-circle svg,
+  .aux-what-item h3 {
+    transition: none;
+  }
+}
+
+
+
+
+
+
+
+
+/* =========================================
+   KSC AUXILIARY CIRCLES — FLOAT + OLIVE GLOW
+========================================= */
+
+.aux-what-circle {
+  animation: ksc-circle-float 4.5s ease-in-out infinite,
+             ksc-circle-glow 3.5s ease-in-out infinite;
+  will-change: transform, box-shadow, border-color;
+}
+
+/* Stagger movement so circles don't move together */
+.aux-what-item:nth-child(1) .aux-what-circle {
+  animation-delay: 0s, 0s;
+}
+
+.aux-what-item:nth-child(2) .aux-what-circle {
+  animation-delay: 0.5s, 0.4s;
+}
+
+.aux-what-item:nth-child(3) .aux-what-circle {
+  animation-delay: 1s, 0.8s;
+}
+
+.aux-what-item:nth-child(4) .aux-what-circle {
+  animation-delay: 0.3s, 1.2s;
+}
+
+.aux-what-item:nth-child(5) .aux-what-circle {
+  animation-delay: 0.8s, 1.6s;
+}
+
+/* Gentle vertical floating */
+@keyframes ksc-circle-float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-7px);
+  }
+}
+
+/* Soft olive-green neon pulse */
+@keyframes ksc-circle-glow {
+  0%, 100% {
+    border-color: #82964c;
+    box-shadow:
+      0 0 4px rgba(130, 150, 76, 0.12),
+      inset 0 0 4px rgba(130, 150, 76, 0.025);
+  }
+
+  50% {
+    border-color: #a0bc5b;
+    box-shadow:
+      0 0 8px rgba(130, 150, 76, 0.28),
+      0 0 19px rgba(130, 150, 76, 0.13),
+      inset 0 0 9px rgba(130, 150, 76, 0.06);
+  }
+}
+
+/* Keep hover interaction smooth */
+.aux-what-item:hover .aux-what-circle {
+  animation-play-state: paused;
+  transform: translateY(-5px);
+  border-color: #b0ca6c;
+  box-shadow:
+    0 0 12px rgba(130, 150, 76, 0.35),
+    0 0 25px rgba(130, 150, 76, 0.18);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aux-what-circle {
+    animation: none;
+    will-change: auto;
+  }
+}
+
+
+
+
+
+
+/* =========================================
+   QUALITY & VALUE — MATCH AUXILIARY BACKGROUND
+========================================= */
+
+.quality-value-section.reveal-section {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: #111311;
+  color: #f4f4ef;
+}
+
+/* Animated dotted pattern */
+.quality-value-section.reveal-section::before {
+  content: "";
+  position: absolute;
+  inset: -40px;
+  z-index: -1;
+  pointer-events: none;
+
+  background-image: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.10) 1px,
+    transparent 1.5px
+  );
+
+  background-size: 27px 27px;
+  opacity: 0.42;
+  animation: quality-dot-flow 22s linear infinite;
+}
+
+/* Soft olive-green ambient glow */
+.quality-value-section.reveal-section::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 650px;
+  height: 450px;
+  top: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+
+  background: radial-gradient(
+    ellipse,
+    rgba(130, 150, 76, 0.10) 0%,
+    rgba(130, 150, 76, 0.035) 42%,
+    transparent 72%
+  );
+
+  animation: quality-glow-flow 12s ease-in-out infinite alternate;
+}
+
+/* Keep all section content above the background */
+.quality-value-section > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Heading */
+.quality-value-section .quality-value-header h2 {
+  color: #f4f4ef;
+}
+
+.quality-value-section .eyebrow {
+  color: #96b45b;
+}
+
+/* List rows */
+.quality-value-section .quality-value-row {
+  border-color: rgba(255, 255, 255, 0.12);
+  transition:
+    border-color 0.3s ease,
+    background 0.3s ease;
+}
+
+.quality-value-section .quality-value-row:hover {
+  border-color: rgba(150, 180, 91, 0.55);
+  background: rgba(130, 150, 76, 0.045);
+}
+
+/* Olive-green numbered indicators */
+.quality-value-section .quality-value-number {
+  color: #96b45b;
+  transition:
+    color 0.3s ease,
+    text-shadow 0.3s ease;
+}
+
+.quality-value-section .quality-value-row:hover
+.quality-value-number {
+  color: #b0ca6c;
+  text-shadow: 0 0 12px rgba(150, 180, 91, 0.3);
+}
+
+/* Match the moving background of Auxiliary Services */
+@keyframes quality-dot-flow {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: 108px 54px;
+  }
+}
+
+@keyframes quality-glow-flow {
+  from {
+    opacity: 0.55;
+    scale: 0.94;
+  }
+
+  to {
+    opacity: 1;
+    scale: 1.06;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .quality-value-section.reveal-section::before,
+  .quality-value-section.reveal-section::after {
+    animation: none;
+  }
+}
+
+
+
+
+
+
+
+/* =========================================
+   F&B TURNKEY SOLUTIONS — MATCHING BACKGROUND
+========================================= */
+
+#projects.projects.section {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: #111311;
+  color: #f4f4ef;
+}
+
+/* Animated dotted background */
+#projects.projects.section::before {
+  content: "";
+  position: absolute;
+  inset: -40px;
+  z-index: -1;
+  pointer-events: none;
+
+  background-image: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.10) 1px,
+    transparent 1.5px
+  );
+
+  background-size: 27px 27px;
+  opacity: 0.42;
+  animation: fb-dot-flow 22s linear infinite;
+}
+
+/* Olive-green ambient glow */
+#projects.projects.section::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 650px;
+  height: 450px;
+  top: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+
+  background: radial-gradient(
+    ellipse,
+    rgba(130, 150, 76, 0.10) 0%,
+    rgba(130, 150, 76, 0.035) 42%,
+    transparent 72%
+  );
+
+  animation: fb-glow-flow 12s ease-in-out infinite alternate;
+}
+
+/* Keep section content above the background */
+#projects.projects.section > .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Section heading */
+#projects .fb-section-heading h2 {
+  color: #f4f4ef;
+}
+
+#projects .fb-section-heading p {
+  color: #c2c5bd;
+}
+
+/* Solution cards */
+#projects .fb-solution-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 12px;
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+#projects .fb-solution-card:hover {
+  transform: translateY(-5px);
+  background: rgba(130, 150, 76, 0.055);
+  border-color: rgba(150, 180, 91, 0.55);
+  box-shadow: 0 8px 28px rgba(130, 150, 76, 0.09);
+}
+
+/* Olive-green icon containers */
+#projects .fb-solution-icon {
+  color: #96b45b;
+  transition:
+    color 0.3s ease,
+    filter 0.3s ease;
+}
+
+#projects .fb-solution-icon svg {
+  stroke: currentColor;
+}
+
+#projects .fb-solution-card:hover .fb-solution-icon {
+  color: #b0ca6c;
+  filter: drop-shadow(0 0 6px rgba(150, 180, 91, 0.30));
+}
+
+/* Card descriptions */
+#projects .fb-solution-card p {
+  color: #dedfd9;
+}
+
+/* Animated background */
+@keyframes fb-dot-flow {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: 108px 54px;
+  }
+}
+
+@keyframes fb-glow-flow {
+  from {
+    opacity: 0.55;
+    scale: 0.94;
+  }
+
+  to {
+    opacity: 1;
+    scale: 1.06;
+  }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  #projects.projects.section::before,
+  #projects.projects.section::after {
+    animation: none;
+  }
+
+  #projects .fb-solution-card,
+  #projects .fb-solution-icon {
+    transition: none;
+  }
+}
+
+
+
+
+
+
+
+/* =========================================
+   KSC SERVICES — MATCHING BACKGROUND
+========================================= */
+
+#services.services.section {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: #111311;
+  color: #f4f4ef;
+}
+
+/* Animated dotted pattern */
+#services.services.section::before {
+  content: "";
+  position: absolute;
+  inset: -40px;
+  z-index: -1;
+  pointer-events: none;
+
+  background-image: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.10) 1px,
+    transparent 1.5px
+  );
+
+  background-size: 27px 27px;
+  opacity: 0.42;
+  animation: services-dot-flow 22s linear infinite;
+}
+
+/* Soft olive-green ambient glow */
+#services.services.section::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 650px;
+  height: 450px;
+  top: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+
+  background: radial-gradient(
+    ellipse,
+    rgba(130, 150, 76, 0.10) 0%,
+    rgba(130, 150, 76, 0.035) 42%,
+    transparent 72%
+  );
+
+  animation: services-glow-flow 12s ease-in-out infinite alternate;
+}
+
+/* Keep section content above the background */
+#services.services.section > .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Large KSC watermark */
+#services .services-watermark {
+  color: rgba(150, 180, 91, 0.045);
+  pointer-events: none;
+}
+
+/* Section heading */
+#services .section-heading h2 {
+  color: #f4f4ef;
+}
+
+#services .section-heading p,
+#services .section-heading .eyebrow {
+  color: #c2c5bd;
+}
+
+#services .section-heading h2 span {
+  color: #96b45b;
+}
+
+/* Service list rows */
+#services .service-item {
+  border-color: rgba(255, 255, 255, 0.12);
+  color: #dedfd9;
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease;
+}
+
+#services .service-item:hover {
+  background: rgba(130, 150, 76, 0.06);
+  border-color: rgba(150, 180, 91, 0.55);
+  color: #b0ca6c;
+}
+
+
+
+/* Feature image area */
+#services .service-feature {
+  position: relative;
+  overflow: hidden;
+  background: #191c17;
+  border-color: rgba(255, 255, 255, 0.10);
+}
+
+#services .service-feature-copy {
+  color: #f4f4ef;
+}
+
+#services .service-feature-copy > span {
+  color: #a5bf65;
+}
+
+#services .service-feature-copy h3 {
+  color: #ffffff;
+}
+
+#services .service-feature-copy p {
+  color: #dedfd9;
+}
+
+/* Decorative shape */
+#services .service-shape {
+  border-color: rgba(150, 180, 91, 0.25);
+}
+
+/* Background animations */
+@keyframes services-dot-flow {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: 108px 54px;
+  }
+}
+
+@keyframes services-glow-flow {
+  from {
+    opacity: 0.55;
+    scale: 0.94;
+  }
+
+  to {
+    opacity: 1;
+    scale: 1.06;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  #services.services.section::before,
+  #services.services.section::after {
+    animation: none;
+  }
+}
+
+
+
+
+
+
+
+/* =========================================
+   ABOUT KSC — MATCHING BACKGROUND
+========================================= */
+
+#about.intro.section {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: #111311;
+  color: #f4f4ef;
+}
+
+/* Animated dotted pattern */
+#about.intro.section::before {
+  content: "";
+  position: absolute;
+  inset: -40px;
+  z-index: -1;
+  pointer-events: none;
+
+  background-image: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.10) 1px,
+    transparent 1.5px
+  );
+
+  background-size: 27px 27px;
+  opacity: 0.42;
+  animation: about-dot-flow 22s linear infinite;
+}
+
+/* Soft olive-green ambient glow */
+#about.intro.section::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 650px;
+  height: 450px;
+  top: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+
+  background: radial-gradient(
+    ellipse,
+    rgba(130, 150, 76, 0.10) 0%,
+    rgba(130, 150, 76, 0.035) 42%,
+    transparent 72%
+  );
+
+  animation: about-glow-flow 12s ease-in-out infinite alternate;
+}
+
+/* Keep content above the background */
+#about.intro.section > .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* About heading */
+#about .about-heading {
+  color: #f4f4ef;
+}
+
+#about .about-heading-green {
+  color: #96b45b;
+}
+
+#about .eyebrow {
+  color: #96b45b;
+}
+
+#about .lead,
+#about .intro-copy > p {
+  color: #c2c5bd;
+}
+
+/* Discover KSC link */
+#about .text-link {
+  color: #a5bf65;
+  transition:
+    color 0.3s ease,
+    text-shadow 0.3s ease;
+}
+
+#about .text-link:hover {
+  color: #c0d887;
+  text-shadow: 0 0 12px rgba(150, 180, 91, 0.25);
+}
+
+/* Statistics area */
+#about .stats {
+  position: relative;
+  z-index: 1;
+  border-top-color: rgba(255, 255, 255, 0.12);
+}
+
+#about .stats > div {
+  border-color: rgba(255, 255, 255, 0.10);
+}
+
+#about .stat-icon {
+  color: #96b45b;
+}
+
+#about .stat-number {
+  color: #f4f4ef;
+}
+
+#about .stat-number .plus,
+#about .industrial-value {
+  color: #a5bf65;
+}
+
+#about .stats > div > span:last-child {
+  color: #c2c5bd;
+}
+
+/* Animated background */
+@keyframes about-dot-flow {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: 108px 54px;
+  }
+}
+
+@keyframes about-glow-flow {
+  from {
+    opacity: 0.55;
+    scale: 0.94;
+  }
+
+  to {
+    opacity: 1;
+    scale: 1.06;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  #about.intro.section::before,
+  #about.intro.section::after {
+    animation: none;
+  }
+}
+
+
+
+
+
+
+/* =========================================
+   KSC STATISTICS — PREMIUM GLASS PANELS
+========================================= */
+
+#about .stats {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  padding: 40px 0;
+}
+
+/* Soft olive ambient light behind the cards */
+#about .stats::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      ellipse at 20% 50%,
+      rgba(130, 150, 76, 0.12),
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse at 80% 50%,
+      rgba(130, 150, 76, 0.08),
+      transparent 55%
+    );
+}
+
+/* Individual statistic panels */
+#about .stats > div {
+  position: relative;
+  isolation: isolate;
+  min-width: 0;
+  min-height: 190px;
+  padding: 27px 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 12px;
+
+  background: linear-gradient(
+    135deg,
+    rgba(39, 45, 31, 0.88),
+    rgba(21, 24, 20, 0.94)
+  );
+
+  border: 1px solid rgba(150, 180, 91, 0.22);
+  border-radius: 14px;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.035),
+    0 10px 30px rgba(0, 0, 0, 0.12);
+
+  overflow: hidden;
+
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease,
+    background 0.35s ease;
+}
+
+/* Decorative olive light in each panel */
+#about .stats > div::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 150px;
+  height: 150px;
+  right: -65px;
+  top: -70px;
+  border-radius: 50%;
+  background: rgba(150, 180, 91, 0.10);
+  filter: blur(32px);
+  pointer-events: none;
+  transition: background 0.35s ease;
+}
+
+/* Small accent line */
+#about .stats > div::after {
+  content: "";
+  position: absolute;
+  left: 22px;
+  bottom: 0;
+  width: 42px;
+  height: 3px;
+  border-radius: 4px 4px 0 0;
+  background: #82964c;
+  opacity: 0.75;
+  transition:
+    width 0.35s ease,
+    opacity 0.35s ease;
+}
+
+/* Statistic icons */
+#about .stats .stat-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 43px;
+  height: 43px;
+  color: #a5bf65;
+  font-size: 25px;
+
+  background: rgba(130, 150, 76, 0.12);
+  border: 1px solid rgba(150, 180, 91, 0.22);
+  border-radius: 11px;
+}
+
+#about .stats .stat-icon svg {
+  width: 29px;
+  height: 29px;
+  stroke: currentColor;
+  stroke-width: 1.8;
+}
+
+/* Large statistic values */
+#about .stats .stat-number {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 4px;
+  color: #f4f4ef;
+  font-size: clamp(27px, 2.5vw, 38px);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.8px;
+}
+
+#about .stats .stat-number .plus {
+  color: #a5bf65;
+}
+
+#about .stats .billion-text {
+  font-size: 0.62em;
+  color: #a5bf65;
+  letter-spacing: 0;
+}
+
+/* Descriptions */
+#about .stats > div > span:last-child {
+  max-width: 100%;
+  color: #c4c8bc;
+  font-size: 12px;
+  line-height: 1.7;
+  letter-spacing: 0.5px;
+}
+
+/* Hover effect */
+#about .stats > div:hover {
+  transform: translateY(-6px);
+  border-color: rgba(165, 191, 101, 0.65);
+
+  background: linear-gradient(
+    135deg,
+    rgba(48, 57, 35, 0.96),
+    rgba(24, 28, 21, 0.98)
+  );
+
+  box-shadow:
+    0 12px 32px rgba(0, 0, 0, 0.22),
+    0 0 22px rgba(130, 150, 76, 0.10),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+#about .stats > div:hover::before {
+  background: rgba(165, 191, 101, 0.19);
+}
+
+#about .stats > div:hover::after {
+  width: 75px;
+  opacity: 1;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  #about .stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  #about .stats > div {
+    min-height: 175px;
+    padding: 23px 19px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 520px) {
+  #about .stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    padding: 25px 0;
+  }
+
+  #about .stats > div {
+    min-height: 165px;
+    padding: 17px 13px;
+    gap: 10px;
+    border-radius: 11px;
+  }
+
+  #about .stats .stat-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 21px;
+  }
+
+  #about .stats .stat-number {
+    font-size: clamp(22px, 6vw, 30px);
+  }
+
+  #about .stats > div > span:last-child {
+    font-size: 10px;
+    letter-spacing: 0.2px;
+  }
+
+  #about .stats > div::after {
+    left: 13px;
+  }
+}
+
+/* Reduced motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+  #about .stats > div,
+  #about .stats > div::before,
+  #about .stats > div::after {
+    transition: none;
+  }
+}
+
+
+
+
+
+
+
+/* =========================================
+   KSC CLIENTS & PARTNERS — MATCHING BACKGROUND
+========================================= */
+
+#clients.clients-section.section {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: #111311;
+  color: #f4f4ef;
+}
+
+/* Animated dotted pattern */
+#clients.clients-section.section::before {
+  content: "";
+  position: absolute;
+  inset: -40px;
+  z-index: -1;
+  pointer-events: none;
+
+  background-image: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.10) 1px,
+    transparent 1.5px
+  );
+
+  background-size: 27px 27px;
+  opacity: 0.42;
+  animation: clients-dot-flow 22s linear infinite;
+}
+
+/* Soft olive-green ambient glow */
+#clients.clients-section.section::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 650px;
+  height: 450px;
+  top: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+
+  background: radial-gradient(
+    ellipse,
+    rgba(130, 150, 76, 0.10) 0%,
+    rgba(130, 150, 76, 0.035) 42%,
+    transparent 72%
+  );
+
+  animation: clients-glow-flow 12s ease-in-out infinite alternate;
+}
+
+/* Keep all content above the background */
+#clients.clients-section.section > .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Heading and description */
+#clients .clients-copy .eyebrow {
+  color: #96b45b;
+}
+
+#clients .clients-copy h2 {
+  color: #f4f4ef;
+}
+
+#clients .clients-copy h2 span {
+  color: #96b45b;
+}
+
+#clients .clients-description {
+  color: #c2c5bd;
+}
+
+/* Partnership caption */
+#clients .clients-caption {
+  color: #a5bf65;
+}
+
+#clients .clients-caption-dot {
+  background: #96b45b;
+  box-shadow: 0 0 10px rgba(150, 180, 91, 0.45);
+}
+
+/* Logo tiles — subtle glass effect */
+#clients .clients-logo-tile {
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 10px;
+
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+#clients .clients-logo-tile:hover {
+  background: rgba(130, 150, 76, 0.07);
+  border-color: rgba(150, 180, 91, 0.4);
+  box-shadow: 0 0 18px rgba(130, 150, 76, 0.08);
+}
+
+/* Background animations */
+@keyframes clients-dot-flow {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: 108px 54px;
+  }
+}
+
+@keyframes clients-glow-flow {
+  from {
+    opacity: 0.55;
+    scale: 0.94;
+  }
+
+  to {
+    opacity: 1;
+    scale: 1.06;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  #clients.clients-section.section::before,
+  #clients.clients-section.section::after {
+    animation: none;
+  }
+
+  #clients .clients-logo-tile {
+    transition: none;
+  }
+}
+
+
+
+
+
+
+
+/* =========================================
+   KSC FIXED BACKGROUND IMAGE TRANSITION
+========================================= */
+
+.auxiliary-transition {
+  position: relative;
+  isolation: isolate;
+  height: 420px;
+  overflow: hidden;
+  background-color: #111311;
+}
+
+/* Fixed image stays stationary as page content scrolls */
+.auxiliary-transition-image {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+
+  background-image: url("/images/ksc-hero-03.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+
+
+/* Heading remains over the image */
+.auxiliary-transition-content {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 35px 24px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.auxiliary-transition-content span {
+  margin-bottom: 14px;
+  color: #b0ca6c;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 3px;
+}
+
+.auxiliary-transition-content h2 {
+  margin: 0;
+  color: #f4f4ef;
+  font-size: clamp(28px, 3.5vw, 44px);
+  font-weight: 600;
+  line-height: 1.25;
+  text-shadow: 0 3px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Mobile browsers handle fixed backgrounds inconsistently */
+@media (max-width: 768px) {
+  .auxiliary-transition {
+    height: 300px;
+  }
+
+  .auxiliary-transition-image {
+    background-attachment: scroll;
+  }
+
+  .auxiliary-transition-content h2 {
+    font-size: 28px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .auxiliary-transition-image {
+    background-attachment: scroll;
+  }
+}
+
+
+
+
+
+
+
+/* F&B section image transition */
+.fb-projects-transition {
+  height: 360px;
+}
+
+/* Keep the image fixed while the page content scrolls */
+.fb-projects-transition .auxiliary-transition-image {
+  background-image: url("/images/ksc-hero-04.jpg");
+  background-size: cover;
+  background-position: center 45%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+
+
+@media (max-width: 768px) {
+  .fb-projects-transition {
+    height: 270px;
+  }
+
+  .fb-projects-transition .auxiliary-transition-image {
+    background-attachment: scroll;
+  }
+}
+
+
+
+
+
+
+
+
+/* Auxiliary Services — heading from reference image */
+.aux-what-heading {
+  max-width: 850px;
+  margin: 0 auto 60px;
+  text-align: center;
+}
+
+.aux-what-main-title {
+  margin: 0 0 12px;
+  color: #f4f4ef;
+  font-size: clamp(32px, 4vw, 44px);
+  font-weight: 700;
+  line-height: 1.18;
+  letter-spacing: -0.8px;
+}
+
+.aux-what-main-description {
+  max-width: 700px;
+  margin: 0 auto;
+  color: #aeb0aa;
+  font-size: clamp(15px, 1.5vw, 18px);
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+/* Responsive heading */
+@media (max-width: 600px) {
+  .aux-what-heading {
+    margin-bottom: 42px;
+  }
+
+  .aux-what-main-title {
+    font-size: 32px;
+  }
+
+  .aux-what-main-description {
+    font-size: 14px;
+  }
+
+  .aux-desktop-break {
+    display: none;
+  }
+}
+
+
+
+
+
+
+
+/* =========================================
+   KSC QUALITY & VALUE — EDITORIAL DESIGN
+========================================= */
+
+.quality-value-section {
+  --qv-green: #82964c;
+  --qv-bright: #a5bf65;
+  --qv-white: #f4f4ef;
+  --qv-muted: #b9bdb3;
+
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 100px 5% 65px;
+  background: #111311;
+  color: var(--qv-white);
+}
+
+.qv-background-glow {
+  position: absolute;
+  z-index: -1;
+  width: 700px;
+  height: 600px;
+  top: -120px;
+  right: -180px;
+  pointer-events: none;
+
+  background: radial-gradient(
+    ellipse,
+    rgba(130, 150, 76, 0.13),
+    rgba(130, 150, 76, 0.035) 42%,
+    transparent 72%
+  );
+
+  animation: qv-glow-drift 12s ease-in-out infinite alternate;
+}
+
+.quality-value-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+
+  background-image: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.075) 1px,
+    transparent 1.5px
+  );
+
+  background-size: 27px 27px;
+  opacity: 0.4;
+}
+
+.qv-container {
+  max-width: 1250px;
+  margin: 0 auto;
+}
+
+/* Header layout */
+.qv-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(260px, 0.6fr);
+  align-items: center;
+  gap: 60px;
+  padding-bottom: 65px;
+}
+
+.qv-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+
+  color: var(--qv-bright);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+
+.qv-eyebrow-line {
+  width: 35px;
+  height: 2px;
+  background: var(--qv-green);
+}
+
+.qv-heading-copy h2 {
+  margin: 0;
+  color: var(--qv-white);
+  font-size: clamp(36px, 4.5vw, 60px);
+  line-height: 1.12;
+  font-weight: 600;
+  letter-spacing: -1.8px;
+}
+
+.qv-heading-copy h2 span {
+  color: var(--qv-bright);
+}
+
+.qv-intro {
+  max-width: 540px;
+  margin: 24px 0 0;
+  color: var(--qv-muted);
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+/* Quality badge */
+.qv-quality-mark {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 22px;
+  text-align: center;
+}
+
+.qv-mark-ring {
+  width: 220px;
+  height: 220px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(165, 191, 101, 0.4);
+  border-radius: 50%;
+
+  background: radial-gradient(
+    circle,
+    rgba(130, 150, 76, 0.09),
+    rgba(17, 19, 17, 0.2) 70%
+  );
+
+  box-shadow:
+    0 0 40px rgba(130, 150, 76, 0.07),
+    inset 0 0 30px rgba(130, 150, 76, 0.035);
+
+  animation: qv-badge-pulse 5s ease-in-out infinite;
+}
+
+.qv-mark-inner {
+  width: 190px;
+  height: 190px;
+  border: 1px solid rgba(165, 191, 101, 0.16);
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.qv-mark-inner svg {
+  width: 52px;
+  height: 52px;
+  margin-bottom: 3px;
+  fill: none;
+  stroke: var(--qv-bright);
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.qv-mark-inner > span {
+  color: var(--qv-white);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+
+.qv-mark-inner .qv-mark-divider {
+  width: 30px;
+  height: 2px;
+  background: var(--qv-green);
+}
+
+.qv-quality-mark > p {
+  margin: 0;
+  color: var(--qv-muted);
+  font-size: 12px;
+  letter-spacing: 0.5px;
+}
+
+/* Commitment rows */
+.qv-list {
+  border-top: 1px solid rgba(255, 255, 255, 0.13);
+}
+
+.qv-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 65px minmax(0, 1fr) 55px;
+  align-items: center;
+  gap: 22px;
+
+  padding: 24px 22px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+
+  background: rgba(255, 255, 255, 0.008);
+
+  transition:
+    padding 0.35s ease,
+    background 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.qv-item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--qv-bright);
+
+  transform: scaleY(0);
+  transform-origin: center;
+
+  transition: transform 0.35s ease;
+}
+
+.qv-number {
+  color: var(--qv-green);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+}
+
+.qv-item-copy h3 {
+  margin: 0 0 7px;
+  color: var(--qv-white);
+  font-size: 18px;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.qv-item-copy p {
+  margin: 0;
+  color: var(--qv-muted);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.qv-item-icon {
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+
+  border: 1px solid rgba(130, 150, 76, 0.25);
+  border-radius: 50%;
+  color: var(--qv-bright);
+  background: rgba(130, 150, 76, 0.045);
+
+  transition:
+    transform 0.35s ease,
+    background 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.qv-item-icon svg {
+  width: 25px;
+  height: 25px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Hover interaction */
+.qv-item:hover {
+  padding-left: 32px;
+  background: linear-gradient(
+    90deg,
+    rgba(130, 150, 76, 0.11),
+    rgba(130, 150, 76, 0.025) 70%,
+    transparent
+  );
+  border-bottom-color: rgba(165, 191, 101, 0.35);
+}
+
+.qv-item:hover::before {
+  transform: scaleY(1);
+}
+
+.qv-item:hover .qv-number,
+.qv-item:hover .qv-item-copy h3 {
+  color: var(--qv-bright);
+}
+
+.qv-item:hover .qv-item-icon {
+  transform: rotate(-7deg) scale(1.06);
+  background: rgba(130, 150, 76, 0.13);
+  border-color: rgba(165, 191, 101, 0.55);
+  box-shadow: 0 0 20px rgba(130, 150, 76, 0.12);
+}
+
+/* Footer statement */
+.qv-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding-top: 35px;
+}
+
+.qv-footer p {
+  margin: 0;
+  color: var(--qv-bright);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.qv-footer-line {
+  width: 38px;
+  height: 1px;
+  background: rgba(165, 191, 101, 0.45);
+}
+
+/* Animations */
+@keyframes qv-glow-drift {
+  from {
+    transform: translate(-15px, 0);
+    opacity: 0.65;
+  }
+
+  to {
+    transform: translate(15px, 25px);
+    opacity: 1;
+  }
+}
+
+@keyframes qv-badge-pulse {
+  0%, 100% {
+    box-shadow:
+      0 0 25px rgba(130, 150, 76, 0.05),
+      inset 0 0 20px rgba(130, 150, 76, 0.025);
+  }
+
+  50% {
+    box-shadow:
+      0 0 40px rgba(130, 150, 76, 0.13),
+      inset 0 0 30px rgba(130, 150, 76, 0.055);
+  }
+}
+
+/* Tablet */
+@media (max-width: 850px) {
+  .quality-value-section {
+    padding: 75px 5% 50px;
+  }
+
+  .qv-header {
+    grid-template-columns: minmax(0, 1fr) 200px;
+    gap: 25px;
+  }
+
+  .qv-mark-ring {
+    width: 175px;
+    height: 175px;
+  }
+
+  .qv-mark-inner {
+    width: 150px;
+    height: 150px;
+  }
+
+  .qv-mark-inner svg {
+    width: 42px;
+    height: 42px;
+  }
+
+  .qv-heading-copy h2 {
+    font-size: clamp(34px, 5vw, 46px);
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .quality-value-section {
+    padding: 60px 20px 40px;
+  }
+
+  .qv-header {
+    grid-template-columns: 1fr;
+    gap: 35px;
+    padding-bottom: 40px;
+  }
+
+  .qv-heading-copy h2 {
+    font-size: 37px;
+    letter-spacing: -1px;
+  }
+
+  .qv-intro {
+    font-size: 14px;
+  }
+
+  .qv-quality-mark {
+    gap: 13px;
+  }
+
+  .qv-mark-ring {
+    width: 150px;
+    height: 150px;
+  }
+
+  .qv-mark-inner {
+    width: 130px;
+    height: 130px;
+    gap: 5px;
+  }
+
+  .qv-mark-inner svg {
+    width: 34px;
+    height: 34px;
+  }
+
+  .qv-item {
+    grid-template-columns: 32px minmax(0, 1fr) 38px;
+    gap: 12px;
+    padding: 20px 8px;
+  }
+
+  .qv-item:hover {
+    padding-left: 12px;
+  }
+
+  .qv-item-copy h3 {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .qv-item-copy p {
+    font-size: 12px;
+  }
+
+  .qv-item-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .qv-item-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .qv-number {
+    font-size: 11px;
+  }
+
+  .qv-footer {
+    gap: 10px;
+  }
+
+  .qv-footer p {
+    font-size: 10px;
+    letter-spacing: 0.8px;
+  }
+
+  .qv-footer-line {
+    width: 20px;
+    flex-shrink: 0;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .qv-background-glow,
+  .qv-mark-ring {
+    animation: none;
+  }
+
+  .qv-item,
+  .qv-item::before,
+  .qv-item-icon {
+    transition: none;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================
+   KSC QUALITY & VALUE — 3D ROUND SLIDE CARDS
+========================================= */
+
+.quality-value-section .qv-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  border: none;
+  perspective: 1200px;
+}
+
+/* Each commitment becomes a 3D card */
+.quality-value-section .qv-item {
+  min-height: 280px;
+  padding: 30px 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
+  border: 1px solid rgba(150, 180, 91, 0.24);
+  border-radius: 24px;
+
+  background:
+    radial-gradient(
+      circle at 85% 10%,
+      rgba(130, 150, 76, 0.13),
+      transparent 42%
+    ),
+    linear-gradient(
+      145deg,
+      rgba(36, 42, 30, 0.95),
+      rgba(17, 19, 17, 0.98)
+    );
+
+  box-shadow:
+    0 14px 25px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+
+  transform-style: preserve-3d;
+  transform: rotateX(1deg) rotateY(-1deg);
+
+  transition:
+    transform 0.55s cubic-bezier(0.2, 0.8, 0.2, 1),
+    border-color 0.4s ease,
+    box-shadow 0.4s ease,
+    background 0.4s ease;
+}
+
+/* Remove the old row accent */
+.quality-value-section .qv-item::before {
+  top: auto;
+  right: 22px;
+  bottom: 0;
+  left: 22px;
+  width: auto;
+  height: 3px;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #82964c,
+    #b0ca6c,
+    transparent
+  );
+
+  transform: scaleX(0);
+  transform-origin: center;
+}
+
+/* Decorative circular outline */
+.quality-value-section .qv-item::after {
+  content: "";
+  position: absolute;
+  top: -55px;
+  right: -55px;
+  width: 150px;
+  height: 150px;
+  border: 1px solid rgba(165, 191, 101, 0.13);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: -1;
+
+  transition:
+    transform 0.55s ease,
+    border-color 0.4s ease;
+}
+
+/* Number */
+.quality-value-section .qv-number {
+  font-size: 14px;
+  letter-spacing: 2px;
+  color: #a5bf65;
+  transform: translateZ(25px);
+}
+
+/* Heading and description */
+.quality-value-section .qv-item-copy {
+  transform: translateZ(20px);
+}
+
+.quality-value-section .qv-item-copy h3 {
+  font-size: 19px;
+  line-height: 1.4;
+  margin-bottom: 12px;
+}
+
+.quality-value-section .qv-item-copy p {
+  font-size: 13px;
+  line-height: 1.8;
+  color: #b9bdb3;
+}
+
+/* Icon in a raised circular badge */
+.quality-value-section .qv-item-icon {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  align-self: flex-end;
+
+  background: rgba(130, 150, 76, 0.10);
+  border-color: rgba(165, 191, 101, 0.35);
+  box-shadow:
+    0 6px 15px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.07);
+
+  transform: translateZ(35px);
+}
+
+/* Gentle floating movement */
+.quality-value-section .qv-item:nth-child(1),
+.quality-value-section .qv-item:nth-child(4) {
+  animation: qv-card-float 5.5s ease-in-out infinite;
+}
+
+.quality-value-section .qv-item:nth-child(2),
+.quality-value-section .qv-item:nth-child(5) {
+  animation: qv-card-float 6s ease-in-out infinite 0.7s;
+}
+
+.quality-value-section .qv-item:nth-child(3) {
+  animation: qv-card-float 5.8s ease-in-out infinite 1.2s;
+}
+
+@keyframes qv-card-float {
+  0%, 100% {
+    translate: 0 0;
+  }
+
+  50% {
+    translate: 0 -5px;
+  }
+}
+
+/* 3D hover lift and tilt */
+.quality-value-section .qv-item:hover {
+  padding-left: 25px;
+
+  transform:
+    perspective(1000px)
+    rotateX(3deg)
+    rotateY(-4deg)
+    translateY(-10px)
+    translateZ(15px);
+
+  border-color: rgba(176, 202, 108, 0.7);
+
+  box-shadow:
+    0 25px 45px rgba(0, 0, 0, 0.35),
+    0 0 24px rgba(130, 150, 76, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+  background:
+    radial-gradient(
+      circle at 85% 10%,
+      rgba(130, 150, 76, 0.22),
+      transparent 48%
+    ),
+    linear-gradient(
+      145deg,
+      #293222,
+      #151914
+    );
+}
+
+.quality-value-section .qv-item:hover::before {
+  transform: scaleX(1);
+}
+
+.quality-value-section .qv-item:hover::after {
+  transform: scale(1.3);
+  border-color: rgba(165, 191, 101, 0.32);
+}
+
+.quality-value-section .qv-item:hover .qv-item-icon {
+  transform: translateZ(45px) rotate(-8deg);
+  border-color: #a5bf65;
+  box-shadow: 0 0 22px rgba(130, 150, 76, 0.2);
+}
+
+.quality-value-section .qv-item:hover .qv-item-copy h3 {
+  color: #b0ca6c;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .quality-value-section .qv-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .quality-value-section .qv-item {
+    min-height: 260px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .quality-value-section .qv-list {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .quality-value-section .qv-item {
+    min-height: 220px;
+    padding: 24px;
+    transform: none;
+    animation: none;
+  }
+
+  .quality-value-section .qv-item:hover {
+    padding-left: 24px;
+    transform: translateY(-4px);
+  }
+
+  .quality-value-section .qv-item-copy h3 {
+    font-size: 17px;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .quality-value-section .qv-item {
+    animation: none;
+    transition: none;
+    translate: none;
+  }
+
+  .quality-value-section .qv-item:hover {
+    transform: none;
+  }
+}
+
+
+
+
+
+
+
+
+
+/* =========================================
+   SAUDI VISION 2030 TRANSITION BANNER
+========================================= */
+
+.vision2030-section {
+  position: relative;
+  isolation: isolate;
+  min-height: 390px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  background: #090a09;
+  color: #fff;
+}
+
+/* Fixed architectural background */
+.vision2030-background {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+
+  background-image: url("/images/vision-2030-building.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  transform: scale(1.02);
+}
+
+/* Dark overlay for legible text */
+.vision2030-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+
+  background: linear-gradient(
+    90deg,
+    rgba(5, 6, 5, 0.88) 0%,
+    rgba(5, 6, 5, 0.75) 42%,
+    rgba(5, 6, 5, 0.65) 100%
+  );
+}
+
+.vision2030-container {
+  width: min(1400px, 100%);
+  margin: 0 auto;
+  padding: 55px 6%;
+
+  display: grid;
+  grid-template-columns: 0.85fr 1.7fr;
+  align-items: center;
+  gap: clamp(35px, 7vw, 110px);
+}
+
+/* Vision logo */
+.vision2030-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vision2030-logo img {
+  display: block;
+  width: 100%;
+  max-width: 370px;
+  max-height: 245px;
+  object-fit: contain;
+  filter: drop-shadow(0 5px 18px rgba(0, 0, 0, 0.3));
+}
+
+/* Text content */
+.vision2030-content h2 {
+  margin: 0 0 24px;
+  max-width: 780px;
+
+  color: #f5f5f3;
+  font-size: clamp(28px, 3.1vw, 42px);
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.7px;
+}
+
+.vision2030-content h2 span {
+  color: #182a95;
+  font-weight: 400;
+}
+
+.vision2030-content p {
+  max-width: 800px;
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+/* Tablet */
+@media (max-width: 850px) {
+  .vision2030-section {
+    min-height: auto;
+  }
+
+  .vision2030-container {
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 30px;
+    padding: 50px 5%;
+  }
+
+  .vision2030-logo img {
+    max-width: 260px;
+  }
+
+  .vision2030-content h2 {
+    font-size: 28px;
+  }
+
+  .vision2030-content p {
+    font-size: 14px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .vision2030-background {
+    background-attachment: scroll;
+  }
+
+  .vision2030-container {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 45px 24px;
+  }
+
+  .vision2030-logo img {
+    max-width: 220px;
+    max-height: 150px;
+  }
+
+  .vision2030-content {
+    text-align: center;
+  }
+
+  .vision2030-content h2 {
+    font-size: 27px;
+    margin-bottom: 15px;
+  }
+
+  .vision2030-content p {
+    font-size: 13px;
+    line-height: 1.8;
+  }
+}
+
+
+
+
+
+
+
+
+
+/* Vision 2030 — KSC logo watermark behind text */
+
+.vision2030-content {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+/* Large, subtle company logo */
+.vision2030-company-watermark {
+  position: absolute;
+  z-index: -1;
+
+  width: clamp(300px, 38vw, 550px);
+  height: auto;
+  max-height: 300%;
+  object-fit: contain;
+
+  right: 90px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  opacity: 0.09;
+  filter: grayscale(1) brightness(0) invert(1);
+
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Keep the heading and paragraph readable */
+.vision2030-content-inner {
+  position: relative;
+  z-index: 1;
+}
+
+.vision2030-content h2,
+.vision2030-content p {
+  position: relative;
+  z-index: 1;
+}
+
+/* Responsive watermark */
+@media (max-width: 850px) {
+  .vision2030-company-watermark {
+    width: 350px;
+    right: -60px;
+    opacity: 0.07;
+  }
+}
+
+@media (max-width: 600px) {
+  .vision2030-company-watermark {
+    width: 280px;
+    right: 50%;
+    top: 50%;
+    transform: translate(50%, -50%);
+    opacity: 0.06;
+  }
+}
+
+
+
+
+
+
+/* FIX: Completely remove the moving vertical bar */
+#about .stats > div::after,
+.stats > div::after {
+  animation: none !important;
+  content: none !important;
+  display: none !important;
+  height: 0 !important;
+  width: 0 !important;
+  opacity: 0 !important;
+}
+
+/* Prevent the old neon animation from affecting the cards */
+#about .stats > div,
+.stats > div {
+  animation: none !important;
+}
+
+
+
+
+/* ==========================================
+   OLIVE GREEN NEON FLOW — ROUNDED CARD BORDER
+========================================== */
+
+#about .stats > div {
+  position: relative !important;
+  isolation: isolate;
+  overflow: hidden;
+  border: 1px solid rgba(130, 150, 76, 0.25) !important;
+  border-radius: 14px !important;
+  background: #20251a !important;
+  animation: none !important;
+}
+
+/* Remove the old divider/accent effects */
+#about .stats > div::before,
+#about .stats > div::after {
+  content: none !important;
+  animation: none !important;
+}
+
+/* Draw a rotating neon border */
+#about .stats > div .neon-border {
+  display: none;
+}
+
+#about .stats > div {
+  --border-radius: 14px;
+}
+
+/* Animated conic-gradient border layer */
+#about .stats > div {
+  border: 1px solid transparent !important;
+  background:
+    linear-gradient(#20251a, #20251a) padding-box,
+    conic-gradient(
+      from var(--olive-angle, 0deg),
+      transparent 0deg,
+      transparent 245deg,
+      rgba(130, 150, 76, 0.35) 270deg,
+      #82964c 295deg,
+      #d4ff80 310deg,
+      #82964c 325deg,
+      transparent 350deg,
+      transparent 360deg
+    ) border-box !important;
+
+  animation: oliveBorderRotation 3s linear infinite !important;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+/* Subtle glow when hovering */
+#about .stats > div:hover {
+  box-shadow:
+    0 0 8px rgba(130, 150, 76, 0.35),
+    0 0 18px rgba(130, 150, 76, 0.18) !important;
+}
+
+/* Animate the gradient angle */
+@property --olive-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes oliveBorderRotation {
+  from {
+    --olive-angle: 0deg;
+  }
+  to {
+    --olive-angle: 360deg;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #about .stats > div {
+    animation: none !important;
+  }
+}
+
+
+
+
+
+/* ==========================================
+   KSC — VISION 2030 ANIMATED BACKGROUND
+========================================== */
+
+.vision2030-section {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: #171c13 !important;
+  min-height: 440px;
+}
+
+/* Deep olive gradient background */
+.vision2030-background {
+  position: absolute;
+  inset: -15%;
+  z-index: -3;
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      ellipse at 15% 50%,
+      rgba(105, 126, 58, 0.32),
+      transparent 45%
+    ),
+    radial-gradient(
+      ellipse at 85% 20%,
+      rgba(173, 193, 105, 0.13),
+      transparent 38%
+    ),
+    linear-gradient(
+      115deg,
+      #171c13 0%,
+      #252d1c 45%,
+      #141910 100%
+    );
+
+  animation: visionBackgroundDrift 14s ease-in-out infinite alternate;
+}
+
+/* Moving architectural grid */
+.vision2030-section::before {
+  content: "";
+  position: absolute;
+  inset: -50%;
+  z-index: -2;
+  pointer-events: none;
+
+  background-image:
+    linear-gradient(
+      rgba(180, 204, 113, 0.07) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(180, 204, 113, 0.07) 1px,
+      transparent 1px
+    );
+
+  background-size: 58px 58px;
+  transform: perspective(600px) rotateX(8deg);
+  mask-image: linear-gradient(
+    90deg,
+    transparent,
+    black 20%,
+    black 80%,
+    transparent
+  );
+
+  animation: visionGridMove 22s linear infinite;
+}
+
+/* Soft flowing light across the section */
+.vision2030-section::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: -60%;
+  left: -45%;
+  width: 48%;
+  height: 220%;
+  pointer-events: none;
+
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(157, 187, 83, 0.025) 25%,
+    rgba(196, 225, 124, 0.14) 50%,
+    rgba(157, 187, 83, 0.025) 75%,
+    transparent 100%
+  );
+
+  transform: rotate(20deg);
+  filter: blur(14px);
+  animation: visionLightSweep 10s ease-in-out infinite;
+}
+
+/* Ensure foreground content remains readable */
+.vision2030-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+
+  background: linear-gradient(
+    90deg,
+    rgba(17, 21, 14, 0.18),
+    rgba(17, 21, 14, 0.12) 50%,
+    rgba(17, 21, 14, 0.38)
+  );
+}
+
+/* Foreground layout */
+.vision2030-container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Vision 2030 logo */
+.vision2030-logo img {
+  max-width: 100%;
+  height: auto;
+  filter: drop-shadow(0 0 16px rgba(181, 207, 112, 0.12));
+  animation: visionLogoGlow 5s ease-in-out infinite alternate;
+}
+
+/* Content panel */
+.vision2030-content {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+/* Subtle KSC logo watermark */
+.vision2030-company-watermark {
+  position: absolute;
+  z-index: -1;
+  width: clamp(180px, 30vw, 360px);
+  height: auto;
+  right: 2%;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.055;
+  object-fit: contain;
+  pointer-events: none;
+  filter: grayscale(1) brightness(2);
+}
+
+/* Heading highlight */
+.vision2030-content h2 span {
+  color: #c4dc83;
+  text-shadow: 0 0 18px rgba(170, 202, 103, 0.18);
+}
+
+/* Animations */
+@keyframes visionBackgroundDrift {
+  0% {
+    transform: translate3d(-1%, 0, 0) scale(1);
+  }
+  100% {
+    transform: translate3d(1%, -1%, 0) scale(1.06);
+  }
+}
+
+@keyframes visionGridMove {
+  from {
+    background-position: 0 0, 0 0;
+  }
+  to {
+    background-position: 58px 58px, 58px 58px;
+  }
+}
+
+@keyframes visionLightSweep {
+  0% {
+    left: -50%;
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  65% {
+    opacity: 0.8;
+  }
+  100% {
+    left: 130%;
+    opacity: 0;
+  }
+}
+
+@keyframes visionLogoGlow {
+  from {
+    filter: drop-shadow(0 0 8px rgba(181, 207, 112, 0.08));
+  }
+  to {
+    filter: drop-shadow(0 0 20px rgba(181, 207, 112, 0.25));
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .vision2030-background,
+  .vision2030-section::before,
+  .vision2030-section::after,
+  .vision2030-logo img {
+    animation: none !important;
+  }
+}
+
+
+
+
+
+
+
+
+/* Increase Vision 2030 paragraph text size */
+.vision2030-content p {
+  font-size: 17px !important;
+  line-height: 1.9 !important;
+  font-weight: 400;
+  max-width: 850px;
+}
+
+/* Responsive size for mobile screens */
+@media (max-width: 768px) {
+  .vision2030-content p {
+    font-size: 15px !important;
+    line-height: 1.8 !important;
+  }
+}
+
+
+
+
+
+
+
+
+/* ==========================================
+   KSC CLIENT LOGOS — WHITE / LIGHT GREY PADS
+========================================== */
+
+#clients.clients-section .clients-logo-tile {
+  background: #f2f3ef !important;
+  border: 1px solid rgba(32, 37, 26, 0.12) !important;
+
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.08),
+    0 10px 24px rgba(0, 0, 0, 0.06) !important;
+
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease !important;
+}
+
+/* Subtle light-grey highlight */
+#clients.clients-section .clients-logo-tile::before {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.75),
+    rgba(225, 229, 218, 0.12) 75%
+  ) !important;
+  opacity: 0.7 !important;
+}
+
+/* White background on hover */
+#clients.clients-section .clients-logo-tile:hover {
+  background: #ffffff !important;
+  border-color: rgba(93, 109, 54, 0.35) !important;
+
+  box-shadow:
+    0 8px 22px rgba(0, 0, 0, 0.10),
+    0 0 14px rgba(134, 154, 62, 0.10) !important;
+}
+
+/* Preserve original logo appearance */
+#clients.clients-section .clients-logo-tile img {
+  filter: none !important;
+  opacity: 1 !important;
+  mix-blend-mode: normal !important;
+}
+
+
+
+
+
+
+
+
+
+/* ==========================================
+   KSC QUALITY & VALUE — ZIGZAG NEON TIMELINE
+========================================== */
+
+#quality-value {
+  --qv-olive: #91b451;
+  --qv-neon: #c8ff70;
+  --qv-dark: #20251a;
+
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 100px 24px 75px;
+  background:
+    radial-gradient(
+      ellipse at 50% 50%,
+      rgba(129, 150, 74, 0.10),
+      transparent 65%
+    ),
+    #171b14;
+  color: #f4f4ed;
+}
+
+#quality-value .qv-container {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+/* Heading */
+#quality-value .qv-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  margin-bottom: 85px;
+}
+
+#quality-value .qv-heading-copy {
+  max-width: 720px;
+}
+
+#quality-value .qv-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--qv-olive);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  margin-bottom: 22px;
+}
+
+#quality-value .qv-eyebrow-line {
+  width: 35px;
+  height: 2px;
+  background: var(--qv-olive);
+}
+
+#quality-value .qv-header h2 {
+  color: #f5f5ef;
+  font-size: clamp(38px, 5vw, 64px);
+  line-height: 1.08;
+  letter-spacing: -2px;
+  margin: 0 0 22px;
+}
+
+#quality-value .qv-header h2 span {
+  color: var(--qv-olive);
+}
+
+#quality-value .qv-intro {
+  max-width: 600px;
+  color: #c3c8b9;
+  font-size: 16px;
+  line-height: 1.85;
+}
+
+/* Quality emblem */
+#quality-value .qv-quality-mark {
+  flex-shrink: 0;
+  text-align: center;
+  color: #c3c8b9;
+}
+
+#quality-value .qv-mark-ring {
+  width: 145px;
+  height: 145px;
+  padding: 10px;
+  border: 1px solid rgba(145, 180, 81, 0.5);
+  border-radius: 50%;
+  box-shadow:
+    0 0 20px rgba(145, 180, 81, 0.08),
+    inset 0 0 20px rgba(145, 180, 81, 0.05);
+}
+
+#quality-value .qv-mark-inner {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+#quality-value .qv-mark-inner svg {
+  width: 43px;
+  height: 43px;
+  fill: none;
+  stroke: var(--qv-olive);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+#quality-value .qv-mark-inner span {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+#quality-value .qv-mark-divider {
+  width: 30px;
+  height: 1px;
+  background: var(--qv-olive);
+}
+
+#quality-value .qv-quality-mark > p {
+  font-size: 11px;
+  margin-top: 14px;
+}
+
+/* ==========================================
+   TIMELINE STRUCTURE
+========================================== */
+
+#quality-value .qv-list {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 15px 0;
+}
+
+/* Zigzag connector behind the cards */
+#quality-value .qv-list::before {
+  content: "";
+  position: absolute;
+  top: 55px;
+  bottom: 55px;
+  left: 50%;
+  width: 3px;
+  transform: translateX(-50%);
+  border-radius: 10px;
+
+  background: linear-gradient(
+    180deg,
+    rgba(145, 180, 81, 0.18),
+    rgba(145, 180, 81, 0.65),
+    rgba(145, 180, 81, 0.18)
+  );
+
+  box-shadow: 0 0 12px rgba(145, 180, 81, 0.18);
+}
+
+/* Each performance card */
+#quality-value .qv-item {
+  position: relative;
+  isolation: isolate;
+  width: 44%;
+  min-height: 155px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 25px 28px;
+  margin-bottom: 48px;
+
+  background: linear-gradient(
+    135deg,
+    rgba(42, 49, 33, 0.98),
+    rgba(29, 34, 25, 0.98)
+  );
+
+  border: 1px solid rgba(145, 180, 81, 0.22);
+  border-radius: 14px;
+
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.025);
+
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease;
+}
+
+/* Alternate cards left and right */
+#quality-value .qv-item:nth-child(odd) {
+  align-self: flex-start;
+  margin-right: auto;
+}
+
+#quality-value .qv-item:nth-child(even) {
+  align-self: flex-end;
+  margin-left: auto;
+}
+
+/* Remove the last card's bottom margin */
+#quality-value .qv-item:last-child {
+  margin-bottom: 0;
+}
+
+/* Card number */
+#quality-value .qv-number {
+  flex-shrink: 0;
+  color: rgba(145, 180, 81, 0.8);
+  font-size: 43px;
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -2px;
+}
+
+/* Card text */
+#quality-value .qv-item-copy {
+  position: relative;
+  z-index: 2;
+}
+
+#quality-value .qv-item-copy h3 {
+  margin: 0 0 10px;
+  color: #f5f5ed;
+  font-size: 17px;
+  line-height: 1.35;
+}
+
+#quality-value .qv-item-copy p {
+  margin: 0;
+  color: #bfc5b4;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* Icons */
+#quality-value .qv-item-icon {
+  flex-shrink: 0;
+  width: 43px;
+  height: 43px;
+  margin-left: auto;
+  color: var(--qv-olive);
+}
+
+#quality-value .qv-item-icon svg {
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Connector dots */
+#quality-value .qv-item::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: var(--qv-neon);
+  border: 3px solid #22291b;
+  box-shadow:
+    0 0 8px var(--qv-neon),
+    0 0 18px rgba(200, 255, 112, 0.55);
+  transform: translateY(-50%);
+}
+
+#quality-value .qv-item:nth-child(odd)::before {
+  right: -14.5%;
+}
+
+#quality-value .qv-item:nth-child(even)::before {
+  left: -14.5%;
+}
+
+/* Short diagonal connectors from cards to the central line */
+#quality-value .qv-item::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  height: 2px;
+  width: 13%;
+  background: linear-gradient(
+    90deg,
+    rgba(145, 180, 81, 0.12),
+    var(--qv-olive)
+  );
+}
+
+#quality-value .qv-item:nth-child(odd)::after {
+  right: -13%;
+  transform: rotate(-8deg);
+  transform-origin: right center;
+}
+
+#quality-value .qv-item:nth-child(even)::after {
+  left: -13%;
+  transform: rotate(8deg);
+  transform-origin: left center;
+}
+
+/* Card hover */
+#quality-value .qv-item:hover {
+  border-color: rgba(200, 255, 112, 0.55);
+  box-shadow:
+    0 12px 35px rgba(0, 0, 0, 0.22),
+    0 0 22px rgba(145, 180, 81, 0.10);
+}
+
+/* ==========================================
+   NEON LIGHT TRAVELLING DOWN THE TIMELINE
+========================================== */
+
+#quality-value .qv-list {
+  --qv-flow-position: 0%;
+}
+
+#quality-value .qv-list::after {
+  content: "";
+  position: absolute;
+  z-index: 3;
+  left: 50%;
+  top: 0;
+  width: 5px;
+  height: 110px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(200, 255, 112, 0.55) 25%,
+    #e4ffb0 50%,
+    rgba(145, 180, 81, 0.75) 75%,
+    transparent 100%
+  );
+
+  box-shadow:
+    0 0 8px #c8ff70,
+    0 0 18px rgba(200, 255, 112, 0.7),
+    0 0 35px rgba(145, 180, 81, 0.45);
+
+  pointer-events: none;
+  animation: qvNeonTravel 4s linear infinite;
+}
+
+@keyframes qvNeonTravel {
+  from {
+    top: -100px;
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  85% {
+    opacity: 1;
+  }
+
+  to {
+    top: calc(100% - 10px);
+    opacity: 0;
+  }
+}
+
+/* Footer */
+#quality-value .qv-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-top: 65px;
+}
+
+#quality-value .qv-footer-line {
+  width: 45px;
+  height: 1px;
+  background: rgba(145, 180, 81, 0.55);
+}
+
+#quality-value .qv-footer p {
+  margin: 0;
+  color: var(--qv-olive);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 800px) {
+  #quality-value {
+    padding: 70px 20px 55px;
+  }
+
+  #quality-value .qv-header {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 55px;
+  }
+
+  #quality-value .qv-quality-mark {
+    display: none;
+  }
+
+  #quality-value .qv-list {
+    padding-left: 30px;
+  }
+
+  #quality-value .qv-list::before {
+    left: 7px;
+  }
+
+  #quality-value .qv-list::after {
+    left: 7px;
+  }
+
+  #quality-value .qv-item,
+  #quality-value .qv-item:nth-child(odd),
+  #quality-value .qv-item:nth-child(even) {
+    width: 100%;
+    align-self: stretch;
+    margin: 0 0 25px;
+    padding: 22px 18px;
+    gap: 13px;
+  }
+
+  #quality-value .qv-item:last-child {
+    margin-bottom: 0;
+  }
+
+  #quality-value .qv-item::before,
+  #quality-value .qv-item:nth-child(odd)::before,
+  #quality-value .qv-item:nth-child(even)::before {
+    left: -30px;
+    right: auto;
+    width: 11px;
+    height: 11px;
+  }
+
+  #quality-value .qv-item::after,
+  #quality-value .qv-item:nth-child(odd)::after,
+  #quality-value .qv-item:nth-child(even)::after {
+    left: -23px;
+    right: auto;
+    width: 23px;
+    transform: none;
+  }
+
+  #quality-value .qv-number {
+    font-size: 32px;
+  }
+
+  #quality-value .qv-item-copy h3 {
+    font-size: 15px;
+  }
+
+  #quality-value .qv-item-copy p {
+    font-size: 13px;
+  }
+
+  #quality-value .qv-item-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  #quality-value .qv-footer {
+    gap: 10px;
+    margin-top: 40px;
+  }
+
+  #quality-value .qv-footer p {
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-align: center;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  #quality-value .qv-list::after {
+    animation: none !important;
+  }
+
+  #quality-value .qv-item {
+    transition: none !important;
+  }
+}
+
+
+
+
+
+
+
+
+/* Center the Quality & Value heading and text */
+#quality-value .qv-header {
+  justify-content: center !important;
+  text-align: center !important;
+}
+
+#quality-value .qv-heading-copy {
+  max-width: 850px !important;
+  width: 100%;
+  margin: 0 auto !important;
+  text-align: center !important;
+}
+
+#quality-value .qv-eyebrow {
+  justify-content: center !important;
+}
+
+#quality-value .qv-header h2 {
+  text-align: center !important;
+}
+
+#quality-value .qv-intro {
+  max-width: 750px !important;
+  margin: 22px auto 0 !important;
+  text-align: center !important;
+}
+
+/* Hide the side emblem to keep the heading centered */
+#quality-value .qv-quality-mark {
+  display: none !important;
+}
+
+/* Give the centered heading balanced spacing */
+#quality-value .qv-header {
+  margin-bottom: 85px !important;
+}
+
+
+
+
+
+
+
+
+/* Reduce spacing between zigzag performance cards */
+#quality-value .qv-item {
+  margin-bottom: 8px !important;
+  min-height: 95px !important;
+  padding: 12px 18px !important;
+}
+
+/* Remove extra spacing from the timeline */
+#quality-value .qv-list {
+  gap: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+/* Ensure alternating cards don't add extra margins */
+#quality-value .qv-item:nth-child(odd),
+#quality-value .qv-item:nth-child(even) {
+  margin-top: 0 !important;
+  margin-bottom: 8px !important;
+}
+
+/* Keep the final card compact */
+#quality-value .qv-item:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* Shorten the neon connector to fit the compact timeline */
+#quality-value .qv-list::before {
+  top: 15px !important;
+  bottom: 15px !important;
+}
+
+#quality-value .qv-list::after {
+  height: 60px !important;
+}
+
+/* Mobile spacing */
+@media (max-width: 800px) {
+  #quality-value .qv-item,
+  #quality-value .qv-item:nth-child(odd),
+  #quality-value .qv-item:nth-child(even) {
+    margin-bottom: 10px !important;
+    min-height: 90px !important;
+    padding: 12px !important;
+  }
+}
+
+
+
+
+
+
+
+/* Tighten spacing between zigzag cards */
+#quality-value .qv-item,
+#quality-value .qv-item:nth-child(odd),
+#quality-value .qv-item:nth-child(even) {
+  margin-bottom: -85px !important;
+  min-height: 82px !important;
+}
+
+/* Keep the last card from adding extra spacing */
+#quality-value .qv-item:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* Make the neon line follow the tighter card sequence */
+#quality-value .qv-list::before {
+  top: -10px !important;
+  bottom: 10px !important;
+}
+
+/* Keep the light flowing along the line */
+#quality-value .qv-list::after {
+  height: 55px !important;
+}
+
+/* Mobile: avoid cards overlapping each other */
+@media (max-width: 800px) {
+  #quality-value .qv-item,
+  #quality-value .qv-item:nth-child(odd),
+  #quality-value .qv-item:nth-child(even) {
+    margin-bottom: 10px !important;
+    min-height: 76px !important;
+  }
+}
+
+
+
+
+
+
+
+
+
+/* Reduce space between the main title and timeline cards */
+#quality-value .qv-header {
+  margin-bottom: 150px !important;
+  padding-bottom: 0 !important;
+}
+
+#quality-value .qv-list {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+  transform: translateY(-55px);
+}
+
+/* Keep the closing statement in its normal flow */
+#quality-value .qv-footer {
+  margin-top: 0 !important;
+}
+
+/* Slightly less movement on mobile */
+@media (max-width: 800px) {
+  #quality-value .qv-list {
+    transform: translateY(-25px);
+  }
+}
+
+
+
+
+
+
+
+/* Move the Quality & Value heading slightly upward */
+#quality-value .qv-header {
+  transform: translateY(-45px);
+}
+
+/* Keep the heading-to-cards spacing controlled */
+#quality-value .qv-list {
+  margin-top: 0 !important;
+}
+
+
+
+
+
+/* Reduce vertical gaps around the Vision 2030 section */
+.vision2030-section {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding-top: 25px !important;
+  padding-bottom: 25px !important;
+  min-height: auto !important;
+}
+
+/* Keep the content vertically centered */
+.vision2030-container {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  min-height: auto !important;
+}
+
+/* Reduce space between neighboring sections */
+.vision2030-section + section {
+  margin-top: 0 !important;
+}
+
+
+
+
+
+
+/* Slightly enlarge the Saudi Vision 2030 logo */
+.vision2030-logo img {
+  width: 100% !important;
+  max-width: 390px !important;
+  transform: scale(1.32);
+  transform-origin: center;
+  height: auto !important;
+}
+
+/* Keep the logo balanced on smaller screens */
+@media (max-width: 850px) {
+  .vision2030-logo img {
+    max-width: 320px !important;
+    transform: scale(1.06);
+  }
+}
+
+
+
+
+
+
+
+
+
+/* =========================================
+   VISION 2030 — OLIVE DOT BACKGROUND
+   Remove grid and keep subtle dots
+========================================= */
+
+.vision2030-section {
+  position: relative;
+  isolation: isolate;
+  background-color: #171d12 !important;
+  background-image: none !important;
+}
+
+/* Remove the existing grid background layer */
+.vision2030-background {
+  background-image: none !important;
+  background-color: transparent !important;
+}
+
+/* Add the olive-green dot design */
+.vision2030-section .vision2030-background::before,
+.vision2030-section .vision2030-background::after {
+  content: none !important;
+  display: none !important;
+}
+
+.vision2030-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+
+  background-image:
+    radial-gradient(
+      circle,
+      rgba(145, 175, 76, 0.22) 1.2px,
+      transparent 1.8px
+    ),
+    radial-gradient(
+      ellipse at center,
+      rgba(100, 125, 54, 0.13),
+      transparent 75%
+    );
+
+  background-size: 24px 24px, 100% 100%;
+  background-position: 0 0, center;
+}
+
+/* Keep the content above the dots */
+.vision2030-section .vision2030-container {
+  position: relative;
+  z-index: 1;
+}
+
+
+
+
+
+
+
+/* Darken the Vision 2030 background slightly */
+.vision2030-section {
+  background-color: #10130d !important;
+}
+
+.vision2030-section::before {
+  background-image:
+    radial-gradient(
+      circle,
+      rgba(125, 150, 65, 0.16) 1.2px,
+      transparent 1.8px
+    ),
+    radial-gradient(
+      ellipse at center,
+      rgba(35, 45, 25, 0.12),
+      transparent 75%
+    ) !important;
+  background-size: 24px 24px, 100% 100% !important;
+}
+
+/* Darken the section without hiding the dots */
+.vision2030-section .vision2030-background {
+  background-color: rgba(8, 10, 7, 0.22) !important;
+}
+
+
+
+
+
+
+
+
+
+
+/* ==========================================
+   RESTORE VISIBLE ZIGZAG NEON TIMELINE
+========================================== */
+
+#quality-value .qv-list {
+  position: relative !important;
+  isolation: auto !important;
+}
+
+/* Remove old connector pseudo-elements */
+#quality-value .qv-list::before,
+#quality-value .qv-list::after {
+  content: none !important;
+}
+
+/* Draw a visible zigzag behind the cards */
+#quality-value .qv-list {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 1000' preserveAspectRatio='none'%3E%3Cpath d='M500 0 L500 100 L900 250 L900 300 L500 400 L500 500 L100 600 L100 650 L500 750 L500 850 L100 1000' fill='none' stroke='%2382964c' stroke-width='2' stroke-opacity='.65'/%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-size: 100% 100% !important;
+  background-position: center !important;
+}
+
+/* Keep cards above the connector */
+#quality-value .qv-item {
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+/* Neon pulse traveling down the timeline */
+#quality-value .qv-list {
+  overflow: visible !important;
+}
+
+#quality-value .qv-list .qv-neon-flow {
+  display: none !important;
+}
+
+/* Restore the original vertical line on mobile */
+@media (max-width: 800px) {
+  #quality-value .qv-list {
+    background-image: none !important;
+    border-left: 2px solid rgba(130, 150, 76, 0.6) !important;
+    margin-left: 14px !important;
+  }
+}
+
+
+
+
+
+
+
+
+/* SVG connector: neon flow follows the exact same zigzag path */
+#quality-value .qv-list {
+  position: relative !important;
+  isolation: isolate;
+  overflow: visible !important;
+  background-image: none !important;
+}
+
+#quality-value .qv-zigzag-track {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: visible;
+  pointer-events: none;
+}
+
+#quality-value .qv-zigzag-base {
+  fill: none;
+  stroke: #82964c;
+  stroke-width: 2;
+  stroke-opacity: 0.55;
+  vector-effect: non-scaling-stroke;
+}
+
+#quality-value .qv-zigzag-neon {
+  fill: none;
+  stroke: #caff70;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+  stroke-dasharray: 45 1800;
+  stroke-dashoffset: 1845;
+  filter:
+    drop-shadow(0 0 3px #caff70)
+    drop-shadow(0 0 8px rgba(186, 255, 99, 0.9));
+  animation: qvZigzagFlow 5s linear infinite;
+}
+
+#quality-value .qv-item {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes qvZigzagFlow {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #quality-value .qv-zigzag-neon {
+    animation: none;
+  }
+}
+
+
+
+
+
+
+/* Move the quality cards and zigzag connector upward */
+#quality-value .qv-list {
+  margin-top: 50px !important;
+  position: relative;
+}
+
+/* Keep the neon line aligned with the cards */
+#quality-value .qv-zigzag-track {
+  transform: translateY(0);
+}
+
+/* Slightly reduce the gap below the heading */
+#quality-value .qv-header {
+  margin-bottom: 20px !important;
+}
+
+
+
+
+
+
+
+
+/* Extend the ending segment of the quality timeline */
+#quality-value .qv-list::after {
+  height: 120px !important;
+  bottom: -35px !important;
+}
+
+/* Keep the final zigzag line visible */
+#quality-value .qv-list {
+  padding-bottom: 5px !important;
+  overflow: visible !important;
+}
+
+
+
+
+
+
+
+
+/* Increase horizontal gap between alternating quality cards */
+#quality-value .qv-item:nth-child(odd) {
+  transform: translateX(-100px);
+}
+
+#quality-value .qv-item:nth-child(even) {
+  transform: translateX(100px);
+}
+
+/* Keep the timeline connector visible */
+#quality-value .qv-list {
+  overflow: visible !important;
+}
+
+
+
+
+
+
+
+
+/* ==========================================
+   KSC STATS — SIX CARDS IN ONE ROW
+   Cream background with olive accents
+========================================== */
+
+#about .stats {
+  width: calc(100% - 20px) !important;
+  max-width: none !important;
+  margin: 38px auto !important;
+  padding: 4px 26px !important;
+
+  display: grid !important;
+  grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
+  gap: 16px !important;
+
+  background: linear-gradient(115deg, #f2eee2, #e9eddd) !important;
+  border-radius: 52px !important;
+  box-sizing: border-box !important;
+}
+
+/* Individual statistic cards */
+#about .stats > div {
+  min-width: 0 !important;
+  min-height: 310px !important;
+  padding: 28px 22px !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  justify-content: center !important;
+  gap: 20px !important;
+
+  background: rgba(255, 255, 255, 0.3) !important;
+  border: 1px solid rgba(130, 150, 76, 0.18) !important;
+  border-radius: 16px !important;
+  box-shadow: none !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+
+  animation: none !important;
+  transform: none !important;
+}
+
+/* Remove old animated dividers and card accents */
+#about .stats > div::before,
+#about .stats > div::after {
+  content: none !important;
+  display: none !important;
+  animation: none !important;
+}
+
+/* Olive icons */
+#about .stats .stat-icon {
+  color: #82964c !important;
+  font-size: 38px !important;
+  line-height: 1 !important;
+  margin: 0 0 8px !important;
+}
+
+/* Large dark numbers */
+#about .stats .stat-number {
+  color: #20251a !important;
+  font-size: clamp(32px, 2.8vw, 60px) !important;
+  font-weight: 750 !important;
+  line-height: 1.05 !important;
+  letter-spacing: -1.5px !important;
+  white-space: normal !important;
+  margin: 0 !important;
+}
+
+/* Plus sign */
+#about .stats .stat-number .plus {
+  color: #82964c !important;
+  font-size: 0.48em !important;
+  vertical-align: super !important;
+  letter-spacing: 0 !important;
+}
+
+/* Billion label */
+#about .stats .billion-text {
+  color: #82964c !important;
+  font-size: 0.48em !important;
+  letter-spacing: -0.5px !important;
+  margin-left: 4px !important;
+}
+
+/* Card descriptions */
+#about .stats > div > span:last-child {
+  color: #707665 !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  line-height: 1.7 !important;
+  letter-spacing: 0.5px !important;
+  text-transform: uppercase !important;
+  overflow-wrap: anywhere !important;
+}
+
+/* Tablet: three cards per row */
+@media (max-width: 1100px) {
+  #about .stats {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    padding: 24px !important;
+  }
+
+  #about .stats > div {
+    min-height: 240px !important;
+  }
+}
+
+/* Mobile: two cards per row */
+@media (max-width: 640px) {
+  #about .stats {
+    width: calc(100% - 28px) !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 12px !important;
+    padding: 16px !important;
+    border-radius: 16px !important;
+  }
+
+  #about .stats > div {
+    min-height: 190px !important;
+    padding: 18px 14px !important;
+    gap: 14px !important;
+    border-radius: 12px !important;
+  }
+
+  #about .stats .stat-icon {
+    font-size: 30px !important;
+  }
+
+  #about .stats .stat-number {
+    font-size: clamp(28px, 7vw, 40px) !important;
+  }
+
+  #about .stats > div > span:last-child {
+    font-size: 10px !important;
+  }
+}
+
+
+
+
+
+/* Shift the stats section slightly left */
+#about .stats {
+  transform: translateX(-11px) !important;
+}
+
+
+
+
+
+/* ==========================================
+   STATS SECTION — KSC OLIVE DOT-FLOW BACKGROUND
+========================================== */
+
+#about .stats {
+  position: relative !important;
+  isolation: isolate !important;
+  overflow: hidden !important;
+
+  background-color: #11140f !important;
+  background-image:
+    radial-gradient(
+      circle,
+      rgba(130, 150, 76, 0.20) 1.2px,
+      transparent 1.8px
+    ) !important;
+  background-size: 24px 24px !important;
+  background-position: 0 0 !important;
+
+  border: 1px solid rgba(130, 150, 76, 0.12) !important;
+  border-radius: 28px !important;
+  box-shadow: none !important;
+}
+
+/* Subtle olive glow flowing from left to right */
+#about .stats::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: -1 !important;
+  pointer-events: none !important;
+
+  background: linear-gradient(
+    100deg,
+    transparent 0%,
+    rgba(130, 150, 76, 0.08) 30%,
+    rgba(170, 195, 95, 0.13) 50%,
+    rgba(130, 150, 76, 0.06) 70%,
+    transparent 100%
+  ) !important;
+
+  background-size: 200% 100% !important;
+  animation: statsOliveDotFlow 12s linear infinite !important;
+}
+
+@keyframes statsOliveDotFlow {
+  from {
+    background-position: 100% 0;
+  }
+  to {
+    background-position: -100% 0;
+  }
+}
+
+/* Keep the cream statistic cards above the background */
+#about .stats > div {
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  #about .stats::before {
+    animation: none !important;
+  }
+}
+
+
+
+
+
+/* DARK STATS CARDS — HIGH CONTRAST TEXT AND SYMBOLS */
+
+#about .stats > div {
+  background: linear-gradient(
+    145deg,
+    #252b1e 0%,
+    #191d16 100%
+  ) !important;
+
+  border: 1px solid rgba(145, 173, 76, 0.28) !important;
+  opacity: 1 !important;
+  filter: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* Main numbers */
+#about .stats > div h2,
+#about .stats > div h3,
+#about .stats > div .stat-number,
+#about .stats > div .value {
+  color: #f5f5ed !important;
+  opacity: 1 !important;
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.08);
+}
+
+/* Labels and descriptions */
+#about .stats > div p,
+#about .stats > div label,
+#about .stats > div .stat-label,
+#about .stats > div .description {
+  color: #d0d4c5 !important;
+  opacity: 1 !important;
+}
+
+/* Icons and symbols */
+#about .stats > div svg,
+#about .stats > div .icon {
+  color: #a4c653 !important;
+  fill: currentColor;
+  opacity: 1 !important;
+}
+
+/* Plus signs, SAR and accent values */
+#about .stats > div span,
+#about .stats > div strong,
+#about .stats > div .accent,
+#about .stats > div .plus,
+#about .stats > div .stat-suffix {
+  opacity: 1 !important;
+}
+
+/* Keep numerical accents olive green */
+#about .stats > div .accent,
+#about .stats > div .plus,
+#about .stats > div .stat-suffix {
+  color: #a4c653 !important;
+}
+
+/* Olive dot pattern behind the cards */
+#about .stats {
+  background-color: #11140f !important;
+  background-image: radial-gradient(
+    circle,
+    rgba(145, 173, 76, 0.16) 1.2px,
+    transparent 1.8px
+  ) !important;
+  background-size: 24px 24px !important;
+}
+
+
+
+
+
+
+
+
+/* =========================================
+   KSC STATISTICS — CONSISTENT ALIGNMENT
+========================================= */
+
+/* Keep all six cards consistent */
+.stats > div,
+#about .stats > div {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  justify-content: flex-start !important;
+  box-sizing: border-box !important;
+  padding: 30px 22px !important;
+  min-width: 0;
+}
+
+/* Align every symbol to the same top position */
+.stats > div > :first-child,
+#about .stats > div > :first-child {
+  margin-top: 0 !important;
+  margin-bottom: 24px !important;
+}
+
+/* Align the main numbers */
+.stats > div h2,
+.stats > div h3,
+.stats > div .stat-number,
+#about .stats > div h2,
+#about .stats > div h3,
+#about .stats > div .stat-number {
+  margin-top: 0 !important;
+  margin-bottom: 22px !important;
+  line-height: 1.15 !important;
+  text-align: left !important;
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+/* Align descriptions */
+.stats > div p,
+.stats > div .stat-label,
+#about .stats > div p,
+#about .stats > div .stat-label {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  line-height: 1.6 !important;
+  text-align: left !important;
+  min-height: 3.2em;
+}
+
+/* Prevent icons from shifting */
+.stats > div svg,
+#about .stats > div svg {
+  flex-shrink: 0;
+}
+
+/* Mobile spacing */
+@media (max-width: 768px) {
+  .stats > div,
+  #about .stats > div {
+    padding: 24px 18px !important;
+  }
+}
+
+
+
+
+
+
+
+/* Keep the SAR value and Billion on one line */
+.stats .industrial-value,
+#about .stats .industrial-value {
+  display: inline-flex !important;
+  flex-direction: row !important;
+  align-items: baseline !important;
+  flex-wrap: nowrap !important;
+  gap: 5px;
+  white-space: nowrap !important;
+}
+
+/* Raise the + above the number */
+.stats .industrial-value .plus,
+#about .stats .industrial-value .plus {
+  display: inline-block !important;
+  position: relative !important;
+  top: -0.8em !important;
+  margin-left: 0 !important;
+  font-size: 0.48em !important;
+  line-height: 1 !important;
+  vertical-align: baseline !important;
+  flex-shrink: 0 !important;
+}
+
+/* Keep Billion beside SAR 1 */
+.stats .industrial-value .billion-text,
+#about .stats .industrial-value .billion-text {
+  display: inline-block !important;
+  white-space: nowrap !important;
+  font-size: 0.55em !important;
+  line-height: 1 !important;
+}
+
+
+
+
+
+
+
+
+
+/* =========================================
+   KSC STATISTICS — FINAL VISUAL REFINEMENTS
+========================================= */
+
+/* Keep the existing dark olive theme */
+.stats {
+  background-color: #171b14;
+}
+
+/* Consistent card appearance */
+.stats > div {
+  box-sizing: border-box;
+  min-width: 0;
+  border: 1px solid rgba(137, 161, 67, 0.28);
+  border-radius: 20px;
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+}
+
+/* Make labels easier to read */
+.stats > div p,
+.stats > div .stat-label {
+  color: #aeb5a0 !important;
+  line-height: 1.65;
+  letter-spacing: 0.035em;
+}
+
+/* Keep icons consistently aligned */
+.stats > div svg,
+.stats > div .stat-icon {
+  flex-shrink: 0;
+}
+
+/* Consistent number typography */
+.stats > div h3,
+.stats > div .stat-number {
+  font-variant-numeric: tabular-nums;
+  line-height: 1.15;
+  letter-spacing: -0.035em;
+}
+
+/* Superscript plus signs */
+.stats > div .plus {
+  display: inline-block !important;
+  position: relative;
+  top: -0.65em;
+  margin-left: 3px;
+  font-size: 0.48em !important;
+  line-height: 1;
+  vertical-align: baseline;
+}
+
+/* Keep the SAR value together */
+.stats > div .industrial-value {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: nowrap;
+  gap: 5px;
+  white-space: nowrap;
+}
+
+.stats > div .billion-text {
+  white-space: nowrap;
+  font-size: 0.55em;
+}
+
+/* Subtle neon hover */
+@media (hover: hover) {
+  .stats > div:hover {
+    border-color: rgba(181, 222, 91, 0.65);
+    box-shadow:
+      0 0 12px rgba(145, 184, 69, 0.09),
+      inset 0 0 14px rgba(145, 184, 69, 0.025);
+    transform: translateY(-3px);
+  }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .stats > div {
+    transition: none !important;
+  }
+
+  .stats > div:hover {
+    transform: none !important;
+  }
+}
+
+
+
+
+
+
+
+/* ==========================================
+   KSC — NEON FLOW AROUND THE OUTER CONTAINER
+========================================== */
+
+.stats {
+  position: relative !important;
+  isolation: isolate;
+  border-radius: 30px !important;
+}
+
+/* Outer animated border track */
+.stats::after {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  padding: 2px !important;
+  border-radius: inherit !important;
+  pointer-events: none !important;
+  z-index: 10 !important;
+
+  background: conic-gradient(
+    from var(--ksc-flow-angle, 0deg),
+    transparent 0deg,
+    transparent 270deg,
+    rgba(145, 184, 74, 0.3) 300deg,
+    #a9e84b 325deg,
+    #e0ff91 340deg,
+    #a9e84b 350deg,
+    transparent 360deg
+  ) !important;
+
+  /* Show only the border, not the center */
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0) !important;
+  -webkit-mask-composite: xor !important;
+  mask-composite: exclude !important;
+
+  animation: kscContainerNeonFlow 4s linear infinite !important;
+  box-shadow: none !important;
+}
+
+/* Move the highlight around the perimeter */
+@property --ksc-flow-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes kscContainerNeonFlow {
+  from {
+    --ksc-flow-angle: 0deg;
+  }
+  to {
+    --ksc-flow-angle: 360deg;
+  }
+}
+
+/* Reduced motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .stats::after {
+    animation: none !important;
+  }
+}
+
+
+
+
+
+

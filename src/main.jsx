@@ -124,14 +124,14 @@ useEffect(() => {
 
 
 const serviceImages = {
-  "civil-construction": "/images/services/Civil-001.png",
-  "architectural-interior-finishes": "/images/Architectural-New.jpeg",
-  "mechanical-works": "/images/Mechanical-001.png",
+  "civil-construction": "/images/Civil-001.jpg",
+  "architectural-interior-finishes": "/images/Architectural-001.jpg",
+  "mechanical-works": "/images/Mechanical-001.jpg",
   "electrical-works": "/images/Electrical-001.png",
-  "hvac-works": "/images/HVAC-001.png",
+  "hvac-works": "/images/HVAC-001.jpg",
   "fire-detection-fire-fighting": "/images/Fire-001.png",
-  "pharmaceutical-cleanroom-facilities": "/images/pharma.png",
-  "fitout-works": "/images/services/Fitout-001.png",
+  "pharmaceutical-cleanroom-facilities": "/images/Pharma-001.jpg",
+  "fitout-works": "/images/Fitout-001.jpg",
   "equipment-machine-installations": "/images/services/Installation-001.png"
 };
 
@@ -459,8 +459,8 @@ const handleVideoEnded = () => {
                 </svg>
               </span>
               <strong className="stat-number industrial-value">
-                SAR 1<span className="plus">+</span>
-                <span className="billion-text">Billion</span>
+                SAR<span className="billion-text">1 Billion</span>
+                <span className="plus">+</span>
               </strong>
               <span>TOTAL VALUE OF INDUSTRIAL PROJECTS EXECUTED</span>
             </div>
@@ -546,6 +546,27 @@ const handleVideoEnded = () => {
             </div>
           </div>
         </section>
+
+
+
+
+{/* Fixed background transition before F&B projects */}
+<section className="auxiliary-transition fb-projects-transition">
+  <div className="auxiliary-transition-image" />
+  <div className="auxiliary-transition-overlay" />
+
+  <div className="auxiliary-transition-content">
+    <span>KHAMIS AL SHARJAH CONTRACTING CO.</span>
+    <h2>
+      Engineering Excellence.<br />
+      Delivered End to End.
+    </h2>
+  </div>
+</section>
+
+
+
+
 
         <section id="projects" className="projects section">
           <div className="container">
@@ -665,35 +686,70 @@ const handleVideoEnded = () => {
           </div>
         </section>
 
-        
 
-<section className="auxiliary-services section">
-  <div className="auxiliary-redesign">
 
-    {/* Left side */}
-    <div className="auxiliary-redesign-left">
-      <p className="eyebrow">SUPPORTING CAPABILITIES</p>
 
-      <h2>
-        Comprehensive
-        <br />
-        <span>Auxiliary Services</span>
-      </h2>
 
-      <p className="auxiliary-redesign-description">
-        Integrated facilities and infrastructure that support
-        project delivery, site operations and workforce welfare.
+{/* Full-width visual transition before Auxiliary Services */}
+<section className="auxiliary-transition" aria-label="KSC construction">
+  <div className="auxiliary-transition-image" />
+  <div className="auxiliary-transition-overlay" />
+
+  <div className="auxiliary-transition-content">
+    <span>KHAMIS AL SHARJAH CONTRACTING CO.</span>
+    <h2>Built on Experience.<br />Driven by Excellence.</h2>
+  </div>
+</section>
+
+
+
+
+
+<section className="auxiliary-services section" id="auxiliary-services">
+  
+<div className="aux-logo-flow" aria-hidden="true">
+  <div className="aux-logo-track">
+    {Array.from({ length: 12 }, (_, i) => (
+      <img
+        key={i}
+        src="/images/ksc-logo.png"
+        alt=""
+        className="aux-flow-logo"
+      />
+    ))}
+  </div>
+</div>
+
+  <div className="aux-what-container">
+    <div className="aux-what-heading">
+      <div className="aux-what-title">
+        <span className="aux-what-line" />
+        <h2>
+          <span>COMPREHENSIVE</span> AUXILIARY SERVICES
+        </h2>
+        <span className="aux-what-line" />
+      </div>
+
+      <p className="aux-what-intro">
+        KSC delivers integrated construction, accommodation and
+        infrastructure solutions to support projects, site operations
+        and workforce welfare.
       </p>
 
-      <div className="auxiliary-redesign-image"></div>
+      <p className="aux-what-description">
+        Our auxiliary services complement our core contracting
+        capabilities, providing practical facilities and coordinated
+        project support with a focus on quality, safety and reliability.
+      </p>
+
+      <p className="aux-what-subheading">
+        Our supporting capabilities include:
+      </p>
     </div>
 
-    {/* Right side */}
-    <div className="auxiliary-redesign-list">
-
-      <div className="auxiliary-redesign-item">
-        <span className="auxiliary-redesign-number">01</span>
-        <div className="auxiliary-redesign-icon">
+    <div className="aux-what-grid">
+      <article className="aux-what-item">
+        <div className="aux-what-circle">
           <svg viewBox="0 0 48 48" aria-hidden="true">
             <path d="M6 22L24 7L42 22" />
             <path d="M11 20V41H37V20" />
@@ -702,34 +758,11 @@ const handleVideoEnded = () => {
             <path d="M20 34H28" />
           </svg>
         </div>
-        <div className="auxiliary-redesign-copy">
-          <h3>Staff &amp; Worker Accommodation</h3>
-          <p>Design and build workforce housing</p>
-        </div>
-        
-          <span className="auxiliary-redesign-arrow" aria-hidden="true">
-            <svg
-              viewBox="0 0 24 24"
-              width="20"
-              height="20"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M7 17L17 7M8 7H17V16"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </span>
+        <h3>Staff &amp; Worker Accommodation</h3>
+      </article>
 
-      </div>
-
-      <div className="auxiliary-redesign-item">
-        <span className="auxiliary-redesign-number">02</span>
-        <div className="auxiliary-redesign-icon">
+      <article className="aux-what-item">
+        <div className="aux-what-circle">
           <svg viewBox="0 0 48 48" aria-hidden="true">
             <path d="M7 41V15H24V41" />
             <path d="M24 41V7H41V41" />
@@ -738,34 +771,11 @@ const handleVideoEnded = () => {
             <path d="M4 41H44" />
           </svg>
         </div>
-        <div className="auxiliary-redesign-copy">
-          <h3>Commercial &amp; Retail Buildings</h3>
-          <p>Delivery of commercial buildings and retail spaces</p>
-        </div>
-        
-          <span className="auxiliary-redesign-arrow" aria-hidden="true">
-            <svg
-              viewBox="0 0 24 24"
-              width="20"
-              height="20"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M7 17L17 7M8 7H17V16"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </span>
+        <h3>Commercial &amp; Retail Buildings</h3>
+      </article>
 
-      </div>
-
-      <div className="auxiliary-redesign-item">
-        <span className="auxiliary-redesign-number">03</span>
-        <div className="auxiliary-redesign-icon">
+      <article className="aux-what-item">
+        <div className="aux-what-circle">
           <svg viewBox="0 0 48 48" aria-hidden="true">
             <circle cx="31" cy="11" r="4" />
             <path d="M28 17L22 24L13 22" />
@@ -775,34 +785,11 @@ const handleVideoEnded = () => {
             <path d="M8 29H40" />
           </svg>
         </div>
-        <div className="auxiliary-redesign-copy">
-          <h3>Swimming Pools &amp; Sports Facilities</h3>
-          <p>Construction of recreational and sports facilities</p>
-        </div>
-        
-          <span className="auxiliary-redesign-arrow" aria-hidden="true">
-            <svg
-              viewBox="0 0 24 24"
-              width="20"
-              height="20"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M7 17L17 7M8 7H17V16"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </span>
+        <h3>Swimming Pools &amp; Sports Facilities</h3>
+      </article>
 
-      </div>
-
-      <div className="auxiliary-redesign-item">
-        <span className="auxiliary-redesign-number">04</span>
-        <div className="auxiliary-redesign-icon">
+      <article className="aux-what-item">
+        <div className="aux-what-circle">
           <svg viewBox="0 0 48 48" aria-hidden="true">
             <circle cx="24" cy="24" r="12" />
             <circle cx="24" cy="24" r="5" />
@@ -810,34 +797,11 @@ const handleVideoEnded = () => {
             <path d="M10 10L15 15M33 33L38 38M38 10L33 15M15 33L10 38" />
           </svg>
         </div>
-        <div className="auxiliary-redesign-copy">
-          <h3>Utilities &amp; Infrastructure</h3>
-          <p>Utility networks and infrastructure support for turnkey projects</p>
-        </div>
-        
-          <span className="auxiliary-redesign-arrow" aria-hidden="true">
-            <svg
-              viewBox="0 0 24 24"
-              width="20"
-              height="20"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M7 17L17 7M8 7H17V16"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </span>
+        <h3>Utilities &amp; Infrastructure</h3>
+      </article>
 
-      </div>
-
-      <div className="auxiliary-redesign-item">
-        <span className="auxiliary-redesign-number">05</span>
-        <div className="auxiliary-redesign-icon">
+      <article className="aux-what-item">
+        <div className="aux-what-circle">
           <svg viewBox="0 0 48 48" aria-hidden="true">
             <rect x="9" y="6" width="30" height="36" rx="3" />
             <path d="M15 15H33M15 22H33M15 29H25" />
@@ -845,93 +809,226 @@ const handleVideoEnded = () => {
             <path d="M30 33L32 35L35 31" />
           </svg>
         </div>
-        <div className="auxiliary-redesign-copy">
-          <h3>Integrated Project Support</h3>
-          <p>Coordinated delivery to improve operational efficiency and workforce welfare</p>
-        </div>
-        
-          <span className="auxiliary-redesign-arrow" aria-hidden="true">
-            <svg
-              viewBox="0 0 24 24"
-              width="20"
-              height="20"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M7 17L17 7M8 7H17V16"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </span>
-
-      </div>
-
+        <h3>Integrated Project Support</h3>
+      </article>
     </div>
+
+    
   </div>
 </section>
 
 
 
 
-        <section className="quality-value-section reveal-section">
+        
+<section className="quality-value-section reveal-section" id="quality-value">
+  <div className="qv-background-glow" aria-hidden="true" />
 
-          <div className="quality-value-corner"></div>
+  <div className="qv-container">
 
-          <div className="quality-value-header">
-            <p className="eyebrow">KSC STANDARD</p>
+    {/* Section heading */}
+    <div className="qv-header">
+      <div className="qv-heading-copy">
+        <div className="qv-eyebrow">
+          <span className="qv-eyebrow-line" />
+        </div>
 
-            <h2>Commitment to Quality and Value</h2>
+        <h2>
+          
+          <span>Quality is our foundation.</span>
+          <br />
+          Value is our commitment.
+        </h2>
 
-            <p>
-              Reliable, cost-efficient construction tailored for peak factory
-              and distribution performance
-            </p>
+        <p className="qv-intro">
+          Reliable, cost-efficient construction tailored for peak
+          factory and distribution performance.
+        </p>
+      </div>
+
+      <div className="qv-quality-mark">
+        <div className="qv-mark-ring">
+          <div className="qv-mark-inner">
+            <svg viewBox="0 0 64 64" aria-hidden="true">
+              <path d="M32 5L51 12V29C51 42 43 52 32 59C21 52 13 42 13 29V12L32 5Z" />
+              <path d="M22 31L29 38L43 23" />
+            </svg>
+
+            <span>QUALITY</span>
+            <span className="qv-mark-divider" />
+            <span>VALUE</span>
           </div>
+        </div>
 
-          <div className="quality-value-list">
+        <p>Built on trust. Delivered with integrity.</p>
+      </div>
+    </div>
 
-            <div className="quality-value-row">
-              <div className="quality-value-text">
-               <strong>30+ </strong>YEARS DELIVERING HIGH-QUALITY CONSTRUCTION
-              </div>
-              <div className="quality-value-number">01</div>
-            </div>
+    {/* Quality and value commitments */}
+    <div className="qv-list">
 
-            <div className="quality-value-row">
-              <div className="quality-value-text">
-                ON-TIME DELIVERY FOCUSED PROJECT MANAGEMENT
-              </div>
-              <div className="quality-value-number">02</div>
-            </div>
+      
+      <svg
+        className="qv-zigzag-track"
+        viewBox="0 0 1000 1000"
+        preserveAspectRatio="none"
+        aria-hidden="true"
+      >
+        <path
+          className="qv-zigzag-base"
+          d="M500 0 L500 100 L900 250 L900 300 L500 400 L500 500 L100 600 L100 650 L500 750 L500 850 L100 1000"
+        />
+        <path
+          className="qv-zigzag-neon"
+          d="M500 0 L500 100 L900 250 L900 300 L500 400 L500 500 L100 600 L100 650 L500 750 L500 850 L100 1000"
+        />
+      </svg>
 
-            <div className="quality-value-row">
-              <div className="quality-value-text">
-                COST-EFFICIENT SOLUTIONS WITHOUT COMPROMISING QUALITY
-              </div>
-              <div className="quality-value-number">03</div>
-            </div>
 
-            <div className="quality-value-row">
-              <div className="quality-value-text">
-                TRUSTED PARTNER ENSURING PEAK FACILITY PERFORMANCE
-              </div>
-              <div className="quality-value-number">04</div>
-            </div>
+      <article className="qv-item">
+        <div className="qv-number">01</div>
 
-            <div className="quality-value-row">
-              <div className="quality-value-text">
-                TAILORED, RELIABLE SOLUTIONS FOR FACTORIES AND DISTRIBUTION CENTERS
-              </div>
-              <div className="quality-value-number">05</div>
-            </div>
+        <div className="qv-item-copy">
+          <h3>Experience That Delivers</h3>
+          <p>30+ years delivering high-quality construction.</p>
+        </div>
 
-          </div>
+        <div className="qv-item-icon">
+          <svg viewBox="0 0 48 48" aria-hidden="true">
+            <circle cx="24" cy="24" r="17" />
+            <path d="M24 13V24L32 29" />
+            <path d="M15 5L11 10M33 5L37 10" />
+          </svg>
+        </div>
+      </article>
 
-        </section>
+      <article className="qv-item">
+        <div className="qv-number">02</div>
+
+        <div className="qv-item-copy">
+          <h3>Precision in Project Delivery</h3>
+          <p>On-time delivery focused project management.</p>
+        </div>
+
+        <div className="qv-item-icon">
+          <svg viewBox="0 0 48 48" aria-hidden="true">
+            <circle cx="24" cy="24" r="17" />
+            <path d="M15 24L21 30L34 17" />
+          </svg>
+        </div>
+      </article>
+
+      <article className="qv-item">
+        <div className="qv-number">03</div>
+
+        <div className="qv-item-copy">
+          <h3>Value Without Compromise</h3>
+          <p>Cost-efficient solutions without compromising quality.</p>
+        </div>
+
+        <div className="qv-item-icon">
+          <svg viewBox="0 0 48 48" aria-hidden="true">
+            <circle cx="24" cy="24" r="17" />
+            <text
+              x="24"
+              y="32"
+              textAnchor="middle"
+              fontSize="28"
+              fontWeight="500"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+            >
+              ⃁
+            </text>
+            
+          </svg>
+        </div>
+      </article>
+
+      <article className="qv-item">
+        <div className="qv-number">04</div>
+
+        <div className="qv-item-copy">
+          <h3>A Partner You Can Trust</h3>
+          <p>Trusted partner ensuring peak facility performance.</p>
+        </div>
+
+        <div className="qv-item-icon">
+          <svg viewBox="0 0 48 48" aria-hidden="true">
+            <path d="M24 5L39 11V25C39 34 32 41 24 45C16 41 9 34 9 25V11L24 5Z" />
+            <path d="M17 24L22 29L32 19" />
+          </svg>
+        </div>
+      </article>
+
+      <article className="qv-item">
+        <div className="qv-number">05</div>
+
+        <div className="qv-item-copy">
+          <h3>Solutions Built Around Your Needs</h3>
+          <p>Tailored, reliable solutions for factories and distribution centers.</p>
+        </div>
+
+        <div className="qv-item-icon">
+          <svg viewBox="0 0 48 48" aria-hidden="true">
+            <rect x="8" y="8" width="32" height="32" rx="3" />
+            <path d="M16 17H32M16 24H32M16 31H26" />
+            <path d="M34 31L37 34L43 27" />
+          </svg>
+        </div>
+      </article>
+
+    </div>
+
+    
+  </div>
+</section>
+
+
+
+
+
+{/* Saudi Vision 2030 transition banner */}
+<section className="vision2030-section">
+  <div className="vision2030-background" aria-hidden="true" />
+  <div className="vision2030-overlay" aria-hidden="true" />
+
+  <div className="vision2030-container">
+    <div className="vision2030-logo">
+      <img
+        src="/images/vision2030.png"
+        alt="Saudi Arabia Vision 2030"
+        loading="lazy"
+      />
+    </div>
+
+    
+<div className="vision2030-content">
+  <img
+    className="vision2030-company-watermark"
+    src="/images/logo1.png"
+    alt=""
+    aria-hidden="true"
+  />
+
+  <div className="vision2030-content-inner">
+    <h2>
+      <span>Realization</span> of Saudi Arabia’s<br />Vision 2030
+    </h2>
+
+    <p>
+      Project management and construction excellence play an important
+      role in supporting Saudi Arabia’s Vision 2030 through reliable
+      project delivery, efficient infrastructure and sustainable
+      development.
+    </p>
+  </div>
+</div>
+
+  </div>
+</section>
+
 
 
         
@@ -995,6 +1092,10 @@ const handleVideoEnded = () => {
     </div>
   </div>
 </section>
+
+
+
+
 
 
 

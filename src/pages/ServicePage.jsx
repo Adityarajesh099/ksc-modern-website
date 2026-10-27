@@ -8,7 +8,7 @@ const serviceData = {
   number: "01",
   title: "Civil Construction",
   label: "CIVIL CONSTRUCTION",
-  exploreImage: "/images/Civil-001.png",
+  exploreImage: "/images/Civil-001.jpg",
   description:
     "Over the past years, we have developed a robust fleet of skilled manpower and advanced equipment, enabling us to undertake a wide variety of civil construction projects with confidence. Our dedication to safety, quality, and efficient production has established us as a trusted leader in the field. We pride ourselves on maintaining an excellent safety record while delivering top-notch work with a high production rate.",
 
@@ -115,7 +115,7 @@ highlights: {
   number: "03",
   title: "Mechanical Works",
   label: "MECHANICAL WORKS",
-  exploreImage: "/images/Mechanical-001.png",
+  exploreImage: "/images/Mechanical-001.jpg",
   description:
     "KSC provides dependable mechanical construction and installation services for industrial, commercial and infrastructure projects. Our teams support mechanical systems from installation through testing and commissioning, with a strong focus on safety, quality and efficient project execution.",
   benefits: [
@@ -165,7 +165,7 @@ highlights: {
   number: "04",
   title: "Architectural & Interior Design",
   label: "ARCHITECTURAL & INTERIOR DESIGN",
-  exploreImage: "/images/Architectural-New.jpeg",
+  exploreImage: "/images/Architectural-001.jpg",
   description:
     "KSC provides architectural and interior design solutions that combine functional planning, technical coordination and refined design. Our approach supports projects from concept development and design coordination through to detailed execution.",
   benefits: [
@@ -321,7 +321,7 @@ highlights: {
   number: "07",
   title: "HVAC Works",
   label: "HVAC WORKS",
-  exploreImage: "/images/HVAC-001.png",
+  exploreImage: "/images/HVAC-001.jpg",
   description:
     "KSC provides heating, ventilation and air-conditioning solutions for commercial, industrial and infrastructure facilities. Our HVAC services support efficient climate control, reliable system performance and comfortable working environments.",
   benefits: [
@@ -373,7 +373,7 @@ highlights: {
   "fitout-works": {
   number: "08",
   title: "Fitout Works",
-  exploreImage: "/images/Fitout-001.png",
+  exploreImage: "/images/Fitout-001.jpg",
   label: "FITOUT WORKS",
   description:
     "KSC delivers complete interior fitout solutions for commercial, industrial and other built environments. Our fitout services combine careful planning, quality workmanship and coordinated execution to create functional and professionally finished spaces.",
@@ -425,10 +425,9 @@ highlights: {
 
 
 "pharmaceutical-cleanroom-facilities": {
-  number: "07",
   title: "Pharmaceutical & Cleanroom Facilities",
   label: "PHARMACEUTICAL & CLEANROOM FACILITIES",
-  exploreImage: "/images/pharma.png",
+  exploreImage: "/images/Pharma-001.jpg",
   description:
     "KSC provides specialized construction and fitout solutions for pharmaceutical manufacturing facilities and cleanroom environments, with a focus on quality, hygiene, controlled conditions and reliable project execution.",
   benefits: [
