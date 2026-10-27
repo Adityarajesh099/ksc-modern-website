@@ -475,77 +475,127 @@ const handleVideoEnded = () => {
           </div>
         </section>
 
-        <section id="services" className="services section">
-          <div className="services-watermark">KSC</div>
-          <div className="container">
-            <div className="section-heading">
-              <div>
-                <p className="eyebrow">CAPABILITIES</p>
-                <h2>What we <span>do.</span></h2>
-              </div>
-              <p>From groundworks to specialist systems, KSC brings the capabilities needed to deliver complex projects.</p>
+        
+<section id="services" className="ksc-services-section section reveal-section">
+  <div className="ksc-services-grid-bg" aria-hidden="true"></div>
+
+  <div className="container ksc-services-container">
+    {/* Section heading */}
+    <div className="ksc-services-header">
+      <div className="ksc-services-heading-copy">
+        <p className="eyebrow">OUR EXPERTISE</p>
+        <h2>
+          Integrated engineering.
+          <span> End-to-end delivery.</span>
+        </h2>
+        <p className="ksc-services-intro">
+          From civil construction to specialist industrial installations,
+          KSC delivers dependable engineering solutions built around
+          experience, precision and performance.
+        </p>
+      </div>
+
+      <div className="ksc-services-header-note">
+        <span className="ksc-services-header-line"></span>
+        <span>ENGINEERING &amp; CONSTRUCTION</span>
+        <span>SAUDI ARABIA</span>
+      </div>
+    </div>
+
+    {/* Nine service cards */}
+    <div className="ksc-services-grid">
+      {[
+        "civil-construction",
+        "architectural-interior-finishes",
+        "mechanical-works",
+        "electrical-works",
+        "hvac-works",
+        "fire-detection-fire-fighting",
+        "pharmaceutical-cleanroom-facilities",
+        "fitout-works",
+        "equipment-machine-installations",
+      ].map((imageKey, index) => {
+        const image =
+          serviceImages[imageKey] ||
+          serviceImages["civil-construction"];
+
+        const service = services[index];
+
+        if (!service) return null;
+
+        return (
+          <article
+            className="ksc-service-card"
+            key={imageKey}
+            style={{ "--card-index": index }}
+          >
+            <div
+              className="ksc-service-card-image"
+              style={{
+                backgroundImage: `url("${image}")`,
+              }}
+              role="img"
+              aria-label={service[1]}
+            >
+              <div className="ksc-service-image-shade"></div>
+
+              <span className="ksc-service-number">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+
+              <span
+                className="ksc-service-card-arrow"
+                aria-hidden="true"
+              >
+                ↗
+              </span>
             </div>
 
-            <div className="service-layout">
-              <div className="service-list">
-                {services.map(([number, title, description], index) => (
-                  <a
-                    key={title}
-                    href={`/services/${
-                      [
-                      "civil-construction",
-                      "architectural-interior-finishes",
-                      "mechanical-works",
-                      "electrical-works",
-                      "hvac-works",
-                      "fire-detection-fire-fighting",
-                      "pharmaceutical-cleanroom-facilities",
-                      "fitout-works",
-                      "equipment-machine-installations"
-                    ][index]
-                    }`}
-                    className="service-item"
-                    onMouseEnter={() => setActiveService(index)}
-                  >
-                    <span className="service-flow"></span>
-                    <span>{number}</span>
-                    <strong>{title}</strong>
-                    <Arrow small />
-                  </a>
-                ))}
-              </div>
+            <div className="ksc-service-card-content">
+              <span className="ksc-service-card-label">
+                KSC CAPABILITIES
+              </span>
 
-              <div className="service-feature">
-                <div className="service-image"
-                  style={{
-                    backgroundImage: `url("${serviceImages[
-                      [
-                        "civil-construction",
-                        "architectural-interior-finishes",
-                        "mechanical-works",
-                        "electrical-works",
-                        "hvac-works",
-                        "fire-detection-fire-fighting",
-                        "pharmaceutical-cleanroom-facilities",
-                        "fitout-works",
-                        "equipment-machine-installations",
-                      ][activeService]
-                    ] || serviceImages["civil-construction"]}")`,
-                    backgroundSize: "cover",
-                    backgroundRepeat: "no-repeat",
-                    backgroundPosition: "center 45%",
-                  }}
-                ></div>
-                <div className="service-feature-copy service-image-content">
-                  <span>{services[activeService][0]}</span>
-                  <h3>{services[activeService][1]}</h3>
-                  <p>{services[activeService][2]}</p>
-                </div>
-                <div className="service-shape"></div>
-              </div>
+              <h3>{service[1]}</h3>
+
+              <p>{service[2]}</p>
+
+              <a
+                className="ksc-service-link"
+                href="/contact"
+                aria-label={`Enquire about ${service[1]}`}
+              >
+                <span>Explore service</span>
+                <span aria-hidden="true">→</span>
+              </a>
             </div>
-          </div>
-        </section>
+
+            <div
+              className="ksc-service-card-accent"
+              aria-hidden="true"
+            ></div>
+          </article>
+        );
+      })}
+    </div>
+
+    {/* Bottom call to action */}
+    <div className="ksc-services-footer">
+      <div>
+        <span className="ksc-services-footer-label">
+          HAVE A PROJECT IN MIND?
+        </span>
+        <h3>Let's build something dependable.</h3>
+      </div>
+
+      <a className="ksc-services-cta" href="/contact">
+        Discuss your project
+        <span aria-hidden="true">↗</span>
+      </a>
+    </div>
+  </div>
+</section>
+
 
 
 
