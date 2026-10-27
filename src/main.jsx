@@ -132,7 +132,7 @@ const serviceImages = {
   "fire-detection-fire-fighting": "/images/Fire-001.png",
   "pharmaceutical-cleanroom-facilities": "/images/Pharma-001.jpg",
   "fitout-works": "/images/Fitout-001.jpg",
-  "equipment-machine-installations": "/images/services/Installation-001.png"
+  "equipment-machine-installations": "/images/Equipment-001.jpeg"
 };
 
 
