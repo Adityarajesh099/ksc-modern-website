@@ -105,7 +105,7 @@ export default function AboutPage() {
               100% foreign ownership, the same management established KSC alongside HAH. In 
               2007, KSC became a 100% foreign-owned company, carrying forward the expertise, 
               technical excellence, and commitment to quality developed since 1989. Today, 
-              KSC proudly represents more than 37 years of continuous construction experience 
+              KSC proudly represents more than 35+ years of continuous construction experience 
               in the Kingdom of Saudi Arabia, delivering reliable and high-quality solutions 
               across the industrial, commercial, and infrastructure sectors.
             </p>

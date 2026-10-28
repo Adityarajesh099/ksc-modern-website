@@ -10395,7 +10395,7 @@ body::-webkit-scrollbar {
   inset: 0;
   z-index: -2;
 
-  background-image: url("/images/ksc-hero-03.jpg");
+  background-image: url("/images/civil-2.jpeg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -10471,7 +10471,7 @@ body::-webkit-scrollbar {
 
 /* Keep the image fixed while the page content scrolls */
 .fb-projects-transition .auxiliary-transition-image {
-  background-image: url("/images/ksc-hero-04.jpg");
+  background-image: url("/images/Arch-001.jpeg");
   background-size: cover;
   background-position: center 45%;
   background-repeat: no-repeat;
@@ -13593,6 +13593,7 @@ body::-webkit-scrollbar {
   justify-content: space-between;
   gap: 40px;
   margin-bottom: 48px;
+  margin-top: -60px;
 }
 
 .ksc-services-heading-copy {
@@ -14159,3 +14160,612 @@ body::-webkit-scrollbar {
 
 
 
+
+
+
+
+
+/* Pure white background across the homepage */
+.site,
+.site main,
+.site .section,
+.site #about,
+.site #projects,
+.site #clients {
+  background-color: #FFFFFF;
+}
+
+/* Keep text readable on white backgrounds */
+.site .intro,
+.site .projects,
+.site .clients-section,
+.site .auxiliary-services,
+.site .quality-value-section {
+  color: #172033;
+}
+
+
+
+
+
+/* KSC services section — pure white background */
+.ksc-services-section {
+  background: #FFFFFF !important;
+  color: #172033;
+}
+
+.ksc-services-grid-bg {
+  opacity: 0;
+  background: none !important;
+}
+
+/* Main heading */
+.ksc-services-heading-copy h2 {
+  color: #172033 !important;
+}
+
+.ksc-services-heading-copy h2 span {
+  color: #8EAF43 !important;
+}
+
+.ksc-services-intro {
+  color: #606B7A !important;
+}
+
+/* Service cards — keep the premium dark-card design */
+.ksc-service-card {
+  background: #171A14 !important;
+  color: #FFFFFF;
+}
+
+.ksc-service-card-content h3 {
+  color: #FFFFFF !important;
+}
+
+.ksc-service-card-content p {
+  color: #BFC4B8 !important;
+}
+
+/* Bottom CTA */
+.ksc-services-footer {
+  background: #FFFFFF !important;
+  border-color: #DCE6C9 !important;
+}
+
+.ksc-services-footer h3 {
+  color: #172033 !important;
+}
+
+.ksc-services-footer-label {
+  color: #78962F !important;
+}
+
+.ksc-services-cta {
+  background: #9DBB50 !important;
+  color: #11170A !important;
+}
+
+
+
+
+
+
+
+
+/* Projects / F&B Solutions section — pure white background */
+#projects.projects,
+section.projects {
+  background: #FFFFFF !important;
+  background-color: #FFFFFF !important;
+  color: #172033 !important;
+}
+
+/* Remove dark background overlays and decorative grids */
+#projects.projects::before,
+#projects.projects::after {
+  background: transparent !important;
+}
+
+#projects .fb-section-heading,
+#projects .fb-section-heading h2,
+#projects .fb-section-heading p {
+  color: #172033 !important;
+}
+
+#projects .fb-solutions-grid {
+  background: #FFFFFF !important;
+  background-color: #FFFFFF !important;
+}
+
+#projects .fb-solution-card {
+  background: #FFFFFF !important;
+  background-color: #FFFFFF !important;
+  border: 1px solid #E5E7EB !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+}
+
+#projects .fb-solution-card p {
+  color: #374151 !important;
+}
+
+#projects .fb-solution-icon,
+#projects .fb-solution-icon svg {
+  color: #8EAF43 !important;
+  stroke: #8EAF43 !important;
+}
+
+/* Keep the icons visible */
+#projects .fb-solution-icon svg path,
+#projects .fb-solution-icon svg circle {
+  stroke: #8EAF43 !important;
+}
+
+
+
+
+
+
+/* Projects section: pure white background */
+#projects.projects {
+  background: #FFFFFF !important;
+  color: #172033;
+}
+
+/* Section heading */
+#projects .fb-section-heading h2 {
+  color: #172033 !important;
+}
+
+#projects .fb-section-heading p {
+  color: #596273 !important;
+}
+
+/* Restore the original premium dark card design */
+#projects .fb-solution-card {
+  background: #171A14 !important;
+  background-color: #171A14 !important;
+  border: 1px solid rgba(255, 255, 255, 0.10) !important;
+  border-radius: 12px;
+  box-shadow: none !important;
+  color: #F5F5F0 !important;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+/* Card text */
+#projects .fb-solution-card p {
+  color: #E0E2DB !important;
+}
+
+/* Green outline icons */
+#projects .fb-solution-icon {
+  color: #9DBB50 !important;
+}
+
+#projects .fb-solution-icon svg {
+  stroke: #9DBB50 !important;
+}
+
+/* Restore subtle hover effect */
+#projects .fb-solution-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(157, 187, 80, 0.5) !important;
+}
+
+
+
+
+
+
+
+
+/* ========================================
+   ABOUT SECTION — PURE WHITE BACKGROUND
+   ======================================== */
+
+#about.intro,
+section#about {
+  background: #FFFFFF !important;
+  background-color: #FFFFFF !important;
+  color: #172033 !important;
+}
+
+/* Remove the dark dotted background and overlays */
+#about::before,
+#about::after {
+  background: none !important;
+  opacity: 0 !important;
+}
+
+/* About section headings */
+#about .eyebrow {
+  color: #78962F !important;
+}
+
+#about .about-heading,
+#about .about-heading-line {
+  color: #172033 !important;
+}
+
+#about .about-heading-green {
+  color: #8EAF43 !important;
+}
+
+/* About section body text */
+#about .lead,
+#about .intro-copy > p {
+  color: #505968 !important;
+}
+
+/* Discover KSC link */
+#about .text-link {
+  color: #78962F !important;
+}
+
+/* ========================================
+   STATISTICS — WHITE BACKGROUND
+   ======================================== */
+
+#about .stats {
+  background: #FFFFFF !important;
+  background-color: #FFFFFF !important;
+  border-color: #E5E7EB !important;
+  box-shadow: none !important;
+}
+
+/* Individual statistic cards */
+#about .stats > div {
+  background: #FFFFFF !important;
+  background-color: #FFFFFF !important;
+  border: 1px solid #E5E7EB !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04) !important;
+  color: #172033 !important;
+}
+
+/* Statistics icons */
+#about .stat-icon {
+  color: #8EAF43 !important;
+  background: #F2F6E9 !important;
+  border-color: #DCE7C6 !important;
+}
+
+/* Currency icon SVG */
+#about .coin-icon svg {
+  stroke: #8EAF43 !important;
+}
+
+/* Statistics numbers */
+#about .stat-number {
+  color: #172033 !important;
+}
+
+/* Plus signs and billion label */
+#about .stat-number .plus,
+#about .billion-text {
+  color: #78962F !important;
+}
+
+/* Statistics descriptions */
+#about .stats > div > span:last-child {
+  color: #667085 !important;
+}
+
+
+
+
+
+
+
+
+/* Fix invisible statistics numbers on the white background */
+#about .stats .stat-number,
+#about .stats strong.stat-number {
+  color: #172033 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  -webkit-text-fill-color: #172033 !important;
+}
+
+/* Keep plus signs and billion text green */
+#about .stats .stat-number .plus,
+#about .stats .stat-number .billion-text {
+  color: #78962F !important;
+  -webkit-text-fill-color: #78962F !important;
+  opacity: 1 !important;
+}
+
+/* Ensure number cards remain white */
+#about .stats > div {
+  background: #FFFFFF !important;
+  opacity: 1 !important;
+}
+
+/* Keep descriptions readable */
+#about .stats > div > span:last-child {
+  color: #667085 !important;
+  opacity: 1 !important;
+}
+
+
+
+
+
+
+
+/* F&B solution cards — KSC olive green */
+#projects .fb-solution-card {
+  background: #A3BD55 !important;
+  background-color: #A3BD55 !important;
+  border: 1px solid #A3BD55 !important;
+  border-radius: 12px;
+  color: #FFFFFF !important;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* White card descriptions */
+#projects .fb-solution-card p {
+  color: #FFFFFF !important;
+}
+
+/* White outline icons */
+#projects .fb-solution-icon,
+#projects .fb-solution-icon svg {
+  color: #FFFFFF !important;
+  stroke: #FFFFFF !important;
+}
+
+#projects .fb-solution-icon svg path,
+#projects .fb-solution-icon svg circle,
+#projects .fb-solution-icon svg rect {
+  stroke: #FFFFFF !important;
+}
+
+/* Subtle hover effect */
+#projects .fb-solution-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* Keep the section pure white */
+#projects.projects {
+  background: #FFFFFF !important;
+}
+
+
+
+
+
+
+
+/* TEMPORARY TEST — force a visible center line */
+#quality-value .qv-list {
+  position: relative !important;
+}
+
+#quality-value .qv-list::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 4px;
+  background: #a5ff00;
+  transform: translateX(-50%);
+  z-index: 10;
+  pointer-events: none;
+}
+
+
+
+#quality-value .qv-zigzag-track {
+  transform: translateY(-5px) !important;
+}
+
+
+
+
+
+
+
+/* Clients & Partners — Pure White Background */
+#clients.clients-section {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  color: #171a14;
+}
+
+/* Main container */
+#clients .clients-layout {
+  background: transparent;
+}
+
+/* Heading and description */
+#clients .clients-copy .eyebrow {
+  color: #82964c;
+}
+
+#clients .clients-copy h2 {
+  color: #171a14;
+}
+
+#clients .clients-copy h2 span {
+  color: #82964c;
+}
+
+#clients .clients-description {
+  color: #555b50;
+}
+
+/* Bottom caption */
+#clients .clients-caption {
+  color: #65783b;
+}
+
+#clients .clients-caption-dot {
+  background: #82964c;
+}
+
+/* Logo conveyor */
+#clients .clients-conveyor,
+#clients .clients-column,
+#clients .clients-column-track {
+  background: transparent;
+}
+
+/* Logo tiles */
+#clients .clients-logo-tile {
+  background: #ffffff;
+  border-color: rgba(130, 150, 76, 0.2);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+}
+
+
+
+
+
+
+
+/* Contact section — dark green theme */
+#contact.contact {
+  background: #1e2818 !important;
+  color: #f4f4ef;
+  position: relative;
+  isolation: isolate;
+}
+
+#contact.contact h2 {
+  color: #f4f4ef;
+}
+
+#contact.contact .eyebrow {
+  color: #a5bf65;
+}
+
+#contact.contact .contact-details p,
+#contact.contact .contact-details a:not(.button) {
+  color: #d1d5c8;
+}
+
+#contact.contact .button.white {
+  background: #a5bf65;
+  color: #172013;
+  border: 1px solid #a5bf65;
+}
+
+#contact.contact .button.white:hover {
+  background: transparent;
+  color: #a5bf65;
+  border-color: #a5bf65;
+}
+
+
+
+
+
+
+
+
+/* Fixed left-side social media bar */
+.social-sidebar {
+  position: fixed;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 9999;
+
+  display: flex;
+  flex-direction: column;
+  width: 62px;
+
+  box-shadow: 4px 4px 18px rgba(0, 0, 0, 0.12);
+}
+
+.social-link {
+  width: 62px;
+  height: 52px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #fff;
+  text-decoration: none;
+
+  transition:
+    width 0.25s ease,
+    filter 0.25s ease;
+}
+
+.social-link svg {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.social-link.twitter svg,
+.social-link.facebook svg,
+.social-link.linkedin svg {
+  fill: currentColor;
+  stroke: none;
+}
+
+.social-link.whatsapp {
+  background: #20ce68;
+}
+
+.social-link.twitter {
+  background: #1da1f2;
+}
+
+.social-link.facebook {
+  background: #4267a9;
+}
+
+.social-link.instagram {
+  background: #c13596;
+}
+
+.social-link.linkedin {
+  background: #087eae;
+}
+
+.social-link:hover {
+  width: 72px;
+  filter: brightness(1.08);
+}
+
+/* Mobile sizing */
+@media (max-width: 600px) {
+  .social-sidebar {
+    width: 46px;
+  }
+
+  .social-link {
+    width: 46px;
+    height: 44px;
+  }
+
+  .social-link svg {
+    width: 21px;
+    height: 21px;
+  }
+
+  .social-link:hover {
+    width: 50px;
+  }
+}
+
+.social-link.gmail {
+  background: #ea4335;
+  color: #fff;
+}
+
+.social-link.gmail svg {
+  width: 26px;
+  height: 26px;
+  display: block;
+}

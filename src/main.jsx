@@ -125,7 +125,7 @@ useEffect(() => {
 
 const serviceImages = {
   "civil-construction": "/images/Civil-Construction.jpg",
-  "architectural-interior-finishes": "/images/Architectural-001.jpg",
+  "architectural-interior-finishes": "/images/Arch-001.jpeg",
   "mechanical-works": "/images/Mechanical-001.jpg",
   "electrical-works": "/images/Electrical-001.png",
   "hvac-works": "/images/HVAC-001.jpg",
@@ -485,7 +485,7 @@ const handleVideoEnded = () => {
       <div className="ksc-services-heading-copy">
         <p className="eyebrow">OUR EXPERTISE</p>
         <h2>
-          Integrated engineering.
+          Integrated engineering.<br />
           <span> End-to-end delivery.</span>
         </h2>
         <p className="ksc-services-intro">
@@ -524,9 +524,10 @@ const handleVideoEnded = () => {
         if (!service) return null;
 
         return (
-          <article
+          <a
             className="ksc-service-card"
             key={imageKey}
+            href={`/services/${imageKey}`}
             style={{ "--card-index": index }}
           >
             <div
@@ -552,29 +553,29 @@ const handleVideoEnded = () => {
             </div>
 
             <div className="ksc-service-card-content">
-              <span className="ksc-service-card-label">
-                KSC CAPABILITIES
-              </span>
+              
 
               <h3>{service[1]}</h3>
 
               <p>{service[2]}</p>
 
-              <a
-                className="ksc-service-link"
-                href="/contact"
-                aria-label={`Enquire about ${service[1]}`}
-              >
-                <span>Explore service</span>
-                <span aria-hidden="true">→</span>
-              </a>
+              
+            <a
+              className="ksc-service-link"
+              href={`/services/${imageKey}`}
+              aria-label={`Explore ${service[1]}`}
+            >
+              <span>Explore service</span>
+              <span aria-hidden="true">→</span>
+            </a>
+
             </div>
 
             <div
               className="ksc-service-card-accent"
               aria-hidden="true"
             ></div>
-          </article>
+          </a>
         );
       })}
     </div>
@@ -755,117 +756,7 @@ const handleVideoEnded = () => {
 
 
 
-<section className="auxiliary-services section" id="auxiliary-services">
-  
-<div className="aux-logo-flow" aria-hidden="true">
-  <div className="aux-logo-track">
-    {Array.from({ length: 12 }, (_, i) => (
-      <img
-        key={i}
-        src="/images/ksc-logo.png"
-        alt=""
-        className="aux-flow-logo"
-      />
-    ))}
-  </div>
-</div>
 
-  <div className="aux-what-container">
-    <div className="aux-what-heading">
-      <div className="aux-what-title">
-        <span className="aux-what-line" />
-        <h2>
-          <span>COMPREHENSIVE</span> AUXILIARY SERVICES
-        </h2>
-        <span className="aux-what-line" />
-      </div>
-
-      <p className="aux-what-intro">
-        KSC delivers integrated construction, accommodation and
-        infrastructure solutions to support projects, site operations
-        and workforce welfare.
-      </p>
-
-      <p className="aux-what-description">
-        Our auxiliary services complement our core contracting
-        capabilities, providing practical facilities and coordinated
-        project support with a focus on quality, safety and reliability.
-      </p>
-
-      <p className="aux-what-subheading">
-        Our supporting capabilities include:
-      </p>
-    </div>
-
-    <div className="aux-what-grid">
-      <article className="aux-what-item">
-        <div className="aux-what-circle">
-          <svg viewBox="0 0 48 48" aria-hidden="true">
-            <path d="M6 22L24 7L42 22" />
-            <path d="M11 20V41H37V20" />
-            <path d="M17 41V28H31V41" />
-            <path d="M18 20H30" />
-            <path d="M20 34H28" />
-          </svg>
-        </div>
-        <h3>Staff &amp; Worker Accommodation</h3>
-      </article>
-
-      <article className="aux-what-item">
-        <div className="aux-what-circle">
-          <svg viewBox="0 0 48 48" aria-hidden="true">
-            <path d="M7 41V15H24V41" />
-            <path d="M24 41V7H41V41" />
-            <path d="M12 21H16M12 28H16M12 35H16" />
-            <path d="M29 14H33M29 21H33M29 28H33M29 35H33" />
-            <path d="M4 41H44" />
-          </svg>
-        </div>
-        <h3>Commercial &amp; Retail Buildings</h3>
-      </article>
-
-      <article className="aux-what-item">
-        <div className="aux-what-circle">
-          <svg viewBox="0 0 48 48" aria-hidden="true">
-            <circle cx="31" cy="11" r="4" />
-            <path d="M28 17L22 24L13 22" />
-            <path d="M22 24L29 29L35 23" />
-            <path d="M7 33H41" />
-            <path d="M10 33L13 40H35L38 33" />
-            <path d="M8 29H40" />
-          </svg>
-        </div>
-        <h3>Swimming Pools &amp; Sports Facilities</h3>
-      </article>
-
-      <article className="aux-what-item">
-        <div className="aux-what-circle">
-          <svg viewBox="0 0 48 48" aria-hidden="true">
-            <circle cx="24" cy="24" r="12" />
-            <circle cx="24" cy="24" r="5" />
-            <path d="M24 5V12M24 36V43M5 24H12M36 24H43" />
-            <path d="M10 10L15 15M33 33L38 38M38 10L33 15M15 33L10 38" />
-          </svg>
-        </div>
-        <h3>Utilities &amp; Infrastructure</h3>
-      </article>
-
-      <article className="aux-what-item">
-        <div className="aux-what-circle">
-          <svg viewBox="0 0 48 48" aria-hidden="true">
-            <rect x="9" y="6" width="30" height="36" rx="3" />
-            <path d="M15 15H33M15 22H33M15 29H25" />
-            <circle cx="32" cy="33" r="5" />
-            <path d="M30 33L32 35L35 31" />
-          </svg>
-        </div>
-        <h3>Integrated Project Support</h3>
-      </article>
-    </div>
-
-    
-  </div>
-</section>
 
 
 
@@ -918,21 +809,87 @@ const handleVideoEnded = () => {
     <div className="qv-list">
 
       
-      <svg
-        className="qv-zigzag-track"
-        viewBox="0 0 1000 1000"
-        preserveAspectRatio="none"
-        aria-hidden="true"
-      >
-        <path
-          className="qv-zigzag-base"
-          d="M500 0 L500 100 L900 250 L900 300 L500 400 L500 500 L100 600 L100 650 L500 750 L500 850 L100 1000"
-        />
-        <path
-          className="qv-zigzag-neon"
-          d="M500 0 L500 100 L900 250 L900 300 L500 400 L500 500 L100 600 L100 650 L500 750 L500 850 L100 1000"
-        />
-      </svg>
+      
+
+
+
+<svg
+  className="qv-zigzag-track"
+  viewBox="0 0 1000 1000"
+  preserveAspectRatio="none"
+  aria-hidden="true"
+>
+  <path
+    className="qv-zigzag-base"
+    d="
+      M 500 0
+      L 500 80
+      L 490 100
+      L 580 125
+      L 430 165
+      L 500 145
+      L 500 250
+
+      L 500 330
+      L 470 350
+      L 540 375
+      L 430 415
+      L 500 395
+      L 500 500
+
+      L 500 580
+      L 470 600
+      L 540 625
+      L 430 665
+      L 500 645
+      L 500 750
+
+      L 500 830
+      L 470 850
+      L 540 875
+      L 430 915
+      L 500 895
+      L 500 1000
+    "
+  />
+  <path
+    className="qv-zigzag-neon"
+    d="
+      M 500 0
+      L 500 80
+      L 490 100
+      L 580 125
+      L 430 165
+      L 500 145
+      L 500 250
+
+      L 500 330
+      L 470 350
+      L 540 375
+      L 430 415
+      L 500 395
+      L 500 500
+
+      L 500 580
+      L 470 600
+      L 540 625
+      L 430 665
+      L 500 645
+      L 500 750
+
+      L 500 830
+      L 470 850
+      L 540 875
+      L 430 915
+      L 500 895
+      L 500 1000
+    "
+  />
+</svg>
+
+
+
+
 
 
       <article className="qv-item">
@@ -1165,6 +1122,89 @@ const handleVideoEnded = () => {
           </div>
         </section>
       </main>
+
+{/* Fixed Social Media Sidebar */}
+<div className="social-sidebar" aria-label="Social media links">
+  <a
+    href="https://wa.me/966558156899"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="social-link whatsapp"
+    aria-label="WhatsApp"
+  >
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M20 11.5a8.4 8.4 0 0 1-12.4 7.4L3 20l1.2-4.4A8.4 8.4 0 1 1 20 11.5Z" />
+      <path d="M8.5 7.8c.3-.5.6-.5.9-.5h.4c.2 0 .4.1.5.4l.7 1.7c.1.2.1.4-.1.6l-.6.7c-.2.2-.2.4 0 .6.6 1 1.4 1.7 2.4 2.2.2.1.4.1.6-.1l.8-1c.2-.2.4-.2.6-.1l1.6.8c.3.1.4.3.4.5 0 .3-.2 1.2-.8 1.7-.6.5-1.4.8-2.2.6-1.2-.3-2.7-.9-4.1-2.3-1.2-1.2-2-2.7-2.2-3.8-.2-.9.2-1.7.6-2Z" />
+    </svg>
+  </a>
+
+  <a
+    href="https://twitter.com/"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="social-link twitter"
+    aria-label="X / Twitter"
+  >
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3l-4.9-6.5L6.3 22H3.1l7.3-8.4L2.6 2h6.5l4.4 5.9L18.9 2Zm-1.1 18h1.7L8 3.9H6.2L17.8 20Z" />
+    </svg>
+  </a>
+
+  <a
+  href="mailto:sales@ksc-sa.com"
+  className="social-link gmail"
+  aria-label="Email us"
+>
+  <svg
+    viewBox="0 0 24 24"
+    aria-hidden="true"
+    fill="none"
+  >
+    <rect
+      x="3"
+      y="5"
+      width="18"
+      height="14"
+      rx="2"
+      stroke="currentColor"
+      strokeWidth="2"
+    />
+    <path
+      d="M4 7L12 13L20 7"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+</a>
+
+  <a
+    href="https://www.instagram.com/ksc_architecture/"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="social-link instagram"
+    aria-label="Instagram"
+  >
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <rect x="3" y="3" width="18" height="18" rx="5" />
+      <circle cx="12" cy="12" r="4" />
+      <circle cx="17.5" cy="6.8" r="0.8" fill="currentColor" stroke="none" />
+    </svg>
+  </a>
+
+  <a
+    href="https://www.linkedin.com/company/khamis-al-sharjah-contracting-co/posts/"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="social-link linkedin"
+    aria-label="LinkedIn"
+  >
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M5 8.5H2V22h3V8.5ZM3.5 2A1.8 1.8 0 1 0 3.5 5.6 1.8 1.8 0 0 0 3.5 2ZM22 13.8c0-4-2.1-5.8-4.9-5.8a4.2 4.2 0 0 0-3.8 2.1V8.5h-3V22h3v-7.5c0-2 .4-3.9 2.8-3.9s2.4 2.2 2.4 4V22h3.1l.4-8.2Z" />
+    </svg>
+  </a>
+</div>
 
       
     </div>

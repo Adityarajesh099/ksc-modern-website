@@ -8,7 +8,7 @@ const serviceData = {
   number: "01",
   title: "Civil Construction",
   label: "CIVIL CONSTRUCTION",
-  exploreImage: "/images/Civil-001.jpg",
+  exploreImage: "/images/Civil-002.jpg",
   description:
     "Over the past years, we have developed a robust fleet of skilled manpower and advanced equipment, enabling us to undertake a wide variety of civil construction projects with confidence. Our dedication to safety, quality, and efficient production has established us as a trusted leader in the field. We pride ourselves on maintaining an excellent safety record while delivering top-notch work with a high production rate.",
 
@@ -27,10 +27,7 @@ const serviceData = {
   ],
 
   images: [
-  "/images/Civil-001.png",
-  "/images/hero-002.jpg",
-  "/images/hero-001.jpg",
-  "/images/hero-003.jpg",
+  "/images/Civil-002.jpg",
 ],
 
 highlights: {
@@ -115,7 +112,7 @@ highlights: {
   number: "03",
   title: "Mechanical Works",
   label: "MECHANICAL WORKS",
-  exploreImage: "/images/Mechanical-001.jpg",
+  exploreImage: "/images/Mech-001.jpg",
   description:
     "KSC provides dependable mechanical construction and installation services for industrial, commercial and infrastructure projects. Our teams support mechanical systems from installation through testing and commissioning, with a strong focus on safety, quality and efficient project execution.",
   benefits: [
@@ -132,7 +129,7 @@ highlights: {
     "Site Mechanical Services"
   ],
   images: [
-    "/images/Mechanical-001.png",
+    "/images/Mech-001.jpg",
   ],
   
   highlights: {
@@ -165,7 +162,7 @@ highlights: {
   number: "04",
   title: "Architectural & Interior Design",
   label: "ARCHITECTURAL & INTERIOR DESIGN",
-  exploreImage: "/images/Architectural-001.jpg",
+  exploreImage: "/images/Arch-001.jpeg",
   description:
     "KSC provides architectural and interior design solutions that combine functional planning, technical coordination and refined design. Our approach supports projects from concept development and design coordination through to detailed execution.",
   benefits: [
@@ -182,7 +179,7 @@ highlights: {
     "Residential Interior Design"
   ],
   images: [
-    "/images/Architectural-New.jpeg",
+    "/images/Arch-001.jpeg",
   ],
 
   highlights: {
