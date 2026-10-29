@@ -30,30 +30,41 @@ const serviceData = {
   "/images/Civil-002.jpg",
 ],
 
+
 highlights: {
-  label: "CIVIL CAPABILITIES",
-  title: "Built for",
-  accent: "complex work.",
+  label: "CIVIL CONSTRUCTION",
+  title: "Built on",
+  accent: "precision.",
   description:
-    "KSC combines planning, structural expertise and site execution across a broad range of civil construction activities.",
+    "KSC delivers end-to-end civil construction solutions—from site preparation and earthworks to structural execution and infrastructure development—built around safety, quality, and dependable project delivery.",
   items: [
     {
       number: "01",
-      title: "Site Development",
-      text: "Site planning, layout, surveying, analysis and soil investigation works supporting project execution."
+      title: "Site Development & Earthworks",
+      text: "Site clearing, grading, excavation, filling, compaction, and ground preparation to establish a reliable foundation for every project.",
+      icon: "excavator"
     },
     {
       number: "02",
-      title: "Structural Works",
-      text: "Structural analysis, design and heavy structure construction for demanding building environments."
+      title: "Roads & Asphalt Works",
+      text: "Road formation, sub-base and base layers, asphalt paving, kerbs, and access roads delivered to project specifications.",
+      icon: "road"
     },
     {
       number: "03",
-      title: "Building & Infrastructure",
-      text: "Industrial, commercial and residential building construction, together with road and asphalt works."
+      title: "Concrete & Structural Works",
+      text: "Foundations, reinforced concrete, retaining walls, slabs, and structural elements engineered for durability and long-term performance.",
+      icon: "building"
+    },
+    {
+      number: "04",
+      title: "Utilities & Infrastructure",
+      text: "Underground utility coordination, drainage networks, ducting, external works, and supporting infrastructure for integrated sites.",
+      icon: "utilities"
     }
   ]
-},
+}
+
     
 },
 
@@ -625,30 +636,7 @@ useEffect(() => {
             ))}
             </div>
 
-            <section className="civil-highlights">
-                <div className="civil-highlights-heading">
-                    <div>
-                    <span className="eyebrow">{data.highlights?.label}</span>
-
-                    <h2>
-                        {data.highlights?.title}{" "}
-                        <span>{data.highlights?.accent}</span>
-                    </h2>
-                    </div>
-
-                    <p>{data.highlights?.description}</p>
-                </div>
-
-                <div className="civil-highlight-grid">
-                    {data.highlights?.items.map((item) => (
-                    <article className="civil-highlight-card" key={item.number}>
-                        <span>{item.number}</span>
-                        <h3>{item.title}</h3>
-                        <p>{item.text}</p>
-                    </article>
-                    ))}
-                </div>
-                </section>
+            
 
             </div>
 
@@ -705,6 +693,94 @@ useEffect(() => {
 
       </aside>
     </section>
+
+    {service === "civil-construction" && (
+      <section className="civil-reference-page">
+                <div className="civil-reference-hero">
+                  <div className="civil-reference-copy">
+                    <span className="civil-reference-label">
+                      CIVIL CONSTRUCTION <i />
+                    </span>
+
+                    <h2>
+                      Built on
+                      <span> precision.</span>
+                      Engineered for
+                      <span> performance.</span>
+                    </h2>
+
+                    <p>{data.highlights.description}</p>
+
+                    <a className="civil-reference-button" href="/contact">
+                      Discuss a Project <span>→</span>
+                    </a>
+                  </div>
+
+                  <div className="civil-reference-image">
+                    <img
+                      src="/images/Civil-002.jpg"
+                      alt="KSC civil construction project"
+                    />
+                  </div>
+                </div>
+
+                <div className="civil-reference-capabilities">
+                  {data.highlights.items.map((item) => (
+                    <article key={item.number}>
+                      <span className="civil-capability-number">
+                        {item.number}
+                      </span>
+
+                      <div
+                        className="civil-capability-icon"
+                        aria-hidden="true"
+                      >
+                        {item.icon === "excavator" && "⚒"}
+                        {item.icon === "road" && "╱"}
+                        {item.icon === "building" && "▥"}
+                        {item.icon === "utilities" && "⌁"}
+                      </div>
+
+                      <span className="civil-capability-accent" />
+                      <h3>{item.title}</h3>
+                      <p>{item.text}</p>
+                    </article>
+                  ))}
+                </div>
+
+                <div className="civil-reference-benefits">
+                  <article>
+                    <span className="civil-benefit-icon">✓</span>
+                    <div>
+                      <h3>Safety-led execution</h3>
+                      <p>A strong safety culture across all project phases.</p>
+                    </div>
+                  </article>
+
+                  <article>
+                    <span className="civil-benefit-icon">⚙</span>
+                    <div>
+                      <h3>Quality-controlled delivery</h3>
+                      <p>
+                        Consistent quality through rigorous standards and
+                        inspections.
+                      </p>
+                    </div>
+                  </article>
+
+                  <article>
+                    <span className="civil-benefit-icon">◎</span>
+                    <div>
+                      <h3>Coordinated project management</h3>
+                      <p>
+                        Integrated planning, resources, and execution for
+                        on-time delivery.
+                      </p>
+                    </div>
+                  </article>
+                </div>
+              </section>
+    )}
 
 {service === "fire-detection-fire-fighting" && (
   <section className="fire-expertise-section">

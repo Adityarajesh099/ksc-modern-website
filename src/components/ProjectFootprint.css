@@ -1,0 +1,603 @@
+
+.project-footprint {
+  --pf-green: #435a19;
+  --pf-lime: #d7ff48;
+  --pf-dark: #17230d;
+
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  min-height: 920px;
+  overflow: hidden;
+  background: #f6f5ed;
+  color: #101810;
+}
+
+.pf-background {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background-image: url("/images/project-terrain-map.png");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* A subtle fade keeps the left-hand text readable */
+.project-footprint::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    rgba(248, 247, 240, 0.98) 0%,
+    rgba(248, 247, 240, 0.94) 24%,
+    rgba(248, 247, 240, 0.68) 34%,
+    rgba(248, 247, 240, 0.12) 48%,
+    transparent 65%
+  );
+}
+
+.pf-content {
+  position: relative;
+  width: 100%;
+  min-height: 920px;
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+/* LEFT INTRO */
+
+.pf-intro {
+  position: relative;
+  z-index: 3;
+  width: 36%;
+  max-width: 540px;
+  padding: 68px 0 115px 4.1%;
+}
+
+.pf-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 29px;
+  color: #4c631c;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  white-space: nowrap;
+}
+
+.pf-eyebrow span {
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: #637d32;
+}
+
+.pf-intro h2 {
+  margin: 0;
+  color: #111a15;
+  font-size: clamp(42px, 4.25vw, 76px);
+  font-weight: 500;
+  line-height: 0.99;
+  letter-spacing: -4px;
+}
+
+.pf-intro h2 span {
+  color: #526b25;
+}
+
+.pf-description {
+  max-width: 430px;
+  margin: 24px 0 35px;
+  color: #666862;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.pf-stats {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  max-width: 410px;
+  margin-bottom: 32px;
+}
+
+.pf-stat {
+  min-height: 82px;
+  padding: 9px 12px 12px 0;
+  border-bottom: 1px solid rgba(45, 58, 30, 0.14);
+}
+
+.pf-stat:nth-child(odd) {
+  border-right: 1px solid rgba(45, 58, 30, 0.14);
+}
+
+.pf-stat:nth-child(even) {
+  padding-left: 22px;
+}
+
+.pf-stat:nth-child(n + 3) {
+  padding-top: 17px;
+  border-bottom: 0;
+}
+
+.pf-stat strong {
+  display: block;
+  margin-bottom: 5px;
+  color: #111a15;
+  font-size: clamp(23px, 2.2vw, 37px);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -1.4px;
+}
+
+.pf-stat:nth-child(4) strong {
+  font-size: clamp(19px, 1.8vw, 29px);
+  letter-spacing: -0.8px;
+}
+
+.pf-stat > span {
+  display: block;
+  color: #666862;
+  font-size: 10px;
+  line-height: 1.6;
+  letter-spacing: 1.5px;
+}
+
+.pf-explore {
+  display: inline-flex;
+  min-width: 255px;
+  min-height: 54px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  padding: 0 17px 0 22px;
+  color: #fff;
+  background: linear-gradient(110deg, #5e781d, #263b0f);
+  border: 1px solid rgba(218, 255, 91, 0.4);
+  border-radius: 2px;
+  text-decoration: none;
+  font-size: 14px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.pf-explore:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 9px 26px rgba(44, 63, 16, 0.24);
+}
+
+.pf-explore-arrow {
+  font-size: 23px;
+  transition: transform 0.25s ease;
+}
+
+.pf-explore:hover .pf-explore-arrow {
+  transform: translateX(4px);
+}
+
+/* INTERACTIVE PROJECT LOCATIONS */
+
+.pf-map-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.pf-project {
+  position: absolute;
+  width: 0;
+  height: 0;
+  pointer-events: auto;
+}
+
+.pf-pin {
+  position: absolute;
+  top: -7px;
+  left: -7px;
+  display: grid;
+  width: 14px;
+  height: 14px;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  background: var(--pf-lime);
+  box-shadow:
+    0 0 8px 3px rgba(222, 255, 70, 0.85),
+    0 0 22px 8px rgba(202, 255, 38, 0.55),
+    0 0 42px 14px rgba(185, 255, 26, 0.23);
+  text-decoration: none;
+  animation: pf-pin-float 3s ease-in-out infinite;
+}
+
+.pf-pin-core {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 7px #fff;
+}
+
+.pf-pin-ring {
+  position: absolute;
+  inset: -9px;
+  border: 1px solid rgba(216, 255, 72, 0.9);
+  border-radius: 50%;
+  animation: pf-ring-pulse 2.6s ease-out infinite;
+}
+
+.pf-pin-ring--two {
+  animation-delay: 1.3s;
+}
+
+.pf-project-card {
+  position: absolute;
+  left: 18px;
+  top: -31px;
+  display: flex;
+  width: 205px;
+  min-height: 52px;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 10px 9px 13px;
+  color: #fff;
+  background: rgba(21, 39, 12, 0.94);
+  border: 1px solid rgba(215, 255, 72, 0.5);
+  border-radius: 5px;
+  box-shadow: 0 7px 24px rgba(20, 33, 11, 0.22);
+  text-decoration: none;
+  backdrop-filter: blur(8px);
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.pf-project--left .pf-project-card {
+  left: auto;
+  right: 18px;
+}
+
+.pf-project-card:hover {
+  z-index: 5;
+  transform: translateY(-4px);
+  background: rgba(32, 55, 14, 0.98);
+  box-shadow: 0 10px 32px rgba(139, 190, 25, 0.28);
+}
+
+.pf-card-copy {
+  display: flex;
+  min-width: 0;
+  flex: 1;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.pf-card-copy strong {
+  overflow: hidden;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.2;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.pf-card-copy small {
+  overflow: hidden;
+  color: rgba(255, 255, 255, 0.83);
+  font-size: 9px;
+  line-height: 1.3;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pf-card-arrow {
+  display: grid;
+  width: 24px;
+  height: 24px;
+  flex: 0 0 24px;
+  place-items: center;
+  color: #e5ff9c;
+  background: rgba(192, 238, 60, 0.17);
+  border-radius: 3px;
+  font-size: 17px;
+}
+
+.pf-compass {
+  position: absolute;
+  top: 60px;
+  right: 4.3%;
+  z-index: 1;
+  display: flex;
+  width: 58px;
+  height: 70px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  color: #53584a;
+}
+
+.pf-compass span {
+  font-size: 11px;
+  letter-spacing: 2px;
+}
+
+.pf-compass div {
+  display: grid;
+  width: 48px;
+  height: 48px;
+  place-items: center;
+  border: 1px solid rgba(74, 83, 54, 0.25);
+  border-radius: 50%;
+  color: #526a20;
+  font-size: 25px;
+}
+
+.pf-region-strip {
+  position: absolute;
+  right: 4%;
+  bottom: 25px;
+  left: 38%;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 14px;
+  border-bottom: 1px solid rgba(70, 79, 54, 0.2);
+  color: #66685e;
+  font-size: 9px;
+  letter-spacing: 0.6px;
+}
+
+.pf-region-strip span {
+  position: relative;
+  padding-bottom: 14px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.pf-region-strip span::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  background: #b9b9ad;
+  border-radius: 50%;
+  transform: translateX(-50%);
+}
+
+.pf-region-strip .pf-region-active {
+  color: #40551a;
+  font-weight: 800;
+}
+
+.pf-region-strip .pf-region-active::after {
+  background: #5c7c22;
+  box-shadow: 0 0 10px rgba(120, 160, 40, 0.45);
+}
+
+@keyframes pf-pin-float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes pf-ring-pulse {
+  0% {
+    transform: scale(0.7);
+    opacity: 0.95;
+  }
+  100% {
+    transform: scale(2.1);
+    opacity: 0;
+  }
+}
+
+/* TABLET */
+
+@media (max-width: 1100px) {
+  .project-footprint,
+  .pf-content {
+    min-height: 850px;
+  }
+
+  .pf-intro {
+    width: 38%;
+    padding-left: 3%;
+  }
+
+  .pf-intro h2 {
+    font-size: clamp(40px, 5vw, 58px);
+    letter-spacing: -2.5px;
+  }
+
+  .pf-project-card {
+    width: 160px;
+    min-height: 44px;
+    padding: 7px;
+  }
+
+  .pf-card-copy strong {
+    font-size: 10px;
+  }
+
+  .pf-card-copy small {
+    font-size: 8px;
+  }
+
+  .pf-region-strip {
+    left: 35%;
+    right: 2%;
+    font-size: 8px;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+  .project-footprint,
+  .pf-content {
+    min-height: 0;
+  }
+
+  .project-footprint::before {
+    background: linear-gradient(
+      180deg,
+      rgba(248, 247, 240, 0.98) 0%,
+      rgba(248, 247, 240, 0.91) 36%,
+      rgba(248, 247, 240, 0.25) 68%,
+      rgba(248, 247, 240, 0.05) 100%
+    );
+  }
+
+  .pf-background {
+    background-size: auto 100%;
+    background-position: 54% center;
+    opacity: 0.95;
+  }
+
+  .pf-content {
+    display: flex;
+    min-height: 1050px;
+    flex-direction: column;
+  }
+
+  .pf-intro {
+    width: 100%;
+    max-width: none;
+    padding: 42px 24px 0;
+  }
+
+  .pf-eyebrow {
+    gap: 8px;
+    margin-bottom: 20px;
+    font-size: 9px;
+    letter-spacing: 2px;
+  }
+
+  .pf-eyebrow span {
+    width: 20px;
+  }
+
+  .pf-intro h2 {
+    font-size: clamp(42px, 11vw, 60px);
+    letter-spacing: -2.5px;
+  }
+
+  .pf-description {
+    max-width: 420px;
+    margin: 17px 0 22px;
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  .pf-stats {
+    max-width: 380px;
+    margin-bottom: 20px;
+  }
+
+  .pf-stat {
+    min-height: 70px;
+  }
+
+  .pf-stat strong {
+    font-size: 27px;
+  }
+
+  .pf-stat:nth-child(4) strong {
+    font-size: 20px;
+  }
+
+  .pf-explore {
+    min-width: 230px;
+    min-height: 48px;
+  }
+
+  .pf-map-layer {
+    top: 410px;
+    height: 550px;
+    bottom: auto;
+  }
+
+  .pf-project-card {
+    width: 125px;
+    min-height: 38px;
+    left: 12px;
+    top: -24px;
+    gap: 5px;
+    padding: 5px;
+  }
+
+  .pf-project--left .pf-project-card {
+    right: 12px;
+  }
+
+  .pf-card-copy strong {
+    font-size: 8px;
+  }
+
+  .pf-card-copy small {
+    font-size: 7px;
+  }
+
+  .pf-card-arrow {
+    width: 18px;
+    height: 18px;
+    flex-basis: 18px;
+    font-size: 13px;
+  }
+
+  .pf-pin {
+    width: 11px;
+    height: 11px;
+  }
+
+  .pf-pin-ring {
+    inset: -6px;
+  }
+
+  .pf-compass {
+    top: 35px;
+    right: 20px;
+    transform: scale(0.75);
+    transform-origin: top right;
+  }
+
+  .pf-region-strip {
+    right: 16px;
+    bottom: 12px;
+    left: 16px;
+    gap: 6px;
+    font-size: 6px;
+    letter-spacing: 0;
+  }
+
+  .pf-region-strip span {
+    white-space: normal;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pf-pin,
+  .pf-pin-ring {
+    animation: none;
+  }
+
+  .pf-explore,
+  .pf-project-card,
+  .pf-explore-arrow {
+    transition: none;
+  }
+}

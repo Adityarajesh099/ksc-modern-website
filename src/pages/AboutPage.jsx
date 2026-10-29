@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 const services = [
   {
     number: "01",
     title: "Civil Construction",
     slug: "civil-construction",
-    image: "/images/Civil-001.png",
+    image: "/images/Civil-002.jpg",
   },
   {
     number: "02",
@@ -17,13 +17,13 @@ const services = [
     number: "03",
     title: "Mechanical Works",
     slug: "mechanical-works",
-    image: "/images/Mechanical-001.png",
+    image: "/images/Mech-001.jpg",
   },
   {
     number: "04",
     title: "Architectural & Interior Design",
     slug: "architectural-interior-finishes",
-    image: "/images/Architectural-New.jpeg",
+    image: "/images/Arch-001.jpeg",
   },
   {
     number: "05",
@@ -47,11 +47,40 @@ const services = [
     number: "08",
     title: "Fitout Works",
     slug: "fitout-works",
-    image: "/images/Fitout-001.png",
+    image: "/images/Fitout-001.jpg",
   },
 ];
 
 export default function AboutPage() {
+
+  const aboutImages = [
+  "/images/ksc-hero-04.jpg",
+  "/images/ksc-hero-02.jpg",
+  "/images/Civil-002.jpg",
+  "/images/Mech-001.jpg",
+];
+
+const [activeImage, setActiveImage] = useState(0);
+const [loadedImages, setLoadedImages] = useState({});
+
+useEffect(() => {
+  const timer = setInterval(() => {
+    setActiveImage((current) => {
+      for (let step = 1; step <= aboutImages.length; step++) {
+        const next = (current + step) % aboutImages.length;
+
+        if (loadedImages[next]) {
+          return next;
+        }
+      }
+
+      return current;
+    });
+  }, 4500);
+
+  return () => clearInterval(timer);
+}, [loadedImages]);
+
   return (
     <main className="inner-page">
 
@@ -86,14 +115,41 @@ export default function AboutPage() {
       <section className="about-intro section">
         <div className="container about-intro-grid">
 
-          <div>
+          <div className="about-intro-visual">
             <span className="eyebrow">ABOUT KSC</span>
 
-            <h2>
-              Built on Experience.
-              <br /><br />
-              <span>Driven by Excellence.</span>
-            </h2>
+            <div className="about-intro-image">
+              {aboutImages.map((image, index) => (
+                <img
+                  key={image}
+                  src={image}
+                  alt="KSC engineering and construction project"
+                  className="about-slideshow-image"
+                  onLoad={() =>
+                    setLoadedImages((previous) => ({
+                      ...previous,
+                      [index]: true,
+                    }))
+                  }
+                  onError={() => {
+                    console.error("Failed to load slideshow image:", image);
+                    setLoadedImages((previous) => ({
+                      ...previous,
+                      [index]: false,
+                    }));
+                  }}
+                  style={{
+                    opacity: index === activeImage && loadedImages[index] ? 1 : 0,
+                    zIndex: index === activeImage ? 2 : 1,
+                  }}
+                />
+              ))}
+
+              <div className="about-intro-image-label">
+                <span>EST. 1989</span>
+                <span>Engineering with purpose.</span>
+              </div>
+            </div>
           </div>
 
           <div className="about-intro-text">
@@ -252,29 +308,68 @@ export default function AboutPage() {
   </div>
 </section>
 
-      {/* IMAGE / STATEMENT */}
-      <section className="about-image-section">
 
-        <div className="about-image">
-          <img
-            src="/images/ksc-hero-04.jpg"
-            alt="KSC engineering and construction"
-          />
+{/* CHAIRMAN'S MESSAGE */}
+<section className="chairman-message section">
+  <div className="container chairman-message-grid">
+
+    <div className="chairman-message-visual">
+      <div className="chairman-photo-frame">
+        <img
+          src="/images/chairman.jpg"
+          alt="Chairman of Khamis Al Sharjah Contracting Co."
+        />
+        <div className="chairman-photo-caption">
+          <span>LEADERSHIP</span>
+          <h3>Chairman's Message</h3>
         </div>
+      </div>
+    </div>
 
-        <div className="about-image-overlay"></div>
+    <div className="chairman-message-content">
+      <span className="eyebrow">A MESSAGE FROM OUR CHAIRMAN</span>
 
-        <div className="about-image-content">
-          <span className="eyebrow light">KSC STANDARD</span>
+      <h2>
+        Building trust.
+        <br />
+        <span>Creating lasting value.</span>
+      </h2>
 
-          <h2>
-            Engineering
-            <br />
-            <em>what lasts.</em>
-          </h2>
+      <p>
+        At Khamis Al Sharjah Contracting Co. (KSC), our journey has been
+        shaped by a commitment to quality, integrity, safety, and
+        lasting relationships. Since our beginnings in 1989, we have
+        worked to deliver dependable construction and engineering
+        solutions that meet our clients' expectations.
+      </p>
+
+      <p>
+        We believe that our success comes from the dedication of our
+        people, the trust of our clients, and the strength of our
+        partnerships. Every project is an opportunity to uphold our
+        standards, embrace better ways of working, and create value
+        that lasts.
+      </p>
+
+      <p>
+        As we look to the future, KSC remains committed to continuous
+        improvement, responsible project delivery, and contributing
+        to the development of the Kingdom of Saudi Arabia.
+      </p>
+
+      <div className="chairman-signature">
+        <span className="chairman-signature-line"></span>
+        <div>
+          <strong>Chairman</strong>
+          <span>Khamis Al Sharjah Contracting Co.</span>
         </div>
+      </div>
+    </div>
 
-      </section>
+  </div>
+</section>
+
+
 
       {/* CTA */}
       <section className="about-cta section">

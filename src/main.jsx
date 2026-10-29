@@ -12,6 +12,10 @@ import AdminPage from "./pages/AdminPage";
 import { createRoot } from "react-dom/client";
 import "./styles.css";
 import { supabase } from "./supabase";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import L from "leaflet";
+import "leaflet/dist/leaflet.css";
+import ProjectFootprint from "./components/ProjectFootprint";
 
 
 
@@ -126,7 +130,7 @@ useEffect(() => {
 const serviceImages = {
   "civil-construction": "/images/Civil-Construction.jpg",
   "architectural-interior-finishes": "/images/Arch-001.jpeg",
-  "mechanical-works": "/images/Mechanical-001.jpg",
+  "mechanical-works": "/images/Mech-001.jpg",
   "electrical-works": "/images/Electrical-001.png",
   "hvac-works": "/images/HVAC-001.jpg",
   "fire-detection-fire-fighting": "/images/Fire-001.png",
@@ -481,26 +485,37 @@ const handleVideoEnded = () => {
 
   <div className="container ksc-services-container">
     {/* Section heading */}
-    <div className="ksc-services-header">
-      <div className="ksc-services-heading-copy">
-        <p className="eyebrow">OUR EXPERTISE</p>
-        <h2>
-          Integrated engineering.<br />
-          <span> End-to-end delivery.</span>
-        </h2>
-        <p className="ksc-services-intro">
-          From civil construction to specialist industrial installations,
-          KSC delivers dependable engineering solutions built around
-          experience, precision and performance.
-        </p>
+    
+      <div className="ksc-services-header">
+        <div className="ksc-services-heading-copy">
+          <p className="eyebrow">OUR EXPERTISE</p>
+          <h2>
+            Integrated engineering.<br />
+            <span>End-to-end delivery.</span>
+          </h2>
+          <p className="ksc-services-intro">
+            From civil construction to specialist industrial installations,
+            KSC delivers dependable engineering solutions built around
+            experience, precision and performance.
+          </p>
+        </div>
+
+        <div className="ksc-services-header-note">
+          <a
+            href="/KSC-Company-Profile.pdf"
+            className="ksc-profile-download"
+            target="_blank"
+            rel="noopener noreferrer"
+            download="KSC-Company-Profile.pdf"
+          >
+            <span>Download Company Profile</span>
+            <span className="ksc-profile-download-icon" aria-hidden="true">
+              ↓
+            </span>
+          </a>
+        </div>
       </div>
 
-      <div className="ksc-services-header-note">
-        <span className="ksc-services-header-line"></span>
-        <span>ENGINEERING &amp; CONSTRUCTION</span>
-        <span>SAUDI ARABIA</span>
-      </div>
-    </div>
 
     {/* Nine service cards */}
     <div className="ksc-services-grid">
@@ -992,6 +1007,171 @@ const handleVideoEnded = () => {
   </div>
 </section>
 
+{/* Neon Zigzag Section Divider */}
+<div className="neon-zigzag-divider" aria-hidden="true">
+  <svg
+    viewBox="0 0 1440 120"
+    preserveAspectRatio="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <defs>
+      <linearGradient
+        id="neonFlowGradient"
+        x1="0%"
+        y1="0%"
+        x2="100%"
+        y2="0%"
+      >
+        <stop offset="0%" stopColor="#526b25" />
+        <stop offset="50%" stopColor="#d7ff48" />
+        <stop offset="100%" stopColor="#526b25" />
+      </linearGradient>
+    </defs>
+
+    <path
+      className="neon-zigzag-base"
+      d="M0 60 C120 60 120 15 240 15 S360 105 480 105 S600 15 720 15 S840 105 960 105 S1080 15 1200 15 S1320 60 1440 60"
+    />
+
+    <path
+      className="neon-zigzag-glow"
+      d="M0 60 C120 60 120 15 240 15 S360 105 480 105 S600 15 720 15 S840 105 960 105 S1080 15 1200 15 S1320 60 1440 60"
+    />
+
+    <path
+      className="neon-zigzag-flow"
+      d="M0 60 C120 60 120 15 240 15 S360 105 480 105 S600 15 720 15 S840 105 960 105 S1080 15 1200 15 S1320 60 1440 60"
+    />
+  </svg>
+</div>
+
+
+
+
+<ProjectFootprint />
+
+
+
+
+{/* KSC LOCATION — ARCHITECTURAL DESIGN */}
+<section className="ksc-location-v2">
+  <div className="ksc-location-v2-inner">
+
+    <div className="ksc-location-v2-header">
+      <div className="ksc-location-v2-index">
+      </div>
+    </div>
+
+    <div className="ksc-location-v2-layout">
+
+      {/* LEFT: TYPOGRAPHY AND LOCATION DETAILS */}
+      <div className="ksc-location-v2-info">
+        <span className="ksc-location-v2-eyebrow">
+          OUR HEAD OFFICE <span>—</span> RIYADH, KSA
+        </span>
+        <h2>
+          Rooted
+          <br />
+          in the <span>Kingdom.</span>
+        </h2>
+
+        <p className="ksc-location-v2-description">
+          From planning to project delivery, KSC brings engineering
+          expertise and construction capabilities to the projects
+          shaping the built environment.
+        </p>
+
+        <div className="ksc-location-v2-address">
+          <div className="ksc-location-v2-pin">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path
+                d="M20 10C20 15 12 22 12 22S4 15 4 10a8 8 0 1 1 16 0Z"
+                stroke="currentColor"
+                strokeWidth="1.6"
+              />
+              <circle
+                cx="12"
+                cy="10"
+                r="2.5"
+                stroke="currentColor"
+                strokeWidth="1.6"
+              />
+            </svg>
+          </div>
+
+          <div>
+            <span className="ksc-location-v2-label">LOCATION</span>
+            <h3>Elegant Center Complex</h3>
+            <p>Al Jamiah Street, Al Malaz, Riyadh 12642</p>
+            <p>Kingdom of Saudi Arabia</p>
+          </div>
+        </div>
+
+        <a
+          className="ksc-location-v2-button"
+          href="https://www.google.com/maps/search/?api=1&query=Elegant%20Center%20Complex%2C%20Al%20Jamiah%20Street%2C%20Al%20Malaz%2C%20Riyadh%2012642%2C%20Saudi%20Arabia"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span>Explore on Google Maps</span>
+          <span className="ksc-location-v2-button-icon">↗</span>
+        </a>
+
+        <div className="ksc-location-v2-footer">
+        </div>
+      </div>
+
+      {/* RIGHT: MAP PANEL */}
+      <div className="ksc-location-v2-map-panel">
+        <div className="ksc-location-v2-map-top">
+          <span>
+            <i className="ksc-location-v2-live-dot" />
+            LOCATION
+          </span>
+          
+        </div>
+
+        
+          <div className="ksc-location-v2-map">
+            <a
+              className="ksc-location-v2-map-link"
+              href="https://www.google.com/maps/place/Khamis+Al+Sharjah+Contracting+Company/@24.6620504,46.7271027,17z/data=!3m1!4b1!4m6!3m5!1s0x3e2f05b3aee8ce07:0xe9173b2ff049307c!8m2!3d24.6620455!4d46.7296776!16s%2Fg%2F1q5gl9mb6?entry=ttu&g_ep=EgoyMDI2MTAyMC4wIKXMDSoASAFQAw%3D%3D"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open KSC office location in Google Maps"
+            >
+              <iframe
+                title="KSC Head Office Location"
+                src="https://maps.google.com/maps?q=Elegant%20Center%20Complex%2C%20Al%20Jamiah%20Street%2C%20Al%20Malaz%2C%20Riyadh%2012642%2C%20Saudi%20Arabia&t=&z=17&ie=UTF8&iwloc=&output=embed"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
+                tabIndex="-1"
+              />
+            </a>
+
+            <div className="ksc-location-v2-map-stamp">
+              <span className="ksc-location-v2-stamp-cross">+</span>
+              <div>
+                <strong>KSA</strong>
+                <span>AL MALAZ · RIYADH</span>
+              </div>
+            </div>
+          </div>
+
+
+        <div className="ksc-location-v2-map-bottom">
+          <span>SAUDI ARABIA</span>
+          <span className="ksc-location-v2-map-bottom-line" />
+          
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
 
 
 
@@ -1047,8 +1227,8 @@ const handleVideoEnded = () => {
         <p className="eyebrow">OUR CLIENTS & PARTNERS</p>
 
         <h2>
-          Trusted partnerships.
-          <span> Proven delivery.</span>
+          Trusted 
+          <span> partnerships</span>
         </h2>
 
         <p className="clients-description">
@@ -1057,10 +1237,7 @@ const handleVideoEnded = () => {
           safety, and excellence.
         </p>
 
-        <div className="clients-caption">
-          <span className="clients-caption-dot" />
-          PARTNERSHIPS THAT BUILD THE FUTURE
-        </div>
+        
       </div>
 
       <div className="clients-conveyor">
