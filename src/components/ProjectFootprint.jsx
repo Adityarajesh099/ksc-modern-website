@@ -177,7 +177,7 @@ export default function ProjectFootprint() {
 
           <div className="pf-stats">
             <div className="pf-stat">
-              <strong>40+</strong>
+              <strong>500+</strong>
               <span>PROJECTS<br />DELIVERED</span>
             </div>
             <div className="pf-stat">
