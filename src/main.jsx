@@ -488,7 +488,7 @@ const handleVideoEnded = () => {
     
       <div className="ksc-services-header">
         <div className="ksc-services-heading-copy">
-          <p className="eyebrow">OUR EXPERTISE</p>
+          <p className="eyebrow">OUR Services</p>
           <h2>
             Integrated engineering.<br />
             <span>End-to-end delivery.</span>
@@ -1007,43 +1007,7 @@ const handleVideoEnded = () => {
   </div>
 </section>
 
-{/* Neon Zigzag Section Divider */}
-<div className="neon-zigzag-divider" aria-hidden="true">
-  <svg
-    viewBox="0 0 1440 120"
-    preserveAspectRatio="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <defs>
-      <linearGradient
-        id="neonFlowGradient"
-        x1="0%"
-        y1="0%"
-        x2="100%"
-        y2="0%"
-      >
-        <stop offset="0%" stopColor="#526b25" />
-        <stop offset="50%" stopColor="#d7ff48" />
-        <stop offset="100%" stopColor="#526b25" />
-      </linearGradient>
-    </defs>
 
-    <path
-      className="neon-zigzag-base"
-      d="M0 60 C120 60 120 15 240 15 S360 105 480 105 S600 15 720 15 S840 105 960 105 S1080 15 1200 15 S1320 60 1440 60"
-    />
-
-    <path
-      className="neon-zigzag-glow"
-      d="M0 60 C120 60 120 15 240 15 S360 105 480 105 S600 15 720 15 S840 105 960 105 S1080 15 1200 15 S1320 60 1440 60"
-    />
-
-    <path
-      className="neon-zigzag-flow"
-      d="M0 60 C120 60 120 15 240 15 S360 105 480 105 S600 15 720 15 S840 105 960 105 S1080 15 1200 15 S1320 60 1440 60"
-    />
-  </svg>
-</div>
 
 
 
@@ -1309,10 +1273,21 @@ const handleVideoEnded = () => {
     className="social-link whatsapp"
     aria-label="WhatsApp"
   >
-    <svg viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M20 11.5a8.4 8.4 0 0 1-12.4 7.4L3 20l1.2-4.4A8.4 8.4 0 1 1 20 11.5Z" />
-      <path d="M8.5 7.8c.3-.5.6-.5.9-.5h.4c.2 0 .4.1.5.4l.7 1.7c.1.2.1.4-.1.6l-.6.7c-.2.2-.2.4 0 .6.6 1 1.4 1.7 2.4 2.2.2.1.4.1.6-.1l.8-1c.2-.2.4-.2.6-.1l1.6.8c.3.1.4.3.4.5 0 .3-.2 1.2-.8 1.7-.6.5-1.4.8-2.2.6-1.2-.3-2.7-.9-4.1-2.3-1.2-1.2-2-2.7-2.2-3.8-.2-.9.2-1.7.6-2Z" />
-    </svg>
+    
+<svg viewBox="0 0 24 24" aria-hidden="true">
+  <path
+    d="M20.1 11.5a8.1 8.1 0 0 1-12 7.1L3 20l1.4-4.8A8.1 8.1 0 1 1 20.1 11.5Z"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.8"
+    strokeLinejoin="round"
+  />
+  <path
+    d="M8.2 7.8c.3-.5.6-.5.9-.5h.4c.2 0 .4.1.5.4l.8 1.8c.1.2 0 .4-.1.6l-.7.8c-.2.2-.2.4 0 .6.7 1.1 1.5 1.8 2.6 2.4.2.1.4.1.6-.1l.9-1c.2-.2.4-.2.6-.1l1.7.8c.3.1.4.3.4.5 0 .4-.2 1.2-.8 1.7-.6.5-1.4.7-2.2.5-1.2-.3-2.7-.9-4.1-2.3-1.2-1.2-2-2.6-2.2-3.8-.2-.9.2-1.7.7-2.3Z"
+    fill="currentColor"
+  />
+</svg>
+
   </a>
 
   <a

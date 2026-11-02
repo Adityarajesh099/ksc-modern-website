@@ -7,7 +7,7 @@ const projects = [
     id: 1,
     name: "Turaif",
     type: "Infrastructure Development",
-    x: 43.7,
+    x: 40.7,
     y: 9,
     side: "right",
     query: "Turaif Saudi Arabia",
@@ -16,8 +16,8 @@ const projects = [
     id: 2,
     name: "Tayma",
     type: "Civil Construction",
-    x: 38.3,
-    y: 22.8,
+    x: 41.3,
+    y: 24.8,
     side: "left",
     query: "Tayma Saudi Arabia",
   },
@@ -25,7 +25,7 @@ const projects = [
     id: 3,
     name: "Hail",
     type: "Industrial Facilities",
-    x: 54.3,
+    x: 51.3,
     y: 20.2,
     side: "right",
     query: "Hail Saudi Arabia",
@@ -34,8 +34,8 @@ const projects = [
     id: 4,
     name: "Henakiyah",
     type: "Infrastructure Works",
-    x: 42.8,
-    y: 38.5,
+    x: 46.8,
+    y: 33.5,
     side: "right",
     query: "Al Henakiyah Saudi Arabia",
   },
@@ -43,8 +43,8 @@ const projects = [
     id: 5,
     name: "Jeddah",
     type: "Commercial Buildings",
-    x: 41.8,
-    y: 60.5,
+    x: 44.8,
+    y: 54.5,
     side: "left",
     query: "Jeddah Saudi Arabia",
   },
@@ -52,8 +52,8 @@ const projects = [
     id: 6,
     name: "Riyadh",
     type: "Government Projects",
-    x: 61.5,
-    y: 55.5,
+    x: 62.5,
+    y: 42.5,
     side: "right",
     query: "Riyadh Saudi Arabia",
   },
@@ -61,8 +61,8 @@ const projects = [
     id: 7,
     name: "Dammam",
     type: "Industrial & Mechanical",
-    x: 80.2,
-    y: 42.5,
+    x: 77.2,
+    y: 34.5,
     side: "right",
     query: "Dammam Saudi Arabia",
   },
@@ -70,8 +70,8 @@ const projects = [
     id: 8,
     name: "Hofuf",
     type: "Infrastructure Works",
-    x: 84.8,
-    y: 57.5,
+    x: 78.8,
+    y: 55.5,
     side: "right",
     query: "Hofuf Saudi Arabia",
   },
@@ -79,8 +79,8 @@ const projects = [
     id: 9,
     name: "Al Kharj",
     type: "Industrial Development",
-    x: 71.5,
-    y: 68.2,
+    x: 63.5,
+    y: 49.2,
     side: "left",
     query: "Al Kharj Saudi Arabia",
   },
@@ -88,8 +88,8 @@ const projects = [
     id: 10,
     name: "Sharourah",
     type: "Logistics Facilities",
-    x: 56.5,
-    y: 78.5,
+    x:77.5,
+    y: 70.5,
     side: "left",
     query: "Sharurah Saudi Arabia",
   },
@@ -97,8 +97,8 @@ const projects = [
     id: 11,
     name: "Najran",
     type: "Civil & Infrastructure",
-    x: 74,
-    y: 84.7,
+    x: 57,
+    y: 59.7,
     side: "right",
     query: "Najran Saudi Arabia",
   },
@@ -208,13 +208,7 @@ export default function ProjectFootprint() {
 
         
 
-        <div className="pf-region-strip">
-          <span>WESTERN REGION</span>
-          <span className="pf-region-active">CENTRAL REGION</span>
-          <span>EASTERN REGION</span>
-          <span>SOUTHERN REGION</span>
-          <span>NORTHERN REGION</span>
-        </div>
+        
       </div>
     </section>
   );

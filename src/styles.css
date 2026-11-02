@@ -16121,7 +16121,7 @@ section#about {
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  border: 1px solid rgba(139, 173, 65, 0.35);
+  border: 3 px solid rgba(139, 173, 65, 0.35);
 }
 
 .about-services .about-service-card::before {
@@ -17312,3 +17312,368 @@ section#about {
     animation: none;
   }
 }
+
+
+
+
+
+
+/* FLOATING GLASS SOCIAL DOCK */
+
+.social-sidebar {
+  position: fixed;
+  right: 22px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 9999;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+
+  padding: 12px 9px;
+  background: rgba(24, 36, 22, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.17);
+  border-radius: 30px;
+
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  box-shadow:
+    0 12px 35px rgba(0, 0, 0, 0.16),
+    inset 0 1px 1px rgba(255, 255, 255, 0.12);
+}
+
+.social-link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 43px;
+  height: 43px;
+  border-radius: 50%;
+
+  color: #fff;
+  text-decoration: none;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease;
+}
+
+/* Correct SVG icon rendering */
+
+.social-link svg {
+  width: 19px;
+  height: 19px;
+  display: block;
+  overflow: visible;
+  fill: none;
+}
+
+/* WhatsApp */
+.social-link.whatsapp svg path {
+  fill: currentColor;
+  stroke: none;
+}
+
+/* X / Twitter */
+.social-link.twitter svg path {
+  fill: currentColor;
+  stroke: none;
+}
+
+/* Email */
+.social-link.gmail svg {
+  fill: none;
+}
+
+.social-link.gmail svg rect,
+.social-link.gmail svg path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+}
+
+/* Instagram */
+.social-link.instagram svg rect,
+.social-link.instagram svg circle {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+}
+
+.social-link.instagram svg circle:last-child {
+  fill: currentColor;
+  stroke: none;
+}
+
+/* LinkedIn */
+.social-link.linkedin svg path {
+  fill: currentColor;
+  stroke: none;
+}
+
+.social-link:hover {
+  transform: scale(1.13);
+  box-shadow: 0 0 18px currentColor;
+}
+
+/* BRAND COLOURS */
+
+.social-link.whatsapp {
+  background: #20c76b;
+}
+
+.social-link.twitter {
+  background: #171717;
+}
+
+.social-link.gmail {
+  background: #e84b42;
+}
+
+.social-link.instagram {
+  background: linear-gradient(
+    135deg,
+    #8134af,
+    #dd2a7b,
+    #feda77
+  );
+}
+
+.social-link.linkedin {
+  background: #0878b9;
+}
+
+/* HOVER LABEL */
+
+.social-link::after {
+  content: attr(data-label);
+  position: absolute;
+  right: 56px;
+
+  padding: 8px 13px;
+  border-radius: 6px;
+
+  color: white;
+  background: #202c1c;
+
+  font-size: 11px;
+  font-weight: 600;
+  white-space: nowrap;
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(8px);
+
+  transition: all 0.25s ease;
+  pointer-events: none;
+}
+
+.social-link:hover::after {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  .social-sidebar {
+    right: 10px;
+    padding: 8px 6px;
+    gap: 7px;
+  }
+
+  .social-link {
+    width: 36px;
+    height: 36px;
+  }
+
+  .social-link svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+
+
+
+.social-link.whatsapp svg {
+  fill: none;
+}
+
+.social-link.whatsapp svg path:first-child {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+}
+
+.social-link.whatsapp svg path:last-child {
+  fill: currentColor;
+  stroke: none;
+}
+
+
+
+
+/* SOCIAL ICONS — FIXED CIRCULAR SHAPE */
+
+.social-link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 43px;
+  height: 43px;
+  min-width: 43px;
+  min-height: 43px;
+  flex: 0 0 43px;
+
+  aspect-ratio: 1 / 1;
+  box-sizing: border-box;
+  padding: 0;
+  border-radius: 50%;
+
+  color: #fff;
+  text-decoration: none;
+
+  transform: scale(1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  transform-origin: center;
+}
+
+/* Zoom the circle without stretching it */
+
+.social-link:hover {
+  width: 43px;
+  height: 43px;
+  transform: scale(1.15);
+  border-radius: 50%;
+  z-index: 5;
+
+  box-shadow: 0 0 18px rgba(190, 235, 100, 0.4);
+}
+
+/* Keep the symbols centred */
+
+.social-link svg {
+  width: 19px;
+  height: 19px;
+  flex-shrink: 0;
+  display: block;
+}
+
+
+
+
+
+
+
+/* ==========================================
+   HOMEPAGE SERVICES — 5 COMPACT CARDS PER ROW
+   ========================================== */
+
+/* Five cards in each row on desktop */
+#services .ksc-services-grid {
+  display: grid !important;
+  grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+  gap: 16px !important;
+  align-items: stretch;
+}
+
+/* Compact card */
+#services .ksc-service-card {
+  min-width: 0;
+  border-radius: 7px;
+}
+
+/* Reduce image height */
+#services .ksc-service-card-image {
+  height: 145px !important;
+}
+
+/* Reduce content height and spacing */
+#services .ksc-service-card-content {
+  min-height: 155px !important;
+  padding: 15px 14px 13px !important;
+}
+
+/* Smaller service title */
+#services .ksc-service-card-content h3 {
+  font-size: 15px !important;
+  line-height: 1.35;
+  margin-bottom: 5px;
+}
+
+/* Smaller description */
+#services .ksc-service-card-content p {
+  font-size: 11px !important;
+  line-height: 1.55;
+  margin: 5px 0 12px;
+}
+
+/* Smaller explore link */
+#services .ksc-service-link {
+  margin-top: auto;
+  padding-top: 10px;
+  font-size: 10px !important;
+}
+
+/* Smaller number and arrow */
+#services .ksc-service-number {
+  width: 30px;
+  height: 28px;
+  top: 10px;
+  left: 10px;
+  font-size: 10px;
+}
+
+#services .ksc-service-card-arrow {
+  width: 28px;
+  height: 28px;
+  top: 10px;
+  right: 10px;
+  font-size: 15px;
+}
+
+/* Tablet — 3 cards per row */
+@media (max-width: 1100px) {
+  #services .ksc-services-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 14px !important;
+  }
+}
+
+/* Small tablet — 2 cards per row */
+@media (max-width: 760px) {
+  #services .ksc-services-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+/* Mobile — 1 card per row */
+@media (max-width: 480px) {
+  #services .ksc-services-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  #services .ksc-service-card-image {
+    height: 190px !important;
+  }
+
+  #services .ksc-service-card-content {
+    min-height: 145px !important;
+  }
+}
+
+
+
+
+

@@ -240,10 +240,7 @@ highlights: {
     "Site Installation Services"
   ],
   images: [
-    "/images/Installation-001.png",
-    "/images/Installation-002.jpeg",
-    "/images/equipment-3.jpeg",
-    "/images/equipment-4.jpeg"
+    "/images/Installation-002.png",
   ],
 
   highlights: {
@@ -294,9 +291,6 @@ highlights: {
   ],
   images: [
     "/images/Fire-001.png",
-    "/images/fire-2.jpeg",
-    "/images/fire-3.jpeg",
-    "/images/fire-4.jpeg"
   ],
 
   highlights: {
@@ -346,10 +340,7 @@ highlights: {
     "Climate Control Solutions"
   ],
   images: [
-    "/images/HVAC-001.png",
-    "/images/hvac-2.jpeg",
-    "/images/hvac-3.jpeg",
-    "/images/hvac-4.jpeg"
+    "/images/HVAC-001.jpg",
   ],
 
   highlights: {
@@ -399,10 +390,7 @@ highlights: {
     "Turnkey Fitout Solutions"
   ],
   images: [
-    "/images/Fitout-001.png",
-    "/images/fitout-2.jpeg",
-    "/images/fitout-3.jpeg",
-    "/images/fitout-4.jpeg"
+    "/images/Fitout-001.jpg",
   ],
 
   highlights: {
@@ -435,7 +423,7 @@ highlights: {
 "pharmaceutical-cleanroom-facilities": {
   title: "Pharmaceutical & Cleanroom Facilities",
   label: "PHARMACEUTICAL & CLEANROOM FACILITIES",
-  exploreImage: "/images/Pharma-001.jpg",
+  exploreImage: "/images/Pharma.png",
   description:
     "KSC provides specialized construction and fitout solutions for pharmaceutical manufacturing facilities and cleanroom environments, with a focus on quality, hygiene, controlled conditions and reliable project execution.",
   benefits: [
@@ -450,7 +438,7 @@ highlights: {
     "Testing & Commissioning"
   ],
   images: [
-    "/images/pharma.png",
+    "/images/Pharma.png",
   ],
   highlights: {
     label: "PHARMACEUTICAL & CLEANROOM CAPABILITIES",
