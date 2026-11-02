@@ -39,13 +39,22 @@ const clientLogos = [
   { name: "Client Four", src: "/images/client-4.png" },
   { name: "Client Five", src: "/images/client-5.png" },
   { name: "Client Six", src: "/images/client-6.png" },
-  { name: "Client Six", src: "/images/client-7.png" },
-  { name: "Client Six", src: "/images/client-8.png" },
-  { name: "Client Six", src: "/images/client-9.png" },
-  { name: "Client Six", src: "/images/client-10.png" },
-  { name: "Client Six", src: "/images/client-11.png" },
-  { name: "Client Six", src: "/images/client-12.png" },
-  { name: "Client Six", src: "/images/client-13.png" },
+  { name: "Client Seven", src: "/images/client-7.png" },
+  { name: "Client Eight", src: "/images/client-8.png" },
+  { name: "Client Nine", src: "/images/client-9.png" },
+  { name: "Client Ten", src: "/images/client-10.png" },
+  { name: "Client Eleven", src: "/images/client-11.png" },
+  { name: "Client Twelve", src: "/images/client-12.png" },
+  { name: "Client Thirteen", src: "/images/client-13.png" },
+  { name: "Client Fourteen", src: "/images/client-14.png" },
+  { name: "Client Fifteen", src: "/images/client-15.png" },
+  { name: "Client Sixteen", src: "/images/client-16.png" },
+  { name: "Client Seventeen", src: "/images/client-17.png" },
+  { name: "Client Eighteen", src: "/images/client-18.png" },
+  { name: "Client Nineteen", src: "/images/client-19.png" },
+  { name: "Client Twenty", src: "/images/client-20.png" },
+  { name: "Client Twenty one", src: "/images/client-21.png" },
+  { name: "Client Twenty two", src: "/images/client-22.png" },
 ];
 
 const projects = [
@@ -133,8 +142,8 @@ const serviceImages = {
   "mechanical-works": "/images/Mech-001.jpg",
   "electrical-works": "/images/Electrical-001.png",
   "hvac-works": "/images/HVAC-001.jpg",
-  "fire-detection-fire-fighting": "/images/Fire-001.png",
-  "pharmaceutical-cleanroom-facilities": "/images/Pharma-001.jpg",
+  "fire-detection-fire-fighting": "/images/fire2.jpeg",
+  "pharmaceutical-cleanroom-facilities": "/images/pharma.jpg",
   "fitout-works": "/images/Fitout-001.jpg",
   "equipment-machine-installations": "/images/Equipment-001.jpeg"
 };
@@ -489,9 +498,13 @@ const handleVideoEnded = () => {
       <div className="ksc-services-header">
         <div className="ksc-services-heading-copy">
           <p className="eyebrow">OUR Services</p>
-          <h2>
-            Integrated engineering.<br />
-            <span>End-to-end delivery.</span>
+          <h2 className="ksc-services-animated-title">
+            <span className="services-title-line services-title-first">
+              Integrated engineering.
+            </span>
+            <span className="services-title-line services-title-second">
+              End-to-end delivery.
+            </span>
           </h2>
           <p className="ksc-services-intro">
             From civil construction to specialist industrial installations,
@@ -634,13 +647,21 @@ const handleVideoEnded = () => {
 
 
 
-        <section id="projects" className="projects section">
+        <section id="projects" className="projects section reveal-section">
           <div className="container">
 
             <div className="fb-section-heading">
               <div>
-                <h2>Comprehensive Turnkey Solutions for F&amp;B Facilities</h2>
-                <p>
+                <h2 className="fb-animated-title">
+                  <span className="fb-title-line">
+                    <span>Comprehensive Turnkey</span>
+                  </span>
+                  <span className="fb-title-line">
+                    <span>Solutions for F&amp;B Facilities</span>
+                  </span>
+                </h2>
+
+                <p className="fb-animated-subtitle">
                   End-to-end Civil and MEP delivery tailored for food &amp; beverage operations
                 </p>
               </div>
@@ -760,7 +781,11 @@ const handleVideoEnded = () => {
 <section className="auxiliary-transition" aria-label="KSC construction">
   <div className="auxiliary-transition-image" />
   <div className="auxiliary-transition-overlay" />
-
+<img
+  src="/images/excavator.png"
+  alt="KSC construction excavator"
+  className="transition-excavator"
+/>
   <div className="auxiliary-transition-content">
     <span>KHAMIS AL SHARJAH CONTRACTING CO.</span>
     <h2>Built on Experience.<br />Driven by Excellence.</h2>
@@ -789,11 +814,14 @@ const handleVideoEnded = () => {
           <span className="qv-eyebrow-line" />
         </div>
 
-        <h2>
-          
-          <span>Quality is our foundation.</span>
-          <br />
-          Value is our commitment.
+        <h2 className="qv-animated-title">
+          <span className="qv-title-line qv-title-line-one">
+            Quality is our foundation.
+          </span>
+
+          <span className="qv-title-line qv-title-line-two">
+            Value is our commitment.
+          </span>
         </h2>
 
         <p className="qv-intro">
@@ -1248,20 +1276,7 @@ const handleVideoEnded = () => {
 
 
 
-        <section id="contact" className="contact section">
-          <div className="container contact-inner">
-            <div>
-              <p className="eyebrow light">CONTACT KSC</p>
-              <h2>Let's build<br />something together.</h2>
-            </div>
-            <div className="contact-details">
-              <p>Riyadh, Kingdom of Saudi Arabia</p>
-              <a href="mailto:info@ksc-sa.com">sales@ksc-sa.com</a>
-              <a href="tel:+966000000000">+966 5100 200 30</a>
-              <a className="button white" href="/contact">Start a conversation <Arrow /></a>
-            </div>
-          </div>
-        </section>
+        
       </main>
 
 {/* Fixed Social Media Sidebar */}
@@ -1399,6 +1414,13 @@ function SiteLayout() {
         Delivering reliable construction, engineering and
         industrial facility solutions across Saudi Arabia.
       </p>
+
+<div className="footer-vision2030">
+  <img
+    src="/images/vision2030.png"
+    alt="Saudi Vision 2030"
+  />
+</div>
 
       <div className="footer-socials">
         <a

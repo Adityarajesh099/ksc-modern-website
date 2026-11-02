@@ -290,7 +290,7 @@ highlights: {
     "Fire System Maintenance"
   ],
   images: [
-    "/images/Fire-001.png",
+    "/images/fire2.jpeg",
   ],
 
   highlights: {

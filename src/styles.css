@@ -17677,3 +17677,332 @@ section#about {
 
 
 
+/* QUALITY & VALUE - OPPOSITE DIRECTION TITLE ANIMATION */
+
+.qv-animated-title {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  line-height: 1.08;
+  overflow: hidden;
+}
+
+.qv-animated-title .qv-title-line {
+  display: block;
+  opacity: 0;
+  filter: blur(4px);
+  will-change: transform, opacity;
+}
+
+/* First line enters from LEFT */
+.quality-value-section.is-visible .qv-title-line-one {
+  animation: qvSlideFromLeft 1s cubic-bezier(0.22, 1, 0.36, 1)
+    0.15s forwards;
+}
+
+/* Second line enters from RIGHT */
+.quality-value-section.is-visible .qv-title-line-two {
+  animation: qvSlideFromRight 1s cubic-bezier(0.22, 1, 0.36, 1)
+    0.95s forwards;
+}
+
+.qv-title-line-one {
+  color: #91b83e;
+}
+
+.qv-title-line-two {
+  color: #f5f5ef;
+}
+
+@keyframes qvSlideFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+    filter: blur(5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes qvSlideFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+    filter: blur(5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+    filter: blur(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .qv-animated-title .qv-title-line {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    animation: none !important;
+  }
+}
+
+.qv-title-line-two {
+  color: #ffffff !important;
+}
+
+
+
+
+
+
+
+
+
+/* F&B SECTION - STAGGERED UPWARD TITLE REVEAL */
+
+.fb-animated-title {
+  overflow: hidden;
+}
+
+.fb-title-line {
+  display: block;
+  overflow: hidden;
+}
+
+.fb-title-line > span {
+  display: block;
+  opacity: 0;
+  transform: translateY(65px);
+  filter: blur(5px);
+}
+
+/* First line */
+.projects.is-visible .fb-title-line:nth-child(1) > span {
+  animation: fbTitleReveal 0.9s cubic-bezier(0.22, 1, 0.36, 1)
+    0.45s forwards;
+}
+
+/* Second line */
+.projects.is-visible .fb-title-line:nth-child(2) > span {
+  animation: fbTitleReveal 0.9s cubic-bezier(0.22, 1, 0.36, 1)
+    0.60s forwards;
+}
+
+/* Subtitle */
+.fb-animated-subtitle {
+  opacity: 0;
+  transform: translateY(25px);
+  filter: blur(3px);
+}
+
+.projects.is-visible .fb-animated-subtitle {
+  animation: fbSubtitleReveal 0.9s ease 0.65s forwards;
+}
+
+@keyframes fbTitleReveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes fbSubtitleReveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fb-title-line > span,
+  .fb-animated-subtitle {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    animation: none !important;
+  }
+}
+
+/* Make the second F&B heading line black */
+.fb-title-line:nth-child(2) > span {
+  color: #000000 !important;
+}
+
+
+
+
+
+.hero-title {
+  font-size: clamp(2.8rem, 4.5vw, 4.5rem) !important;
+  line-height: 1.00 !important;
+}
+
+
+
+
+
+
+
+/* Services heading animation */
+
+.ksc-services-animated-title {
+  overflow: hidden;
+}
+
+.services-title-line {
+  display: block;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+.services-title-first {
+  transform: translateX(-70px);
+}
+
+.services-title-second {
+  transform: translateX(70px);
+}
+
+#services.is-visible .services-title-first {
+  animation: servicesTitleFromLeft 1s ease-out forwards;
+}
+
+#services.is-visible .services-title-second {
+  animation: servicesTitleFromRight 1s ease-out 0.25s forwards;
+}
+
+@keyframes servicesTitleFromLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes servicesTitleFromRight {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Mobile adjustment */
+@media (max-width: 768px) {
+  .services-title-first {
+    transform: translateX(-35px);
+  }
+
+  .services-title-second {
+    transform: translateX(35px);
+  }
+}
+
+.ksc-services-animated-title .services-title-second {
+  color: #000000 !important;
+}
+
+
+
+/* F&B cards – staggered entrance animation */
+
+.fb-solution-card {
+  opacity: 0;
+  transform: translateY(35px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+/* Reveal cards when Projects section becomes visible */
+#projects.is-visible .fb-solution-card {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* One-by-one delay */
+#projects.is-visible .fb-solution-card:nth-child(1) {
+  transition-delay: 1.30s;
+}
+
+#projects.is-visible .fb-solution-card:nth-child(2) {
+  transition-delay: 1.60s;
+}
+
+#projects.is-visible .fb-solution-card:nth-child(3) {
+  transition-delay: 1.90s;
+}
+
+#projects.is-visible .fb-solution-card:nth-child(4) {
+  transition-delay: 2.20s;
+}
+
+#projects.is-visible .fb-solution-card:nth-child(5) {
+  transition-delay: 2.50s;
+}
+
+#projects.is-visible .fb-solution-card:nth-child(6) {
+  transition-delay: 2.80s;
+}
+
+#projects.is-visible .fb-solution-card:nth-child(7) {
+  transition-delay: 3.10s;
+}
+
+
+
+
+
+
+.auxiliary-transition[aria-label="KSC construction"] {
+  position: relative;
+  overflow: hidden;
+}
+
+.transition-excavator {
+  position: absolute;
+  width: 170px;
+  height: auto;
+  bottom: -5px;
+  left: 0;
+  z-index: 20;
+  pointer-events: none;
+  animation: excavatorMove 16s linear infinite;
+}
+
+@keyframes excavatorMove {
+  /* Move right */
+  0% {
+    left: 0;
+    transform: scaleX(1);
+  }
+
+  50% {
+    left: calc(100% - 170px);
+    transform: scaleX(1);
+  }
+
+  /* Turn once at right end */
+  51% {
+    left: calc(100% - 170px);
+    transform: scaleX(-1);
+  }
+
+  /* Move left */
+  99% {
+    left: 0;
+    transform: scaleX(-1);
+  }
+
+  /* Turn once at left end */
+  100% {
+    left: 0;
+    transform: scaleX(1);
+  }
+}
+
+
+
