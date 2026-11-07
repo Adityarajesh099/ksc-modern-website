@@ -233,7 +233,7 @@ button:hover .arrow {
 
 .nav-contact:hover {
   background: white;
-  color: #20251A !important;
+  color: #ffffff !important;
   border-color: white;
 }
 
@@ -702,6 +702,12 @@ button:hover .arrow {
   display: flex;
   align-items: center;
   gap: 6px;
+  background: transparent;
+  border: none;
+  color: rgba(255,255,255,.86);
+  font: inherit;
+  cursor: pointer;
+  padding: 0;
 }
 
 .nav-chevron {
@@ -736,14 +742,14 @@ button:hover .arrow {
   box-shadow: 0 20px 50px rgba(0,0,0,.25);
 }
 
-.nav-dropdown:hover .services-dropdown {
+.nav-dropdown.open .services-dropdown {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
   transform: translateX(-50%) translateY(0);
 }
 
-.nav-dropdown:hover .nav-chevron {
+.nav-dropdown.open .nav-chevron {
   transform: rotate(180deg);
 }
 
@@ -17970,7 +17976,7 @@ section#about {
   left: 0;
   z-index: 20;
   pointer-events: none;
-  animation: excavatorMove 16s linear infinite;
+  animation: excavatorMove 10s linear infinite;
 }
 
 @keyframes excavatorMove {
@@ -19146,7 +19152,7 @@ section#about {
   width: 300px;
   height: 105px;
   z-index: 6;
-  animation: ksc-truck-drive 18s linear infinite;
+  animation: ksc-truck-drive 10s linear infinite;
 }
 
 .ksc-moving-truck img {
@@ -19157,14 +19163,21 @@ section#about {
   object-position: bottom center;
 }
 
+
 @keyframes ksc-truck-drive {
-  from {
-    left: -320px;
+  0% {
+    left: -120px;
   }
-  to {
+
+  100% {
+    left: calc(100% + 320px);
+  }
+
+  100% {
     left: calc(100% + 320px);
   }
 }
+
 
 @media (max-width: 600px) {
   .ksc-moving-truck {
@@ -19174,3 +19187,84 @@ section#about {
     animation-duration: 14s;
   }
 }
+
+
+
+
+
+
+@keyframes excavatorMove {
+  0% {
+    left: -180px;
+  }
+
+  100% {
+    left: calc(100% + 180px);
+  }
+}
+
+
+
+
+.clients-column {
+  position: relative;
+  min-width: 0;
+  height: 100%;
+  overflow: visible;
+}
+
+.clients-logo-tile {
+  box-sizing: border-box;
+  margin: 0 13px;
+  overflow: visible;
+}
+
+
+
+
+
+
+/* KSC SERVICES DROPDOWN - HOVER FIX */
+
+.nav-dropdown {
+  position: relative;
+}
+
+.nav-dropdown > .services-dropdown {
+  display: block !important;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(0);
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+/* Invisible bridge between Services and dropdown */
+.nav-dropdown > .services-dropdown::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -18px;
+  height: 18px;
+}
+
+/* Show dropdown while hovering over the parent */
+.nav-dropdown:hover > .services-dropdown {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.nav-dropdown:hover .nav-chevron {
+  transform: rotate(180deg);
+}
+
+
+
+

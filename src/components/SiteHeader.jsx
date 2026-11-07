@@ -144,63 +144,31 @@ useEffect(() => {
             About
           </a>
 
-          <div className="nav-dropdown">
+          
+<div className="nav-dropdown">
 
-            <a
-              href="/#services"
-              onClick={closeMenu}
-              className="nav-dropdown-trigger"
-            >
-              Services
-              <span className="nav-chevron">⌄</span>
-            </a>
+  <button
+    type="button"
+    className="nav-dropdown-trigger"
+  >
+    Services
+    <span className="nav-chevron">⌄</span>
+  </button>
 
-            <div className="services-dropdown">
+  <div className="services-dropdown">
+    <a href="/services/civil-construction" onClick={closeMenu}>Civil Construction</a>
+    <a href="/services/architectural-interior-finishes" onClick={closeMenu}>Architectural &amp; Interior Design</a>
+    <a href="/services/mechanical-works" onClick={closeMenu}>Mechanical Works</a>
+    <a href="/services/electrical-works" onClick={closeMenu}>Electrical Works</a>
+    <a href="/services/hvac-works" onClick={closeMenu}>HVAC Works</a>
+    <a href="/services/fire-detection-fire-fighting" onClick={closeMenu}>Fire Detection &amp; Fire Fighting</a>
+    <a href="/services/equipment-machine-installations" onClick={closeMenu}>Equipment &amp; Machine Installations</a>
+    <a href="/services/pharmaceutical-cleanroom-facilities" onClick={closeMenu}>Pharmaceutical &amp; Cleanroom Facilities</a>
+    <a href="/services/fitout-works" onClick={closeMenu}>Fitout Works</a>
+  </div>
 
-              <a href="/services/civil-construction">
-                Civil Construction
-              </a>
+</div>
 
-              
-              <a
-                href="/services/architectural-interior-finishes"
-                onClick={closeMenu}
-              >
-                Architectural &amp; Interior Design
-              </a>
-
-
-              <a href="/services/mechanical-works">
-                Mechanical Works
-              </a>
-
-              <a href="/services/electrical-works">
-                Electrical Works
-              </a>
-
-              <a href="/services/hvac-works">
-                HVAC Works
-              </a>
-
-              <a href="/services/fire-detection-fire-fighting">
-                Fire Detection & Fire Fighting
-              </a>
-
-              <a href="/services/equipment-machine-installations">
-                Equipment & Machine Installations
-              </a>
-
-              <a href="/services/pharmaceutical-cleanroom-facilities">
-                Pharmaceutical & Cleanroom facilities
-              </a>
-              
-              <a href="/services/fitout-works">
-                Fitout Works
-              </a>
-
-            </div>
-
-          </div>
 
           <a href="/projects" onClick={closeMenu}>
             Projects
