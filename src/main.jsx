@@ -181,16 +181,14 @@ const heroImages = [
 
 
 useEffect(() => {
-  const counters = document.querySelectorAll(
-    ".stat-number:not(.industrial-value)"
-  );
+  const counters = document.querySelectorAll(".stat-number");
 
   const animateCounter = (element) => {
     const target = Number(element.dataset.target);
 
     if (!Number.isFinite(target)) return;
 
-    const duration = 1800;
+    const duration = 2500;
     const startTime = performance.now();
 
     const update = (currentTime) => {
@@ -202,10 +200,19 @@ useEffect(() => {
       const easedProgress = 1 - Math.pow(1 - progress, 3);
       const currentValue = Math.floor(target * easedProgress);
 
-      element.firstChild.textContent = String(currentValue).padStart(
-        element.dataset.pad === "true" ? 2 : 1,
-        "0"
-      );
+      if (element.classList.contains("industrial-value")) {
+        const numberElement = element.querySelector(".billion-text");
+
+        if (numberElement) {
+          numberElement.textContent =
+            currentValue.toLocaleString("en-US");
+        }
+      } else {
+        element.firstChild.textContent = String(currentValue).padStart(
+          element.dataset.pad === "true" ? 2 : 1,
+          "0"
+        );
+      }
 
       if (progress < 1) {
         requestAnimationFrame(update);
@@ -421,69 +428,75 @@ const handleVideoEnded = () => {
                   project capabilities together to create dependable turnkey solutions.
                 </p>
 
-                <a className="text-link" href="/contact">
-                  Discover KSC <Arrow small />
+                
+                <a className="discover-ksc-button" href="/contact">
+                  <span>Discover KSC</span>
+                  <Arrow small />
                 </a>
+
               </div>
             </div>
 
 
-          <div className="container stats">
-            <div>
-              <span className="stat-icon" aria-hidden="true">▦</span>
-              <strong className="stat-number" data-target="1989">0</strong>
-              <span>Established</span>
-            </div>
+          
+<div className="container stats-architecture">
 
-            <div>
-              <span className="stat-icon" aria-hidden="true">★</span>
-              <strong className="stat-number" data-target="35">0<span className="plus">+</span></strong>
-              <span>Years of experience</span>
-            </div>
-            
-            <div>
-              <span className="stat-icon" aria-hidden="true">▤</span>
-              <strong className="stat-number" data-target="20" data-pad="false">
-                20<span className="plus">+</span>
-              </strong>
-              <span>Operating as Khamis Al Sharjah Contracting Co.</span>
-            </div>
+  <div className="stats-architecture-layout">
 
-            <div>
-              <span className="stat-icon" aria-hidden="true">♙</span>
-              <strong className="stat-number" data-target="500" data-pad="false">
-                20<span className="plus">+</span>
-              </strong>
-              <span>Direct workforce</span>
-            </div>
+    {/* Featured milestone */}
+    <div className="stats-feature">
+      <span className="stats-feature-label">OUR EXPERIENCE</span>
+      <strong className="stat-number" data-target="35">0<span className="plus">+</span></strong>
+      <h3>Years of Engineering Excellence</h3>
+      <p>Decades of experience delivering construction and engineering solutions across Saudi Arabia.</p>
+    </div>
 
-             <div>
-              <span className="stat-icon coin-icon" aria-hidden="true">
-                <svg viewBox="0 0 48 48" fill="none">
-                  <ellipse cx="17" cy="15" rx="11" ry="5" />
-                  <path d="M6 15v17c0 3 5 5 11 5s11-2 11-5V15" />
-                  <path d="M6 21c0 3 5 5 11 5s11-2 11-5M6 27c0 3 5 5 11 5s11-2 11-5" />
-                  <ellipse cx="32" cy="8" rx="10" ry="4" />
-                  <path d="M22 8v17c0 3 4 5 10 5s10-2 10-5V8" />
-                  <path d="M22 14c0 3 4 5 10 5s10-2 10-5M22 20c0 3 4 5 10 5s10-2 10-5" />
-                </svg>
-              </span>
-              <strong className="stat-number industrial-value">
-                SAR<span className="billion-text">1 Billion</span>
-                <span className="plus">+</span>
-              </strong>
-              <span>TOTAL VALUE OF INDUSTRIAL PROJECTS EXECUTED</span>
-            </div>
+    {/* Supporting statistics */}
+    <div className="stats-data-grid">
 
-            <div>
-              <span className="stat-icon" aria-hidden="true">✓</span>
-              <strong className="stat-number" data-target="500" data-pad="false">
-                20<span className="plus">+</span>
-              </strong>
-              <span>Project Successfully Delivered</span>
-            </div>
-          </div>
-        </section>
+      <div className="stats-data-item">
+        <span className="stats-index">HISTORY</span>
+        <strong className="stat-number" data-target="1989">0</strong>
+        <span className="stats-data-label">SINCE</span>
+      </div>
+
+      <div className="stats-data-item">
+        <span className="stats-index">LEGACY</span>
+        <strong className="stat-number" data-target="20">0<span className="plus">+</span></strong>
+        <span className="stats-data-label">Years operating as KSC</span>
+      </div>
+
+      <div className="stats-data-item">
+        <span className="stats-index">PEOPLE</span>
+        <strong className="stat-number" data-target="500">0<span className="plus">+</span></strong>
+        <span className="stats-data-label">Direct workforce</span>
+      </div>
+
+      <div className="stats-data-item">
+        <span className="stats-index">INVESTMENT</span>
+        <strong
+          className="stat-number industrial-value"
+          data-target="1000000000"
+        >
+          <span>SAR</span>
+          <span className="billion-text">0</span>
+          <span className="plus">+</span>
+        </strong>
+        <span className="stats-data-label">
+          Industrial project value executed
+        </span>
+      </div>
+
+      <div className="stats-data-item stats-data-wide">
+        <span className="stats-index">DELIVERY</span>
+        <strong className="stat-number" data-target="500">0<span className="plus">+</span></strong>
+        <span className="stats-data-label">Projects successfully delivered</span>
+      </div>
+
+    </div>
+  </div>
+</div>
+</section>
 
         
 <section id="services" className="ksc-services-section section reveal-section">
@@ -511,6 +524,7 @@ const handleVideoEnded = () => {
         </div>
 
         <div className="ksc-services-header-note">
+          
           <a
             href="/KSC-Company-Profile.pdf"
             className="ksc-profile-download"
@@ -519,10 +533,24 @@ const handleVideoEnded = () => {
             download="KSC-Company-Profile.pdf"
           >
             <span>Download Company Profile</span>
-            <span className="ksc-profile-download-icon" aria-hidden="true">
-              ↓
-            </span>
+
+            <svg
+              viewBox="0 0 24 24"
+              width="19"
+              height="19"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M12 3v12" />
+              <path d="m7 10 5 5 5-5" />
+              <path d="M5 20h14" />
+            </svg>
           </a>
+
         </div>
       </div>
 
@@ -603,22 +631,26 @@ const handleVideoEnded = () => {
           </a>
         );
       })}
+      <a href="/contact" className="ksc-project-discuss">
+        <span>Discuss Your Projects</span>
+        <svg
+          viewBox="0 0 24 24"
+          width="19"
+          height="19"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          aria-hidden="true"
+        >
+          <path d="M7 17L17 7" />
+          <path d="M7 7h10v10" />
+        </svg>
+      </a>
     </div>
 
     {/* Bottom call to action */}
-    <div className="ksc-services-footer">
-      <div>
-        <span className="ksc-services-footer-label">
-          HAVE A PROJECT IN MIND?
-        </span>
-        <h3>Let's build something dependable.</h3>
-      </div>
-
-      <a className="ksc-services-cta" href="/contact">
-        Discuss your project
-        <span aria-hidden="true">↗</span>
-      </a>
-    </div>
   </div>
 </section>
 
@@ -626,8 +658,10 @@ const handleVideoEnded = () => {
 
 
 
-{/* Fixed background transition before F&B projects */}
+
+{/* Engineering Excellence — Animated Truck Transition */}
 <section className="auxiliary-transition fb-projects-transition">
+
   <div className="auxiliary-transition-image" />
   <div className="auxiliary-transition-overlay" />
 
@@ -637,7 +671,23 @@ const handleVideoEnded = () => {
       Delivered End to End.
     </h2>
   </div>
+
+  {/* Animated road along the bottom */}
+  <div className="ksc-truck-road" aria-hidden="true">
+    <div className="ksc-road-markings" />
+
+    <div className="ksc-moving-truck">
+      <div className="ksc-moving-truck">
+  <img
+    src="/images/KSC Branded White Semi-Truck.png"
+    alt="Khamis Al Sharjah Contracting transport truck"
+  />
+</div>
+    </div>
+  </div>
+
 </section>
+
 
 
 
@@ -1040,123 +1090,6 @@ const handleVideoEnded = () => {
 
 
 
-{/* KSC LOCATION — ARCHITECTURAL DESIGN */}
-<section className="ksc-location-v2">
-  <div className="ksc-location-v2-inner">
-
-    <div className="ksc-location-v2-header">
-      <div className="ksc-location-v2-index">
-      </div>
-    </div>
-
-    <div className="ksc-location-v2-layout">
-
-      {/* LEFT: TYPOGRAPHY AND LOCATION DETAILS */}
-      <div className="ksc-location-v2-info">
-        <span className="ksc-location-v2-eyebrow">
-          OUR HEAD OFFICE <span>—</span> RIYADH, KSA
-        </span>
-        <h2>
-          Rooted
-          <br />
-          in the <span>Kingdom.</span>
-        </h2>
-
-        <p className="ksc-location-v2-description">
-          From planning to project delivery, KSC brings engineering
-          expertise and construction capabilities to the projects
-          shaping the built environment.
-        </p>
-
-        <div className="ksc-location-v2-address">
-          <div className="ksc-location-v2-pin">
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path
-                d="M20 10C20 15 12 22 12 22S4 15 4 10a8 8 0 1 1 16 0Z"
-                stroke="currentColor"
-                strokeWidth="1.6"
-              />
-              <circle
-                cx="12"
-                cy="10"
-                r="2.5"
-                stroke="currentColor"
-                strokeWidth="1.6"
-              />
-            </svg>
-          </div>
-
-          <div>
-            <span className="ksc-location-v2-label">LOCATION</span>
-            <h3>Elegant Center Complex</h3>
-            <p>Al Jamiah Street, Al Malaz, Riyadh 12642</p>
-            <p>Kingdom of Saudi Arabia</p>
-          </div>
-        </div>
-
-        <a
-          className="ksc-location-v2-button"
-          href="https://www.google.com/maps/search/?api=1&query=Elegant%20Center%20Complex%2C%20Al%20Jamiah%20Street%2C%20Al%20Malaz%2C%20Riyadh%2012642%2C%20Saudi%20Arabia"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <span>Explore on Google Maps</span>
-          <span className="ksc-location-v2-button-icon">↗</span>
-        </a>
-
-        <div className="ksc-location-v2-footer">
-        </div>
-      </div>
-
-      {/* RIGHT: MAP PANEL */}
-      <div className="ksc-location-v2-map-panel">
-        <div className="ksc-location-v2-map-top">
-          <span>
-            <i className="ksc-location-v2-live-dot" />
-            LOCATION
-          </span>
-          
-        </div>
-
-        
-          <div className="ksc-location-v2-map">
-            <a
-              className="ksc-location-v2-map-link"
-              href="https://www.google.com/maps/place/Khamis+Al+Sharjah+Contracting+Company/@24.6620504,46.7271027,17z/data=!3m1!4b1!4m6!3m5!1s0x3e2f05b3aee8ce07:0xe9173b2ff049307c!8m2!3d24.6620455!4d46.7296776!16s%2Fg%2F1q5gl9mb6?entry=ttu&g_ep=EgoyMDI2MTAyMC4wIKXMDSoASAFQAw%3D%3D"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Open KSC office location in Google Maps"
-            >
-              <iframe
-                title="KSC Head Office Location"
-                src="https://maps.google.com/maps?q=Elegant%20Center%20Complex%2C%20Al%20Jamiah%20Street%2C%20Al%20Malaz%2C%20Riyadh%2012642%2C%20Saudi%20Arabia&t=&z=17&ie=UTF8&iwloc=&output=embed"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                allowFullScreen
-                tabIndex="-1"
-              />
-            </a>
-
-            <div className="ksc-location-v2-map-stamp">
-              <span className="ksc-location-v2-stamp-cross">+</span>
-              <div>
-                <strong>KSA</strong>
-                <span>AL MALAZ · RIYADH</span>
-              </div>
-            </div>
-          </div>
-
-
-        <div className="ksc-location-v2-map-bottom">
-          <span>SAUDI ARABIA</span>
-          <span className="ksc-location-v2-map-bottom-line" />
-          
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
 
 
 

@@ -257,59 +257,6 @@ useEffect(() => {
         </div>
       </section>
 
-      {/* EXPLORE SERVICES */}
-<section className="about-services section">
-  <div className="container">
-
-    <div className="section-heading">
-      <div>
-        <span className="eyebrow">OUR SERVICES</span>
-
-        <h2>
-          Explore our
-          <br />
-          <span>capabilities.</span>
-        </h2>
-      </div>
-
-      <p>
-        From construction and engineering to specialist systems and
-        interior solutions, KSC delivers integrated capabilities
-        across diverse project environments.
-      </p>
-    </div>
-
-    <div className="about-services-grid">
-      {services.map((service) => (
-        <a
-          key={service.slug}
-          href={`/services/${service.slug}`}
-          className="about-service-card"
-        >
-          <div className="about-service-image">
-            <img
-              src={service.image}
-              alt={service.title}
-            />
-          </div>
-
-          <div className="about-service-overlay"></div>
-
-          <div className="about-service-content">
-            <span>{service.number}</span>
-
-            <h3>{service.title}</h3>
-
-            <div className="about-service-arrow">
-              ↗
-            </div>
-          </div>
-        </a>
-      ))}
-    </div>
-
-  </div>
-</section>
 
 
 {/* CHAIRMAN'S MESSAGE */}
@@ -374,6 +321,66 @@ useEffect(() => {
 
 
 
+
+      {/* EXPLORE SERVICES */}
+<section className="about-services section">
+  <div className="container">
+
+    <div className="section-heading">
+      <div>
+        <span className="eyebrow">OUR SERVICES</span>
+
+        <h2>
+          Explore our
+          <br />
+          <span>capabilities.</span>
+        </h2>
+      </div>
+
+      <p>
+        From construction and engineering to specialist systems and
+        interior solutions, KSC delivers integrated capabilities
+        across diverse project environments.
+      </p>
+    </div>
+
+    <div className="about-services-grid">
+      {services.map((service) => (
+        <a
+          key={service.slug}
+          href={`/services/${service.slug}`}
+          className="about-service-card"
+        >
+          <div className="about-service-image">
+            <img
+              src={service.image}
+              alt={service.title}
+            />
+          </div>
+
+          <div className="about-service-overlay"></div>
+
+          <div className="about-service-content">
+            <span>{service.number}</span>
+
+            <h3>{service.title}</h3>
+
+            <div className="about-service-arrow">
+              ↗
+            </div>
+          </div>
+        </a>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+
       {/* CTA */}
       <section className="about-cta section">
         <div className="container about-cta-inner">
@@ -388,7 +395,7 @@ useEffect(() => {
             </h2>
           </div>
 
-          <a className="button primary" href="/#contact">
+          <a className="button primary" href="/contact">
             Talk to KSC
             <span className="arrow">↗</span>
           </a>

@@ -18306,3 +18306,871 @@ section#about {
   object-position: center;
   display: block;
 }
+
+
+
+
+
+/* ============================================
+   KSC — ARCHITECTURAL STATISTICS DESIGN
+============================================ */
+
+.stats-architecture {
+  position: relative;
+  width: min(1240px, calc(100% - 80px));
+  max-width: 1240px;
+  margin: 85px auto !important;
+  padding: 55px 60px 28px !important;
+  overflow: hidden;
+
+  color: #ffffff;
+  background:
+    radial-gradient(circle at 85% 10%, rgba(51, 112, 170, .22), transparent 35%),
+    linear-gradient(120deg, #101d30 0%, #142b45 55%, #0b1b2e 100%);
+
+  border-radius: 3px;
+  box-shadow: 0 25px 60px rgba(10, 30, 52, .14);
+}
+
+/* Background geometry */
+.stats-architecture::before {
+  content: "";
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  right: -190px;
+  top: -220px;
+  border: 1px solid rgba(150, 194, 226, .15);
+  transform: rotate(45deg);
+  pointer-events: none;
+}
+
+.stats-architecture::after {
+  content: "";
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  right: -120px;
+  top: -150px;
+  border: 1px solid rgba(150, 194, 226, .12);
+  transform: rotate(45deg);
+  pointer-events: none;
+}
+
+/* Heading */
+.stats-architecture-heading {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding-bottom: 25px;
+  border-bottom: 1px solid rgba(255,255,255,.17);
+}
+
+.stats-architecture-heading > span {
+  color: #a8c7df;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .22em;
+}
+
+.stats-architecture-heading p {
+  margin: 0;
+  color: rgba(255,255,255,.60);
+  font-size: 12px;
+}
+
+/* Main composition */
+.stats-architecture-layout {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: .85fr 1.5fr;
+  gap: 65px;
+  padding: 48px 0;
+}
+
+/* Featured number */
+.stats-feature {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px 45px 10px 0;
+  border-right: 1px solid rgba(255,255,255,.18);
+}
+
+.stats-feature-label {
+  color: #a8c7df;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .2em;
+}
+
+.stats-feature > .stat-number {
+  display: block;
+  margin: 25px 0 12px;
+  color: #ffffff;
+  font-family: "Manrope", sans-serif;
+  font-size: clamp(90px, 10vw, 145px);
+  font-weight: 800;
+  line-height: .95;
+  letter-spacing: -.09em;
+}
+
+.stats-feature .plus {
+  color: #a5bd69 !important;
+  font-size: .35em !important;
+  vertical-align: top;
+}
+
+.stats-feature h3 {
+  margin: 15px 0 12px;
+  max-width: 280px;
+  color: #ffffff;
+  font-size: 24px;
+  line-height: 1.25;
+  letter-spacing: -.04em;
+}
+
+.stats-feature p {
+  max-width: 300px;
+  color: rgba(255,255,255,.62);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.stats-feature-line {
+  width: 55px;
+  height: 2px;
+  margin: 22px 0;
+  background: #a5bd69;
+}
+
+.stats-feature-since {
+  color: rgba(255,255,255,.65);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .15em;
+}
+
+/* Five supporting metrics */
+.stats-data-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-content: center;
+}
+
+.stats-data-item {
+  min-width: 0;
+  padding: 25px 24px 26px 0;
+  border-bottom: 1px solid rgba(255,255,255,.16);
+}
+
+.stats-data-item:nth-child(odd) {
+  padding-right: 28px;
+}
+
+.stats-data-item:nth-child(even) {
+  padding-left: 28px;
+  border-left: 1px solid rgba(255,255,255,.16);
+}
+
+.stats-index {
+  display: block;
+  margin-bottom: 18px;
+  color: #a8c7df;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .15em;
+}
+
+.stats-data-item > .stat-number {
+  display: block;
+  margin: 0 0 10px;
+  color: #ffffff;
+  font-family: "Manrope", sans-serif;
+  font-size: clamp(36px, 4vw, 55px);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -.06em;
+}
+
+.stats-data-item .plus {
+  color: #a5bd69 !important;
+  font-size: .45em !important;
+  vertical-align: top;
+}
+
+.stats-data-label {
+  display: block;
+  color: rgba(255,255,255,.62);
+  font-size: 11px;
+  line-height: 1.6;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+}
+
+.stats-data-item .industrial-value {
+  display: flex !important;
+  align-items: baseline;
+  gap: 5px;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  font-size: clamp(24px, 2.8vw, 37px) !important;
+}
+
+.stats-data-item .industrial-value .billion-text {
+  color: #ffffff;
+}
+
+/* Footer */
+.stats-architecture-footer {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,.17);
+  color: rgba(255,255,255,.48);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .13em;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .stats-architecture {
+    width: calc(100% - 40px);
+    padding: 40px 30px 25px !important;
+  }
+
+  .stats-architecture-layout {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .stats-feature {
+    padding: 0 0 30px;
+    border-right: 0;
+    border-bottom: 1px solid rgba(255,255,255,.18);
+  }
+
+  .stats-feature > .stat-number {
+    font-size: 100px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 550px) {
+  .stats-architecture {
+    width: calc(100% - 30px);
+    margin: 50px auto !important;
+    padding: 30px 22px 22px !important;
+  }
+
+  .stats-architecture-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .stats-architecture-layout {
+    padding: 32px 0;
+  }
+
+  .stats-feature > .stat-number {
+    font-size: 85px;
+  }
+
+  .stats-feature h3 {
+    font-size: 21px;
+  }
+
+  .stats-data-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .stats-data-item,
+  .stats-data-item:nth-child(even),
+  .stats-data-item:nth-child(odd) {
+    padding: 20px 10px 20px 0;
+    border-left: 0;
+  }
+
+  .stats-data-item:nth-child(even) {
+    padding-left: 14px;
+    border-left: 1px solid rgba(255,255,255,.16);
+  }
+
+  .stats-data-item > .stat-number {
+    font-size: 35px;
+  }
+
+  .stats-data-item .industrial-value {
+    font-size: 23px !important;
+  }
+
+  .stats-architecture-footer {
+    flex-direction: column;
+    line-height: 1.7;
+  }
+}
+
+
+
+
+/* FIX: STATISTICS NUMBER VISIBILITY */
+
+#about .stats-architecture .stat-number,
+#about .stats-architecture .stats-feature > .stat-number,
+#about .stats-architecture .stats-data-item > .stat-number {
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+#about .stats-architecture .stat-number .plus {
+  color: #A5BD69 !important;
+  -webkit-text-fill-color: #A5BD69 !important;
+}
+
+#about .stats-architecture .industrial-value .billion-text {
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+}
+
+#about .stats-architecture .stats-data-label,
+#about .stats-architecture .stats-feature p,
+#about .stats-architecture .stats-feature-since {
+  color: rgba(255,255,255,.75) !important;
+}
+
+
+
+
+
+
+/* ============================================
+   KSC — OLIVE GREEN ARCHITECTURAL STATISTICS
+============================================ */
+
+.stats-architecture {
+  width: min(1240px, calc(100% - 60px)) !important;
+  max-width: 1240px !important;
+  margin: 55px auto !important;
+  padding: 35px 48px 22px !important;
+
+  background:
+    radial-gradient(circle at 85% 10%, rgba(177, 198, 111, .13), transparent 35%),
+    linear-gradient(125deg, #252e1b 0%, #3d4928 55%, #28321e 100%) !important;
+
+  color: #ffffff !important;
+  border: 1px solid rgba(193, 210, 145, .25) !important;
+  border-radius: 4px !important;
+  box-shadow: 0 20px 50px rgba(35, 45, 25, .16) !important;
+}
+
+/* Decorative geometry */
+.stats-architecture::before,
+.stats-architecture::after {
+  border-color: rgba(210, 225, 170, .13) !important;
+}
+
+/* Header */
+.stats-architecture-heading {
+  padding-bottom: 18px !important;
+  border-color: rgba(255,255,255,.20) !important;
+}
+
+.stats-architecture-heading > span,
+.stats-feature-label,
+.stats-index {
+  color: #c3d58a !important;
+}
+
+.stats-architecture-heading p {
+  color: rgba(255,255,255,.72) !important;
+}
+
+/* Main layout */
+.stats-architecture-layout {
+  grid-template-columns: .8fr 1.5fr !important;
+  gap: 42px !important;
+  padding: 32px 0 !important;
+}
+
+/* Featured statistic */
+.stats-feature {
+  padding-right: 35px !important;
+  border-color: rgba(255,255,255,.20) !important;
+}
+
+.stats-feature > .stat-number {
+  margin: 17px 0 10px !important;
+  font-size: clamp(85px, 8vw, 112px) !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+.stats-feature h3 {
+  margin: 10px 0 !important;
+  font-size: 22px !important;
+}
+
+.stats-feature p,
+.stats-feature-since {
+  color: rgba(255,255,255,.75) !important;
+}
+
+.stats-feature-line {
+  background: #b6ca76 !important;
+  margin: 17px 0 !important;
+}
+
+/* Supporting metrics */
+.stats-data-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+}
+
+.stats-data-item {
+  padding-top: 18px !important;
+  padding-bottom: 19px !important;
+  border-color: rgba(255,255,255,.19) !important;
+}
+
+.stats-data-item > .stat-number {
+  margin-bottom: 7px !important;
+  font-size: clamp(34px, 3.5vw, 46px) !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+.stats-data-item .industrial-value {
+  font-size: clamp(22px, 2.5vw, 33px) !important;
+}
+
+.stats-data-item .industrial-value .billion-text {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+.stats-data-item .plus,
+.stats-feature .plus {
+  color: #c3d980 !important;
+  -webkit-text-fill-color: #c3d980 !important;
+}
+
+.stats-data-label {
+  color: rgba(255,255,255,.72) !important;
+}
+
+/* Let the fifth metric use the full row */
+.stats-data-wide {
+  grid-column: 1 / -1 !important;
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  align-items: center !important;
+}
+
+.stats-data-wide .stats-index {
+  grid-column: 1 / -1;
+}
+
+.stats-data-wide .stat-number {
+  margin: 0 !important;
+}
+
+/* Footer */
+.stats-architecture-footer {
+  padding-top: 16px !important;
+  border-color: rgba(255,255,255,.20) !important;
+  color: rgba(255,255,255,.62) !important;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .stats-architecture {
+    width: calc(100% - 40px) !important;
+    padding: 30px !important;
+  }
+
+  .stats-architecture-layout {
+    grid-template-columns: 1fr !important;
+    gap: 25px !important;
+  }
+
+  .stats-feature {
+    padding: 0 0 25px !important;
+    border-right: 0 !important;
+    border-bottom: 1px solid rgba(255,255,255,.2) !important;
+  }
+
+  .stats-feature > .stat-number {
+    font-size: 90px !important;
+  }
+}
+
+/* Mobile */
+@media (max-width: 550px) {
+  .stats-architecture {
+    width: calc(100% - 28px) !important;
+    margin: 35px auto !important;
+    padding: 25px 20px 20px !important;
+  }
+
+  .stats-architecture-heading {
+    align-items: flex-start !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+  }
+
+  .stats-architecture-layout {
+    padding: 25px 0 !important;
+  }
+
+  .stats-data-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .stats-data-item > .stat-number {
+    font-size: 32px !important;
+  }
+
+  .stats-data-item .industrial-value {
+    font-size: 21px !important;
+  }
+
+  .stats-architecture-footer {
+    flex-direction: column !important;
+    gap: 8px !important;
+  }
+}
+
+
+
+
+/* KSC STATS — FULL WIDTH LAYOUT */
+
+.stats-architecture {
+  width: 100vw !important;
+  max-width: none !important;
+
+  /* Break out of the centered container */
+  position: relative !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+
+  margin: 55px 0 !important;
+  padding: 42px clamp(30px, 7vw, 110px) 25px !important;
+
+  border-radius: 0 !important;
+  box-sizing: border-box !important;
+}
+
+/* Use the additional width effectively */
+.stats-architecture-layout {
+  grid-template-columns: minmax(300px, .8fr) minmax(0, 1.5fr) !important;
+  gap: clamp(35px, 5vw, 75px) !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .stats-architecture {
+    padding: 35px 35px 25px !important;
+  }
+}
+
+@media (max-width: 550px) {
+  .stats-architecture {
+    padding: 28px 20px 20px !important;
+    margin: 35px 0 !important;
+  }
+
+  .stats-architecture-layout {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+
+
+
+
+/* =====================================
+   KSC — OVERSIZED BACKGROUND NUMERALS
+===================================== */
+
+.stats-architecture {
+  position: relative !important;
+  isolation: isolate;
+}
+
+.stats-architecture .stats-watermark {
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  right: -35px;
+  transform: translateY(-50%);
+
+  font-family: "Manrope", sans-serif;
+  font-size: clamp(180px, 29vw, 440px);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.10em;
+  white-space: nowrap;
+
+  color: rgba(202, 218, 157, 0.045);
+  -webkit-text-stroke: 1px rgba(202, 218, 157, 0.055);
+
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Keep all actual content above the watermark */
+.stats-architecture-heading,
+.stats-architecture-layout,
+.stats-architecture-footer {
+  position: relative;
+  z-index: 1;
+}
+
+/* Mobile adjustment */
+@media (max-width: 550px) {
+  .stats-architecture .stats-watermark {
+    font-size: 190px;
+    right: -20px;
+    top: 30%;
+  }
+}
+
+
+
+
+/* Make investment plus sign larger */
+.stats-data-item .industrial-value .plus {
+  font-weight: 800 !important;
+  vertical-align: super !important;
+  line-height: 0 !important;
+  margin-left: 5px !important;
+  color: #B6CA76 !important;
+}
+
+
+/* Position + directly above the final digit */
+.stats-data-item .industrial-value .plus {
+  position: relative !important;
+  top: -14px !important;
+  margin-left: -2px !important;
+  font-size: 22px !important;
+  font-weight: 800 !important;
+  line-height: 0 !important;
+  color: #B6CA76 !important;
+}
+
+
+
+/* Move Projects Delivered label slightly left */
+.stats-data-wide .stats-data-label {
+  transform: translateX(-255px) !important;
+}
+
+
+
+/* Reduce space below statistics section */
+.stats-architecture {
+  margin-bottom: 0 !important;
+}
+
+/* Move Services section upwards */
+#services {
+  padding-top: 40px !important;
+  margin-top: 0 !important;
+}
+
+
+
+
+/* KSC Rounded Project Discussion Button */
+.ksc-project-discuss {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  justify-self: center;
+  align-self: center;
+
+  padding: 16px 27px;
+  min-height: 56px;
+
+  background: #91AE4B;
+  color: #17200F;
+  border: 1px solid #91AE4B;
+  border-radius: 50px;
+
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+
+  transition: all .3s ease;
+}
+
+.ksc-project-discuss:hover {
+  background: #354323;
+  color: #FFFFFF;
+  border-color: #354323;
+  transform: translateY(-3px);
+}
+
+.ksc-project-discuss svg {
+  flex-shrink: 0;
+  transition: transform .3s ease;
+}
+
+.ksc-project-discuss:hover svg {
+  transform: translate(3px, -3px);
+}
+
+
+
+
+
+
+/* Rounded Company Profile Download Button */
+.ksc-profile-download {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+
+  padding: 16px 27px;
+  min-height: 56px;
+
+  background: #91AE4B;
+  color: #17200F;
+  border: 1px solid #91AE4B;
+  border-radius: 50px;
+
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+
+  transition: all .3s ease;
+}
+
+.ksc-profile-download:hover {
+  background: #354323;
+  color: #FFFFFF;
+  border-color: #354323;
+  transform: translateY(-3px);
+}
+
+.ksc-profile-download svg {
+  flex-shrink: 0;
+  transition: transform .3s ease;
+}
+
+.ksc-profile-download:hover svg {
+  transform: translateY(4px);
+}
+
+
+
+
+
+
+/* Discover KSC - Rounded Button */
+.discover-ksc-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+
+  padding: 16px 27px;
+  min-height: 56px;
+
+  background: #91AE4B;
+  color: #17200F;
+  border: 1px solid #91AE4B;
+  border-radius: 50px;
+
+  font-size: 19px;
+  font-weight: 900;
+  text-decoration: none;
+
+  transition: all .3s ease;
+}
+
+.discover-ksc-button:hover {
+  background: #354323;
+  color: #FFFFFF;
+  border-color: #354323;
+  transform: translateY(-3px);
+}
+
+.discover-ksc-button .arrow {
+  transition: transform .3s ease;
+}
+
+.discover-ksc-button:hover .arrow {
+  transform: translate(3px, -3px);
+}
+
+
+/* Move Discover KSC button slightly right */
+.discover-ksc-button {
+  margin-left: 230px !important;
+}
+
+
+
+
+
+
+
+
+/* Realistic KSC Transport Truck Animation */
+
+.ksc-truck-road {
+  overflow: visible !important;
+}
+
+.ksc-moving-truck {
+  position: absolute;
+  bottom: -4px;
+  left: -320px;
+  width: 300px;
+  height: 105px;
+  z-index: 6;
+  animation: ksc-truck-drive 18s linear infinite;
+}
+
+.ksc-moving-truck img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: bottom center;
+}
+
+@keyframes ksc-truck-drive {
+  from {
+    left: -320px;
+  }
+  to {
+    left: calc(100% + 320px);
+  }
+}
+
+@media (max-width: 600px) {
+  .ksc-moving-truck {
+    width: 210px;
+    height: 75px;
+    left: -230px;
+    animation-duration: 14s;
+  }
+}

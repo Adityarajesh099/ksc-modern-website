@@ -129,20 +129,14 @@ function ProjectPin({ project }) {
       </a>
 
       <a
-        className="pf-project-card"
+        className="pf-place-name"
         href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
           project.query
         )}`}
         target="_blank"
         rel="noopener noreferrer"
       >
-        <span className="pf-card-copy">
-          <strong>{project.name}</strong>
-          <small>{project.type}</small>
-        </span>
-        <span className="pf-card-arrow" aria-hidden="true">
-          ↗
-        </span>
+        {project.name}
       </a>
     </div>
   );
@@ -171,24 +165,7 @@ export default function ProjectFootprint() {
             to a stronger, more connected future.
           </p>
 
-          <div className="pf-stats">
-            <div className="pf-stat">
-              <strong>500+</strong>
-              <span>PROJECTS<br />DELIVERED</span>
-            </div>
-            <div className="pf-stat">
-              <strong>10+</strong>
-              <span>CITIES &amp;<br />REGIONS</span>
-            </div>
-            <div className="pf-stat">
-              <strong>100%</strong>
-              <span>COMMITMENT<br />TO QUALITY</span>
-            </div>
-            <div className="pf-stat">
-              <strong>NATIONWIDE</strong>
-              <span>PRESENCE<br />IN KSA</span>
-            </div>
-          </div>
+          
 
           <a className="pf-explore" href="/projects">
             <span>Explore Our Projects</span>
