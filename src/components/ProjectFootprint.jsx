@@ -155,11 +155,7 @@ export default function ProjectFootprint() {
 
       <div className="pf-content">
         <div className="pf-intro">
-          <div className="pf-eyebrow">
-            <span />
-            OUR PROJECT FOOTPRINT
-            <span />
-          </div>
+          
 
           <h2>
             Shaping

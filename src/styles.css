@@ -8418,19 +8418,19 @@ body::-webkit-scrollbar {
 }
 
 #home.hero .hero-content > *:nth-child(1) {
-  animation-delay: 9.10s;
+  animation-delay: 0.2s;
 }
 
 #home.hero .hero-content > *:nth-child(2) {
-  animation-delay: 9.40s;
+  animation-delay: 0.5s;
 }
 
 #home.hero .hero-content > *:nth-child(3) {
-  animation-delay: 9.60s;
+  animation-delay: 0.9s;
 }
 
 #home.hero .hero-content > *:nth-child(4) {
-  animation-delay: 10.20s;
+  animation-delay: 1.3s;
 }
 
 /* Respect accessibility preferences */
@@ -18006,3 +18006,229 @@ section#about {
 
 
 
+/* Glassmorphism Explore Services button */
+#home.hero .button.primary {
+  background: rgba(134, 154, 62, 0.22);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: #ffffff;
+
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  transition: all 0.35s ease;
+}
+
+/* Hover effect */
+#home.hero .button.primary:hover {
+  background: rgba(134, 154, 62, 0.42);
+  border-color: rgba(255, 255, 255, 0.6);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Explore Services button typography */
+#home.hero .button.primary {
+  font-family: "Manrope", sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  text-transform: none;
+}
+
+/* Arrow icon */
+#home.hero .button.primary svg {
+  width: 17px;
+  height: 17px;
+  stroke-width: 2;
+}
+
+
+
+
+/* KSC Header Logo */
+.header .brand {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.header .brand-mark img {
+  width: 400px !important;
+  height: 135px !important;
+  object-fit: contain;
+  object-position: left center;
+  display: block;
+}
+
+
+
+
+/* KSC Header – Navigation alignment fix */
+
+.header {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+}
+
+.header .brand {
+  flex: 0 0 300px !important;
+}
+
+.header .nav {
+  position: static !important;
+  display: flex !important;
+  flex: 1 !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 28px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  height: 100% !important;
+}
+
+.header .nav > a,
+.header .nav .nav-dropdown-trigger {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  white-space: nowrap !important;
+}
+
+/* Keep dropdown positioned correctly */
+.header .nav-dropdown {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+/* Mobile navigation */
+@media (max-width: 900px) {
+  .header .brand {
+    flex: 0 0 auto !important;
+  }
+
+  .header .nav {
+    position: absolute !important;
+    display: none !important;
+  }
+
+  .header .nav.open {
+    display: flex !important;
+  }
+}
+
+/* Move navigation slightly left toward centre */
+@media (min-width: 901px) {
+  .header .nav {
+    transform: translateX(-55px) !important;
+  }
+}
+
+@media (min-width: 901px) {
+  .header .nav {
+    gap: 15px !important;
+  }
+}
+
+
+
+@media (min-width: 901px) {
+  .header .nav-contact {
+    position: relative !important;
+    left: 120px !important;
+  }
+}
+
+
+/* KSC Navigation Font Size */
+@media (min-width: 901px) {
+  .header .nav > a,
+  .header .nav .nav-dropdown-trigger {
+    font-size: 16px !important;
+    font-weight: 200 !important;
+  }
+}
+
+
+
+/* Explore Services – Green Button */
+#home.hero .button.primary {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border: 4px solid #869A3E !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
+  transition: all 0.3s ease;
+}
+
+#home.hero .button.primary:hover {
+  background: #718432 !important;
+  color: #ffffff !important;
+  border-color: #718432 !important;
+  transform: translateY(-3px);
+}
+
+
+
+/* White outlined navigation buttons */
+@media (min-width: 901px) {
+  .header .nav > a,
+  .header .nav .nav-dropdown-trigger {
+    border: 1px solid rgba(255, 255, 255, 0.75) !important;
+    border-radius: 25px !important;
+    padding: 10px 16px !important;
+    transition: all 0.3s ease;
+  }
+
+  /* Hover effect */
+  .header .nav > a:hover,
+  .header .nav .nav-dropdown-trigger:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: #ffffff !important;
+  }
+
+  /* Contact button */
+  .header .nav-contact {
+    border: 1px solid rgba(255, 255, 255, 0.75) !important;
+    border-radius: 25px !important;
+  }
+}
+
+
+/* Frosted glass navigation buttons */
+@media (min-width: 901px) {
+  .header .nav > a,
+  .header .nav .nav-dropdown-trigger {
+    background: rgba(255, 255, 255, 0.12) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+
+    border: 1px solid rgba(255, 255, 255, 0.65) !important;
+    border-radius: 30px !important;
+
+    transition: all 0.3s ease;
+  }
+
+  /* Hover effect */
+  .header .nav > a:hover,
+  .header .nav .nav-dropdown-trigger:hover {
+    background: rgba(255, 255, 255, 0.24) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    border-color: #ffffff !important;
+  }
+}
+
+@media (min-width: 901px) {
+  .header .nav > a:not(.nav-contact),
+  .header .nav .nav-dropdown-trigger {
+    position: relative;
+    left: 45px;
+  }
+}

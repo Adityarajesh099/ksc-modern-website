@@ -280,8 +280,7 @@ useEffect(() => {
 
 
 const heroVideos = [
-  "/images/ksc-hero-edit1.mp4",
-  "/images/KSC VIDEO HB V2.mp4",
+  "/images/Ksc Hero Video Final compressed.mp4",
   "/images/KSC v2.mp4",
 ];
 
@@ -307,6 +306,7 @@ const handleVideoEnded = () => {
   className="hero-background-video"
   autoPlay
   muted
+  loop
   playsInline
   preload="auto"
   onPlaying={() => setShowHeroText(true)}
@@ -345,8 +345,8 @@ const handleVideoEnded = () => {
 
           <div className="hero-content">
             <div className="hero-kicker">
-              <span className="kicker-line"></span>
-              <p className="eyebrow light">KHAMIS AL SHARJAH CONTRACTING CO.</p>
+            
+              
             </div>
             <h2 className="hero-title">
               <span className="hero-title-green">Your Trusted Partner</span>
@@ -635,7 +635,6 @@ const handleVideoEnded = () => {
   <div className="auxiliary-transition-overlay" />
 
   <div className="auxiliary-transition-content">
-    <span>KHAMIS AL SHARJAH CONTRACTING CO.</span>
     <h2>
       Engineering Excellence.<br />
       Delivered End to End.
@@ -787,7 +786,6 @@ const handleVideoEnded = () => {
   className="transition-excavator"
 />
   <div className="auxiliary-transition-content">
-    <span>KHAMIS AL SHARJAH CONTRACTING CO.</span>
     <h2>Built on Experience.<br />Driven by Excellence.</h2>
   </div>
 </section>
