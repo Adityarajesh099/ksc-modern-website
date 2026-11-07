@@ -18232,3 +18232,77 @@ section#about {
     left: 45px;
   }
 }
+
+
+/* Social media bar – frosted glass effect */
+.social-sidebar {
+  background: rgba(255, 255, 255, 0.12) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.55) !important;
+  border-radius: 35px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+
+/* Slightly reduce social media sidebar size */
+.social-sidebar {
+  padding: 8px !important;
+  gap: 8px !important;
+  border-radius: 28px;
+  transform: scale(0.88);
+  transform-origin: left center;
+}
+
+.social-sidebar a,
+.social-sidebar button {
+  width: 38px !important;
+  height: 38px !important;
+}
+
+
+
+.social-sidebar {
+  padding: 8px !important;
+  gap: 8px !important;
+  border-radius: 28px;
+  transform: scale(0.88);
+  transform-origin: left top;
+  top: 35% !important;
+  margin-top: 0 !important;
+}
+
+.social-sidebar a,
+.social-sidebar button {
+  width: 38px !important;
+  height: 38px !important;
+}
+
+
+
+/* Extend About page hero section */
+.inner-page-hero {
+  min-height: 795px !important;
+  height: 380px !important;
+}
+
+
+
+
+
+/* About Page Hero Background Video */
+.inner-page-hero-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.about-hero-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}

@@ -87,16 +87,22 @@ useEffect(() => {
       {/* HERO */}
       <section className="inner-page-hero">
         <div className="inner-page-hero-image">
-          <img
-            src="/images/ksc-hero-03.jpg"
-            alt="KSC construction project"
-          />
+          <video
+            className="about-hero-video"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+          >
+            <source src="/images/KSC v2.mp4" type="video/mp4" />
+          </video>
         </div>
 
         <div className="inner-page-hero-overlay"></div>
 
         <div className="inner-page-hero-content">
-          <span className="eyebrow light">01 / ABOUT KSC</span>
+          
 
           <h1>
             Building with
@@ -104,10 +110,7 @@ useEffect(() => {
             <span>purpose.</span>
           </h1>
 
-          <p>
-            Engineering and construction solutions built around
-            experience, quality and long-term value.
-          </p>
+          
         </div>
       </section>
 
