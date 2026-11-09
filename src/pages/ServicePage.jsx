@@ -438,7 +438,7 @@ highlights: {
     "Testing & Commissioning"
   ],
   images: [
-    "/images/Pharma.png",
+    "/images/Sterile Pharmaceutical Cleanroom Interior_01.png",
   ],
   highlights: {
     label: "PHARMACEUTICAL & CLEANROOM CAPABILITIES",
@@ -555,36 +555,67 @@ useEffect(() => {
   return (
   <main className="service-page">
 
-    <section className="service-page-hero">
+    
+{service === "pharmaceutical-cleanroom-facilities" ? (
+  <section className="pharma-premium pharma-premium-main-hero">
+    <div className="pharma-premium-hero">
+      <img
+        className="pharma-premium-background"
+        src="/images/Sterile Pharmaceutical Cleanroom Interior_01.png"
+        alt="Pharmaceutical cleanroom manufacturing facility"
+      />
 
-        <div className="service-hero-image">
-            {data.images?.map((image, index) => (
-                <img
-                key={image}
-                src={image}
-                alt={`${data.title} project ${index + 1}`}
-                className={`service-hero-slide ${
-                    index === heroSlide ? "active" : ""
-                }`}
-                />
-            ))}
-            </div>
+      <div className="pharma-premium-overlay" />
 
-        <div className="service-hero-overlay"></div>
+      <div className="pharma-premium-hero-content">
 
-        <div className="service-page-content">
+        <h2>
+          ENGINEERING
+          <br />
+          <span>CONTROLLED</span>
+          <br />
+          ENVIRONMENTS.
+        </h2>
 
-            <h1>{data.title}</h1>
+        <p>
+          Specialized pharmaceutical facilities and precision
+          cleanroom environments, engineered for quality,
+          compliance and operational excellence.
+        </p>
 
-            <div className="service-hero-line"></div>
+        <a href="/contact" className="pharma-premium-cta">
+          DISCUSS YOUR PROJECT
+          <span>↗</span>
+        </a>
+      </div>
+    </div>
+  </section>
+) : (
 
-            <p>
-            Engineering capability built around experience.
-            </p>
+  <section className="service-page-hero">
+    <div className="service-hero-image">
+      {data.images?.map((image, index) => (
+        <img
+          key={image}
+          src={image}
+          alt={`${data.title} project ${index + 1}`}
+          className={`service-hero-slide ${
+            index === heroSlide ? "active" : ""
+          }`}
+        />
+      ))}
+    </div>
 
-        </div>
+    <div className="service-hero-overlay"></div>
 
-    </section>
+    <div className="service-page-content">
+      <h1>{data.title}</h1>
+      <div className="service-hero-line"></div>
+      <p>Engineering capability built around experience.</p>
+    </div>
+  </section>
+)}
+
 
     <section className="service-detail">
       <div className="service-detail-main">
@@ -841,7 +872,167 @@ useEffect(() => {
   </section>
 )}
 
-<section className="why-ksc"></section>
+
+
+{service === "pharmaceutical-cleanroom-facilities" && (
+  <section className="pharma-premium">
+
+
+    {/* INTRODUCTION */}
+    <div className="pharma-premium-intro">
+      <div className="pharma-premium-intro-left">
+        <span className="pharma-premium-section-label">
+          OUR SPECIALIZED CAPABILITIES
+        </span>
+
+        <h3>
+          Precision in every
+          <span> controlled environment.</span>
+        </h3>
+      </div>
+
+      <div className="pharma-premium-intro-right">
+        <p>
+          KSC delivers coordinated construction and installation
+          solutions for pharmaceutical manufacturing facilities
+          and cleanroom environments. From specialized finishes
+          and environmental control to utilities and compliance
+          support, we focus on dependable project execution.
+        </p>
+      </div>
+    </div>
+
+    {/* CAPABILITIES */}
+    <div className="pharma-premium-capabilities">
+
+      <div className="pharma-premium-card">
+        <div className="pharma-premium-card-top">
+          <svg viewBox="0 0 48 48" fill="none">
+            <path d="M6 17L24 7L42 17L24 27L6 17Z" />
+            <path d="M6 25L24 35L42 25" />
+            <path d="M6 33L24 43L42 33" />
+          </svg>
+        </div>
+        <h3>Cleanroom Design &amp; Construction</h3>
+        <p>
+          GMP-compliant cleanroom construction, specialized
+          wall and ceiling systems, flooring and controlled
+          environment finishes.
+        </p>
+        <span className="pharma-premium-card-index">01</span>
+      </div>
+
+      <div className="pharma-premium-card">
+        <div className="pharma-premium-card-top">
+          <svg viewBox="0 0 48 48" fill="none">
+            <circle cx="24" cy="24" r="15" />
+            <circle cx="24" cy="24" r="5" />
+            <path d="M24 3V9M24 39V45M3 24H9M39 24H45M9 9L14 14M34 34L39 39M39 9L34 14M14 34L9 39" />
+          </svg>
+        </div>
+        <h3>HVAC &amp; Air Filtration</h3>
+        <p>
+          HVAC installations, HEPA/ULPA filtration, temperature,
+          humidity and pressure control for controlled
+          production environments.
+        </p>
+        <span className="pharma-premium-card-index">02</span>
+      </div>
+
+      <div className="pharma-premium-card">
+        <div className="pharma-premium-card-top">
+          <svg viewBox="0 0 48 48" fill="none">
+            <path d="M20 5H28M22 5V19L10 37C8 40 11 43 15 43H33C37 43 40 40 38 37L26 19V5" />
+            <path d="M14 34H34" />
+            <path d="M19 28L23 25L26 30L30 26" />
+          </svg>
+        </div>
+        <h3>Utilities &amp; Process Systems</h3>
+        <p>
+          Installation of critical utilities, purified water
+          systems, clean steam, compressed air and process piping.
+        </p>
+        <span className="pharma-premium-card-index">03</span>
+      </div>
+
+      <div className="pharma-premium-card">
+        <div className="pharma-premium-card-top">
+          <svg viewBox="0 0 48 48" fill="none">
+            <path d="M24 4L41 11V23C41 34 34 41 24 45C14 41 7 34 7 23V11L24 4Z" />
+            <path d="M15 24L21 30L34 17" />
+          </svg>
+        </div>
+        <h3>Validation &amp; Compliance Support</h3>
+        <p>
+          Testing, cleanroom certification support and
+          coordination with applicable GMP, WHO and ISO
+          requirements.
+        </p>
+        <span className="pharma-premium-card-index">04</span>
+      </div>
+
+    </div>
+
+    {/* DELIVERY PRINCIPLES */}
+    <div className="pharma-premium-delivery">
+      <div className="pharma-premium-delivery-heading">
+        
+        <h3>Built around <span>confidence.</span></h3>
+      </div>
+
+      <div className="pharma-premium-delivery-grid">
+
+        <article>
+          <span className="pharma-premium-delivery-icon">01</span>
+          <div>
+            <h4>Contamination Control</h4>
+            <p>
+              Controlled environments designed to support
+              product protection and operational quality.
+            </p>
+          </div>
+        </article>
+
+        <article>
+          <span className="pharma-premium-delivery-icon">02</span>
+          <div>
+            <h4>Regulatory Coordination</h4>
+            <p>
+              Construction and installation coordinated
+              with relevant quality and compliance requirements.
+            </p>
+          </div>
+        </article>
+
+        <article>
+          <span className="pharma-premium-delivery-icon">03</span>
+          <div>
+            <h4>End-to-End Execution</h4>
+            <p>
+              Integrated project delivery from construction
+              and installation through testing and handover.
+            </p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+
+    {/* FINAL CALL TO ACTION */}
+    <div className="pharma-premium-final">
+      <div>
+        <span>YOUR NEXT SPECIALIZED PROJECT</span>
+        <h3>Let's build environments that perform.</h3>
+      </div>
+
+      <a href="/contact">
+        START A CONVERSATION <span>↗</span>
+      </a>
+    </div>
+
+  </section>
+)}
+
 
 
                     <section className="related-services">

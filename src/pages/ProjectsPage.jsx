@@ -167,7 +167,6 @@ export default function ProjectsPage() {
         <div className="projects-page-hero-overlay"></div>
 
         <div className="projects-page-hero-content">
-          <span className="eyebrow light">02 / PROJECTS</span>
 
           <h1>
             Work that
@@ -182,36 +181,16 @@ export default function ProjectsPage() {
         </div>
       </section>
 
-      {/* PROJECT INTRO */}
-      <section className="projects-intro section">
-        <div className="container projects-intro-grid">
-
-          <div>
-            <span className="eyebrow">OUR PROJECTS</span>
-
-            <h2>
-                Our
-                <br />
-                <span>Projects.</span>
-                </h2>
-          </div>
-
-          <p>
-            Explore KSC's ongoing and completed construction and
-            engineering projects across the Kingdom of Saudi Arabia.
-          </p>
-
-        </div>
-      </section>
+      
 
 
         {/* ONGOING PROJECTS */}
-<section className="projects-list section">
+<section className="projects-list section ongoing-projects">
   <div className="container">
 
     <div className="projects-list-heading">
       <div>
-        <span className="eyebrow">CURRENT WORK</span>
+
         <h2>Ongoing Projects</h2>
       </div>
 
@@ -377,57 +356,7 @@ export default function ProjectsPage() {
 
 
 
-{/* KINGDOM-WIDE OPERATIONAL REACH */}
-<section className="kingdom-reach-section">
-  <div className="container kingdom-reach-container">
 
-    {/* LEFT SIDE — MAP */}
-    <div className="kingdom-reach-map">
-      <img
-        src="/images/saudi-arabia-map.png"
-        alt="KSC operational locations across Saudi Arabia"
-        className="kingdom-map-image"
-      />
-    </div>
-
-    {/* RIGHT SIDE — CONTENT */}
-    <div className="kingdom-reach-content">
-      <span className="eyebrow">OUR PRESENCE</span>
-
-      <h2>
-        KINGDOM-WIDE
-        <br />
-        <em>OPERATIONAL REACH</em>
-      </h2>
-
-      <p>
-        KSC operates across the entire Kingdom of Saudi Arabia,
-        with mobilized teams, supply chains, and engineering assets
-        enabling simultaneous project execution across major cities
-        and remote industrial zones.
-      </p>
-
-      <div className="kingdom-city-list">
-        {[
-          "Riyadh",
-          "Al Kharj",
-          "Hail",
-          "Turaif",
-          "Tayma",
-          "Dammam",
-          "Henakiyah",
-          "Hofuf",
-          "Jeddah",
-          "Sharourah",
-          "Najran",
-        ].map((city) => (
-          <span key={city}>{city}</span>
-        ))}
-      </div>
-    </div>
-
-  </div>
-</section>
 
 
       {/* CTA */}
