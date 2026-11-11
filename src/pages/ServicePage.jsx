@@ -1,6 +1,12 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { supabase } from "../supabase";
+import {
+  Pickaxe,
+  Route,
+  Building2,
+  Construction
+} from "lucide-react";
 
 const serviceData = {
     
@@ -730,8 +736,9 @@ useEffect(() => {
 
                     <p>{data.highlights.description}</p>
 
-                    <a className="civil-reference-button" href="/contact">
-                      Discuss a Project <span>→</span>
+                    <a href="/contact" className="pharma-premium-cta">
+                      DISCUSS A PROJECT
+                      <span>↗</span>
                     </a>
                   </div>
 
@@ -754,10 +761,10 @@ useEffect(() => {
                         className="civil-capability-icon"
                         aria-hidden="true"
                       >
-                        {item.icon === "excavator" && "⚒"}
-                        {item.icon === "road" && "╱"}
-                        {item.icon === "building" && "▥"}
-                        {item.icon === "utilities" && "⌁"}
+                        {item.icon === "excavator" && <Pickaxe />}
+                        {item.icon === "road" && <Route />}
+                        {item.icon === "building" && <Building2 />}
+                        {item.icon === "utilities" && <Construction />}
                       </div>
 
                       <span className="civil-capability-accent" />

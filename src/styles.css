@@ -19889,3 +19889,197 @@ section#about {
     padding: 65px 0;
   }
 }
+
+
+
+
+
+
+
+
+
+
+/* CIVIL CONSTRUCTION - PREMIUM CAPABILITY CARDS */
+
+.civil-reference-capabilities {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  padding: 30px 0 45px;
+  border: none;
+}
+
+.civil-reference-capabilities article {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-height: 300px;
+  padding: 30px 25px;
+  background: #20291e;
+  border: 1px solid rgba(145, 173, 62, 0.12);
+  overflow: hidden;
+  transition: transform 0.35s ease,
+              background 0.35s ease,
+              border-color 0.35s ease;
+}
+
+/* Card hover */
+
+.civil-reference-capabilities article:hover {
+  transform: translateY(-7px);
+  background: #293522;
+  border-color: #91ad3e;
+}
+
+/* Number watermark */
+
+.civil-reference-capabilities .civil-capability-number {
+  position: absolute;
+  right: 20px;
+  bottom: 10px;
+  font-size: 58px;
+  font-weight: 800;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.07);
+  z-index: 0;
+}
+
+/* Icons */
+
+.civil-reference-capabilities .civil-capability-icon {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  margin-bottom: 32px;
+  color: #91ad3e;
+  font-size: 34px;
+}
+
+/* Green accent line */
+
+.civil-reference-capabilities .civil-capability-accent {
+  width: 32px;
+  height: 2px;
+  margin-bottom: 20px;
+  background: #91ad3e;
+}
+
+/* Card headings */
+
+.civil-reference-capabilities article h3 {
+  position: relative;
+  z-index: 1;
+  margin: 0 0 14px;
+  color: #ffffff;
+  font-size: 19px;
+  font-weight: 650;
+  line-height: 1.35;
+}
+
+/* Card descriptions */
+
+.civil-reference-capabilities article p {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 13px;
+  line-height: 1.75;
+}
+
+/* Tablet */
+
+@media (max-width: 1000px) {
+  .civil-reference-capabilities {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+  .civil-reference-capabilities {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .civil-reference-capabilities article {
+    min-height: 250px;
+    padding: 26px 22px;
+  }
+}
+
+
+
+
+
+
+
+.civil-reference-capabilities article:first-child {
+  padding-left: 25px !important;
+}
+
+.civil-reference-capabilities article:first-child h3,
+.civil-reference-capabilities article:first-child p,
+.civil-reference-capabilities article:first-child .civil-capability-accent {
+  margin-left: 0;
+}
+
+
+
+
+
+
+.civil-reference-capabilities .civil-capability-icon svg {
+  width: 34px;
+  height: 34px;
+  stroke: #91ad3e;
+  stroke-width: 1.6;
+  fill: none;
+}
+
+
+
+
+
+
+.civil-reference-hero .pharma-premium-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 35px;
+  padding: 9px 9px 9px 22px;
+  min-width: 250px;
+  min-height: 62px;
+  background: #91ad3e;
+  color: #20261b;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  transition: background 0.3s ease;
+}
+
+.civil-reference-hero .pharma-premium-cta span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  background: rgba(32, 38, 27, 0.12);
+  font-size: 22px;
+  transition: transform 0.3s ease;
+}
+
+.civil-reference-hero .pharma-premium-cta:hover {
+  background: #a5c34c;
+}
+
+.civil-reference-hero .pharma-premium-cta:hover span {
+  transform: translate(3px, -3px);
+}
