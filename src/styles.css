@@ -21206,3 +21206,24 @@ section[aria-label="KSC construction"] .auxiliary-transition-content h2 span {
 .quality-value-section .qv-card:hover .qv-card-bg {
   opacity: 0.38 !important;
 }
+
+
+
+
+
+
+/* Remove circular backgrounds around Quality & Value icons */
+
+.quality-value-section .qv-card-top svg {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  filter: none !important;
+}
+
+.quality-value-section .qv-card:hover .qv-card-top svg {
+  background: transparent !important;
+  border: none !important;
+  filter: none !important;
+}
