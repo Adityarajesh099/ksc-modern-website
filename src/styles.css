@@ -19100,21 +19100,21 @@ section#about {
   min-height: 56px;
 
   background: #91AE4B;
-  color: #ffffff;
-  border: 4px solid #81AE4B;
+  color: #000000;
+  border: 2px solid #81AE4B;
   border-radius: 50px;
 
-  font-size: 17px;
-  font-weight: 900;
+  font-size: 15px;
+  font-weight: 600;
   text-decoration: none;
 
   transition: all .3s ease;
 }
 
 .discover-ksc-button:hover {
-  background: #354323;
-  color: #FFFFFF;
-  border-color: #354323;
+  background: #ffffff;
+  color: #000000;
+  border-color: #91AE4B;
   transform: translateY(-3px);
 }
 
@@ -20082,4 +20082,1127 @@ section#about {
 
 .civil-reference-hero .pharma-premium-cta:hover span {
   transform: translate(3px, -3px);
+}
+
+
+/* KSC Engineering Excellence Banner – Heading Color */
+.fb-projects-transition .auxiliary-transition-content h2 {
+  color: #20261B !important;
+ 
+}
+
+
+
+
+
+
+/* Subtle blur for Engineering Excellence banner */
+
+.fb-projects-transition {
+  position: relative;
+  overflow: hidden;
+}
+
+.fb-projects-transition::before {
+  content: "";
+  position: absolute;
+  inset: -5px;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.fb-projects-transition .auxiliary-transition-content {
+  position: relative;
+  z-index: 2;
+}
+
+
+
+
+
+/* Construction banner – fixed blurred background */
+.auxiliary-transition[aria-label="KSC construction"]
+.auxiliary-transition-image {
+  filter: blur(2px);
+  transform: none !important;
+  background-attachment: fixed !important;
+  background-position: center center !important;
+  background-size: cover !important;
+}
+
+/* Keep foreground elements sharp */
+.auxiliary-transition[aria-label="KSC construction"]
+.auxiliary-transition-content,
+.auxiliary-transition[aria-label="KSC construction"]
+.transition-excavator {
+  filter: none !important;
+}
+
+
+
+
+
+
+
+
+
+/* =========================================
+   KSC QUALITY & VALUE — EXECUTIVE DESIGN
+========================================= */
+
+.quality-value-section {
+  --qv-green: #91ad3e;
+  --qv-dark: #172218;
+  --qv-card: #202d22;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 110px 6%;
+  background: #172218 !important;
+  color: #fff;
+}
+
+.qv-grid-pattern {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+  background-size: 65px 65px;
+  mask-image: linear-gradient(to bottom, black, transparent 95%);
+}
+
+.qv-container {
+  width: 100%;
+  max-width: 1280px;
+  margin: auto;
+}
+
+.qv-topline,
+.qv-section-label,
+.qv-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.qv-topline {
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255,255,255,.15);
+  color: #a8b49e;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.qv-header {
+  display: grid;
+  grid-template-columns: 1fr 260px;
+  align-items: center;
+  gap: 50px;
+  padding: 75px 0 85px;
+}
+
+.qv-eyebrow,
+.qv-card-category {
+  color: var(--qv-green);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.qv-heading-copy h2 {
+  margin: 20px 0;
+  color: #fff;
+  font-size: clamp(38px, 5vw, 68px);
+  font-weight: 650;
+  line-height: 1.12;
+  letter-spacing: -2.5px;
+}
+
+.qv-heading-copy h2 span {
+  color: var(--qv-green);
+}
+
+.qv-heading-copy > p {
+  max-width: 550px;
+  color: #b5c0b2;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.qv-mark-circle {
+  width: 220px;
+  height: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(145,173,62,.5);
+  border-radius: 50%;
+  box-shadow: 0 0 50px rgba(145,173,62,.08);
+  text-align: center;
+}
+
+.qv-mark-circle svg {
+  width: 42px;
+  height: 42px;
+  margin-bottom: 12px;
+  fill: none;
+  stroke: var(--qv-green);
+  stroke-width: 1.7;
+}
+
+.qv-mark-circle span,
+.qv-mark-circle small {
+  color: #aeb9a8;
+  font-size: 9px;
+  letter-spacing: 2px;
+}
+
+.qv-mark-circle strong {
+  margin: 5px 0;
+  color: #fff;
+  font-size: 32px;
+  letter-spacing: 2px;
+}
+
+.qv-section-label {
+  padding: 18px 0;
+  margin-bottom: 18px;
+  border-top: 1px solid rgba(255,255,255,.16);
+  color: #b4c0ad;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.qv-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.qv-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 265px;
+  padding: 27px;
+  overflow: hidden;
+  background: var(--qv-card);
+  border: 1px solid rgba(255,255,255,.09);
+  transition: transform .4s ease, border-color .4s ease,
+              background .4s ease;
+}
+
+.qv-card::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 3px;
+  background: var(--qv-green);
+  transition: width .4s ease;
+}
+
+.qv-card:hover {
+  transform: translateY(-7px);
+  background: #29392a;
+  border-color: rgba(145,173,62,.55);
+}
+
+.qv-card:hover::after {
+  width: 100%;
+}
+
+.qv-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.qv-card-number {
+  color: rgba(255,255,255,.45);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.qv-card-top svg {
+  width: 38px;
+  height: 38px;
+  fill: none;
+  stroke: var(--qv-green);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.qv-card-bottom {
+  position: relative;
+  z-index: 1;
+  padding-top: 35px;
+}
+
+.qv-card-bottom h3 {
+  max-width: 270px;
+  margin: 12px 0;
+  color: #fff;
+  font-size: 21px;
+  line-height: 1.3;
+  font-weight: 600;
+}
+
+.qv-card-bottom p {
+  max-width: 290px;
+  margin: 0;
+  color: #b7c1b4;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.qv-card-arrow {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  color: var(--qv-green);
+  font-size: 23px;
+  transition: transform .3s ease;
+}
+
+.qv-card:hover .qv-card-arrow {
+  transform: translate(4px, -4px);
+}
+
+.qv-card-featured {
+  background: #2a3928;
+}
+
+.qv-card-wide {
+  grid-column: span 2;
+}
+
+.qv-footer {
+  margin-top: 65px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(255,255,255,.15);
+  color: #9ca994;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.7px;
+}
+
+/* Tablet */
+
+@media (max-width: 900px) {
+  .qv-header {
+    grid-template-columns: 1fr 180px;
+    gap: 25px;
+  }
+
+  .qv-mark-circle {
+    width: 170px;
+    height: 170px;
+  }
+
+  .qv-card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .qv-card-wide {
+    grid-column: span 2;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+  .quality-value-section {
+    padding: 70px 20px;
+  }
+
+  .qv-topline {
+    font-size: 8px;
+    letter-spacing: 1px;
+  }
+
+  .qv-header {
+    grid-template-columns: 1fr;
+    padding: 55px 0;
+  }
+
+  .qv-heading-copy h2 {
+    font-size: 39px;
+    letter-spacing: -1.5px;
+  }
+
+  .qv-mark-circle {
+    width: 155px;
+    height: 155px;
+  }
+
+  .qv-card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .qv-card,
+  .qv-card-wide {
+    grid-column: auto;
+    min-height: 235px;
+  }
+
+  .qv-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 1.8;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .qv-card,
+  .qv-card::after,
+  .qv-card-arrow {
+    transition: none;
+  }
+}
+
+
+
+
+
+
+
+/* Image backgrounds inside quality cards */
+.qv-card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+/* Background photograph */
+.qv-card .qv-card-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.16;
+  z-index: -2;
+  transition: transform 0.7s ease, opacity 0.5s ease;
+  pointer-events: none;
+}
+
+/* Dark green overlay */
+.qv-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(20, 37, 25, 0.72),
+    rgba(20, 37, 25, 0.90)
+  );
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Subtle image movement on hover */
+.qv-card:hover .qv-card-bg {
+  transform: scale(1.06);
+  opacity: 0.25;
+}
+
+/* Keep card content above the image */
+.qv-card > :not(.qv-card-bg) {
+  position: relative;
+}
+
+
+
+
+
+
+
+
+/* Individual architectural card shapes */
+
+.qv-card {
+  overflow: hidden;
+  transition:
+    border-radius 0.45s ease,
+    transform 0.45s ease,
+    border-color 0.45s ease;
+}
+
+/* 01 - Experience */
+.qv-card:nth-child(1) {
+  border-radius: 34px 6px 34px 6px;
+}
+
+/* 02 - Delivery */
+.qv-card:nth-child(2) {
+  border-radius: 6px 34px 6px 34px;
+}
+
+/* 03 - Value */
+.qv-card:nth-child(3) {
+  border-radius: 22px 22px 6px 22px;
+}
+
+/* 04 - Partnership */
+.qv-card:nth-child(4) {
+  border-radius: 6px 28px 28px 6px;
+}
+
+/* 05 - Tailored Solutions */
+.qv-card:nth-child(5) {
+  border-radius: 28px 6px 28px 6px;
+}
+
+/* Hover interaction */
+.qv-card:hover {
+  transform: translateY(-5px);
+  border-color: #91ad3e;
+}
+
+/* Keep background images clipped to the new shapes */
+.qv-card .qv-card-bg {
+  border-radius: inherit;
+}
+
+.qv-card-grid {
+  padding-bottom: 59px;
+}
+
+
+
+.qv-section-label {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+
+
+.qv-section-label {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: 35px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+
+
+.qv-section-label {
+  margin-top: -42px;
+}
+
+
+
+.qv-card svg {
+  width: 34px;
+  height: 34px;
+  stroke: #A4C45A;
+  stroke-width: 1.5;
+  transition: all 0.4s ease;
+  filter: drop-shadow(0 0 5px rgba(164, 196, 90, 0.2));
+}
+
+.qv-card:hover svg {
+  stroke: #C3E879;
+  transform: scale(1.12);
+  filter: drop-shadow(0 0 9px rgba(164, 196, 90, 0.45));
+}
+
+
+
+
+
+/* Enlarge only the five quality card icons */
+.qv-card .qv-card-icon {
+  transform: scale(1.5);
+  transform-origin: center;
+  flex-shrink: 0;
+}
+
+
+
+
+
+/* ==========================================
+   KSC — PREMIUM QUALITY & VALUE CARDS
+   ========================================== */
+
+/* 1. Premium icon holders */
+.qv-card-top svg {
+  background: rgba(145, 173, 62, 0.09);
+  border: 1px solid rgba(145, 173, 62, 0.35);
+  border-radius: 50%;
+  padding: 9px;
+  box-sizing: content-box;
+  filter: drop-shadow(0 0 7px rgba(145, 173, 62, 0.2));
+  transition: all 0.4s ease;
+}
+
+/* 2. Smooth premium hover effect */
+.qv-card {
+  transition:
+    transform 0.4s ease,
+    border-color 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+.qv-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(164, 196, 90, 0.65);
+  box-shadow:
+    0 12px 35px rgba(0, 0, 0, 0.25),
+    0 0 16px rgba(145, 173, 62, 0.08);
+}
+
+.qv-card:hover .qv-card-bg {
+  opacity: 0.24;
+  transform: scale(1.04);
+}
+
+.qv-card:hover .qv-card-top svg {
+  background: rgba(145, 173, 62, 0.16);
+  border-color: #a4c45a;
+  filter: drop-shadow(0 0 10px rgba(145, 173, 62, 0.4));
+}
+
+/* 3. Refined card numbers */
+.qv-card-number {
+  color: #b5c49c;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  opacity: 0.9;
+}
+
+/* 4. Premium card headings */
+.qv-card-bottom h3 {
+  font-size: 21px;
+  font-weight: 650;
+  letter-spacing: -0.5px;
+  line-height: 1.3;
+  color: #f4f5ee;
+}
+
+/* 5. Elegant section heading */
+.qv-section-label span {
+  color: #b7c99a;
+  text-shadow: 0 0 14px rgba(145, 173, 62, 0.16);
+  letter-spacing: 3px;
+}
+
+/* 6. Smooth image transition */
+.qv-card .qv-card-bg {
+  transition:
+    transform 0.7s ease,
+    opacity 0.5s ease;
+}
+
+/* 7. Mobile-friendly heading */
+@media (max-width: 600px) {
+  .qv-card-bottom h3 {
+    font-size: 18px;
+  }
+
+  .qv-card-top svg {
+    padding: 7px;
+  }
+}
+
+/* 8. Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .qv-card,
+  .qv-card-bg,
+  .qv-card-top svg {
+    transition: none !important;
+  }
+
+  .qv-card:hover {
+    transform: none;
+  }
+}
+
+
+.qv-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(20, 37, 25, 0.05),
+    rgba(20, 37, 25, 0.72)
+  );
+  z-index: -1;
+  pointer-events: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================
+   KSC — SMOOTHER WEBSITE SCROLLING
+========================================= */
+
+/* Smooth movement for navigation and anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Keep KSC transition backgrounds fixed while scrolling */
+.auxiliary-transition-image,
+.fb-projects-transition .auxiliary-transition-image {
+  background-attachment: fixed !important;
+}
+
+/* Improve animated truck rendering */
+.ksc-moving-truck {
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+/* Keep transition images from creating unnecessary layers */
+.auxiliary-transition-image {
+  transform: translateZ(0);
+}
+
+/* Avoid unnecessary animation for users who prefer less motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+
+
+
+
+
+/* Explore Services button — solid KSC green */
+#home.hero .button.primary {
+  background: #91ad3e !important;
+  background-color: #91ad3e !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: 3px solid #91ad3e !important;
+  color: #172218 !important;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.18);
+  transition: background-color 0.3s ease,
+              box-shadow 0.3s ease,
+              transform 0.3s ease;
+}
+
+/* Hover effect */
+#home.hero .button.primary:hover {
+  background: #a5c653 !important;
+  background-color: #ffffff !important;
+  border-color: #a5c653 !important;
+  color: #172218 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.22);
+}
+
+
+
+
+
+/* Download button — stable border and dimensions */
+.ksc-profile-download {
+  box-sizing: border-box;
+  border: 3px solid #91AE4B;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* Smooth hover — no movement or vibration */
+.ksc-profile-download:hover {
+  background: #ffffff !important;
+  border: 3px solid #869A3E !important;
+  color: #000000 !important;
+  transform: none !important;
+  box-shadow: 0 6px 18px rgba(134, 154, 62, 0.15);
+}
+
+/* Keep icon and text black */
+.ksc-profile-download:hover svg,
+.ksc-profile-download:hover span {
+  color: #000000 !important;
+  stroke: #000000 !important;
+}
+
+/* Disable download icon movement */
+.ksc-profile-download:hover svg {
+  transform: none !important;
+}
+
+
+
+
+
+
+
+
+
+
+/* =================================
+   KSC PROJECT DISCUSSION CTA CARD
+================================= */
+
+.ksc-project-discuss-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-width: 0;
+  min-height: 320px;
+  padding: 24px 18px;
+  overflow: hidden;
+  box-sizing: border-box;
+
+  background: linear-gradient(
+    145deg,
+    #263326,
+    #151b14
+  );
+
+  border: 1px solid rgba(145, 173, 62, 0.35);
+  border-radius: 9px;
+  color: #ffffff;
+
+  transition: border-color 0.3s ease,
+              background 0.3s ease;
+}
+
+.ksc-project-discuss-card::before {
+  content: "";
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  top: -65px;
+  right: -55px;
+  border: 1px solid rgba(145, 173, 62, 0.2);
+  border-radius: 50%;
+  box-shadow: 0 0 0 25px rgba(145, 173, 62, 0.035),
+              0 0 0 50px rgba(145, 173, 62, 0.025);
+  pointer-events: none;
+}
+
+.ksc-project-discuss-content {
+  position: relative;
+  z-index: 1;
+}
+
+.ksc-project-discuss-label {
+  display: block;
+  margin-bottom: 15px;
+  color: #a5c653;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+}
+
+.ksc-project-discuss-content h3 {
+  margin: 0 0 12px;
+  color: #ffffff;
+  font-size: 21px;
+  line-height: 1.3;
+  font-weight: 700;
+}
+
+.ksc-project-discuss-content p {
+  margin: 0 0 22px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.ksc-project-discuss-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 13px;
+
+  background: #91ad3e;
+  border: 1px solid #91ad3e;
+  border-radius: 4px;
+
+  color: #172218;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 800;
+
+  transition: background 0.3s ease,
+              color 0.3s ease,
+              border-color 0.3s ease;
+}
+
+.ksc-project-discuss-button:hover {
+  background: transparent;
+  border-color: #91ad3e;
+  color: #a5c653;
+}
+
+.ksc-project-discuss-number {
+  position: absolute;
+  top: 17px;
+  left: 18px;
+  color: rgba(255, 255, 255, 0.38);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.ksc-project-discuss-card:hover {
+  border-color: #91ad3e;
+}
+
+@media (max-width: 768px) {
+  .ksc-project-discuss-card {
+    min-height: 280px;
+  }
+}
+
+
+
+
+
+
+
+/* =========================================
+   KSC — PREMIUM PROJECT DISCUSSION CARD
+========================================= */
+
+/* Slightly shorter CTA button */
+.ksc-project-discuss-button {
+  min-height: 40px;
+  padding: 10px 13px;
+  border-radius: 4px;
+  font-size: 11px;
+  letter-spacing: 0.02em;
+  box-shadow: 0 4px 12px rgba(145, 173, 62, 0.12);
+}
+
+/* Premium card hover glow — no movement */
+.ksc-project-discuss-card {
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease;
+}
+
+.ksc-project-discuss-card:hover {
+  border-color: #91ad3e;
+  box-shadow:
+    0 0 0 1px rgba(145, 173, 62, 0.18),
+    0 10px 28px rgba(0, 0, 0, 0.16),
+    0 0 22px rgba(145, 173, 62, 0.10);
+}
+
+/* Refined circular background detail */
+.ksc-project-discuss-card::before {
+  border-color: rgba(145, 173, 62, 0.24);
+  transition: border-color 0.3s ease;
+}
+
+.ksc-project-discuss-card:hover::before {
+  border-color: rgba(145, 173, 62, 0.42);
+}
+
+/* Smooth button hover without movement */
+.ksc-project-discuss-button:hover {
+  background: transparent;
+  border-color: #a5c653;
+  color: #a5c653;
+  box-shadow: none;
+}
+
+
+
+
+
+
+
+
+
+
+/* Premium service card arrow */
+.service-card .lucide-arrow-up-right {
+  width: 17px;
+  height: 17px;
+  color: #91ad3e;
+  stroke-width: 1.8;
+  flex-shrink: 0;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Arrow hover animation */
+.service-card:hover .lucide-arrow-up-right {
+  color: #b4d45b;
+  transform: translate(3px, -3px);
+}
+
+/* Keep arrow aligned to the right */
+.service-card a svg {
+  margin-left: auto;
+  vertical-align: middle;
+}
+
+
+
+
+
+/* KSC Construction Banner Heading */
+section[aria-label="KSC construction"] .auxiliary-transition-content h2 {
+  color: #91AE4B !important;
+  font-size: clamp(32px, 4vw, 58px) !important;
+  font-weight: 800 !important;
+  line-height: 1.2 !important;
+  letter-spacing: -1.5px !important;
+  text-align: center;
+  text-shadow: 0 3px 12px rgba(0, 0, 0, 0.55);
+}
+
+/* Second line – same size, white colour */
+section[aria-label="KSC construction"] .auxiliary-transition-content h2 span {
+  display: inline !important;
+  color: #FFFFFF !important;
+  font-size: inherit !important;
+  font-weight: inherit !important;
+  letter-spacing: inherit !important;
+  line-height: inherit !important;
+}
+
+
+
+
+
+
+
+/* =========================================
+   KSC – FINAL OVERRIDE
+   Smooth, fixed background on desktop
+========================================= */
+
+@media (min-width: 769px) {
+  .auxiliary-transition .auxiliary-transition-image {
+    background-attachment: fixed !important;
+    transform: none !important;
+  }
+
+  .fb-projects-transition .auxiliary-transition-image {
+    background-attachment: fixed !important;
+    transform: none !important;
+  }
+}
+
+/* Mobile fallback */
+@media (max-width: 768px) {
+  .auxiliary-transition .auxiliary-transition-image {
+    background-attachment: scroll !important;
+  }
+}
+
+
+
+
+
+
+
+
+/* Engineering Excellence – Match both heading lines */
+
+.fb-projects-transition .auxiliary-transition-content h2 {
+  font-size: clamp(40px, 5vw, 58px) !important;
+  font-weight: 750 !important;
+  line-height: 1.12 !important;
+  letter-spacing: -0.065em !important;
+  text-align: center !important;
+  color: #ffffff !important;
+}
+
+.fb-projects-transition .auxiliary-transition-content h2 span {
+  display: block !important;
+  font-size: inherit !important;
+  font-weight: inherit !important;
+  line-height: inherit !important;
+  letter-spacing: inherit !important;
+  color: #91ad3e !important;
+  margin-top: 5px !important;
+  opacity: 1 !important;
+  text-transform: none !important;
+  transform: none !important;
+}
+
+
+
+
+
+
+
+/* KSC Construction Banner – Slightly Reduced Height */
+
+@media (min-width: 769px) {
+  section[aria-label="KSC construction"] {
+    height: 370px !important;
+  }
+}
+
+
+
+
+
+
+
+
+/* KSC Quality Cards – Reduce Dark Overlay */
+
+.quality-value-section .qv-card .qv-card-bg {
+  opacity: 0.30 !important;
+}
+
+.quality-value-section .qv-card::before {
+  background: linear-gradient(
+    135deg,
+    rgba(20, 37, 25, 0.01),
+    rgba(20, 37, 25, 0.01 )
+  ) !important;
+}
+
+.quality-value-section .qv-card:hover .qv-card-bg {
+  opacity: 0.38 !important;
 }

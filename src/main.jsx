@@ -16,6 +16,14 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import ProjectFootprint from "./components/ProjectFootprint";
+import {
+  Clock3,
+  Target,
+  BadgeDollarSign,
+  Handshake,
+  Factory
+} from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 
 
@@ -597,12 +605,7 @@ const handleVideoEnded = () => {
                 {String(index + 1).padStart(2, "0")}
               </span>
 
-              <span
-                className="ksc-service-card-arrow"
-                aria-hidden="true"
-              >
-                ↗
-              </span>
+              <ArrowUpRight size={17} strokeWidth={1.8} />
             </div>
 
             <div className="ksc-service-card-content">
@@ -631,23 +634,29 @@ const handleVideoEnded = () => {
           </a>
         );
       })}
-      <a href="/contact" className="ksc-project-discuss">
-        <span>Discuss Your Projects</span>
-        <svg
-          viewBox="0 0 24 24"
-          width="19"
-          height="19"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          aria-hidden="true"
-        >
-          <path d="M7 17L17 7" />
-          <path d="M7 7h10v10" />
-        </svg>
-      </a>
+      
+<div className="ksc-project-discuss-card">
+  <div className="ksc-project-discuss-content">
+    <span className="ksc-project-discuss-label">
+      LET'S BUILD TOGETHER
+    </span>
+
+    <h3>Have a project in mind?</h3>
+
+    <p>
+      Let's discuss your requirements and create the right
+      engineering solution for your project.
+    </p>
+
+    <a href="/contact" className="ksc-project-discuss-button">
+      <span>Discuss Your Project</span>
+      <span aria-hidden="true">↗</span>
+    </a>
+  </div>
+
+  <span className="ksc-project-discuss-number">KSC</span>
+</div>
+
     </div>
 
     {/* Bottom call to action */}
@@ -668,7 +677,7 @@ const handleVideoEnded = () => {
   <div className="auxiliary-transition-content">
     <h2>
       Engineering Excellence.<br />
-      Delivered End to End.
+      <span>Delivered End to End.</span>
     </h2>
   </div>
 
@@ -833,7 +842,10 @@ const handleVideoEnded = () => {
   className="transition-excavator"
 />
   <div className="auxiliary-transition-content">
-    <h2>Built on Experience.<br />Driven by Excellence.</h2>
+    <h2>Built on Experience.<br />
+    <span>Driven by Excellence.</span>
+
+    </h2>
   </div>
 </section>
 
@@ -847,238 +859,164 @@ const handleVideoEnded = () => {
 
 
         
+
 <section className="quality-value-section reveal-section" id="quality-value">
-  <div className="qv-background-glow" aria-hidden="true" />
+  <div className="qv-grid-pattern" aria-hidden="true" />
 
   <div className="qv-container">
 
-    {/* Section heading */}
+    <div className="qv-topline">
+    </div>
+
     <div className="qv-header">
       <div className="qv-heading-copy">
-        <div className="qv-eyebrow">
-          <span className="qv-eyebrow-line" />
-        </div>
+        <span className="qv-eyebrow">
+          OUR COMMITMENT
+        </span>
 
-        <h2 className="qv-animated-title">
-          <span className="qv-title-line qv-title-line-one">
-            Quality is our foundation.
-          </span>
-
-          <span className="qv-title-line qv-title-line-two">
-            Value is our commitment.
-          </span>
+        <h2>
+          Quality is our <span>foundation.</span>
+          <br />
+          Value is our <span>commitment.</span>
         </h2>
 
-        <p className="qv-intro">
-          Reliable, cost-efficient construction tailored for peak
-          factory and distribution performance.
-        </p>
+        
       </div>
 
       <div className="qv-quality-mark">
-        <div className="qv-mark-ring">
-          <div className="qv-mark-inner">
-            <svg viewBox="0 0 64 64" aria-hidden="true">
-              <path d="M32 5L51 12V29C51 42 43 52 32 59C21 52 13 42 13 29V12L32 5Z" />
-              <path d="M22 31L29 38L43 23" />
-            </svg>
-
-            <span>QUALITY</span>
-            <span className="qv-mark-divider" />
-            <span>VALUE</span>
-          </div>
+        <div className="qv-mark-circle">
+          <svg viewBox="0 0 64 64" aria-hidden="true">
+            <path d="M32 5L51 12V29C51 42 43 52 32 59C21 52 13 42 13 29V12L32 5Z" />
+            <path d="M22 31L29 38L43 23" />
+          </svg>
+          <span>ESTABLISHED</span>
+          <strong>1994</strong>
+          <small>BUILT ON TRUST</small>
         </div>
-
-        <p>Built on trust. Delivered with integrity.</p>
       </div>
     </div>
 
-    {/* Quality and value commitments */}
-    <div className="qv-list">
+    <div className="qv-section-label">
+      <span>WHAT SETS US APART</span>
+    </div>
 
-      
-      
+    <div className="qv-card-grid">
 
-
-
-<svg
-  className="qv-zigzag-track"
-  viewBox="0 0 1000 1000"
-  preserveAspectRatio="none"
-  aria-hidden="true"
->
-  <path
-    className="qv-zigzag-base"
-    d="
-      M 500 0
-      L 500 80
-      L 490 100
-      L 580 125
-      L 430 165
-      L 500 145
-      L 500 250
-
-      L 500 330
-      L 470 350
-      L 540 375
-      L 430 415
-      L 500 395
-      L 500 500
-
-      L 500 580
-      L 470 600
-      L 540 625
-      L 430 665
-      L 500 645
-      L 500 750
-
-      L 500 830
-      L 470 850
-      L 540 875
-      L 430 915
-      L 500 895
-      L 500 1000
-    "
-  />
-  <path
-    className="qv-zigzag-neon"
-    d="
-      M 500 0
-      L 500 80
-      L 490 100
-      L 580 125
-      L 430 165
-      L 500 145
-      L 500 250
-
-      L 500 330
-      L 470 350
-      L 540 375
-      L 430 415
-      L 500 395
-      L 500 500
-
-      L 500 580
-      L 470 600
-      L 540 625
-      L 430 665
-      L 500 645
-      L 500 750
-
-      L 500 830
-      L 470 850
-      L 540 875
-      L 430 915
-      L 500 895
-      L 500 1000
-    "
-  />
-</svg>
-
-
-
-
-
-
-      <article className="qv-item">
-        <div className="qv-number">01</div>
-
-        <div className="qv-item-copy">
-          <h3>Experience That Delivers</h3>
-          <p>30+ years delivering high-quality construction.</p>
-        </div>
-
-        <div className="qv-item-icon">
-          <svg viewBox="0 0 48 48" aria-hidden="true">
+      <article className="qv-card qv-card-featured">
+        <img
+          className="qv-card-bg"
+          src="/images/quality2.jpg"
+          alt=""
+        />
+        <div className="qv-card-top">
+          <span className="qv-card-number">01</span>
+          <svg className="qv-card-icon" viewBox="0 0 48 48" aria-hidden="true">
             <circle cx="24" cy="24" r="17" />
             <path d="M24 13V24L32 29" />
             <path d="M15 5L11 10M33 5L37 10" />
           </svg>
         </div>
+        <div className="qv-card-bottom">
+          <span className="qv-card-category">EXPERIENCE</span>
+          <h3>Experience That Delivers</h3>
+          <p>30+ years delivering high-quality construction.</p>
+          <span className="qv-card-arrow">↗</span>
+        </div>
       </article>
 
-      <article className="qv-item">
-        <div className="qv-number">02</div>
-
-        <div className="qv-item-copy">
-          <h3>Precision in Project Delivery</h3>
-          <p>On-time delivery focused project management.</p>
-        </div>
-
-        <div className="qv-item-icon">
-          <svg viewBox="0 0 48 48" aria-hidden="true">
+      <article className="qv-card">
+        <img
+          className="qv-card-bg"
+          src="/images/quality3.jpg"
+          alt=""
+        />
+        <div className="qv-card-top">
+          <span className="qv-card-number">02</span>
+          <svg className="qv-card-icon" viewBox="0 0 48 48" aria-hidden="true">
             <circle cx="24" cy="24" r="17" />
             <path d="M15 24L21 30L34 17" />
           </svg>
         </div>
+        <div className="qv-card-bottom">
+          <span className="qv-card-category">DELIVERY</span>
+          <h3>Precision in Project Delivery</h3>
+          <p>On-time delivery focused project management.</p>
+          <span className="qv-card-arrow">↗</span>
+        </div>
       </article>
 
-      <article className="qv-item">
-        <div className="qv-number">03</div>
-
-        <div className="qv-item-copy">
-          <h3>Value Without Compromise</h3>
-          <p>Cost-efficient solutions without compromising quality.</p>
-        </div>
-
-        <div className="qv-item-icon">
-          <svg viewBox="0 0 48 48" aria-hidden="true">
+      <article className="qv-card">
+        <img
+          className="qv-card-bg"
+          src="/images/Fitout-001.jpg"
+          alt=""
+        />
+        <div className="qv-card-top">
+          <span className="qv-card-number">03</span>
+          <svg className="qv-card-icon" viewBox="0 0 48 48" aria-hidden="true">
             <circle cx="24" cy="24" r="17" />
-            <text
-              x="24"
-              y="32"
-              textAnchor="middle"
-              fontSize="28"
-              fontWeight="500"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.5"
-            >
-              ⃁
-            </text>
-            
+            <path d="M24 13V35M30 18C28 14 18 14 18 21C18 28 30 23 30 30C30 37 20 37 17 32" />
           </svg>
         </div>
+        <div className="qv-card-bottom">
+          <span className="qv-card-category">VALUE</span>
+          <h3>Value Without Compromise</h3>
+          <p>Cost-efficient solutions without compromising quality.</p>
+          <span className="qv-card-arrow">↗</span>
+        </div>
       </article>
 
-      <article className="qv-item">
-        <div className="qv-number">04</div>
-
-        <div className="qv-item-copy">
-          <h3>A Partner You Can Trust</h3>
-          <p>Trusted partner ensuring peak facility performance.</p>
-        </div>
-
-        <div className="qv-item-icon">
-          <svg viewBox="0 0 48 48" aria-hidden="true">
+      <article className="qv-card">
+        <img
+          className="qv-card-bg"
+          src="/images/quality4.jpg"
+          alt=""
+        />
+        <div className="qv-card-top">
+          <span className="qv-card-number">04</span>
+          <svg className="qv-card-icon" viewBox="0 0 48 48" aria-hidden="true">
             <path d="M24 5L39 11V25C39 34 32 41 24 45C16 41 9 34 9 25V11L24 5Z" />
             <path d="M17 24L22 29L32 19" />
           </svg>
         </div>
+        <div className="qv-card-bottom">
+          <span className="qv-card-category">PARTNERSHIP</span>
+          <h3>A Partner You Can Trust</h3>
+          <p>Trusted partner ensuring peak facility performance.</p>
+          <span className="qv-card-arrow">↗</span>
+        </div>
       </article>
 
-      <article className="qv-item">
-        <div className="qv-number">05</div>
-
-        <div className="qv-item-copy">
-          <h3>Solutions Built Around Your Needs</h3>
-          <p>Tailored, reliable solutions for factories and distribution centers.</p>
-        </div>
-
-        <div className="qv-item-icon">
-          <svg viewBox="0 0 48 48" aria-hidden="true">
+      <article className="qv-card qv-card-wide">
+        <img
+          className="qv-card-bg"
+          src="/images/Aboutimg2.png"
+          alt=""
+        />
+        <div className="qv-card-top">
+          <span className="qv-card-number">05</span>
+          <svg className="qv-card-icon" viewBox="0 0 48 48" aria-hidden="true">
             <rect x="8" y="8" width="32" height="32" rx="3" />
             <path d="M16 17H32M16 24H32M16 31H26" />
             <path d="M34 31L37 34L43 27" />
           </svg>
         </div>
+        <div className="qv-card-bottom">
+          <span className="qv-card-category">TAILORED SOLUTIONS</span>
+          <h3>Solutions Built Around Your Needs</h3>
+          <p>Tailored, reliable solutions for factories and distribution centers.</p>
+          <span className="qv-card-arrow">↗</span>
+        </div>
       </article>
 
     </div>
 
-    
+    <div className="qv-footer">
+    </div>
+
   </div>
 </section>
+
 
 
 
