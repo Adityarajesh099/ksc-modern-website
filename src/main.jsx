@@ -277,6 +277,7 @@ useEffect(() => {
 
 
 
+
 /* Quality & Value cards – scroll animation */
 useEffect(() => {
   const cards = document.querySelectorAll(

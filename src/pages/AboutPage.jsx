@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 const services = [
   {
@@ -51,58 +51,134 @@ const services = [
   },
 ];
 
-export default function AboutPage() {
-
-  const aboutImages = [
+const aboutImages = [
   "/images/ksc-hero-04.jpg",
   "/images/ksc-hero-02.jpg",
   "/images/Civil-002.jpg",
   "/images/Mech-001.jpg",
 ];
 
-const [activeImage, setActiveImage] = useState(0);
-const [loadedImages, setLoadedImages] = useState({});
+const values = [
+  {
+    number: "01",
+    title: "Experience",
+    text: "Experienced teams working across construction and engineering environments.",
+    icon: (
+      <>
+        <path d="M24 5L39 12V23C39 33 32 40 24 44C16 40 9 33 9 23V12L24 5Z" />
+        <path d="M16 25L22 31L34 18" />
+      </>
+    ),
+  },
+  {
+    number: "02",
+    title: "Quality",
+    text: "A disciplined approach to workmanship, materials and project execution.",
+    icon: (
+      <>
+        <path d="M9 10H39V38H9Z" />
+        <path d="M16 18H32M16 24H32M16 30H27" />
+      </>
+    ),
+  },
+  {
+    number: "03",
+    title: "Safety",
+    text: "Safety integrated into the way we plan, manage and execute our work.",
+    icon: (
+      <>
+        <path d="M24 5L39 12V23C39 33 32 40 24 44C16 40 9 33 9 23V12L24 5Z" />
+        <path d="M24 16V28" />
+        <circle cx="24" cy="34" r="1.5" />
+      </>
+    ),
+  },
+  {
+    number: "04",
+    title: "Delivery",
+    text: "Coordinated teams focused on reliable and efficient project completion.",
+    icon: (
+      <>
+        <path d="M7 39H41M10 39V25H19V39M19 39V17H29V39M29 39V9H38V39" />
+        <path d="M13 20L22 14L28 17L39 7M32 7H39V14" />
+      </>
+    ),
+  },
+];
 
-useEffect(() => {
-  const timer = setInterval(() => {
-    setActiveImage((current) => {
-      for (let step = 1; step <= aboutImages.length; step++) {
-        const next = (current + step) % aboutImages.length;
+export default function AboutPage() {
+  const [activeImage, setActiveImage] = useState(0);
+  const [loadedImages, setLoadedImages] = useState({});
 
-        if (loadedImages[next]) {
-          return next;
+  // Automatic company image slideshow
+  useEffect(() => {
+    const timer = window.setInterval(() => {
+      setActiveImage((current) => {
+        for (let step = 1; step <= aboutImages.length; step += 1) {
+          const next = (current + step) % aboutImages.length;
+          if (loadedImages[next]) return next;
         }
+
+        return current;
+      });
+    }, 4500);
+
+    return () => window.clearInterval(timer);
+  }, [loadedImages]);
+
+  // Scroll reveal animation
+  useEffect(() => {
+    const targets = document.querySelectorAll(
+      ".about-redesign .ar-reveal"
+    );
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.16,
+        rootMargin: "0px 0px -35px 0px",
       }
+    );
 
-      return current;
-    });
-  }, 4500);
+    targets.forEach((target) => observer.observe(target));
 
-  return () => clearInterval(timer);
-}, [loadedImages]);
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <main className="inner-page">
+    <main className="about-redesign">
 
-      {/* HERO */}
-      <section className="inner-page-hero">
-        <div className="inner-page-hero-image">
-          <video
-            className="about-hero-video"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="auto"
-          >
-            <source src="/images/KSC v2.mp4" type="video/mp4" />
+      {/* =====================================
+          HERO SECTION
+      ===================================== */}
+
+      <section className="ar-hero">
+
+        <div className="ar-hero-media" aria-hidden="true">
+          <video autoPlay muted loop playsInline preload="auto">
+            <source
+              src="/images/KSC v2.mp4"
+              type="video/mp4"
+            />
           </video>
         </div>
 
-        <div className="inner-page-hero-overlay"></div>
+        <div className="ar-hero-shade" />
+        <div className="ar-hero-grid" />
 
-        <div className="inner-page-hero-content">
-          
+        <div className="ar-hero-content">
+
+          <span className="ar-eyebrow ar-eyebrow-light">
+            <i />
+            ABOUT KHAMIS AL SHARJAH CONTRACTING CO.
+          </span>
 
           <h1>
             Building with
@@ -110,24 +186,53 @@ useEffect(() => {
             <span>purpose.</span>
           </h1>
 
-          
+          <p>
+            Engineering and construction solutions built around
+            experience, quality and long-term value.
+          </p>
+
+          <a
+            className="ar-button ar-button-lime"
+            href="#our-story"
+          >
+            Discover our story
+            <span aria-hidden="true">↘</span>
+          </a>
+
         </div>
+
+        <div className="ar-hero-footer">
+          <span>ENGINEERING WHAT'S NEXT.</span>
+          <span>01 / WHO WE ARE</span>
+        </div>
+
       </section>
 
-      {/* INTRODUCTION */}
-      <section className="about-intro section">
-        <div className="container about-intro-grid">
 
-          <div className="about-intro-visual">
-            <span className="eyebrow">ABOUT KSC</span>
+      {/* =====================================
+          COMPANY STORY
+      ===================================== */}
 
-            <div className="about-intro-image">
+      <section className="ar-story" id="our-story">
+
+        <div className="ar-shell ar-story-grid">
+
+          {/* Image slideshow */}
+
+          <div className="ar-story-visual ar-reveal">
+
+            <div className="ar-story-image">
+
               {aboutImages.map((image, index) => (
                 <img
                   key={image}
                   src={image}
                   alt="KSC engineering and construction project"
-                  className="about-slideshow-image"
+                  className={
+                    index === activeImage && loadedImages[index]
+                      ? "is-active"
+                      : ""
+                  }
                   onLoad={() =>
                     setLoadedImages((previous) => ({
                       ...previous,
@@ -135,272 +240,393 @@ useEffect(() => {
                     }))
                   }
                   onError={() => {
-                    console.error("Failed to load slideshow image:", image);
+                    console.error(
+                      "Failed to load About page image:",
+                      image
+                    );
+
                     setLoadedImages((previous) => ({
                       ...previous,
                       [index]: false,
                     }));
                   }}
-                  style={{
-                    opacity: index === activeImage && loadedImages[index] ? 1 : 0,
-                    zIndex: index === activeImage ? 2 : 1,
-                  }}
                 />
               ))}
 
-              <div className="about-intro-image-label">
-                <span>EST. 1989</span>
-                <span>Engineering with purpose.</span>
+              <div className="ar-image-corner-label">
+                <span>OUR JOURNEY</span>
+                <strong>Since 1989</strong>
               </div>
+
+              <div className="ar-image-index">
+                {String(activeImage + 1).padStart(2, "0")}
+                <span> / 04</span>
+              </div>
+
             </div>
+
+            <div className="ar-image-caption">
+              <span className="ar-caption-line" />
+              <span>
+                Built on experience. Focused on what comes next.
+              </span>
+            </div>
+
           </div>
 
-          <div className="about-intro-text">
+
+          {/* Company history */}
+
+          <div className="ar-story-copy ar-reveal">
+
+            <span className="ar-eyebrow">
+              <i />
+              THE KSC STORY
+            </span>
+
+            <h2>
+              A legacy shaped by
+              <br />
+              <span>experience.</span>
+            </h2>
+
+            <p className="ar-story-lead">
+              More than 35 years of continuous construction experience
+              in the Kingdom of Saudi Arabia.
+            </p>
+
             <p>
-              Khamis Al Sharjah Contracting Co. (KSC) traces its roots back to 1989, 
-              when its management commenced operations in the Kingdom of Saudi Arabia 
-              under the sponsorship of Hussain Abdullah Al Hussain Contracting Company (HAH). 
-              As the Kingdom began permitting foreign investors to establish companies with 
-              100% foreign ownership, the same management established KSC alongside HAH. In 
-              2007, KSC became a 100% foreign-owned company, carrying forward the expertise, 
-              technical excellence, and commitment to quality developed since 1989. Today, 
-              KSC proudly represents more than 35+ years of continuous construction experience 
-              in the Kingdom of Saudi Arabia, delivering reliable and high-quality solutions 
-              across the industrial, commercial, and infrastructure sectors.
+              Khamis Al Sharjah Contracting Co. (KSC) traces its roots
+              back to 1989, when its management commenced operations
+              in the Kingdom of Saudi Arabia under the sponsorship of
+              Hussain Abdullah Al Hussain Contracting Company (HAH).
+              As the Kingdom began permitting foreign investors to
+              establish companies with 100% foreign ownership, the
+              same management established KSC alongside HAH. In
+              2007, KSC became a 100% foreign-owned company, carrying
+              forward the expertise, technical excellence, and
+              commitment to quality developed since 1989. Today,
+              KSC proudly represents more than 35+ years of
+              continuous construction experience in the Kingdom
+              of Saudi Arabia, delivering reliable and high-quality
+              solutions across the industrial, commercial, and
+              infrastructure sectors.
             </p>
 
             <p>
               Our approach brings together technical expertise,
-              experienced teams and disciplined project execution to
-              support clients from planning through completion.
+              experienced teams and disciplined project execution
+              to support clients from planning through completion.
             </p>
+
+
+            {/* Company milestones */}
+
+            <div className="ar-milestones">
+
+              <div>
+                <strong>1989</strong>
+                <span>Roots of our operations</span>
+              </div>
+
+              <div>
+                <strong>2007</strong>
+                <span>KSC became 100% foreign-owned</span>
+              </div>
+
+              <div>
+                <strong>35+</strong>
+                <span>Years of construction experience</span>
+              </div>
+
+            </div>
+
           </div>
 
         </div>
+
       </section>
 
-      {/* CAPABILITIES */}
-      <section className="about-capabilities section">
-        <div className="container">
 
-          <div className="section-heading">
+      {/* =====================================
+          OUR APPROACH / VALUES
+      ===================================== */}
+
+      <section className="ar-values-section">
+
+        <div className="ar-shell">
+
+          <div className="ar-section-heading ar-reveal">
+
             <div>
-              <span className="eyebrow">OUR APPROACH</span>
+
+              <span className="ar-eyebrow">
+                <i />
+                OUR APPROACH
+              </span>
 
               <h2>
                 Built around
                 <br />
                 <span>what matters.</span>
               </h2>
+
             </div>
 
-          </div>
-
-          <div className="about-values">
-
-            <article className="about-value">
-              <div className="about-value-icon">
-                <svg viewBox="0 0 48 48" aria-hidden="true">
-                  <path d="M24 6L38 12V22C38 31 32 38 24 42C16 38 10 31 10 22V12L24 6Z" />
-                  <path d="M17 24L22 29L32 18" />
-                </svg>
-              </div>
-              <span>01</span>
-              <h3>Experience</h3>
-              <p>Experienced teams working across construction and engineering environments.</p>
-            </article>
-
-            <article className="about-value">
-              <div className="about-value-icon">
-                <svg viewBox="0 0 48 48" aria-hidden="true">
-                  <path d="M8 10H40V38H8Z" />
-                  <path d="M15 17H33" />
-                  <path d="M15 24H33" />
-                  <path d="M15 31H27" />
-                </svg>
-              </div>
-              <span>02</span>
-              <h3>Quality</h3>
-              <p>A disciplined approach to workmanship, materials and project execution.</p>
-            </article>
-
-            <article className="about-value">
-              <div className="about-value-icon">
-                <svg viewBox="0 0 48 48" aria-hidden="true">
-                  <path d="M24 6L39 12V23C39 32 33 38 24 42C15 38 9 32 9 23V12L24 6Z" />
-                  <path d="M24 15V28" />
-                  <circle cx="24" cy="34" r="1.5" />
-                </svg>
-              </div>
-              <span>03</span>
-              <h3>Safety</h3>
-              <p>Safety integrated into the way we plan, manage and execute our work.</p>
-            </article>
-
-            <article className="about-value">
-              <div className="about-value-icon">
-                <svg viewBox="0 0 48 48" aria-hidden="true">
-                  <path d="M7 35H41" />
-                  <path d="M10 35V20H20V35" />
-                  <path d="M20 35V14H30V35" />
-                  <path d="M30 35V8H38V35" />
-                  <path d="M15 25L22 19L27 22L38 11" />
-                  <path d="M32 11H38V17" />
-                </svg>
-              </div>
-              <span>04</span>
-              <h3>Delivery</h3>
-              <p>Coordinated teams focused on reliable and efficient project completion.</p>
-            </article>
+            <p>
+              The principles that shape how we plan, coordinate
+              and deliver construction and engineering work.
+            </p>
 
           </div>
+
+
+          <div className="ar-values-grid">
+
+            {values.map((value) => (
+
+              <article
+                className="ar-value-card ar-reveal"
+                key={value.number}
+              >
+
+                <div className="ar-value-top">
+
+                  
+
+                  <svg
+                    viewBox="0 0 48 48"
+                    aria-hidden="true"
+                  >
+                    {value.icon}
+                  </svg>
+
+                </div>
+
+                <div className="ar-value-bottom">
+
+                  <h3>{value.title}</h3>
+
+                  <p>{value.text}</p>
+
+                </div>
+
+                <span className="ar-value-watermark">
+                  {value.number}
+                </span>
+
+              </article>
+
+            ))}
+
+          </div>
+
         </div>
+
       </section>
 
 
+      {/* =====================================
+          CHAIRMAN'S MESSAGE
+      ===================================== */}
 
-{/* CHAIRMAN'S MESSAGE */}
-<section className="chairman-message section">
-  <div className="container chairman-message-grid">
+      <section className="ar-chairman-section">
 
-    <div className="chairman-message-visual">
-      <div className="chairman-photo-frame">
-        <img
-          src="/images/chairman.jpg"
-          alt="Chairman of Khamis Al Sharjah Contracting Co."
-        />
-        <div className="chairman-photo-caption">
-          <span>LEADERSHIP</span>
-          <h3>Chairman's Message</h3>
-        </div>
-      </div>
-    </div>
+        <div className="ar-shell ar-chairman-grid">
 
-    <div className="chairman-message-content">
-      <span className="eyebrow">A MESSAGE FROM OUR CHAIRMAN</span>
+          <div className="ar-chairman-copy ar-reveal">
 
-      <h2>
-        Building trust.
-        <br />
-        <span>Creating lasting value.</span>
-      </h2>
+            <span className="ar-eyebrow ar-eyebrow-light">
+              <i />
+              A MESSAGE FROM OUR CHAIRMAN
+            </span>
 
-      <p>
-        At Khamis Al Sharjah Contracting Co. (KSC), our journey has been
-        shaped by a commitment to quality, integrity, safety, and
-        lasting relationships. Since our beginnings in 1989, we have
-        worked to deliver dependable construction and engineering
-        solutions that meet our clients' expectations.
-      </p>
+            <h2>
+              Building trust.
+              <br />
+              <span>Creating lasting value.</span>
+            </h2>
 
-      <p>
-        We believe that our success comes from the dedication of our
-        people, the trust of our clients, and the strength of our
-        partnerships. Every project is an opportunity to uphold our
-        standards, embrace better ways of working, and create value
-        that lasts.
-      </p>
+            <p>
+              At Khamis Al Sharjah Contracting Co. (KSC), our journey
+              has been shaped by a commitment to quality, integrity,
+              safety, and lasting relationships. Since our beginnings
+              in 1989, we have worked to deliver dependable construction
+              and engineering solutions that meet our clients'
+              expectations.
+            </p>
 
-      <p>
-        As we look to the future, KSC remains committed to continuous
-        improvement, responsible project delivery, and contributing
-        to the development of the Kingdom of Saudi Arabia.
-      </p>
+            <p>
+              We believe that our success comes from the dedication
+              of our people, the trust of our clients, and the strength
+              of our partnerships. Every project is an opportunity
+              to uphold our standards, embrace better ways of working,
+              and create value that lasts.
+            </p>
 
-      <div className="chairman-signature">
-        <span className="chairman-signature-line"></span>
-        <div>
-          <strong>Chairman</strong>
-          <span>Khamis Al Sharjah Contracting Co.</span>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
+            <p>
+              As we look to the future, KSC remains committed to
+              continuous improvement, responsible project delivery,
+              and contributing to the development of the Kingdom
+              of Saudi Arabia.
+            </p>
 
 
+            <div className="ar-chairman-signature">
 
+              <span />
 
-      {/* EXPLORE SERVICES */}
-<section className="about-services section">
-  <div className="container">
+              <div>
+                <strong>Chairman</strong>
+                <small>Khamis Al Sharjah Contracting Co.</small>
+              </div>
 
-    <div className="section-heading">
-      <div>
-        <span className="eyebrow">OUR SERVICES</span>
-
-        <h2>
-          Explore our
-          <br />
-          <span>capabilities.</span>
-        </h2>
-      </div>
-
-      <p>
-        From construction and engineering to specialist systems and
-        interior solutions, KSC delivers integrated capabilities
-        across diverse project environments.
-      </p>
-    </div>
-
-    <div className="about-services-grid">
-      {services.map((service) => (
-        <a
-          key={service.slug}
-          href={`/services/${service.slug}`}
-          className="about-service-card"
-        >
-          <div className="about-service-image">
-            <img
-              src={service.image}
-              alt={service.title}
-            />
-          </div>
-
-          <div className="about-service-overlay"></div>
-
-          <div className="about-service-content">
-            <span>{service.number}</span>
-
-            <h3>{service.title}</h3>
-
-            <div className="about-service-arrow">
-              ↗
             </div>
+
           </div>
-        </a>
-      ))}
-    </div>
-
-  </div>
-</section>
 
 
+          <div className="ar-chairman-visual ar-reveal">
+
+            <div className="ar-chairman-photo">
+
+              <img
+                src="/images/chairman.jpg"
+                alt="Chairman of Khamis Al Sharjah Contracting Co."
+                loading="lazy"
+              />
+
+              <div className="ar-chairman-photo-label">
+                <span>LEADERSHIP</span>
+                <strong>Chairman's Message</strong>
+              </div>
+
+            </div>
+
+            <div className="ar-chairman-side-note">
+              LEADERSHIP · INTEGRITY · COMMITMENT
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
 
 
+      {/* =====================================
+          OUR SERVICES
+      ===================================== */}
+
+      <section className="ar-services-section">
+
+        <div className="ar-shell">
+
+          <div className="ar-section-heading ar-reveal">
+
+            <div>
+
+              <span className="ar-eyebrow">
+                <i />
+                OUR SERVICES
+              </span>
+
+              <h2>
+                Explore our
+                <br />
+                <span>capabilities.</span>
+              </h2>
+
+            </div>
+
+            <p>
+              From construction and engineering to specialist systems
+              and interior solutions, KSC delivers integrated
+              capabilities across diverse project environments.
+            </p>
+
+          </div>
 
 
-      {/* CTA */}
-      <section className="about-cta section">
-        <div className="container about-cta-inner">
+          <div className="ar-services-grid">
+
+            {services.map((service) => (
+
+              <a
+                key={service.slug}
+                href={`/services/${service.slug}`}
+                className="ar-service-card ar-reveal"
+              >
+
+                <img
+                  src={service.image}
+                  alt={service.title}
+                  loading="lazy"
+                />
+
+                <span className="ar-service-number">
+                  {service.number}
+                </span>
+
+                <div className="ar-service-shade" />
+
+                <div className="ar-service-info">
+
+                  <h3>{service.title}</h3>
+
+                  <span aria-hidden="true">↗</span>
+
+                </div>
+
+              </a>
+
+            ))}
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      {/* =====================================
+          FINAL CALL TO ACTION
+      ===================================== */}
+
+      <section className="ar-cta-section">
+
+        <div className="ar-shell ar-cta-inner ar-reveal">
 
           <div>
-            <span className="eyebrow">WORK WITH KSC</span>
+
+            <span className="ar-eyebrow ar-eyebrow-light">
+              <i />
+              WORK WITH KSC
+            </span>
 
             <h2>
               Let's build
               <br />
               <span>something meaningful.</span>
             </h2>
+
+            <p>
+              Talk to our team about your next construction
+              or engineering project.
+            </p>
+
           </div>
 
-          <a className="button primary" href="/contact">
+          <a
+            className="ar-button ar-button-lime"
+            href="/contact"
+          >
             Talk to KSC
-            <span className="arrow">↗</span>
+            <span aria-hidden="true">↗</span>
           </a>
 
         </div>
+
       </section>
 
     </main>
