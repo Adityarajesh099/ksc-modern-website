@@ -21227,3 +21227,436 @@ section[aria-label="KSC construction"] .auxiliary-transition-content h2 span {
   border: none !important;
   filter: none !important;
 }
+
+
+
+
+
+
+
+/* KSC Client Logo Tiles – Darker Background */
+
+#clients.clients-section .clients-logo-tile {
+  background: #77836f !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+}
+
+/* Reduce the bright white highlight */
+#clients.clients-section .clients-logo-tile::before {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.10),
+    rgba(25, 35, 22, 0.08)
+  ) !important;
+  opacity: 0.5 !important;
+}
+
+/* Slightly darker on hover */
+#clients.clients-section .clients-logo-tile:hover {
+  background: #68745f !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Preserve original logo colours */
+#clients.clients-section .clients-logo-tile img {
+  opacity: 1 !important;
+  filter: none !important;
+  mix-blend-mode: normal !important;
+}
+
+
+
+
+
+
+
+/* KSC – Controlled divider light animation */
+
+.quality-value-section .qv-topline,
+.quality-value-section .qv-section-label {
+  position: relative;
+  overflow: hidden !important;
+}
+
+/* Moving lime-green light streak */
+.quality-value-section .qv-topline::after,
+.quality-value-section .qv-section-label::after {
+  content: "";
+  position: absolute;
+  width: 24%;
+  height: 2px;
+  left: 0;
+  pointer-events: none;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(145, 173, 62, 0.5),
+    #c8ed73,
+    rgba(145, 173, 62, 0.5),
+    transparent
+  );
+
+  transform: translateX(-100%);
+  animation: qv-divider-flow 4s linear infinite;
+}
+
+/* Upper line */
+.quality-value-section .qv-topline::after {
+  bottom: 0;
+}
+
+/* Lower line */
+.quality-value-section .qv-section-label::after {
+  top: 0;
+  animation-delay: 2s;
+}
+
+@keyframes qv-divider-flow {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(420%);
+  }
+}
+
+
+
+
+
+
+/* =========================================
+   KSC QUALITY CARDS – ALTERNATING SLIDE-IN
+========================================= */
+
+/* Starting position – cards enter from left */
+.quality-value-section .qv-card {
+  opacity: 0;
+  transform: translateX(-85px);
+  transition:
+    opacity 0.85s ease,
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+/* Even cards enter from right */
+.quality-value-section .qv-card:nth-child(even) {
+  transform: translateX(85px);
+}
+
+/* Reveal cards when they enter the viewport */
+.quality-value-section .qv-card.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Stagger the animation */
+.quality-value-section .qv-card:nth-child(1) {
+  transition-delay: 0s;
+}
+
+.quality-value-section .qv-card:nth-child(2) {
+  transition-delay: 0.12s;
+}
+
+.quality-value-section .qv-card:nth-child(3) {
+  transition-delay: 0.24s;
+}
+
+.quality-value-section .qv-card:nth-child(4) {
+  transition-delay: 0.12s;
+}
+
+.quality-value-section .qv-card:nth-child(5) {
+  transition-delay: 0.24s;
+}
+
+/* Preserve existing hover movement */
+.quality-value-section .qv-card.is-visible:hover {
+  transform: translateY(-7px);
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .quality-value-section .qv-card {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+
+
+
+
+
+
+
+/* =========================================
+   KSC QUALITY & VALUE – PREMIUM TITLE REVEAL
+========================================= */
+
+.qv-heading-copy h2.qv-animated-title {
+  overflow: visible;
+}
+
+.qv-heading-copy h2 .qv-title-line {
+  display: block;
+  color: #f4f5ee !important;
+  opacity: 0;
+  transform: translateY(38px);
+  filter: blur(8px);
+  transition: none;
+}
+
+.qv-heading-copy h2 .qv-title-highlight {
+  display: inline !important;
+  color: #91ad3e !important;
+}
+
+/* Reveal when the section enters the viewport */
+.quality-value-section.is-visible
+.qv-heading-copy h2 .qv-title-line {
+  animation: qv-title-reveal 1s cubic-bezier(.16, 1, .3, 1) forwards;
+}
+
+.quality-value-section.is-visible
+.qv-heading-copy h2 .qv-title-line:nth-child(2) {
+  animation-delay: 0.50s;
+}
+
+@keyframes qv-title-reveal {
+  0% {
+    opacity: 0;
+    transform: translateY(38px);
+    filter: blur(8px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .qv-heading-copy h2 .qv-title-line {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    animation: none !important;
+  }
+}
+
+
+
+
+
+
+
+/* =========================================
+   KSC STATISTICS – PREMIUM SCROLL ANIMATION
+========================================= */
+
+/* Entire statistics panel */
+.stats-architecture.reveal-section {
+  opacity: 0;
+  transform: translateY(45px) scale(0.985);
+  transition:
+    opacity 1s ease,
+    transform 1.1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.stats-architecture.reveal-section.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Main 35+ featured statistic enters from left */
+.stats-architecture .stats-feature {
+  opacity: 0;
+  transform: translateX(-65px);
+  transition:
+    opacity 1s ease,
+    transform 1.1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.stats-architecture.is-visible .stats-feature {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 0.35s;
+}
+
+/* Supporting statistics enter from right */
+.stats-architecture .stats-data-item {
+  opacity: 0;
+  transform: translateX(45px);
+  transition:
+    opacity 0.85s ease,
+    transform 0.95s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.stats-architecture.is-visible .stats-data-item {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Sequential reveal */
+.stats-architecture.is-visible .stats-data-item:nth-child(1) {
+  transition-delay: 0.25s;
+}
+
+.stats-architecture.is-visible .stats-data-item:nth-child(2) {
+  transition-delay: 0.40s;
+}
+
+.stats-architecture.is-visible .stats-data-item:nth-child(3) {
+  transition-delay: 0.55s;
+}
+
+.stats-architecture.is-visible .stats-data-item:nth-child(4) {
+  transition-delay: 0.70s;
+}
+
+.stats-architecture.is-visible .stats-data-item:nth-child(5) {
+  transition-delay: 0.85s;
+}
+
+/* Reduced motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .stats-architecture.reveal-section,
+  .stats-architecture .stats-feature,
+  .stats-architecture .stats-data-item {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+
+
+
+
+
+/* KSC Services – Premium Light Green Section Background */
+
+.ksc-services-section {
+  background: #E8EFD9 !important;
+  background-color: #E8EFD9 !important;
+  color: #172033 !important;
+}
+
+/* Subtle green technical grid */
+
+
+/* Keep heading readable */
+.ksc-services-section .ksc-services-header h2 {
+  color: #20291C !important;
+}
+
+/* Keep description readable */
+.ksc-services-section .ksc-services-intro {
+  color: #59634F !important;
+}
+
+
+
+
+
+
+
+
+
+/* KSC F&B Projects Section – Light Green Background */
+
+#projects.projects,
+section#projects.projects {
+  background: #E8EFD9 !important;
+  background-color: #E8EFD9 !important;
+}
+
+/* Keep the content area transparent */
+#projects.projects .fb-solutions-grid,
+#projects.projects .container {
+  background: transparent !important;
+}
+
+/* Preserve dark heading and readable description */
+#projects.projects .fb-section-heading h2 {
+  color: #17251B !important;
+}
+
+#projects.projects .fb-section-heading p {
+  color: #59664F !important;
+}
+
+
+
+
+
+
+
+
+/* KSC Clients & Partners – Light Sage Green Background */
+
+#clients.clients-section.section {
+  background: #E8EFD9 !important;
+  background-color: #E8EFD9 !important;
+  color: #17251B !important;
+}
+
+/* Preserve existing text colours */
+#clients .clients-copy h2 {
+  color: #17251B !important;
+}
+
+#clients .clients-copy h2 span {
+  color: #829D42 !important;
+}
+
+#clients .clients-description {
+  color: #59664F !important;
+}
+
+/* Keep logo cards and their original colours unchanged */
+#clients .clients-logo-tile img {
+  opacity: 1 !important;
+  filter: none !important;
+}
+
+
+
+
+
+
+/* KSC About Section – Light Sage Green Background */
+
+#about.intro.section {
+  background: #E8EFD9 !important;
+  background-color: #E8EFD9 !important;
+  color: #17251B !important;
+}
+
+/* Keep headings readable */
+#about .about-heading,
+#about .about-heading-line {
+  color: #17251B !important;
+}
+
+#about .about-heading-green {
+  color: #829D42 !important;
+}
+
+/* Supporting text */
+#about .lead,
+#about .intro-copy > p {
+  color: #59664F !important;
+}
+
+/* Preserve the existing image and layout */
+#about .intro-grid {
+  background: transparent !important;
+}

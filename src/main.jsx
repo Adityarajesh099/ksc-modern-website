@@ -276,6 +276,40 @@ useEffect(() => {
 
 
 
+
+/* Quality & Value cards – scroll animation */
+useEffect(() => {
+  const cards = document.querySelectorAll(
+    ".quality-value-section .qv-card"
+  );
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 0.18,
+      rootMargin: "0px 0px -40px 0px"
+    }
+  );
+
+  cards.forEach((card) => observer.observe(card));
+
+  return () => observer.disconnect();
+}, []);
+
+
+
+
+
+
+
+
 const aboutImages = [
   "/images/Aboutimg.png",
   "/images/Aboutimg2.png",
@@ -447,7 +481,7 @@ const handleVideoEnded = () => {
 
 
           
-<div className="container stats-architecture">
+<div className="container stats-architecture reveal-section">
 
   <div className="stats-architecture-layout">
 
@@ -874,10 +908,14 @@ const handleVideoEnded = () => {
           OUR COMMITMENT
         </span>
 
-        <h2>
-          Quality is our <span>foundation.</span>
-          <br />
-          Value is our <span>commitment.</span>
+        <h2 className="qv-animated-title">
+          <span className="qv-title-line">
+            Quality is our <span className="qv-title-highlight">foundation.</span>
+          </span>
+
+          <span className="qv-title-line">
+            Value is our <span className="qv-title-highlight">commitment.</span>
+          </span>
         </h2>
 
         
