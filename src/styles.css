@@ -23606,3 +23606,1274 @@ section#projects.projects {
     padding: 35px 25px;
   }
 }
+
+
+
+
+
+
+
+/* ==============================================
+   KSC MECHANICAL WORKS – PREMIUM DESIGN
+============================================== */
+
+.mech-premium {
+  background: #f6f7f3;
+}
+
+/* Intro heading */
+.mech-premium .pharma-premium-intro {
+  padding-top: 80px;
+  padding-bottom: 65px;
+}
+
+.mech-premium .pharma-premium-intro-left h3 {
+  max-width: 650px;
+  font-size: clamp(36px, 4.5vw, 60px);
+  line-height: 1.08;
+  letter-spacing: -2.5px;
+}
+
+.mech-premium .pharma-premium-intro-left h3 span {
+  color: #829c39;
+}
+
+.mech-premium .pharma-premium-section-label {
+  color: #829c39;
+}
+
+/* Intro description and CTA */
+.mech-premium .pharma-premium-intro-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 25px;
+}
+
+.mech-premium .pharma-premium-intro-right p {
+  max-width: 560px;
+  color: #62685d;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+/* Capability cards */
+.mech-premium .pharma-premium-capabilities {
+  padding: 0 5% 65px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 13px;
+}
+
+.mech-premium .pharma-premium-card {
+  min-height: 300px;
+  padding: 28px 24px;
+  background: #22291e;
+  border: 1px solid rgba(145, 173, 62, 0.12);
+
+  transition:
+    transform .35s ease,
+    background .35s ease,
+    border-color .35s ease,
+    box-shadow .35s ease;
+}
+
+.mech-premium .pharma-premium-card:hover {
+  transform: translateY(-7px);
+  background: #303b28;
+  border-color: rgba(145, 173, 62, 0.55);
+  box-shadow: 0 16px 35px rgba(25, 35, 20, 0.15);
+}
+
+.mech-premium .pharma-premium-card-top {
+  margin-bottom: 38px;
+}
+
+.mech-premium .pharma-premium-card-top > span {
+  color: #bdc6ad;
+  font-size: 11px;
+}
+
+.mech-premium .pharma-premium-card-top svg {
+  width: 45px;
+  height: 45px;
+  stroke: #a5c34c;
+  stroke-width: 1.7;
+}
+
+.mech-premium .pharma-premium-card h3 {
+  font-size: 19px;
+  line-height: 1.35;
+  color: #fff;
+}
+
+.mech-premium .pharma-premium-card p {
+  font-size: 12px;
+  line-height: 1.8;
+  color: #c1c7b9;
+}
+
+/* Delivery principles */
+.mech-premium .pharma-premium-delivery {
+  padding: 35px 5% 45px;
+  background: #e9ede3;
+}
+
+.mech-premium .pharma-premium-delivery-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.mech-premium .pharma-premium-delivery-grid article {
+  align-items: flex-start;
+  gap: 19px;
+  padding-top: 28px;
+  padding-bottom: 28px;
+}
+
+.mech-premium .mech-design-icon {
+  width: 38px;
+  height: 38px;
+  flex: 0 0 38px;
+  color: #829c39;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.mech-premium .pharma-premium-delivery-grid h4 {
+  color: #20261b;
+  font-size: 15px;
+  font-weight: 750;
+  line-height: 1.4;
+}
+
+.mech-premium .pharma-premium-delivery-grid p {
+  color: #62685d;
+  font-size: 12px;
+  line-height: 1.75;
+}
+
+/* Tablet */
+@media (max-width: 1000px) {
+  .mech-premium .pharma-premium-capabilities {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .mech-premium .pharma-premium-delivery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mech-premium .pharma-premium-delivery-grid article,
+  .mech-premium .pharma-premium-delivery-grid article:not(:first-child) {
+    padding: 22px 0;
+    border-right: none;
+    border-bottom: 1px solid #cbd1c1;
+  }
+
+  .mech-premium .pharma-premium-delivery-grid article:last-child {
+    border-bottom: none;
+  }
+}
+
+/* Mobile */
+@media (max-width: 650px) {
+  .mech-premium .pharma-premium-intro {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    padding: 55px 25px 40px;
+  }
+
+  .mech-premium .pharma-premium-intro-left h3 {
+    font-size: clamp(36px, 10vw, 48px);
+    letter-spacing: -1.8px;
+  }
+
+  .mech-premium .pharma-premium-capabilities {
+    grid-template-columns: 1fr;
+    padding: 0 20px 45px;
+  }
+
+  .mech-premium .pharma-premium-card {
+    min-height: 250px;
+  }
+
+  .mech-premium .pharma-premium-delivery {
+    padding: 35px 25px;
+  }
+}
+
+
+
+
+
+
+
+
+
+/* ==============================================
+   KSC ELECTRICAL WORKS – PREMIUM DESIGN
+============================================== */
+
+.elec-premium {
+  background: #f6f7f3;
+}
+
+/* Introduction */
+.elec-premium .pharma-premium-intro {
+  padding-top: 80px;
+  padding-bottom: 65px;
+}
+
+.elec-premium .pharma-premium-intro-left h3 {
+  max-width: 700px;
+  font-size: clamp(36px, 4.5vw, 60px);
+  line-height: 1.08;
+  letter-spacing: -2.5px;
+}
+
+.elec-premium .pharma-premium-intro-left h3 span {
+  color: #829c39;
+}
+
+.elec-premium .pharma-premium-section-label {
+  color: #829c39;
+}
+
+/* Description and CTA */
+.elec-premium .pharma-premium-intro-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 25px;
+}
+
+.elec-premium .pharma-premium-intro-right p {
+  max-width: 560px;
+  color: #62685d;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+/* Capability cards */
+.elec-premium .pharma-premium-capabilities {
+  padding: 0 5% 65px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 13px;
+}
+
+.elec-premium .pharma-premium-card {
+  min-height: 300px;
+  padding: 28px 24px;
+  background: #22291e;
+  border: 1px solid rgba(145, 173, 62, 0.12);
+
+  transition:
+    transform 0.35s ease,
+    background 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.elec-premium .pharma-premium-card:hover {
+  transform: translateY(-7px);
+  background: #303b28;
+  border-color: rgba(145, 173, 62, 0.55);
+  box-shadow: 0 16px 35px rgba(25, 35, 20, 0.15);
+}
+
+.elec-premium .pharma-premium-card-top {
+  margin-bottom: 38px;
+}
+
+.elec-premium .pharma-premium-card-top > span {
+  color: #bdc6ad;
+  font-size: 11px;
+}
+
+.elec-premium .pharma-premium-card-top svg {
+  width: 45px;
+  height: 45px;
+  stroke: #a5c34c;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.elec-premium .pharma-premium-card h3 {
+  font-size: 19px;
+  line-height: 1.35;
+  color: #fff;
+}
+
+.elec-premium .pharma-premium-card p {
+  font-size: 12px;
+  line-height: 1.8;
+  color: #c1c7b9;
+}
+
+/* Delivery principles */
+.elec-premium .pharma-premium-delivery {
+  padding: 35px 5% 45px;
+  background: #e9ede3;
+}
+
+.elec-premium .pharma-premium-delivery-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.elec-premium .pharma-premium-delivery-grid article {
+  align-items: flex-start;
+  gap: 19px;
+  padding-top: 28px;
+  padding-bottom: 28px;
+}
+
+.elec-premium .elec-design-icon {
+  width: 38px;
+  height: 38px;
+  flex: 0 0 38px;
+  color: #829c39;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.elec-premium .pharma-premium-delivery-grid h4 {
+  color: #20261b;
+  font-size: 15px;
+  font-weight: 750;
+  line-height: 1.4;
+}
+
+.elec-premium .pharma-premium-delivery-grid p {
+  color: #62685d;
+  font-size: 12px;
+  line-height: 1.75;
+}
+
+/* Tablet */
+@media (max-width: 1000px) {
+  .elec-premium .pharma-premium-capabilities {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .elec-premium .pharma-premium-delivery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .elec-premium .pharma-premium-delivery-grid article,
+  .elec-premium .pharma-premium-delivery-grid article:not(:first-child) {
+    padding: 22px 0;
+    border-right: none;
+    border-bottom: 1px solid #cbd1c1;
+  }
+
+  .elec-premium .pharma-premium-delivery-grid article:last-child {
+    border-bottom: none;
+  }
+}
+
+/* Mobile */
+@media (max-width: 650px) {
+  .elec-premium .pharma-premium-intro {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    padding: 55px 25px 40px;
+  }
+
+  .elec-premium .pharma-premium-intro-left h3 {
+    font-size: clamp(36px, 10vw, 48px);
+    letter-spacing: -1.8px;
+  }
+
+  .elec-premium .pharma-premium-capabilities {
+    grid-template-columns: 1fr;
+    padding: 0 20px 45px;
+  }
+
+  .elec-premium .pharma-premium-card {
+    min-height: 250px;
+  }
+
+  .elec-premium .pharma-premium-delivery {
+    padding: 35px 25px;
+  }
+}
+
+
+
+
+
+
+
+
+/* ==============================================
+   KSC HVAC WORKS – PREMIUM DESIGN
+============================================== */
+
+.hvac-premium {
+  background: #f6f7f3;
+}
+
+/* Introduction */
+.hvac-premium .pharma-premium-intro {
+  padding-top: 80px;
+  padding-bottom: 65px;
+}
+
+.hvac-premium .pharma-premium-intro-left h3 {
+  max-width: 700px;
+  font-size: clamp(36px, 4.5vw, 60px);
+  line-height: 1.08;
+  letter-spacing: -2.5px;
+}
+
+.hvac-premium .pharma-premium-intro-left h3 span {
+  color: #829c39;
+}
+
+.hvac-premium .pharma-premium-section-label {
+  color: #829c39;
+}
+
+/* Description and CTA */
+.hvac-premium .pharma-premium-intro-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 25px;
+}
+
+.hvac-premium .pharma-premium-intro-right p {
+  max-width: 560px;
+  color: #62685d;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+/* Capability cards */
+.hvac-premium .pharma-premium-capabilities {
+  padding: 0 5% 65px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 13px;
+}
+
+.hvac-premium .pharma-premium-card {
+  min-height: 300px;
+  padding: 28px 24px;
+  background: #22291e;
+  border: 1px solid rgba(145, 173, 62, 0.12);
+
+  transition:
+    transform 0.35s ease,
+    background 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.hvac-premium .pharma-premium-card:hover {
+  transform: translateY(-7px);
+  background: #303b28;
+  border-color: rgba(145, 173, 62, 0.55);
+  box-shadow: 0 16px 35px rgba(25, 35, 20, 0.15);
+}
+
+.hvac-premium .pharma-premium-card-top {
+  margin-bottom: 38px;
+}
+
+.hvac-premium .pharma-premium-card-top > span {
+  color: #bdc6ad;
+  font-size: 11px;
+}
+
+.hvac-premium .pharma-premium-card-top svg {
+  width: 45px;
+  height: 45px;
+  stroke: #a5c34c;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.hvac-premium .pharma-premium-card h3 {
+  font-size: 19px;
+  line-height: 1.35;
+  color: #fff;
+}
+
+.hvac-premium .pharma-premium-card p {
+  font-size: 12px;
+  line-height: 1.8;
+  color: #c1c7b9;
+}
+
+/* Delivery principles */
+.hvac-premium .pharma-premium-delivery {
+  padding: 35px 5% 45px;
+  background: #e9ede3;
+}
+
+.hvac-premium .pharma-premium-delivery-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.hvac-premium .pharma-premium-delivery-grid article {
+  align-items: flex-start;
+  gap: 19px;
+  padding-top: 28px;
+  padding-bottom: 28px;
+}
+
+.hvac-premium .hvac-design-icon {
+  width: 38px;
+  height: 38px;
+  flex: 0 0 38px;
+  color: #829c39;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.hvac-premium .pharma-premium-delivery-grid h4 {
+  color: #20261b;
+  font-size: 15px;
+  font-weight: 750;
+  line-height: 1.4;
+}
+
+.hvac-premium .pharma-premium-delivery-grid p {
+  color: #62685d;
+  font-size: 12px;
+  line-height: 1.75;
+}
+
+/* Tablet */
+@media (max-width: 1000px) {
+  .hvac-premium .pharma-premium-capabilities {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .hvac-premium .pharma-premium-delivery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hvac-premium .pharma-premium-delivery-grid article,
+  .hvac-premium .pharma-premium-delivery-grid article:not(:first-child) {
+    padding: 22px 0;
+    border-right: none;
+    border-bottom: 1px solid #cbd1c1;
+  }
+
+  .hvac-premium .pharma-premium-delivery-grid article:last-child {
+    border-bottom: none;
+  }
+}
+
+/* Mobile */
+@media (max-width: 650px) {
+  .hvac-premium .pharma-premium-intro {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    padding: 55px 25px 40px;
+  }
+
+  .hvac-premium .pharma-premium-intro-left h3 {
+    font-size: clamp(36px, 10vw, 48px);
+    letter-spacing: -1.8px;
+  }
+
+  .hvac-premium .pharma-premium-capabilities {
+    grid-template-columns: 1fr;
+    padding: 0 20px 45px;
+  }
+
+  .hvac-premium .pharma-premium-card {
+    min-height: 250px;
+  }
+
+  .hvac-premium .pharma-premium-delivery {
+    padding: 35px 25px;
+  }
+}
+
+
+
+
+
+
+
+
+/* ==============================================
+   KSC FIRE DETECTION & FIRE FIGHTING
+   PREMIUM DESIGN
+============================================== */
+
+.fire-premium {
+  background: #f6f7f3;
+}
+
+/* Introduction */
+.fire-premium .pharma-premium-intro {
+  padding-top: 80px;
+  padding-bottom: 65px;
+}
+
+.fire-premium .pharma-premium-intro-left h3 {
+  max-width: 700px;
+  font-size: clamp(36px, 4.5vw, 60px);
+  line-height: 1.08;
+  letter-spacing: -2.5px;
+}
+
+.fire-premium .pharma-premium-intro-left h3 span {
+  color: #829c39;
+}
+
+.fire-premium .pharma-premium-section-label {
+  color: #829c39;
+}
+
+/* Description and CTA */
+.fire-premium .pharma-premium-intro-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 25px;
+}
+
+.fire-premium .pharma-premium-intro-right p {
+  max-width: 560px;
+  color: #62685d;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+/* Four capability cards */
+.fire-premium .pharma-premium-capabilities {
+  padding: 0 5% 65px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 13px;
+}
+
+.fire-premium .pharma-premium-card {
+  min-height: 300px;
+  padding: 28px 24px;
+  background: #22291e;
+  border: 1px solid rgba(145, 173, 62, 0.12);
+
+  transition:
+    transform 0.35s ease,
+    background 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.fire-premium .pharma-premium-card:hover {
+  transform: translateY(-7px);
+  background: #303b28;
+  border-color: rgba(145, 173, 62, 0.55);
+  box-shadow: 0 16px 35px rgba(25, 35, 20, 0.15);
+}
+
+.fire-premium .pharma-premium-card-top {
+  margin-bottom: 38px;
+}
+
+.fire-premium .pharma-premium-card-top > span {
+  color: #bdc6ad;
+  font-size: 11px;
+}
+
+.fire-premium .pharma-premium-card-top svg {
+  width: 45px;
+  height: 45px;
+  stroke: #a5c34c;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.fire-premium .pharma-premium-card h3 {
+  font-size: 19px;
+  line-height: 1.35;
+  color: #fff;
+}
+
+.fire-premium .pharma-premium-card p {
+  font-size: 12px;
+  line-height: 1.8;
+  color: #c1c7b9;
+}
+
+/* Delivery principles */
+.fire-premium .pharma-premium-delivery {
+  padding: 35px 5% 45px;
+  background: #e9ede3;
+}
+
+.fire-premium .pharma-premium-delivery-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.fire-premium .pharma-premium-delivery-grid article {
+  align-items: flex-start;
+  gap: 19px;
+  padding-top: 28px;
+  padding-bottom: 28px;
+}
+
+.fire-premium .fire-design-icon {
+  width: 38px;
+  height: 38px;
+  flex: 0 0 38px;
+  color: #829c39;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.fire-premium .pharma-premium-delivery-grid h4 {
+  color: #20261b;
+  font-size: 15px;
+  font-weight: 750;
+  line-height: 1.4;
+}
+
+.fire-premium .pharma-premium-delivery-grid p {
+  color: #62685d;
+  font-size: 12px;
+  line-height: 1.75;
+}
+
+/* Tablet */
+@media (max-width: 1000px) {
+  .fire-premium .pharma-premium-capabilities {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .fire-premium .pharma-premium-delivery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .fire-premium .pharma-premium-delivery-grid article,
+  .fire-premium .pharma-premium-delivery-grid article:not(:first-child) {
+    padding: 22px 0;
+    border-right: none;
+    border-bottom: 1px solid #cbd1c1;
+  }
+
+  .fire-premium .pharma-premium-delivery-grid article:last-child {
+    border-bottom: none;
+  }
+}
+
+/* Mobile */
+@media (max-width: 650px) {
+  .fire-premium .pharma-premium-intro {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    padding: 55px 25px 40px;
+  }
+
+  .fire-premium .pharma-premium-intro-left h3 {
+    font-size: clamp(36px, 10vw, 48px);
+    letter-spacing: -1.8px;
+  }
+
+  .fire-premium .pharma-premium-capabilities {
+    grid-template-columns: 1fr;
+    padding: 0 20px 45px;
+  }
+
+  .fire-premium .pharma-premium-card {
+    min-height: 250px;
+  }
+
+  .fire-premium .pharma-premium-delivery {
+    padding: 35px 25px;
+  }
+}
+
+
+
+
+
+/* ==============================================
+   KSC EQUIPMENT & MACHINE INSTALLATIONS
+   PREMIUM DESIGN
+============================================== */
+
+.equipment-premium {
+  background: #f6f7f3;
+}
+
+/* Introduction */
+.equipment-premium .pharma-premium-intro {
+  padding-top: 80px;
+  padding-bottom: 65px;
+}
+
+.equipment-premium .pharma-premium-intro-left h3 {
+  max-width: 720px;
+  font-size: clamp(36px, 4.5vw, 60px);
+  line-height: 1.08;
+  letter-spacing: -2.5px;
+}
+
+.equipment-premium .pharma-premium-intro-left h3 span {
+  color: #829c39;
+}
+
+.equipment-premium .pharma-premium-section-label {
+  color: #829c39;
+}
+
+/* Description and CTA */
+.equipment-premium .pharma-premium-intro-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 25px;
+}
+
+.equipment-premium .pharma-premium-intro-right p {
+  max-width: 560px;
+  color: #62685d;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+/* Capability cards */
+.equipment-premium .pharma-premium-capabilities {
+  padding: 0 5% 65px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 13px;
+}
+
+.equipment-premium .pharma-premium-card {
+  min-height: 300px;
+  padding: 28px 24px;
+  background: #22291e;
+  border: 1px solid rgba(145, 173, 62, 0.12);
+
+  transition:
+    transform 0.35s ease,
+    background 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.equipment-premium .pharma-premium-card:hover {
+  transform: translateY(-7px);
+  background: #303b28;
+  border-color: rgba(145, 173, 62, 0.55);
+  box-shadow: 0 16px 35px rgba(25, 35, 20, 0.15);
+}
+
+.equipment-premium .pharma-premium-card-top {
+  margin-bottom: 38px;
+}
+
+.equipment-premium .pharma-premium-card-top > span {
+  color: #bdc6ad;
+  font-size: 11px;
+}
+
+.equipment-premium .pharma-premium-card-top svg {
+  width: 45px;
+  height: 45px;
+  stroke: #a5c34c;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.equipment-premium .pharma-premium-card h3 {
+  font-size: 19px;
+  line-height: 1.35;
+  color: #fff;
+}
+
+.equipment-premium .pharma-premium-card p {
+  font-size: 12px;
+  line-height: 1.8;
+  color: #c1c7b9;
+}
+
+/* Delivery principles */
+.equipment-premium .pharma-premium-delivery {
+  padding: 35px 5% 45px;
+  background: #e9ede3;
+}
+
+.equipment-premium .pharma-premium-delivery-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.equipment-premium .pharma-premium-delivery-grid article {
+  align-items: flex-start;
+  gap: 19px;
+  padding-top: 28px;
+  padding-bottom: 28px;
+}
+
+.equipment-premium .equipment-design-icon {
+  width: 38px;
+  height: 38px;
+  flex: 0 0 38px;
+  color: #829c39;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.equipment-premium .pharma-premium-delivery-grid h4 {
+  color: #20261b;
+  font-size: 15px;
+  font-weight: 750;
+  line-height: 1.4;
+}
+
+.equipment-premium .pharma-premium-delivery-grid p {
+  color: #62685d;
+  font-size: 12px;
+  line-height: 1.75;
+}
+
+/* Tablet */
+@media (max-width: 1000px) {
+  .equipment-premium .pharma-premium-capabilities {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .equipment-premium .pharma-premium-delivery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .equipment-premium .pharma-premium-delivery-grid article,
+  .equipment-premium .pharma-premium-delivery-grid article:not(:first-child) {
+    padding: 22px 0;
+    border-right: none;
+    border-bottom: 1px solid #cbd1c1;
+  }
+
+  .equipment-premium .pharma-premium-delivery-grid article:last-child {
+    border-bottom: none;
+  }
+}
+
+/* Mobile */
+@media (max-width: 650px) {
+  .equipment-premium .pharma-premium-intro {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    padding: 55px 25px 40px;
+  }
+
+  .equipment-premium .pharma-premium-intro-left h3 {
+    font-size: clamp(36px, 10vw, 48px);
+    letter-spacing: -1.8px;
+  }
+
+  .equipment-premium .pharma-premium-capabilities {
+    grid-template-columns: 1fr;
+    padding: 0 20px 45px;
+  }
+
+  .equipment-premium .pharma-premium-card {
+    min-height: 250px;
+  }
+
+  .equipment-premium .pharma-premium-delivery {
+    padding: 35px 25px;
+  }
+}
+
+
+
+
+
+
+
+/* ==============================================
+   KSC CIVIL CONSTRUCTION – PREMIUM DESIGN
+============================================== */
+
+.civil-premium {
+  background: #f6f7f3;
+}
+
+/* Introduction */
+.civil-premium .pharma-premium-intro {
+  padding-top: 80px;
+  padding-bottom: 65px;
+}
+
+.civil-premium .pharma-premium-intro-left h3 {
+  max-width: 680px;
+  font-size: clamp(36px, 4.5vw, 60px);
+  line-height: 1.08;
+  letter-spacing: -2.5px;
+}
+
+.civil-premium .pharma-premium-intro-left h3 span {
+  color: #829c39;
+}
+
+.civil-premium .pharma-premium-section-label {
+  color: #829c39;
+}
+
+/* Description and CTA */
+.civil-premium .pharma-premium-intro-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 25px;
+}
+
+.civil-premium .pharma-premium-intro-right p {
+  max-width: 560px;
+  color: #62685d;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+/* Capability cards */
+.civil-premium .pharma-premium-capabilities {
+  padding: 0 5% 65px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 13px;
+}
+
+.civil-premium .pharma-premium-card {
+  min-height: 300px;
+  padding: 28px 24px;
+  background: #22291e;
+  border: 1px solid rgba(145, 173, 62, 0.12);
+
+  transition:
+    transform .35s ease,
+    background .35s ease,
+    border-color .35s ease,
+    box-shadow .35s ease;
+}
+
+.civil-premium .pharma-premium-card:hover {
+  transform: translateY(-7px);
+  background: #303b28;
+  border-color: rgba(145, 173, 62, 0.55);
+  box-shadow: 0 16px 35px rgba(25, 35, 20, 0.15);
+}
+
+.civil-premium .pharma-premium-card-top {
+  margin-bottom: 38px;
+}
+
+.civil-premium .pharma-premium-card-top > span {
+  color: #bdc6ad;
+  font-size: 11px;
+}
+
+.civil-premium .civil-premium-icon {
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #a5c34c;
+}
+
+.civil-premium .pharma-premium-card h3 {
+  font-size: 19px;
+  line-height: 1.35;
+  color: #fff;
+}
+
+.civil-premium .pharma-premium-card p {
+  font-size: 12px;
+  line-height: 1.8;
+  color: #c1c7b9;
+}
+
+/* Large card numbers */
+.civil-premium .pharma-premium-card-index {
+  color: rgba(255,255,255,.055);
+}
+
+/* Delivery principles */
+.civil-premium .pharma-premium-delivery {
+  padding: 35px 5% 45px;
+  background: #e9ede3;
+}
+
+.civil-premium .pharma-premium-delivery-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.civil-premium .pharma-premium-delivery-grid article {
+  align-items: flex-start;
+  gap: 19px;
+  padding-top: 28px;
+  padding-bottom: 28px;
+}
+
+.civil-premium .civil-design-icon {
+  width: 38px;
+  height: 38px;
+  flex: 0 0 38px;
+  color: #829c39;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.civil-premium .pharma-premium-delivery-grid h4 {
+  color: #20261b;
+  font-size: 15px;
+  font-weight: 750;
+  line-height: 1.4;
+}
+
+.civil-premium .pharma-premium-delivery-grid p {
+  color: #62685d;
+  font-size: 12px;
+  line-height: 1.75;
+}
+
+/* Tablet */
+@media (max-width: 1000px) {
+  .civil-premium .pharma-premium-capabilities {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .civil-premium .pharma-premium-delivery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .civil-premium .pharma-premium-delivery-grid article,
+  .civil-premium .pharma-premium-delivery-grid article:not(:first-child) {
+    padding: 22px 0;
+    border-right: none;
+    border-bottom: 1px solid #cbd1c1;
+  }
+
+  .civil-premium .pharma-premium-delivery-grid article:last-child {
+    border-bottom: none;
+  }
+}
+
+/* Mobile */
+@media (max-width: 650px) {
+  .civil-premium .pharma-premium-intro {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    padding: 55px 25px 40px;
+  }
+
+  .civil-premium .pharma-premium-intro-left h3 {
+    font-size: clamp(36px, 10vw, 48px);
+    letter-spacing: -1.8px;
+  }
+
+  .civil-premium .pharma-premium-capabilities {
+    grid-template-columns: 1fr;
+    padding: 0 20px 45px;
+  }
+
+  .civil-premium .pharma-premium-card {
+    min-height: 250px;
+  }
+
+  .civil-premium .pharma-premium-delivery {
+    padding: 35px 25px;
+  }
+}
+
+
+
+
+
+
+/* KSC Client Logo Cards – Lighter Sage / Ivory Finish */
+
+#clients.clients-section .clients-logo-tile {
+  background: #F3F5ED !important;
+  background-color: #F3F5ED !important;
+
+  border: 1px solid rgba(91, 112, 57, 0.18) !important;
+
+  box-shadow:
+    0 5px 14px rgba(35, 48, 26, 0.07),
+    0 12px 25px rgba(35, 48, 26, 0.05) !important;
+}
+
+/* Remove the dark appearance from the card overlay */
+#clients.clients-section .clients-logo-tile::before {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.35),
+    transparent 75%
+  ) !important;
+
+  opacity: 0.55 !important;
+}
+
+/* Keep original logo colours and clarity */
+#clients.clients-section .clients-logo-tile img {
+  opacity: 1 !important;
+  filter: none !important;
+  mix-blend-mode: normal !important;
+}
+
+/* Slightly brighter on hover */
+#clients.clients-section .clients-logo-tile:hover {
+  background: #FFFFFF !important;
+}
+
+
+
+
+
+
+/* KSC Client Logo Tiles – Soft Ash Grey */
+
+#clients.clients-section .clients-logo-tile {
+  background: #D3D8CF !important;
+  background-color: #D3D8CF !important;
+
+  border: 1px solid rgba(65, 78, 55, 0.18) !important;
+
+  box-shadow:
+    0 5px 14px rgba(35, 48, 26, 0.08),
+    0 12px 25px rgba(35, 48, 26, 0.06) !important;
+}
+
+/* Very subtle highlight – avoid the white appearance */
+#clients.clients-section .clients-logo-tile::before {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.12),
+    transparent 75%
+  ) !important;
+
+  opacity: 0.35 !important;
+}
+
+/* Preserve original logo colours */
+#clients.clients-section .clients-logo-tile img {
+  opacity: 1 !important;
+  filter: none !important;
+  mix-blend-mode: normal !important;
+}
+
+/* Hover */
+#clients.clients-section .clients-logo-tile:hover {
+  background: #E0E4DC !important;
+}
