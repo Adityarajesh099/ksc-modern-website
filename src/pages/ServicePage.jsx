@@ -229,7 +229,7 @@ highlights: {
   number: "05",
   title: "Equipment & Machine Installations",
   label: "EQUIPMENT & MACHINE INSTALLATIONS",
-  exploreImage: "/images/Installation-001.png",
+  exploreImage: "/images/Installation.jpeg",
   description:
     "KSC provides specialized equipment and machine installation services for industrial and commercial projects. Our teams support the complete installation process with careful positioning, alignment, connection, testing and commissioning to ensure reliable project performance.",
   benefits: [
@@ -474,6 +474,68 @@ highlights: {
 
 };
 
+
+
+/* Premium hero headlines for each service */
+
+const serviceHeroCopy = {
+  "civil-construction": {
+    line1: "ENGINEERED",
+    accent: "TO BUILD",
+    line3: "WITH CONFIDENCE.",
+  },
+
+  "electrical-works": {
+    line1: "POWERING",
+    accent: "CONNECTED",
+    line3: "PERFORMANCE.",
+  },
+
+  "mechanical-works": {
+    line1: "MECHANICAL",
+    accent: "SYSTEMS",
+    line3: "BUILT TO PERFORM.",
+  },
+
+  "architectural-interior-finishes": {
+    line1: "DESIGNING",
+    accent: "BETTER",
+    line3: "SPACES.",
+  },
+
+  "equipment-machine-installations": {
+    line1: "PRECISION",
+    accent: "IN EVERY",
+    line3: "INSTALLATION.",
+  },
+
+  "fire-detection-fire-fighting": {
+    line1: "PROTECTING",
+    accent: "PEOPLE AND",
+    line3: "FACILITIES.",
+  },
+
+  "hvac-works": {
+    line1: "CREATING",
+    accent: "COMFORTABLE",
+    line3: "ENVIRONMENTS.",
+  },
+
+  "fitout-works": {
+    line1: "SPACES",
+    accent: "FINISHED",
+    line3: "TO PERFORM.",
+  },
+
+  "pharmaceutical-cleanroom-facilities": {
+    line1: "ENGINEERING",
+    accent: "CONTROLLED",
+    line3: "ENVIRONMENTS.",
+  },
+};
+
+
+
 export default function ServicePage() {
   const { service } = useParams();
   const data = serviceData[service];
@@ -558,69 +620,78 @@ useEffect(() => {
     return <h1>Service Not Found</h1>;
   }
 
+  const heroCopy = serviceHeroCopy[service];
+
+  const heroImages = data.images?.length
+    ? data.images
+    : [data.exploreImage];
+
   return (
   <main className="service-page">
 
+
+
     
-{service === "pharmaceutical-cleanroom-facilities" ? (
-  <section className="pharma-premium pharma-premium-main-hero">
-    <div className="pharma-premium-hero">
-      <img
-        className="pharma-premium-background"
-        src="/images/Sterile Pharmaceutical Cleanroom Interior_01.png"
-        alt="Pharmaceutical cleanroom manufacturing facility"
-      />
+{/* =====================================
+    UNIVERSAL PREMIUM SERVICE HERO
+===================================== */}
 
-      <div className="pharma-premium-overlay" />
+<section className="pharma-premium service-unified-premium-hero">
 
-      <div className="pharma-premium-hero-content">
+  <div className="pharma-premium-hero">
 
-        <h2>
-          ENGINEERING
-          <br />
-          <span>CONTROLLED</span>
-          <br />
-          ENVIRONMENTS.
-        </h2>
+    {/* Background image slideshow */}
+    <div className="service-premium-hero-slides">
 
-        <p>
-          Specialized pharmaceutical facilities and precision
-          cleanroom environments, engineered for quality,
-          compliance and operational excellence.
-        </p>
-
-        <a href="/contact" className="pharma-premium-cta">
-          DISCUSS YOUR PROJECT
-          <span>↗</span>
-        </a>
-      </div>
-    </div>
-  </section>
-) : (
-
-  <section className="service-page-hero">
-    <div className="service-hero-image">
-      {data.images?.map((image, index) => (
+      {heroImages.map((image, index) => (
         <img
           key={image}
           src={image}
           alt={`${data.title} project ${index + 1}`}
-          className={`service-hero-slide ${
-            index === heroSlide ? "active" : ""
-          }`}
+          className={
+            index === heroSlide
+              ? "service-premium-hero-image active"
+              : "service-premium-hero-image"
+          }
         />
       ))}
+
     </div>
 
-    <div className="service-hero-overlay"></div>
+    {/* Dark gradient overlay */}
+    <div className="pharma-premium-overlay" />
 
-    <div className="service-page-content">
-      <h1>{data.title}</h1>
-      <div className="service-hero-line"></div>
-      <p>Engineering capability built around experience.</p>
+    {/* Hero content */}
+    <div className="pharma-premium-hero-content">
+
+      <h2>
+        {heroCopy.line1}
+        <br />
+        <span>{heroCopy.accent}</span>
+        <br />
+        {heroCopy.line3}
+      </h2>
+
+      <p>
+        {heroCopy.description ||
+          data.highlights?.description ||
+          data.description}
+      </p>
+
+      <a
+        href="/contact"
+        className="pharma-premium-cta"
+      >
+        DISCUSS YOUR PROJECT
+        <span>↗</span>
+      </a>
+
     </div>
-  </section>
-)}
+
+  </div>
+
+</section>
+
 
 
     <section className="service-detail">
@@ -718,6 +789,259 @@ useEffect(() => {
 
       </aside>
     </section>
+
+
+
+{/* =========================================
+    ARCHITECTURAL & INTERIOR DESIGN
+    PREMIUM CAPABILITIES SECTION
+========================================= */}
+
+{service === "architectural-interior-finishes" && (
+  <section className="pharma-premium arch-premium">
+
+    {/* INTRODUCTION */}
+    <div className="pharma-premium-intro">
+
+      <div className="pharma-premium-intro-left">
+
+        <span className="pharma-premium-section-label">
+          ARCHITECTURAL &amp; INTERIOR DESIGN
+        </span>
+
+        <h3>
+          From <span>concept</span> to space.
+          <br />
+          Designs that <span>work.</span>
+        </h3>
+
+      </div>
+
+      <div className="pharma-premium-intro-right">
+
+        <p>
+          KSC delivers integrated architectural and interior design
+          solutions that blend functionality, aesthetics, and
+          compliance — creating efficient, people-centric, and
+          future-ready spaces.
+        </p>
+
+        <a href="/contact" className="pharma-premium-cta">
+          DISCUSS A PROJECT
+          <span>↗</span>
+        </a>
+
+      </div>
+
+    </div>
+
+
+    {/* FOUR DESIGN CAPABILITIES */}
+    <div className="pharma-premium-capabilities arch-premium-capabilities">
+
+      {/* 01 ARCHITECTURAL DESIGN */}
+      <article className="pharma-premium-card">
+
+        <div className="pharma-premium-card-top">
+          <span>01</span>
+
+          <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+            <path d="M5 42V15L24 5L43 15V42" />
+            <path d="M12 42V22H36V42" />
+            <path d="M18 42V29H30V42" />
+            <path d="M5 15L24 25L43 15" />
+          </svg>
+        </div>
+
+        <h3>Architectural Design</h3>
+
+        <p>
+          Concept development, detailed design, and regulatory
+          coordination for functional and sustainable buildings.
+        </p>
+
+        <span className="pharma-premium-card-index">01</span>
+
+      </article>
+
+
+      {/* 02 INTERIOR DESIGN */}
+      <article className="pharma-premium-card">
+
+        <div className="pharma-premium-card-top">
+          <span>02</span>
+
+          <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+            <path d="M7 27V19C7 15 10 12 14 12H34C38 12 41 15 41 19V27" />
+            <path d="M5 27H43V35H5Z" />
+            <path d="M9 35V41M39 35V41" />
+            <path d="M7 27V24M41 27V24" />
+            <path d="M14 12V19H34V12" />
+          </svg>
+        </div>
+
+        <h3>Interior Design</h3>
+
+        <p>
+          Space planning, interior layouts, finishes, and fit-out
+          concepts aligned with client needs and brand identity.
+        </p>
+
+        <span className="pharma-premium-card-index">02</span>
+
+      </article>
+
+
+      {/* 03 SPACE PLANNING */}
+      <article className="pharma-premium-card">
+
+        <div className="pharma-premium-card-top">
+          <span>03</span>
+
+          <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+            <path d="M5 16L24 6L43 16L24 26L5 16Z" />
+            <path d="M5 24L24 34L43 24" />
+            <path d="M5 32L24 42L43 32" />
+          </svg>
+        </div>
+
+        <h3>Space Planning &amp; Optimization</h3>
+
+        <p>
+          Efficient, flexible, and ergonomic layouts to maximize
+          space utilization and operational flow.
+        </p>
+
+        <span className="pharma-premium-card-index">03</span>
+
+      </article>
+
+
+      {/* 04 DESIGN COORDINATION */}
+      <article className="pharma-premium-card">
+
+        <div className="pharma-premium-card-top">
+          <span>04</span>
+
+          <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+            <circle cx="24" cy="18" r="5" />
+            <path d="M24 23V43" />
+            <path d="M15 43L24 23L33 43" />
+            <path d="M11 43H37" />
+            <path d="M9 18L24 5L39 18" />
+            <path d="M15 18H33" />
+          </svg>
+        </div>
+
+        <h3>Design Coordination</h3>
+
+        <p>
+          Multidisciplinary coordination (Civil, MEP, and special
+          systems) to ensure design integration, constructability,
+          and cost efficiency.
+        </p>
+
+        <span className="pharma-premium-card-index">04</span>
+
+      </article>
+
+    </div>
+
+
+    {/* DESIGN PRINCIPLES */}
+    <div className="pharma-premium-delivery arch-premium-delivery">
+
+      <div className="pharma-premium-delivery-grid">
+
+        {/* SUSTAINABILITY */}
+        <article>
+
+          <svg className="arch-design-icon"
+            viewBox="0 0 48 48"
+            fill="none"
+            aria-hidden="true"
+          >
+            <path d="M40 7C24 7 10 14 8 28C7 36 12 41 19 39C33 35 39 20 40 7Z" />
+            <path d="M8 42C16 30 25 23 35 15" />
+          </svg>
+
+          <div>
+            <h4>Sustainable &amp; Compliant Design</h4>
+
+            <p>
+              Energy-efficient, code-compliant, and environmentally
+              responsible solutions.
+            </p>
+          </div>
+
+        </article>
+
+
+        {/* FUNCTIONALITY */}
+        <article>
+
+          <svg className="arch-design-icon"
+            viewBox="0 0 48 48"
+            fill="none"
+            aria-hidden="true"
+          >
+            <path d="M19 5H29L31 11L36 14L42 12L46 20L41 25V30L46 35L42 43L35 41L30 44H20L17 38L12 35L6 38L2 30L7 25V20L2 14L7 6L14 9L19 5Z" />
+            <circle cx="24" cy="24" r="9" />
+            <circle cx="24" cy="24" r="3" />
+          </svg>
+
+          <div>
+            <h4>Functionality with Aesthetics</h4>
+
+            <p>
+              Practical, modern, and brand-aligned spaces.
+            </p>
+          </div>
+
+        </article>
+
+
+        {/* END-TO-END SUPPORT */}
+        <article>
+
+          <svg className="arch-design-icon"
+            viewBox="0 0 48 48"
+            fill="none"
+            aria-hidden="true"
+          >
+            <circle cx="17" cy="14" r="6" />
+            <circle cx="34" cy="16" r="5" />
+            <path d="M5 39V34C5 27 10 23 17 23C24 23 29 27 29 34V39" />
+            <path d="M29 27C31 24 35 23 39 25C43 27 45 31 45 36V39H34" />
+          </svg>
+
+          <div>
+            <h4>End-to-End Design Support</h4>
+
+            <p>
+              From concept and 3D visualization to design delivery
+              and site coordination.
+            </p>
+          </div>
+
+        </article>
+
+      </div>
+
+    </div>
+
+  </section>
+)}
+
+
+
+
+
+
+
+
+
+
 
     {service === "civil-construction" && (
       <section className="civil-reference-page">

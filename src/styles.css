@@ -23201,5 +23201,408 @@ section#projects.projects {
 
 
 
+/* ==============================================
+   KSC – UNIVERSAL PREMIUM SERVICE HERO
+============================================== */
+
+.service-unified-premium-hero {
+  width: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+.service-unified-premium-hero .pharma-premium-hero {
+  position: relative;
+  min-height: clamp(620px, 88svh, 850px);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: #20261b;
+}
+
+/* Background slideshow */
+.service-premium-hero-slides {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.service-premium-hero-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+
+  opacity: 0;
+  transform: scale(1.045);
+
+  transition:
+    opacity 1.2s ease,
+    transform 7s ease;
+}
+
+.service-premium-hero-image.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Consistent pharmaceutical-style overlay */
+.service-unified-premium-hero .pharma-premium-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  background: linear-gradient(
+    90deg,
+    rgba(19, 25, 17, 0.97) 0%,
+    rgba(19, 25, 17, 0.88) 38%,
+    rgba(19, 25, 17, 0.45) 72%,
+    rgba(19, 25, 17, 0.20) 100%
+  );
+}
+
+/* Hero content */
+.service-unified-premium-hero .pharma-premium-hero-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: 75px 8%;
+  color: #ffffff;
+}
+
+/* Large uppercase heading */
+.service-unified-premium-hero .pharma-premium-hero-content h2 {
+  max-width: 1000px;
+  margin: 0 0 25px;
+
+  color: #ffffff;
+  font-size: clamp(48px, 6.5vw, 90px);
+  font-weight: 850;
+  line-height: 0.99;
+  letter-spacing: -0.065em;
+  text-transform: uppercase;
+}
+
+/* KSC olive-green accent */
+.service-unified-premium-hero .pharma-premium-hero-content h2 span {
+  color: #91ad3e;
+}
+
+/* Service description */
+.service-unified-premium-hero .pharma-premium-hero-content > p {
+  max-width: 560px;
+  margin: 0 0 32px;
+
+  color: #d2d7ca;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+/* Pharmaceutical-style project button */
+.service-unified-premium-hero .pharma-premium-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 35px;
+
+  min-width: 278px;
+  padding: 8px 9px 8px 22px;
+
+  background: rgba(20, 28, 20, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 4px;
+
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.3px;
+  text-decoration: none;
+
+  transition: all 0.35s ease;
+}
+
+.service-unified-premium-hero .pharma-premium-cta span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 42px;
+  height: 42px;
+
+  background: #91ad3e;
+  color: #172012;
+  font-size: 22px;
+
+  transition: all 0.35s ease;
+}
+
+.service-unified-premium-hero .pharma-premium-cta:hover {
+  background: #91ad3e;
+  color: #172012;
+  border-color: #91ad3e;
+  transform: translateY(-3px);
+}
+
+.service-unified-premium-hero .pharma-premium-cta:hover span {
+  background: #ffffff;
+  transform: rotate(45deg);
+}
+
+/* Tablet */
+@media (max-width: 1000px) {
+  .service-unified-premium-hero .pharma-premium-hero {
+    min-height: 680px;
+  }
+
+  .service-unified-premium-hero .pharma-premium-hero-content h2 {
+    font-size: clamp(46px, 7.5vw, 72px);
+  }
+}
+
+/* Mobile */
+@media (max-width: 650px) {
+  .service-unified-premium-hero .pharma-premium-hero {
+    min-height: 650px;
+    min-height: 82svh;
+  }
+
+  .service-unified-premium-hero .pharma-premium-overlay {
+    background: rgba(19, 25, 17, 0.82);
+  }
+
+  .service-unified-premium-hero .pharma-premium-hero-content {
+    padding: 65px 25px;
+  }
+
+  .service-unified-premium-hero .pharma-premium-hero-content h2 {
+    font-size: clamp(40px, 10.5vw, 62px);
+    line-height: 1.02;
+    letter-spacing: -0.045em;
+  }
+
+  .service-unified-premium-hero .pharma-premium-hero-content > p {
+    font-size: 14px;
+  }
+
+  .service-unified-premium-hero .pharma-premium-cta {
+    min-width: 250px;
+  }
+}
+
+/* KSC – Extend all Service Hero Sections */
+
+.service-unified-premium-hero .pharma-premium-hero {
+  min-height: clamp(790px, 96svh, 920px) !important;
+}
+
+/* Mobile adjustment */
+@media (max-width: 650px) {
+  .service-unified-premium-hero .pharma-premium-hero {
+    min-height: 90svh !important;
+  }
+}
 
 
+
+
+
+
+/* ==============================================
+   KSC ARCHITECTURAL & INTERIOR DESIGN
+   PREMIUM CAPABILITIES SECTION
+============================================== */
+
+.arch-premium {
+  background: #f6f7f3;
+}
+
+/* Intro spacing */
+.arch-premium .pharma-premium-intro {
+  padding-top: 80px;
+  padding-bottom: 65px;
+}
+
+.arch-premium .pharma-premium-intro-left h3 {
+  max-width: 650px;
+  font-size: clamp(36px, 4.5vw, 60px);
+  line-height: 1.08;
+  letter-spacing: -2.5px;
+}
+
+.arch-premium .pharma-premium-intro-left h3 span {
+  color: #829c39;
+}
+
+.arch-premium .pharma-premium-section-label {
+  color: #829c39;
+}
+
+/* Intro paragraph and CTA */
+.arch-premium .pharma-premium-intro-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 25px;
+}
+
+.arch-premium .pharma-premium-intro-right p {
+  max-width: 560px;
+  color: #62685d;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.arch-premium .pharma-premium-cta {
+  margin-top: 0;
+}
+
+/* Four capability cards */
+.arch-premium .pharma-premium-capabilities {
+  padding: 0 5% 65px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 13px;
+}
+
+.arch-premium .pharma-premium-card {
+  min-height: 300px;
+  padding: 28px 24px;
+  background: #22291e;
+  border: 1px solid rgba(145, 173, 62, 0.12);
+  transition:
+    transform 0.35s ease,
+    background 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.arch-premium .pharma-premium-card:hover {
+  transform: translateY(-7px);
+  background: #303b28;
+  border-color: rgba(145, 173, 62, 0.55);
+  box-shadow: 0 16px 35px rgba(25, 35, 20, 0.15);
+}
+
+.arch-premium .pharma-premium-card-top {
+  margin-bottom: 38px;
+}
+
+.arch-premium .pharma-premium-card-top > span {
+  color: #bdc6ad;
+  font-size: 11px;
+}
+
+.arch-premium .pharma-premium-card-top svg {
+  width: 45px;
+  height: 45px;
+  stroke: #a5c34c;
+  stroke-width: 1.7;
+}
+
+.arch-premium .pharma-premium-card h3 {
+  font-size: 19px;
+  line-height: 1.35;
+  color: #ffffff;
+}
+
+.arch-premium .pharma-premium-card p {
+  font-size: 12px;
+  line-height: 1.8;
+  color: #c1c7b9;
+}
+
+.arch-premium .pharma-premium-card-index {
+  color: rgba(255, 255, 255, 0.055);
+}
+
+/* Three design principles */
+.arch-premium .pharma-premium-delivery {
+  padding: 35px 5% 45px;
+  background: #e9ede3;
+}
+
+.arch-premium .pharma-premium-delivery-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.arch-premium .pharma-premium-delivery-grid article {
+  align-items: flex-start;
+  gap: 19px;
+  padding-top: 28px;
+  padding-bottom: 28px;
+}
+
+.arch-premium .arch-design-icon {
+  width: 38px;
+  height: 38px;
+  flex: 0 0 38px;
+  color: #829c39;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.arch-premium .pharma-premium-delivery-grid h4 {
+  color: #20261b;
+  font-size: 15px;
+  font-weight: 750;
+  line-height: 1.4;
+}
+
+.arch-premium .pharma-premium-delivery-grid p {
+  color: #62685d;
+  font-size: 12px;
+  line-height: 1.75;
+}
+
+/* Tablet */
+@media (max-width: 1000px) {
+  .arch-premium .pharma-premium-capabilities {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .arch-premium .pharma-premium-delivery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .arch-premium .pharma-premium-delivery-grid article,
+  .arch-premium .pharma-premium-delivery-grid article:not(:first-child) {
+    padding: 22px 0;
+    border-right: none;
+    border-bottom: 1px solid #cbd1c1;
+  }
+
+  .arch-premium .pharma-premium-delivery-grid article:last-child {
+    border-bottom: none;
+  }
+}
+
+/* Mobile */
+@media (max-width: 650px) {
+  .arch-premium .pharma-premium-intro {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    padding: 55px 25px 40px;
+  }
+
+  .arch-premium .pharma-premium-intro-left h3 {
+    font-size: clamp(36px, 10vw, 48px);
+    letter-spacing: -1.8px;
+  }
+
+  .arch-premium .pharma-premium-capabilities {
+    grid-template-columns: 1fr;
+    padding: 0 20px 45px;
+  }
+
+  .arch-premium .pharma-premium-card {
+    min-height: 250px;
+  }
+
+  .arch-premium .pharma-premium-delivery {
+    padding: 35px 25px;
+  }
+}
