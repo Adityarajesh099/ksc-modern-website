@@ -2760,6 +2760,32 @@ useEffect(() => {
                               </div>
                             </a>
                           ))}
+                          {/* PROJECT DISCUSSION CTA CARD */}
+<div className="ksc-project-discuss-card service-project-discuss-card">
+
+  <div className="ksc-project-discuss-content">
+
+    <span className="ksc-project-discuss-label">
+      LET'S BUILD TOGETHER
+    </span>
+
+    <h3>Have a project in mind?</h3>
+
+    <p>
+      Let's discuss your requirements and create the right
+      engineering solution for your project.
+    </p>
+
+    <a href="/contact" className="ksc-project-discuss-button">
+      <span>Discuss Your Project</span>
+      <span aria-hidden="true">↗</span>
+    </a>
+
+  </div>
+
+  
+
+</div>
                       </div>
                     </section>
   </main>

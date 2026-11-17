@@ -651,14 +651,10 @@ const handleVideoEnded = () => {
               <p>{service[2]}</p>
 
               
-            <a
-              className="ksc-service-link"
-              href={`/services/${imageKey}`}
-              aria-label={`Explore ${service[1]}`}
-            >
+            <div className="ksc-service-link">
               <span>Explore service</span>
               <span aria-hidden="true">→</span>
-            </a>
+            </div>
 
             </div>
 

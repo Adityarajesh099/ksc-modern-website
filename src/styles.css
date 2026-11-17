@@ -24877,3 +24877,1699 @@ section#projects.projects {
 #clients.clients-section .clients-logo-tile:hover {
   background: #E0E4DC !important;
 }
+
+
+
+
+
+
+
+/* =====================================================
+   ABOUT PAGE – MATCH HOMEPAGE EXPLORE SERVICES CARDS
+===================================================== */
+
+/* Five cards per row on desktop */
+.about-redesign .ar-services-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 16px;
+  align-items: stretch;
+}
+
+/* Card */
+.about-redesign .ar-services-grid .ksc-service-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  height: 100%;
+  overflow: hidden;
+
+  border: 1px solid rgba(155, 183, 90, 0.16);
+  border-radius: 7px;
+  background: #171A14 !important;
+  color: #ffffff;
+  text-decoration: none;
+
+  /* Use the About page's existing scroll reveal */
+  animation: none;
+
+  transition:
+    transform 350ms ease,
+    border-color 350ms ease,
+    box-shadow 350ms ease;
+}
+
+/* Hover */
+.about-redesign .ar-services-grid .ksc-service-card:hover {
+  transform: translateY(-6px) !important;
+  border-color: rgba(155, 183, 90, 0.65);
+
+  box-shadow:
+    0 12px 28px rgba(0, 0, 0, 0.17);
+}
+
+/* Image area */
+.about-redesign .ar-services-grid .ksc-service-card-image {
+  position: relative;
+  isolation: isolate;
+  flex: 0 0 auto;
+  width: 100%;
+  height: 145px;
+
+  overflow: hidden;
+  background-color: #24291d;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Smooth image zoom */
+.about-redesign .ar-services-grid .ksc-service-card-image::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+
+  background: inherit;
+  background-position: center;
+  background-size: cover;
+
+  transition:
+    transform 700ms cubic-bezier(0.2, 0.65, 0.3, 1);
+}
+
+.about-redesign .ar-services-grid .ksc-service-card:hover
+.ksc-service-card-image::before {
+  transform: scale(1.075);
+}
+
+/* Image shade */
+.about-redesign .ar-services-grid .ksc-service-image-shade {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  background: linear-gradient(
+    180deg,
+    rgba(8, 10, 7, 0.38) 0%,
+    rgba(8, 10, 7, 0.04) 38%,
+    rgba(8, 10, 7, 0.67) 100%
+  );
+
+  transition: background 350ms ease;
+}
+
+/* Number badge */
+.about-redesign .ar-services-grid .ksc-service-number {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+
+  display: grid;
+  width: 30px;
+  height: 28px;
+  place-items: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.36);
+  background: rgba(12, 14, 10, 0.65);
+  color: #ffffff;
+
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+
+  backdrop-filter: blur(8px);
+  transition: all 300ms ease;
+}
+
+.about-redesign .ar-services-grid .ksc-service-card:hover
+.ksc-service-number {
+  border-color: #91ad3e;
+  background: #91ad3e;
+  color: #10120e;
+}
+
+/* Top-right arrow */
+.about-redesign .ar-services-grid .ksc-service-card-arrow {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+
+  display: grid;
+  width: 28px;
+  height: 28px;
+  place-items: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 50%;
+
+  color: #ffffff;
+  font-size: 15px;
+
+  transition: all 300ms ease;
+}
+
+.about-redesign .ar-services-grid .ksc-service-card:hover
+.ksc-service-card-arrow {
+  transform: rotate(45deg);
+  border-color: #91ad3e;
+  background: #91ad3e;
+  color: #10120e;
+}
+
+/* Dark information area */
+.about-redesign .ar-services-grid .ksc-service-card-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  flex: 1;
+  min-height: 155px;
+  padding: 15px 14px 13px;
+
+  background: #171A14;
+}
+
+/* Service title */
+.about-redesign .ar-services-grid .ksc-service-card-content h3 {
+  margin: 0 0 5px;
+  color: #ffffff;
+
+  font-size: 15px;
+  font-weight: 650;
+  line-height: 1.35;
+  letter-spacing: -0.3px;
+}
+
+/* Description */
+.about-redesign .ar-services-grid .ksc-service-card-content p {
+  margin: 5px 0 12px;
+  color: #bfc4b8;
+
+  font-size: 11px;
+  line-height: 1.55;
+}
+
+/* Explore service line */
+.about-redesign .ar-services-grid .ksc-service-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  width: 100%;
+  margin-top: auto;
+  padding-top: 10px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.09);
+
+  color: #e7e9df;
+  font-size: 10px;
+  font-weight: 650;
+  text-decoration: none;
+
+  transition:
+    color 250ms ease,
+    border-color 250ms ease;
+}
+
+.about-redesign .ar-services-grid .ksc-service-link span:last-child {
+  color: #91ad3e;
+  font-size: 18px;
+
+  transition: transform 250ms ease;
+}
+
+.about-redesign .ar-services-grid .ksc-service-card:hover
+.ksc-service-link {
+  border-color: rgba(155, 183, 90, 0.4);
+  color: #a7c65e;
+}
+
+.about-redesign .ar-services-grid .ksc-service-card:hover
+.ksc-service-link span:last-child {
+  transform: translateX(5px);
+}
+
+/* Bottom animated olive accent */
+.about-redesign .ar-services-grid .ksc-service-card-accent {
+  position: absolute;
+  right: 100%;
+  bottom: 0;
+  left: 0;
+
+  height: 3px;
+  background: #91ad3e;
+
+  transition: right 350ms ease;
+}
+
+.about-redesign .ar-services-grid .ksc-service-card:hover
+.ksc-service-card-accent {
+  right: 0;
+}
+
+/* Keyboard accessibility */
+.about-redesign .ar-services-grid .ksc-service-card:focus-visible {
+  outline: 3px solid #a7c65e;
+  outline-offset: 4px;
+}
+
+/* Tablet – three cards */
+@media (max-width: 1100px) {
+  .about-redesign .ar-services-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+  }
+}
+
+/* Small tablet – two cards */
+@media (max-width: 760px) {
+  .about-redesign .ar-services-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Mobile – one card */
+@media (max-width: 480px) {
+  .about-redesign .ar-services-grid {
+    grid-template-columns: 1fr;
+    gap: 17px;
+  }
+
+  .about-redesign .ar-services-grid .ksc-service-card-image {
+    height: 190px;
+  }
+
+  .about-redesign .ar-services-grid .ksc-service-card-content {
+    min-height: 145px;
+    padding: 17px 16px 14px;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .about-redesign .ar-services-grid .ksc-service-card,
+  .about-redesign .ar-services-grid .ksc-service-card * {
+    transition: none !important;
+  }
+}
+
+
+
+
+
+/* ABOUT PAGE – HOMEPAGE PROJECT CTA CARD */
+
+.about-redesign .ar-services-grid .ksc-project-discuss-card {
+  min-width: 0;
+  min-height: 300px;
+  height: 100%;
+  align-self: stretch;
+  box-sizing: border-box;
+  padding: 20px 17px;
+  border-radius: 7px;
+
+  background: linear-gradient(
+    145deg,
+    #263326,
+    #151b14
+  );
+}
+
+/* Match the compact service card heading */
+.about-redesign .ksc-project-discuss-content h3 {
+  font-size: 19px;
+  line-height: 1.3;
+}
+
+/* Match compact service card description */
+.about-redesign .ksc-project-discuss-content p {
+  font-size: 11px;
+  line-height: 1.65;
+  margin-bottom: 18px;
+}
+
+/* Match the card button */
+.about-redesign .ksc-project-discuss-button {
+  min-height: 40px;
+  padding: 10px 12px;
+  font-size: 10px;
+}
+
+/* Mobile sizing */
+@media (max-width: 480px) {
+  .about-redesign .ar-services-grid .ksc-project-discuss-card {
+    min-height: 250px;
+  }
+}
+
+
+
+
+
+
+/* ==========================================
+   SERVICE PAGES – PROJECT DISCUSSION CTA
+========================================== */
+
+.service-page .related-services-grid
+.service-project-discuss-card {
+  height: 250px;
+  min-height: 250px;
+  width: 100%;
+  align-self: stretch;
+  box-sizing: border-box;
+  padding: 20px 17px;
+  border-radius: 5px;
+  grid-column: auto;
+}
+
+/* Heading */
+.service-page .service-project-discuss-card
+.ksc-project-discuss-content h3 {
+  font-size: 19px;
+  line-height: 1.3;
+}
+
+/* Description */
+.service-page .service-project-discuss-card
+.ksc-project-discuss-content p {
+  font-size: 11px;
+  line-height: 1.65;
+  margin-bottom: 18px;
+}
+
+/* Button */
+.service-page .service-project-discuss-card
+.ksc-project-discuss-button {
+  min-height: 40px;
+  padding: 10px 12px;
+  font-size: 10px;
+}
+
+/* Match the related-service cards on tablet */
+@media (max-width: 1100px) {
+  .service-page .related-services-grid
+  .service-project-discuss-card {
+    height: 250px;
+    min-height: 250px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .service-page .related-services-grid
+  .service-project-discuss-card {
+    height: 220px;
+    min-height: 220px;
+    padding: 16px 12px;
+  }
+
+  .service-page .service-project-discuss-card
+  .ksc-project-discuss-content h3 {
+    font-size: 17px;
+  }
+}
+
+
+
+
+/* =========================================
+   ABOUT HERO – EXTEND BOTTOM SPACE
+========================================= */
+
+main.about-redesign > section.ar-hero {
+  height: auto !important;
+
+  min-height: calc(
+    clamp(620px, 82vh, 820px) + 70px
+  ) !important;
+
+  padding-bottom: 70px !important;
+  box-sizing: border-box !important;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  main.about-redesign > section.ar-hero {
+    min-height: calc(
+      max(650px, 82svh) + 45px
+    ) !important;
+
+    padding-bottom: 45px !important;
+  }
+}
+
+
+
+
+
+/* =========================================
+   ABOUT HERO – MATCH HOMEPAGE HERO BUTTON
+========================================= */
+
+.about-redesign .ar-hero-content > a.ar-button.ar-button-lime {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+
+  min-height: 54px !important;
+  padding: 0 23px !important;
+
+  border: 3px solid #91ad3e !important;
+  border-radius: 100px !important;
+
+  background: #91ad3e !important;
+  color: #172218 !important;
+
+  font-family: "Manrope", sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.02em;
+
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.18);
+
+  transition: all 0.3s ease !important;
+}
+
+/* Match the homepage arrow */
+.about-redesign .ar-hero-content > a.ar-button.ar-button-lime span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0 !important;
+}
+
+.about-redesign .ar-hero-content > a.ar-button.ar-button-lime span::after {
+  content: "↗";
+  font-size: 19px;
+  line-height: 1;
+}
+
+/* Homepage-style hover */
+.about-redesign .ar-hero-content > a.ar-button.ar-button-lime:hover {
+  background: #ffffff !important;
+  border-color: #a5c653 !important;
+  color: #172218 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.22);
+}
+
+
+
+
+
+
+/* ==========================================
+   KSC SERVICE PAGE – PREMIUM SLIDESHOW FRAME
+========================================== */
+
+/* Outer frame around every slideshow */
+.service-detail-slideshow {
+  position: relative !important;
+  overflow: hidden !important;
+
+  border: 2px solid #34452d !important;
+  border-radius: 10px !important;
+
+  outline: 1px solid rgba(145, 173, 62, 0.55);
+  outline-offset: 4px;
+
+  box-shadow:
+    0 5px 12px rgba(20, 30, 19, 0.08),
+    0 18px 38px rgba(20, 30, 19, 0.14),
+    0 28px 55px rgba(20, 30, 19, 0.06) !important;
+
+  background: #1b281d;
+}
+
+/* Elegant inner border */
+.service-detail-slideshow::before {
+  content: "";
+  position: absolute;
+  inset: 10px;
+  z-index: 8;
+
+  border: 1px solid rgba(255, 255, 255, 0.48);
+  border-radius: 4px;
+
+  pointer-events: none;
+}
+
+/* Lime-green bottom accent */
+.service-detail-slideshow::after {
+  width: 150px !important;
+  height: 4px !important;
+  left: 0 !important;
+  bottom: 0 !important;
+
+  background: linear-gradient(
+    90deg,
+    #91ad3e,
+    #bdd875,
+    transparent
+  ) !important;
+
+  z-index: 10;
+}
+
+/* Preserve image slideshow transitions */
+.service-detail-slideshow .service-slide-image {
+  border-radius: 7px;
+}
+
+/* Refined label */
+.service-detail-slideshow .service-slideshow-label {
+  top: 24px;
+  left: 24px;
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-left: 3px solid #a5c653;
+  border-radius: 2px;
+
+  background: rgba(24, 36, 24, 0.82);
+}
+
+/* Mobile frame adjustment */
+@media (max-width: 600px) {
+  .service-detail-slideshow {
+    border-radius: 7px !important;
+    outline-offset: 2px;
+  }
+
+  .service-detail-slideshow::before {
+    inset: 6px;
+  }
+
+  .service-detail-slideshow .service-slideshow-label {
+    top: 15px;
+    left: 15px;
+  }
+}
+
+
+
+
+
+/* ==========================================
+   KSC – ANIMATED NEON BORDER FLOW
+========================================== */
+
+@property --ksc-neon-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+/* Rotating neon light */
+@keyframes ksc-neon-border-flow {
+  to {
+    --ksc-neon-angle: 360deg;
+  }
+}
+
+/* Slideshow frame */
+.service-detail-slideshow {
+  position: relative !important;
+  isolation: isolate;
+  overflow: hidden !important;
+  border-radius: 10px !important;
+}
+
+/* Travelling neon border */
+.service-detail-slideshow::before {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  z-index: 9;
+  padding: 2px;
+  border-radius: 9px;
+  pointer-events: none;
+
+  background: conic-gradient(
+    from var(--ksc-neon-angle),
+    transparent 0deg,
+    transparent 270deg,
+    rgba(145, 173, 62, 0.35) 300deg,
+    #91ad3e 318deg,
+    #e8ffad 330deg,
+    #a9d34e 340deg,
+    transparent 355deg,
+    transparent 360deg
+  );
+
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+
+  mask-composite: exclude;
+
+  filter: drop-shadow(
+    0 0 5px rgba(165, 198, 83, 0.75)
+  );
+
+  animation: ksc-neon-border-flow 5s linear infinite;
+}
+
+/* Preserve the existing bottom accent */
+.service-detail-slideshow::after {
+  z-index: 10;
+}
+
+/* Slightly brighter neon on hover */
+.service-detail-slideshow:hover::before {
+  filter: drop-shadow(
+    0 0 8px rgba(190, 230, 105, 0.95)
+  );
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .service-detail-slideshow::before {
+    padding: 2px;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .service-detail-slideshow::before {
+    animation: none !important;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+/* =========================================================
+   KSC HOMEPAGE – COMPLETE TABLET & MOBILE RESPONSIVENESS
+   Desktop styles remain unchanged.
+========================================================= */
+
+/* Prevent accidental horizontal overflow */
+html,
+body,
+#root,
+.site {
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+img,
+video {
+  max-width: 100%;
+}
+
+
+/* =========================================================
+   1. TABLET AND MOBILE HEADER
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .header {
+    height: 70px !important;
+    padding: 0 18px !important;
+  }
+
+  .header .brand {
+    flex: 0 1 auto !important;
+    min-width: 0;
+  }
+
+  .header .brand-mark img {
+    width: 210px !important;
+    height: 68px !important;
+    max-width: 58vw !important;
+    object-fit: contain;
+  }
+
+  .menu-button {
+    display: block !important;
+    flex: 0 0 43px;
+    width: 43px !important;
+    height: 43px !important;
+  }
+
+  .header .nav {
+    position: absolute !important;
+    top: 70px !important;
+    left: 0 !important;
+    right: 0 !important;
+
+    display: none !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    justify-content: flex-start !important;
+    gap: 12px !important;
+
+    width: 100%;
+    height: auto !important;
+    max-height: calc(100svh - 70px);
+    overflow-y: auto;
+
+    margin: 0 !important;
+    padding: 22px 20px 28px !important;
+
+    background: #19231a !important;
+    border-top: 1px solid rgba(255,255,255,.12);
+    box-shadow: 0 16px 30px rgba(0,0,0,.22);
+
+    transform: none !important;
+    z-index: 9999;
+  }
+
+  .header .nav.open {
+    display: flex !important;
+  }
+
+  .header .nav > a,
+  .header .nav .nav-dropdown-trigger {
+    display: flex !important;
+    justify-content: space-between !important;
+    width: 100%;
+    min-height: 44px;
+    padding: 10px 14px !important;
+    white-space: normal !important;
+  }
+
+  .header .nav-contact {
+    left: auto !important;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+}
+
+
+/* =========================================================
+   2. HOMEPAGE HERO – VIDEO AND TEXT
+========================================================= */
+
+@media (max-width: 900px) {
+
+  #home.hero {
+    min-height: 760px !important;
+    min-height: 90svh !important;
+    height: auto !important;
+
+    align-items: center !important;
+    padding: 100px 0 85px !important;
+  }
+
+  #home.hero > .hero-background-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+  }
+
+  #home.hero .hero-content {
+    width: calc(100% - 48px) !important;
+    max-width: 760px !important;
+    margin: 25px auto 0 !important;
+    padding: 0 !important;
+    left: auto !important;
+    text-align: left !important;
+  }
+
+  #home.hero .hero-title {
+    font-size: clamp(42px, 7vw, 64px) !important;
+    line-height: 1.02 !important;
+    letter-spacing: -.055em !important;
+    margin: 20px 0 !important;
+  }
+
+  #home.hero .hero-copy,
+  #home.hero .hero-description {
+    width: 100% !important;
+    max-width: 530px;
+    font-size: 16px !important;
+    line-height: 1.75 !important;
+  }
+
+  #home.hero .hero-actions {
+    margin-top: 26px !important;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  #home.hero .hero-lines {
+    opacity: .08;
+  }
+
+  #home.hero .hero-corner {
+    opacity: .35;
+  }
+
+}
+
+
+@media (max-width: 600px) {
+
+  #home.hero {
+    min-height: 700px !important;
+    min-height: 88svh !important;
+    padding: 90px 0 65px !important;
+  }
+
+  #home.hero .hero-content {
+    width: calc(100% - 38px) !important;
+    margin-top: 20px !important;
+  }
+
+  #home.hero .hero-title {
+    font-size: clamp(34px, 9.7vw, 44px) !important;
+    line-height: 1.08 !important;
+    letter-spacing: -.055em !important;
+    margin: 16px 0 20px !important;
+  }
+
+  #home.hero .hero-title span {
+    white-space: normal;
+  }
+
+  #home.hero .hero-description {
+    max-width: 100%;
+    font-size: 14px !important;
+    line-height: 1.75 !important;
+  }
+
+  #home.hero .hero-actions {
+    margin-top: 23px !important;
+  }
+
+  #home.hero .hero-actions .button {
+    min-height: 49px;
+    padding: 0 20px;
+    font-size: 12px;
+  }
+
+  #home.hero .hero-corner {
+    display: none;
+  }
+
+}
+
+
+/* =========================================================
+   3. ABOUT SECTION
+========================================================= */
+
+@media (max-width: 768px) {
+
+  #about.intro.section {
+    padding: 65px 0 35px !important;
+  }
+
+  #about .intro-grid {
+    width: calc(100% - 40px);
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 25px !important;
+  }
+
+  #about .intro-title,
+  #about .intro-copy {
+    width: 100%;
+    min-width: 0;
+  }
+
+  #about .about-heading {
+    font-size: clamp(36px, 8vw, 50px) !important;
+    line-height: 1.08 !important;
+    letter-spacing: -.045em;
+  }
+
+  #about .about-heading-line {
+    display: block;
+  }
+
+  #about .lead {
+    margin-top: 22px !important;
+    font-size: 18px !important;
+    line-height: 1.55 !important;
+  }
+
+  #about .intro-copy {
+    padding-top: 0 !important;
+  }
+
+  #about .about-image {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    min-height: 230px;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+  }
+
+  #about .about-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  #about .intro-copy > p {
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  #about .discover-ksc-button {
+    margin-top: 16px;
+  }
+
+}
+
+
+/* =========================================================
+   4. STATISTICS SECTION
+========================================================= */
+
+@media (max-width: 900px) {
+
+  #about .stats-architecture {
+    width: 100% !important;
+    max-width: none !important;
+    left: auto !important;
+    transform: none !important;
+
+    margin: 40px 0 !important;
+    padding: 35px 28px !important;
+
+    box-sizing: border-box !important;
+  }
+
+  #about .stats-architecture-layout {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 25px !important;
+    padding: 20px 0 !important;
+  }
+
+  #about .stats-feature {
+    padding: 0 0 25px !important;
+    border-right: 0 !important;
+    border-bottom: 1px solid rgba(255,255,255,.20) !important;
+  }
+
+  #about .stats-feature > .stat-number {
+    font-size: clamp(75px, 12vw, 100px) !important;
+  }
+
+  #about .stats-feature h3 {
+    font-size: 22px !important;
+  }
+
+  #about .stats-data-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  #about .stats-data-item {
+    min-width: 0;
+    padding: 17px 12px 17px 0 !important;
+  }
+
+  #about .stats-data-item:nth-child(even) {
+    padding-left: 14px !important;
+    border-left: 1px solid rgba(255,255,255,.17);
+  }
+
+  #about .stats-data-item > .stat-number {
+    font-size: clamp(27px, 5vw, 38px) !important;
+  }
+
+  #about .stats-data-item .industrial-value {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    white-space: normal !important;
+    font-size: clamp(18px, 3vw, 25px) !important;
+  }
+
+  #about .stats-data-wide {
+    grid-column: 1 / -1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 5px;
+  }
+
+}
+
+
+@media (max-width: 480px) {
+
+  #about .stats-architecture {
+    padding: 27px 19px !important;
+    margin: 30px 0 !important;
+  }
+
+  #about .stats-feature > .stat-number {
+    font-size: 76px !important;
+  }
+
+  #about .stats-feature h3 {
+    font-size: 19px !important;
+  }
+
+  #about .stats-feature p {
+    font-size: 12px;
+    line-height: 1.75;
+  }
+
+  #about .stats-data-item > .stat-number {
+    font-size: 29px !important;
+  }
+
+  #about .stats-data-item .industrial-value {
+    font-size: 17px !important;
+  }
+
+  #about .stats-data-label {
+    font-size: 9px;
+    line-height: 1.5;
+  }
+
+}
+
+
+/* =========================================================
+   5. NINE HOMEPAGE SERVICE CARDS
+========================================================= */
+
+@media (max-width: 900px) {
+
+  #services.ksc-services-section {
+    padding: 75px 0 60px !important;
+  }
+
+  #services .ksc-services-container {
+    width: calc(100% - 40px) !important;
+  }
+
+  #services .ksc-services-header {
+    align-items: flex-start !important;
+    gap: 25px !important;
+    margin-top: 0 !important;
+  }
+
+  #services .ksc-services-header h2 {
+    font-size: clamp(34px, 6vw, 48px) !important;
+    line-height: 1.12;
+  }
+
+  #services .ksc-services-header-note {
+    margin-top: 10px;
+  }
+
+  #services .ksc-services-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 15px !important;
+  }
+
+  #services .ksc-service-card {
+    min-width: 0;
+  }
+
+  #services .ksc-service-card-image {
+    height: 180px !important;
+  }
+
+  #services .ksc-service-card-content {
+    min-height: 170px !important;
+    padding: 16px 14px !important;
+  }
+
+}
+
+
+@media (max-width: 600px) {
+
+  #services.ksc-services-section {
+    padding: 60px 0 45px !important;
+  }
+
+  #services .ksc-services-container {
+    width: calc(100% - 34px) !important;
+  }
+
+  #services .ksc-services-header {
+    flex-direction: column !important;
+    gap: 20px !important;
+    margin-bottom: 25px !important;
+  }
+
+  #services .ksc-services-header h2 {
+    font-size: clamp(32px, 9vw, 42px) !important;
+    letter-spacing: -1.3px;
+  }
+
+  #services .ksc-services-intro {
+    font-size: 13px !important;
+    line-height: 1.75 !important;
+  }
+
+  #services .ksc-services-header-note {
+    width: 100%;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+  }
+
+  #services .ksc-profile-download {
+    width: 100%;
+    justify-content: space-between;
+    box-sizing: border-box;
+  }
+
+  #services .ksc-services-grid {
+    grid-template-columns: 1fr !important;
+    gap: 17px !important;
+  }
+
+  #services .ksc-service-card-image {
+    height: 205px !important;
+  }
+
+  #services .ksc-service-card-content {
+    min-height: 0 !important;
+    padding: 18px 17px 16px !important;
+  }
+
+  #services .ksc-service-card-content h3 {
+    font-size: 18px !important;
+    line-height: 1.35;
+  }
+
+  #services .ksc-service-card-content p {
+    font-size: 12px !important;
+    line-height: 1.65;
+  }
+
+  #services .ksc-project-discuss-card {
+    min-height: 230px;
+    height: auto;
+    padding: 22px 18px;
+  }
+
+}
+
+
+/* =========================================================
+   6. ENGINEERING EXCELLENCE – MOVING TRUCK TRANSITION
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .fb-projects-transition.auxiliary-transition {
+    height: 220px !important;
+    min-height: 220px;
+  }
+
+  .fb-projects-transition .auxiliary-transition-content {
+    padding: 20px 18px !important;
+  }
+
+  .fb-projects-transition .auxiliary-transition-content h2 {
+    font-size: clamp(23px, 6vw, 30px) !important;
+    line-height: 1.2 !important;
+  }
+
+  .ksc-truck-road {
+    height: 62px !important;
+    overflow: hidden !important;
+  }
+
+  .ksc-moving-truck {
+    width: 150px !important;
+    height: 54px !important;
+    bottom: -2px;
+    animation-duration: 17s !important;
+  }
+
+}
+
+
+/* =========================================================
+   7. F&B TURNKEY SOLUTIONS
+========================================================= */
+
+@media (max-width: 900px) {
+
+  #projects.projects.section {
+    padding: 75px 0 !important;
+  }
+
+  #projects.projects.section > .container {
+    width: calc(100% - 40px);
+  }
+
+  #projects .fb-section-heading h2 {
+    font-size: clamp(36px, 6vw, 52px) !important;
+    line-height: 1.08;
+  }
+
+  #projects .fb-section-heading p {
+    font-size: 15px !important;
+    line-height: 1.65;
+  }
+
+  #projects .fb-solutions-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 14px;
+  }
+
+  #projects .fb-solution-card {
+    min-height: 190px;
+    padding: 22px;
+  }
+
+  #projects .fb-solution-card p {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+}
+
+
+@media (max-width: 480px) {
+
+  #projects.projects.section {
+    padding: 60px 0 !important;
+  }
+
+  #projects.projects.section > .container {
+    width: calc(100% - 34px);
+  }
+
+  #projects .fb-section-heading {
+    margin-bottom: 28px;
+  }
+
+  #projects .fb-section-heading h2 {
+    font-size: clamp(32px, 8.8vw, 42px) !important;
+    letter-spacing: -.045em;
+  }
+
+  #projects .fb-section-heading p {
+    font-size: 13px !important;
+  }
+
+  #projects .fb-solutions-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 12px;
+  }
+
+  #projects .fb-solution-card {
+    min-height: 155px;
+    padding: 21px;
+  }
+
+  #projects .fb-solution-icon {
+    width: 43px;
+    height: 43px;
+    margin-bottom: 18px;
+  }
+
+  #projects .fb-solution-icon svg {
+    width: 36px;
+    height: 36px;
+  }
+
+  #projects .fb-solution-card p {
+    font-size: 14px;
+  }
+
+}
+
+
+/* =========================================================
+   8. BUILT ON EXPERIENCE – EXCAVATOR TRANSITION
+========================================================= */
+
+@media (max-width: 600px) {
+
+  section[aria-label="KSC construction"].auxiliary-transition {
+    height: 230px !important;
+    min-height: 230px;
+  }
+
+  section[aria-label="KSC construction"] .auxiliary-transition-content {
+    padding: 20px 18px !important;
+  }
+
+  section[aria-label="KSC construction"] .auxiliary-transition-content h2 {
+    font-size: clamp(24px, 6.5vw, 32px) !important;
+    line-height: 1.2 !important;
+  }
+
+  section[aria-label="KSC construction"] .transition-excavator {
+    width: 105px !important;
+    max-width: 30vw;
+    bottom: -3px;
+  }
+
+}
+
+
+/* =========================================================
+   9. QUALITY & VALUE SECTION
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .quality-value-section {
+    padding: 75px 5% !important;
+  }
+
+  .qv-container {
+    width: 100%;
+  }
+
+  .qv-header {
+    grid-template-columns: minmax(0, 1fr) 170px !important;
+    gap: 25px !important;
+    padding: 55px 0 !important;
+  }
+
+  .qv-heading-copy h2 {
+    font-size: clamp(35px, 5.5vw, 48px) !important;
+    letter-spacing: -1.8px;
+  }
+
+  .qv-mark-circle {
+    width: 160px !important;
+    height: 160px !important;
+  }
+
+  .qv-card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .qv-card-wide {
+    grid-column: span 2;
+  }
+
+}
+
+
+@media (max-width: 600px) {
+
+  .quality-value-section {
+    padding: 58px 19px 45px !important;
+  }
+
+  .qv-header {
+    grid-template-columns: 1fr !important;
+    gap: 25px !important;
+    padding: 42px 0 48px !important;
+  }
+
+  .qv-heading-copy h2 {
+    font-size: clamp(32px, 9vw, 40px) !important;
+    line-height: 1.15 !important;
+    letter-spacing: -1.4px !important;
+  }
+
+  .qv-mark-circle {
+    width: 145px !important;
+    height: 145px !important;
+    margin: 0 auto;
+  }
+
+  .qv-card-grid {
+    grid-template-columns: 1fr !important;
+    gap: 13px !important;
+    padding-bottom: 15px !important;
+  }
+
+  .qv-card,
+  .qv-card-wide {
+    grid-column: auto !important;
+    min-height: 225px !important;
+    padding: 22px !important;
+  }
+
+  .qv-card-bottom h3 {
+    font-size: 19px !important;
+  }
+
+  .qv-card-bottom p {
+    font-size: 12px !important;
+  }
+
+  .qv-footer {
+    margin-top: 30px !important;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+}
+
+
+/* =========================================================
+   10. PROJECT FOOTPRINT – SAFE CONTAINER WIDTH
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .project-footprint,
+  .project-footprint-section {
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .project-footprint .container,
+  .project-footprint-section .container {
+    width: calc(100% - 34px);
+    max-width: 100%;
+  }
+
+}
+
+
+/* =========================================================
+   11. SAUDI VISION 2030
+========================================================= */
+
+@media (max-width: 850px) {
+
+  .vision2030-section {
+    min-height: auto !important;
+    padding: 48px 0 !important;
+  }
+
+  .vision2030-container {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 25px !important;
+    width: calc(100% - 44px);
+    padding: 0 !important;
+  }
+
+  .vision2030-logo img {
+    display: block;
+    width: min(200px, 65%);
+    max-height: 130px;
+    object-fit: contain;
+    margin: 0 auto;
+  }
+
+  .vision2030-content {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .vision2030-content-inner {
+    width: 100%;
+    padding: 25px 0;
+  }
+
+  .vision2030-content h2 {
+    font-size: clamp(30px, 6vw, 42px);
+    line-height: 1.15;
+  }
+
+  .vision2030-content p {
+    font-size: 13px;
+    line-height: 1.8;
+  }
+
+}
+
+
+/* =========================================================
+   12. CLIENTS & PARTNERS
+========================================================= */
+
+@media (max-width: 600px) {
+
+  #clients.clients-section {
+    padding: 55px 0 !important;
+  }
+
+  #clients .container {
+    width: calc(100% - 34px);
+  }
+
+  #clients .clients-layout {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 27px !important;
+  }
+
+  #clients .clients-copy h2 {
+    font-size: clamp(36px, 10vw, 46px) !important;
+    line-height: 1.04;
+    letter-spacing: -.055em;
+  }
+
+  #clients .clients-description {
+    font-size: 13px;
+    line-height: 1.8;
+  }
+
+  #clients .clients-conveyor {
+    width: 100%;
+    height: 325px !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 8px !important;
+
+    --clients-tile-height: 78px !important;
+    --clients-gap: 8px !important;
+  }
+
+  #clients .clients-column-1 {
+    padding-top: 18px;
+  }
+
+  #clients .clients-column-2 {
+    padding-top: 0;
+  }
+
+  #clients .clients-column-3 {
+    padding-top: 28px;
+  }
+
+  #clients .clients-logo-tile {
+    min-width: 0;
+    padding: 7px !important;
+    border-radius: 9px !important;
+  }
+
+  #clients .clients-logo-tile img {
+    max-width: 95%;
+    max-height: 43px;
+  }
+
+}
+
+
+/* =========================================================
+   13. SOCIAL MEDIA SIDEBAR – MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .social-sidebar {
+    right: 5px !important;
+    left: auto !important;
+    top: 52% !important;
+    bottom: auto !important;
+
+    transform: translateY(-50%) scale(.76) !important;
+    transform-origin: right center !important;
+
+    z-index: 9999;
+  }
+
+  .social-sidebar .social-link {
+    width: 34px !important;
+    height: 34px !important;
+    flex: 0 0 34px;
+  }
+
+  .social-sidebar .social-link svg {
+    width: 17px;
+    height: 17px;
+  }
+
+}
+
+
+/* =========================================================
+   14. GENERAL PHONE SPACING AND SAFETY
+========================================================= */
+
+@media (max-width: 480px) {
+
+  .container {
+    width: calc(100% - 34px) !important;
+    max-width: 100% !important;
+  }
+
+  .section {
+    padding-top: 58px;
+    padding-bottom: 58px;
+  }
+
+  .button,
+  .discover-ksc-button {
+    max-width: 100%;
+  }
+
+  .project-grid,
+  .industry-grid,
+  .career-grid,
+  .contact-inner {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  .project-card {
+    min-width: 0;
+  }
+
+  .footer-top,
+  .footer-bottom {
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .footer-links {
+    flex-wrap: wrap;
+    gap: 14px 20px;
+  }
+
+}
+
+
+/* =========================================================
+   15. ACCESSIBILITY – REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  #home.hero .hero-content > *,
+  .ksc-service-card,
+  .ksc-moving-truck,
+  .clients-column-track,
+  #projects.projects.section::before,
+  #projects.projects.section::after {
+    animation: none !important;
+  }
+
+  .ksc-service-card,
+  .fb-solution-card,
+  .qv-card,
+  .clients-logo-tile {
+    transition-duration: 0.01ms !important;
+  }
+
+}

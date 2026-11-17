@@ -6,49 +6,64 @@ const services = [
     title: "Civil Construction",
     slug: "civil-construction",
     image: "/images/Civil-002.jpg",
+    description: "Structures, infrastructure and turnkey civil works.",
   },
   {
     number: "02",
     title: "Electrical Works",
     slug: "electrical-works",
     image: "/images/Electrical-001.png",
+    description: "Reliable electrical systems for demanding facilities.",
   },
   {
     number: "03",
     title: "Mechanical Works",
     slug: "mechanical-works",
     image: "/images/Mech-001.jpg",
+    description: "Industrial mechanical installation and project delivery.",
   },
   {
     number: "04",
     title: "Architectural & Interior Design",
     slug: "architectural-interior-finishes",
     image: "/images/Arch-001.jpeg",
+    description: "Architectural finishes and interior fitout solutions.",
   },
   {
     number: "05",
     title: "Equipment & Machine Installations",
     slug: "equipment-machine-installations",
     image: "/images/Installation-001.png",
+    description: "Specialized equipment and machine installation and commissioning.",
   },
   {
     number: "06",
     title: "Fire Detection & Fire Fighting System",
     slug: "fire-detection-fire-fighting",
     image: "/images/Fire-001.png",
+    description: "Integrated fire detection and fire fighting systems.",
   },
   {
     number: "07",
     title: "HVAC Works",
     slug: "hvac-works",
     image: "/images/HVAC-001.png",
+    description: "Efficient heating, ventilation and air-conditioning solutions.",
   },
   {
     number: "08",
     title: "Fitout Works",
     slug: "fitout-works",
     image: "/images/Fitout-001.jpg",
+    description: "End-to-end interior fitout for commercial and industrial spaces.",
   },
+  {
+  number: "09",
+  title: "Pharmaceutical & Cleanroom Facilities",
+  slug: "pharmaceutical-cleanroom-facilities",
+  image: "/images/pharma.jpg",
+  description: "Specialized pharmaceutical facilities and controlled cleanroom environments.",
+},
 ];
 
 const aboutImages = [
@@ -199,11 +214,6 @@ export default function AboutPage() {
             <span aria-hidden="true">↘</span>
           </a>
 
-        </div>
-
-        <div className="ar-hero-footer">
-          <span>ENGINEERING WHAT'S NEXT.</span>
-          <span>01 / WHO WE ARE</span>
         </div>
 
       </section>
@@ -550,39 +560,98 @@ export default function AboutPage() {
 
           <div className="ar-services-grid">
 
-            {services.map((service) => (
+  {services.map((service, index) => (
 
-              <a
-                key={service.slug}
-                href={`/services/${service.slug}`}
-                className="ar-service-card ar-reveal"
-              >
+    <a
+      key={service.slug}
+      href={`/services/${service.slug}`}
+      className="ksc-service-card ar-reveal"
+      style={{ "--card-index": index }}
+    >
 
-                <img
-                  src={service.image}
-                  alt={service.title}
-                  loading="lazy"
-                />
+      {/* SERVICE IMAGE */}
+      <div
+        className="ksc-service-card-image"
+        style={{
+          backgroundImage: `url("${service.image}")`,
+        }}
+        role="img"
+        aria-label={service.title}
+      >
 
-                <span className="ar-service-number">
-                  {service.number}
-                </span>
+        <div className="ksc-service-image-shade"></div>
 
-                <div className="ar-service-shade" />
+        {/* Number */}
+        <span className="ksc-service-number">
+          {service.number}
+        </span>
 
-                <div className="ar-service-info">
+        {/* Corner arrow */}
+        <span
+          className="ksc-service-card-arrow"
+          aria-hidden="true"
+        >
+          ↗
+        </span>
 
-                  <h3>{service.title}</h3>
+      </div>
 
-                  <span aria-hidden="true">↗</span>
 
-                </div>
+      {/* SERVICE INFORMATION */}
+      <div className="ksc-service-card-content">
 
-              </a>
+        <h3>{service.title}</h3>
 
-            ))}
+        <p>{service.description}</p>
 
-          </div>
+        {/* Explore service – entire card is clickable */}
+        <span className="ksc-service-link">
+
+          <span>Explore service</span>
+
+          <span aria-hidden="true">→</span>
+
+        </span>
+
+      </div>
+
+
+      {/* Animated bottom accent */}
+      <div
+        className="ksc-service-card-accent"
+        aria-hidden="true"
+      />
+
+    </a>
+
+  ))}
+{/* PROJECT DISCUSSION CTA CARD */}
+<div className="ksc-project-discuss-card ar-reveal">
+
+  <div className="ksc-project-discuss-content">
+
+    <span className="ksc-project-discuss-label">
+      LET'S BUILD TOGETHER
+    </span>
+
+    <h3>Have a project in mind?</h3>
+
+    <p>
+      Let's discuss your requirements and create the right
+      engineering solution for your project.
+    </p>
+
+    <a href="/contact" className="ksc-project-discuss-button">
+      <span>Discuss Your Project</span>
+      <span aria-hidden="true">↗</span>
+    </a>
+
+  </div>
+
+  <span className="ksc-project-discuss-number">KSC</span>
+
+</div>
+</div>
 
         </div>
 
