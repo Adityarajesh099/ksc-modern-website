@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
+import WebsiteLoader from "./components/WebsiteLoader";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ServicePage from "./pages/ServicePage";
 import AboutPage from "./pages/AboutPage";
@@ -341,6 +342,8 @@ const handleVideoEnded = () => {
 };
 
   return (
+    <>
+    <WebsiteLoader />
     <div className="site">
             
 
@@ -713,7 +716,7 @@ const handleVideoEnded = () => {
   </div>
 
   {/* Animated road along the bottom */}
-  <div className="ksc-truck-road" aria-hidden="true">
+  {/*<div className="ksc-truck-road" aria-hidden="true">
     <div className="ksc-road-markings" />
 
     <div className="ksc-moving-truck">
@@ -724,7 +727,7 @@ const handleVideoEnded = () => {
   />
 </div>
     </div>
-  </div>
+  </div>*/}
 
 </section>
 
@@ -867,11 +870,11 @@ const handleVideoEnded = () => {
 <section className="auxiliary-transition" aria-label="KSC construction">
   <div className="auxiliary-transition-image" />
   <div className="auxiliary-transition-overlay" />
-<img
+{/*<img
   src="/images/excavator.png"
   alt="KSC construction excavator"
   className="transition-excavator"
-/>
+/>*/}
   <div className="auxiliary-transition-content">
     <h2>Built on Experience.<br />
     <span>Driven by Excellence.</span>
@@ -1276,6 +1279,7 @@ const handleVideoEnded = () => {
 
       
     </div>
+    </>
   );
 }
 
