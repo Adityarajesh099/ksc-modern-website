@@ -7,7 +7,9 @@ export default function WebsiteLoader() {
   const [pageReady, setPageReady] = useState(false);
   const [minimumTimeDone, setMinimumTimeDone] = useState(false);
   const [exiting, setExiting] = useState(false);
-  const [visible, setVisible] = useState(true);
+  const [visible, setVisible] = useState(() => {
+  return !sessionStorage.getItem("ksc_loader_shown");
+});
 
   // Minimum loader display time
   useEffect(() => {
@@ -164,6 +166,7 @@ export default function WebsiteLoader() {
     }, 300);
 
     const hideTimer = setTimeout(() => {
+      sessionStorage.setItem("ksc_loader_shown", "true");
       setVisible(false);
     }, 1000);
 
