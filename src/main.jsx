@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ServicePage from "./pages/ServicePage";
 import AboutPage from "./pages/AboutPage";
 import ProjectsPage from "./pages/ProjectsPage";
-import GalleryPage from "./pages/GalleryPage";
+import GalleryPage from "./pages/HSE";
 import ClientsPage from "./pages/ClientsPage";
 import CareersPage from "./pages/CareersPage";
 import ContactPage from "./pages/ContactPage";
@@ -519,7 +519,7 @@ const handleVideoEnded = () => {
       </div>
 
       <div className="stats-data-item">
-        <span className="stats-index">INVESTMENT</span>
+        <span className="stats-index">PROJECT VALUE</span>
         <strong
           className="stat-number industrial-value"
           data-target="1000000000"
@@ -529,7 +529,7 @@ const handleVideoEnded = () => {
           <span className="plus">+</span>
         </strong>
         <span className="stats-data-label">
-          Industrial project value executed
+          Total project value executed since establishment
         </span>
       </div>
 
@@ -1209,7 +1209,7 @@ const handleVideoEnded = () => {
 
   </a>
 
-  <a
+  {/*<a
     href="https://twitter.com/"
     target="_blank"
     rel="noopener noreferrer"
@@ -1219,7 +1219,7 @@ const handleVideoEnded = () => {
     <svg viewBox="0 0 24 24" aria-hidden="true">
       <path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3l-4.9-6.5L6.3 22H3.1l7.3-8.4L2.6 2h6.5l4.4 5.9L18.9 2Zm-1.1 18h1.7L8 3.9H6.2L17.8 20Z" />
     </svg>
-  </a>
+  </a>*/}
 
   <a
   href="mailto:sales@ksc-sa.com"
@@ -1250,7 +1250,7 @@ const handleVideoEnded = () => {
   </svg>
 </a>
 
-  <a
+  {/*<a
     href="https://www.instagram.com/ksc_architecture/"
     target="_blank"
     rel="noopener noreferrer"
@@ -1262,7 +1262,7 @@ const handleVideoEnded = () => {
       <circle cx="12" cy="12" r="4" />
       <circle cx="17.5" cy="6.8" r="0.8" fill="currentColor" stroke="none" />
     </svg>
-  </a>
+  </a>*/}
 
   <a
     href="https://www.linkedin.com/company/khamis-al-sharjah-contracting-co/posts/"
@@ -1296,6 +1296,7 @@ function SiteLayout() {
         <Route path="/projects" element={<ProjectsPage />} />
         <Route path="/gallery" element={<GalleryPage />} />
         <Route path="/clients" element={<ClientsPage />} />
+        <Route path="/Safety" element={<GalleryPage />} />
         <Route path="/careers" element={<CareersPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/admin" element={<AdminPage />} />

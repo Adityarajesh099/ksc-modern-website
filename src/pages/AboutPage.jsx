@@ -67,10 +67,12 @@ const services = [
 ];
 
 const aboutImages = [
-  "/images/ksc-hero-04.jpg",
-  "/images/ksc-hero-02.jpg",
-  "/images/Civil-002.jpg",
-  "/images/Mech-001.jpg",
+  "/images/KSC Office1.png",
+  "/images/KSC Office2.png",
+  "/images/KSC Office3.png",
+  "/images/KSC Office4.png",
+  "/images/KSC Office5.png",
+  "/images/KSC Office6.png",
 ];
 
 const values = [
@@ -270,7 +272,7 @@ export default function AboutPage() {
 
               <div className="ar-image-index">
                 {String(activeImage + 1).padStart(2, "0")}
-                <span> / 04</span>
+                <span> / {String(aboutImages.length).padStart(2, "0")}</span>
               </div>
 
             </div>

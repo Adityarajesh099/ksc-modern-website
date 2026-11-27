@@ -20125,7 +20125,6 @@ section#about {
 /* Construction banner – fixed blurred background */
 .auxiliary-transition[aria-label="KSC construction"]
 .auxiliary-transition-image {
-  filter: blur(2px);
   transform: none !important;
   background-attachment: fixed !important;
   background-position: center center !important;
@@ -26572,4 +26571,34 @@ video {
     transition-duration: 0.01ms !important;
   }
 
+}
+
+
+
+
+
+
+
+
+/* =========================================
+   KSC — REMOVE ENGINEERING BANNER BLUR
+========================================= */
+
+.fb-projects-transition::before {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  filter: none !important;
+}
+
+/* Keep the banner image perfectly sharp */
+.fb-projects-transition .auxiliary-transition-image {
+  filter: none !important;
+  -webkit-filter: none !important;
+  transform: none !important;
+}
+
+/* Preserve the original heading and content */
+.fb-projects-transition .auxiliary-transition-content {
+  filter: none !important;
+  -webkit-filter: none !important;
 }
