@@ -120,3 +120,276 @@
 }
 
 
+
+
+
+/* =================================
+   KSC LOADER PROGRESS BAR
+================================= */
+
+.loader-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: min(340px, 85vw);
+}
+
+/* Progress container */
+
+.ksc-progress-container {
+  width: 100%;
+  margin-top: 45px;
+}
+
+/* Percentage and label */
+
+.ksc-progress-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.ksc-progress-info span {
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.ksc-progress-info strong {
+  color: #a5c832;
+  font-size: 15px;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Progress track */
+
+.ksc-progress-track {
+  width: 100%;
+  height: 4px;
+  overflow: hidden;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.13);
+}
+
+/* Animated fill */
+
+.ksc-progress-fill {
+  height: 100%;
+  border-radius: 20px;
+  background: linear-gradient(
+    90deg,
+    #789432,
+    #a5c832,
+    #d0e87a
+  );
+  box-shadow: 0 0 12px rgba(165, 200, 50, 0.45);
+  transition: width 0.25s ease;
+}
+
+/* Footer */
+
+.ksc-progress-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.ksc-progress-footer span {
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 7px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+
+
+
+
+
+/* ==========================================
+   KSC PREMIUM LOADING PROGRESS DESIGN
+========================================== */
+
+.ksc-progress-container {
+  width: min(380px, 85vw);
+  margin-top: 55px;
+  position: relative;
+}
+
+/* Top information row */
+
+.ksc-progress-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.ksc-progress-info span {
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+/* Large percentage */
+
+.ksc-progress-info strong {
+  color: #b6d94b;
+  font-size: 25px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  font-variant-numeric: tabular-nums;
+  text-shadow: 0 0 18px rgba(181, 217, 75, 0.25);
+  transition: color 0.3s ease;
+}
+
+/* Progress track */
+
+.ksc-progress-track {
+  position: relative;
+  width: 100%;
+  height: 17px;
+  padding: 1px;
+  overflow: hidden;
+  border: 1px solid rgba(178, 207, 111, 0.16);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.07);
+  box-shadow:
+    inset 0 2px 5px rgba(0, 0, 0, 0.35),
+    0 0 15px rgba(148, 184, 57, 0.04);
+}
+
+/* Progress fill */
+
+.ksc-progress-fill {
+  position: relative;
+  height: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+
+  background: linear-gradient(
+    90deg,
+    #66852c 0%,
+    #91b637 45%,
+    #c4e85a 100%
+  );
+
+  box-shadow:
+    0 0 8px rgba(165, 200, 50, 0.55),
+    0 0 20px rgba(165, 200, 50, 0.25);
+
+  transition: width 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Moving highlight */
+
+.ksc-progress-fill::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 45%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.65),
+    transparent
+  );
+  animation: kscProgressShine 1.8s ease-in-out infinite;
+}
+
+@keyframes kscProgressShine {
+  0% {
+    transform: translateX(-130%);
+  }
+  100% {
+    transform: translateX(300%);
+  }
+}
+
+/* Footer information */
+
+.ksc-progress-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-top: 17px;
+}
+
+.ksc-progress-footer span {
+  color: rgba(255, 255, 255, 0.38);
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.ksc-progress-footer span:last-child {
+  color: #a8ca43;
+  text-align: right;
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+  .ksc-progress-container {
+    margin-top: 42px;
+  }
+
+  .ksc-progress-info strong {
+    font-size: 22px;
+  }
+
+  .ksc-progress-info span {
+    font-size: 9px;
+    letter-spacing: 2px;
+  }
+
+  .ksc-progress-footer span {
+    font-size: 7px;
+    letter-spacing: 0.8px;
+  }
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  .ksc-progress-fill::after {
+    animation: none;
+  }
+}
+
+
+
+
+
+
+
+
+
+/* Centered loading status below progress bar */
+.ksc-progress-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 16px;
+  text-align: center;
+}
+
+.ksc-progress-footer span {
+  color: #a8ca43;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}

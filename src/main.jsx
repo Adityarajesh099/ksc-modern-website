@@ -343,7 +343,6 @@ const handleVideoEnded = () => {
 
   return (
     <>
-    <WebsiteLoader />
     <div className="site">
             
 
@@ -1288,6 +1287,7 @@ const handleVideoEnded = () => {
 function SiteLayout() {
   return (
     <>
+    <WebsiteLoader />
       <SiteHeader />
 
       <Routes>

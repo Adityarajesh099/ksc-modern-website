@@ -292,9 +292,6 @@ export default function HSE() {
   <div className="hse-hero-glow"></div>
 
   <div className="hse-hero-content">
-    <div className="hse-hero-label">
-      <span></span> KHAMIS AL SHARJAH CONTRACTING CO.
-    </div>
 
     <p className="hse-hero-overline">
       OUR COMMITMENT. OUR RESPONSIBILITY.
@@ -320,11 +317,7 @@ export default function HSE() {
       </a>
     </div>
 
-    <div className="hse-hero-bottom">
-      <span>HSE POLICY</span>
-      <span>EDITION 2025</span>
-      <span>SAFETY FIRST · ALWAYS</span>
-    </div>
+    
   </div>
 
   <div className="hse-hero-art">
@@ -346,17 +339,6 @@ export default function HSE() {
     <div className="hse-art-dot dot-two"></div>
     <div className="hse-art-dot dot-three"></div>
 
-    <div className="hse-art-side-label">
-      <span>01</span>
-      <span>PROTECT</span>
-      <span>PREVENT</span>
-      <span>PERFORM</span>
-    </div>
-
-    <div className="hse-art-caption">
-      <span>01 / 2025</span>
-      <span>SAFE WORK. SAFE PEOPLE.</span>
-    </div>
   </div>
 </section>
 

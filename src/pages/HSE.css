@@ -2084,3 +2084,63 @@
     animation: none;
   }
 }
+
+
+
+
+
+
+/* HSE HERO — SLIGHTLY TALLER */
+.hse-hero {
+  min-height: 800px;
+  padding-top: 120px;
+  padding-bottom: 75px;
+}
+
+/* Keep the mobile layout compact */
+@media (max-width: 700px) {
+  .hse-hero {
+    min-height: auto;
+    padding-top: 75px;
+    padding-bottom: 55px;
+  }
+}
+
+
+
+
+
+
+
+/* Animate all orbiting lime dots */
+.hse-hero-art .hse-art-dot {
+  offset-path: circle(170px at 50% 50%);
+  offset-rotate: 0deg;
+  animation: hseDotOrbit 12s linear infinite;
+  will-change: offset-distance;
+}
+
+/* Different speeds and starting positions */
+.hse-hero-art .dot-one {
+  animation-duration: 12s;
+  animation-delay: 0s;
+}
+
+.hse-hero-art .dot-two {
+  animation-duration: 15s;
+  animation-delay: -5s;
+}
+
+.hse-hero-art .dot-three {
+  animation-duration: 10s;
+  animation-delay: -7s;
+}
+
+@keyframes hseDotOrbit {
+  from {
+    offset-distance: 0%;
+  }
+  to {
+    offset-distance: 100%;
+  }
+}
