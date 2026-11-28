@@ -2144,3 +2144,432 @@
     offset-distance: 100%;
   }
 }
+
+
+
+
+
+
+.hse-brochure-card {
+  position: relative;
+  display: flex;
+  width: 100%;
+  min-height: 280px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 35px 25px;
+  overflow: hidden;
+
+  color: #ffffff;
+  text-decoration: none;
+  text-align: center;
+
+  background: linear-gradient(
+    135deg,
+    rgba(120, 150, 48, 0.16),
+    rgba(25, 40, 24, 0.35)
+  );
+
+  border: 1px solid rgba(165, 200, 50, 0.35);
+
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    background 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.hse-brochure-card:hover {
+  transform: translateY(-6px);
+  border-color: #a5c832;
+
+  background: linear-gradient(
+    135deg,
+    rgba(120, 150, 48, 0.28),
+    rgba(25, 40, 24, 0.55)
+  );
+
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.hse-brochure-label {
+  margin-bottom: 15px;
+  color: #a5c832;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 3px;
+}
+
+.hse-brochure-title {
+  color: #a5c832;
+  font-size: clamp(45px, 5vw, 58px);
+  font-weight: 800;
+  letter-spacing: 9px;
+  line-height: 1;
+}
+
+.hse-brochure-year {
+  margin-top: 12px;
+  color: #ffffff;
+  font-size: 35px;
+  font-weight: 700;
+}
+
+.hse-brochure-caption {
+  margin-top: 17px;
+  color: #aeb99c;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+}
+
+.hse-brochure-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 24px;
+  padding: 10px 17px;
+  color: #172218;
+  background: #a5c832;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  transition: background 0.3s ease;
+}
+
+.hse-brochure-card:hover .hse-brochure-action {
+  background: #d7ff48;
+}
+
+.hse-download-icon {
+  font-size: 19px;
+  line-height: 1;
+}
+
+
+
+.hse-back-topics {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 28px;
+  padding: 11px 17px;
+  color: #526b25;
+  border: 1px solid rgba(82, 107, 37, 0.3);
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 700;
+  transition: all 0.25s ease;
+}
+
+.hse-back-topics:hover {
+  color: #fff;
+  background: #526b25;
+  transform: translateX(-3px);
+}
+
+
+
+
+
+/* =========================================
+   CORE VALUES — PREMIUM HSE DESIGN
+========================================= */
+
+.hse-values-section {
+  --value-green: #526b25;
+  --value-lime: #91ad3e;
+  --value-dark: #1b281b;
+  --value-muted: #687260;
+
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 115px 9%;
+  background: #e9efdc;
+}
+
+/* Subtle architectural background detail */
+.hse-values-section::before {
+  content: "KSC";
+  position: absolute;
+  z-index: -1;
+  top: 10px;
+  right: -15px;
+  color: rgba(82, 107, 37, 0.045);
+  font-size: clamp(180px, 25vw, 360px);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -20px;
+  pointer-events: none;
+}
+
+.hse-values-section::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 420px;
+  height: 420px;
+  right: -180px;
+  bottom: -250px;
+  border: 1px solid rgba(82, 107, 37, 0.13);
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 35px rgba(82, 107, 37, 0.025),
+    0 0 0 70px rgba(82, 107, 37, 0.025);
+  pointer-events: none;
+}
+
+/* SECTION HEADING */
+
+.hse-values-section .hse-section-title {
+  position: relative;
+  max-width: 1250px;
+  margin: 0 auto 65px;
+}
+
+.hse-values-section .hse-section-title h2 {
+  color: var(--value-dark);
+  font-size: clamp(38px, 4.2vw, 62px);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -2.8px;
+}
+
+.hse-values-section .hse-section-title p {
+  max-width: 580px;
+  margin-top: 17px;
+  color: var(--value-muted);
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+/* THREE VALUE CARDS */
+
+.hse-values-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  max-width: 1250px;
+  margin: 0 auto;
+}
+
+.hse-value-card {
+  position: relative;
+  display: flex;
+  min-height: 355px;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 32px 30px 28px;
+  overflow: hidden;
+
+  background: rgba(247, 249, 241, 0.78);
+  border: 1px solid rgba(82, 107, 37, 0.19);
+  border-radius: 3px;
+
+  box-shadow: 0 12px 35px rgba(36, 52, 24, 0.035);
+  transition:
+    transform 0.4s ease,
+    background 0.4s ease,
+    border-color 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+/* Oversized background number */
+.hse-value-card::before {
+  content: attr(data-number);
+  position: absolute;
+  top: 75px;
+  right: 13px;
+  color: rgba(82, 107, 37, 0.055);
+  font-size: 150px;
+  font-weight: 900;
+  line-height: 1;
+  pointer-events: none;
+}
+
+/* Top accent */
+.hse-value-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 4px;
+  background: var(--value-lime);
+  transition: width 0.4s ease;
+}
+
+.hse-value-card:hover {
+  transform: translateY(-9px);
+  background: #f8faF2;
+  border-color: rgba(82, 107, 37, 0.42);
+  box-shadow: 0 22px 45px rgba(36, 52, 24, 0.10);
+}
+
+.hse-value-card:hover::after {
+  width: 100%;
+}
+
+/* CARD TOP */
+
+.hse-card-top {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 45px;
+}
+
+.hse-card-top > span:first-child {
+  color: var(--value-green);
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+/* ICON BLOCK */
+
+.hse-value-icon {
+  display: grid;
+  width: 53px;
+  height: 53px;
+  place-items: center;
+
+  color: var(--value-green);
+  background: #e8efd8;
+  border: 1px solid rgba(82, 107, 37, 0.16);
+  border-radius: 2px;
+
+  font-size: 25px;
+  transition:
+    color 0.35s ease,
+    background 0.35s ease,
+    transform 0.35s ease;
+}
+
+.hse-value-card:hover .hse-value-icon {
+  color: #f8faF2;
+  background: var(--value-green);
+  transform: rotate(-8deg);
+}
+
+/* CARD CONTENT */
+
+.hse-value-card h3 {
+  position: relative;
+  z-index: 1;
+  margin: 0 0 15px;
+  color: var(--value-dark);
+  font-size: clamp(19px, 1.5vw, 23px);
+  font-weight: 750;
+  line-height: 1.3;
+  letter-spacing: -0.6px;
+}
+
+.hse-value-card p {
+  position: relative;
+  z-index: 1;
+  max-width: 350px;
+  margin: 0;
+  color: #687260;
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+/* BOTTOM ACCENT */
+
+.hse-card-line {
+  position: relative;
+  width: 43px;
+  height: 3px;
+  margin-top: auto;
+  padding-top: 0;
+  background: var(--value-lime);
+  transition: width 0.4s ease;
+}
+
+.hse-value-card:hover .hse-card-line {
+  width: 85px;
+}
+
+/* TABLET */
+
+@media (max-width: 1000px) {
+  .hse-values-section {
+    padding: 90px 5%;
+  }
+
+  .hse-values-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .hse-value-card {
+    min-height: 330px;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  .hse-values-section {
+    padding: 72px 22px;
+  }
+
+  .hse-values-section .hse-section-title {
+    margin-bottom: 38px;
+  }
+
+  .hse-values-section .hse-section-title h2 {
+    font-size: 36px;
+    letter-spacing: -1.5px;
+  }
+
+  .hse-values-section .hse-section-title p {
+    font-size: 14px;
+  }
+
+  .hse-values-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .hse-value-card {
+    min-height: 285px;
+    padding: 25px 23px;
+  }
+
+  .hse-card-top {
+    margin-bottom: 35px;
+  }
+
+  .hse-value-card h3 {
+    font-size: 21px;
+  }
+
+  .hse-value-card p {
+    font-size: 13px;
+  }
+}
+
+/* ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+  .hse-value-card,
+  .hse-value-card::after,
+  .hse-value-icon,
+  .hse-card-line {
+    transition: none;
+  }
+}
+
+
+
+
+
+
+

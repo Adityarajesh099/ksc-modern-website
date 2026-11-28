@@ -282,6 +282,18 @@ function Checklist({ items }) {
   );
 }
 
+function BackToSafetyTopics() {
+  return (
+    <a
+      href="#safety-topics"
+      className="hse-back-to-topics"
+    >
+      <span className="hse-back-arrow">←</span>
+      <span>Back to Safety Topics</span>
+    </a>
+  );
+}
+
 export default function HSE() {
   return (
     <main className="hse-page">
@@ -345,7 +357,7 @@ export default function HSE() {
       {/* INTRODUCTION */}
       <section className="hse-intro" id="hse-policy">
         <div className="hse-intro-heading">
-          <span className="hse-eyebrow">01 — OUR PURPOSE</span>
+          <span className="hse-eyebrow">OUR PURPOSE</span>
           <h2>
             A commitment that
             <br />
@@ -370,7 +382,7 @@ export default function HSE() {
       {/* POLICY */}
       <section className="hse-policy-section">
         <div className="hse-policy-main">
-          <span className="hse-eyebrow">OUR 2025 POLICY</span>
+          <span className="hse-eyebrow">OUR 2026 POLICY</span>
           <h2>
             Safety is not just a standard.
             <span> It is our responsibility.</span>
@@ -380,12 +392,6 @@ export default function HSE() {
             fostering a culture where safety, environmental responsibility
             and operational excellence go hand in hand.
           </p>
-          <div className="hse-policy-sign">
-            <span>APPROVED BY</span>
-            <strong>Siju Antony</strong>
-            <small>Managing Director · Khamis Al Sharjah Contracting Company</small>
-            <small>Policy date: 12 March 2025</small>
-          </div>
         </div>
 
         <div className="hse-policy-list">
@@ -397,7 +403,7 @@ export default function HSE() {
       {/* CORE VALUES */}
       <section className="hse-values-section">
         <SectionTitle
-          eyebrow="02 — THE KSC WAY"
+          eyebrow="THE KSC WAY"
           title="Three core values of safety."
           description="The foundation of a responsible and safety-conscious workplace."
         />
@@ -420,7 +426,7 @@ export default function HSE() {
       {/* STANDARDS */}
       <section className="hse-standards-section" id="hse-standards">
         <SectionTitle
-          eyebrow="03 — WORKPLACE COMPLIANCE"
+          eyebrow="WORKPLACE COMPLIANCE"
           title="Every detail matters."
           description="The general rules and manufacturing practices that guide our daily operations."
         />
@@ -447,7 +453,7 @@ export default function HSE() {
       {/* BASIC SAFETY */}
       <section className="hse-rules-section">
         <div className="hse-rules-heading">
-          <span className="hse-eyebrow">04 — DAILY SAFETY</span>
+          <span className="hse-eyebrow">DAILY SAFETY</span>
           <h2>Safe work starts with the basics.</h2>
           <p>
             Good housekeeping, personal protection and safe equipment
@@ -487,7 +493,7 @@ export default function HSE() {
       {/* SAFE SYSTEM */}
       <section className="hse-work-section">
         <div className="hse-work-heading">
-          <span className="hse-eyebrow">05 — SAFE SYSTEM OF WORK</span>
+          <span className="hse-eyebrow">SAFE SYSTEM OF WORK</span>
           <h2>Plan the work. Control the risk.</h2>
           <p>
             Follow the approved work procedure and ensure all required
@@ -502,7 +508,7 @@ export default function HSE() {
       {/* SAFETY TOPICS */}
       <section className="hse-topics-section" id="safety-topics">
         <SectionTitle
-          eyebrow="06 — CRITICAL SAFETY PROCEDURES"
+          eyebrow="CRITICAL SAFETY PROCEDURES"
           title="Know the risks. Work safely."
           description="Explore the important safety procedures and precautions outlined in the KSC handbook."
         />
@@ -527,7 +533,10 @@ export default function HSE() {
       {/* HEIGHT */}
       <section className="hse-detail-section" id="topic-height">
         <div className="hse-detail-intro">
-          <span className="hse-eyebrow">07 — FALL PREVENTION</span>
+          <a href="#safety-topics" className="hse-back-topics">
+            ← Back to Safety Topics
+          </a>
+          <span className="hse-eyebrow">-----FALL PREVENTION</span>
           <h2>Working at height.</h2>
           <p>
             Falls are identified in the handbook as a leading cause of
@@ -551,7 +560,10 @@ export default function HSE() {
       {/* SCAFFOLDING */}
       <section className="hse-detail-section hse-detail-alt" id="topic-scaffolding">
         <div className="hse-detail-intro">
-          <span className="hse-eyebrow">08 — ACCESS EQUIPMENT</span>
+          <a href="#safety-topics" className="hse-back-topics">
+            ← Back to Safety Topics
+          </a>
+          <span className="hse-eyebrow">-----ACCESS EQUIPMENT</span>
           <h2>Scaffolding safety.</h2>
           <p>
             Scaffolding must be erected, inspected and dismantled
@@ -577,7 +589,10 @@ export default function HSE() {
       {/* MEWP */}
       <section className="hse-detail-section" id="topic-mewp">
         <div className="hse-detail-intro">
-          <span className="hse-eyebrow">09 — ELEVATED PLATFORMS</span>
+          <a href="#safety-topics" className="hse-back-topics">
+            ← Back to Safety Topics
+          </a>
+          <span className="hse-eyebrow">-----ELEVATED PLATFORMS</span>
           <h2>Mobile elevated working platforms.</h2>
           <p>
             MEWPs can provide safe access to elevated work areas,
@@ -593,7 +608,10 @@ export default function HSE() {
       {/* HOT WORK */}
       <section className="hse-hotwork-section" id="topic-hotwork">
         <div className="hse-hotwork-heading">
-          <span className="hse-eyebrow">10 — FIRE PREVENTION</span>
+          <a href="#safety-topics" className="hse-back-topics">
+            ← Back to Safety Topics
+          </a>
+          <span className="hse-eyebrow">-----FIRE PREVENTION</span>
           <h2>Hot work requires control.</h2>
           <p>
             Welding, cutting and grinding must be carried out by
@@ -610,7 +628,7 @@ export default function HSE() {
           <Checklist items={hotWorkRules} />
           <div className="hse-fire-watch">
             <strong>30 MINUTES</strong>
-            <span>Fire watch after completion of hot work, as specified in the handbook.</span>
+            <span>Fire watch after completion of hot work.</span>
           </div>
         </div>
       </section>
@@ -618,7 +636,10 @@ export default function HSE() {
       {/* FIRE SAFETY */}
       <section className="hse-fire-section" id="topic-fire">
         <div className="hse-fire-heading">
-          <span className="hse-eyebrow">11 — EMERGENCY PREPAREDNESS</span>
+          <a href="#safety-topics" className="hse-back-topics">
+            ← Back to Safety Topics
+          </a>
+          <span className="hse-eyebrow">-----EMERGENCY PREPAREDNESS</span>
           <h2>Fire safety & extinguisher awareness.</h2>
           <p>
             Understand fire classifications and the appropriate
@@ -669,7 +690,10 @@ export default function HSE() {
       {/* EMERGENCY RESPONSE */}
       <section className="hse-emergency-section">
         <div className="hse-emergency-intro">
-          <span className="hse-eyebrow">12 — INCIDENT RESPONSE</span>
+          <a href="#safety-topics" className="hse-back-topics">
+            ← Back to Safety Topics
+          </a>
+          <span className="hse-eyebrow">-----INCIDENT RESPONSE</span>
           <h2>When an emergency occurs, stay calm.</h2>
           <p>
             Familiarise yourself with your work environment and the
@@ -697,7 +721,10 @@ export default function HSE() {
       {/* CHEMICAL SAFETY */}
       <section className="hse-detail-section" id="topic-chemical">
         <div className="hse-detail-intro">
-          <span className="hse-eyebrow">13 — HAZARD MANAGEMENT</span>
+          <a href="#safety-topics" className="hse-back-topics">
+            ← Back to Safety Topics
+          </a>
+          <span className="hse-eyebrow">-----HAZARD MANAGEMENT</span>
           <h2>Toxic & harmful substances.</h2>
           <p>
             Chemical exposure can cause injury, burns or serious health
@@ -714,7 +741,10 @@ export default function HSE() {
       {/* CONFINED SPACE */}
       <section className="hse-confined-section" id="topic-confined">
         <div className="hse-confined-header">
-          <span className="hse-eyebrow">14 — HIGH-RISK ACTIVITIES</span>
+          <a href="#safety-topics" className="hse-back-topics">
+            ← Back to Safety Topics
+          </a>
+          <span className="hse-eyebrow">-----HIGH-RISK ACTIVITIES</span>
           <h2>Confined space safety.</h2>
           <p>
             Confined spaces include boilers, pipelines, pits, storage
@@ -731,7 +761,10 @@ export default function HSE() {
       {/* PPE */}
       <section className="hse-ppe-section" id="topic-ppe">
         <div className="hse-ppe-heading">
-          <span className="hse-eyebrow">15 — PERSONAL PROTECTION</span>
+          <a href="#safety-topics" className="hse-back-topics">
+            ← Back to Safety Topics
+          </a>
+          <span className="hse-eyebrow">-----PERSONAL PROTECTION</span>
           <h2>Your safety starts with the right PPE.</h2>
           <p>
             Select and wear protective equipment appropriate to the
@@ -755,7 +788,7 @@ export default function HSE() {
       {/* DISCIPLINARY */}
       <section className="hse-discipline-section">
         <SectionTitle
-          eyebrow="16 — ACCOUNTABILITY"
+          eyebrow="ACCOUNTABILITY"
           title="Safety violations have consequences."
           description="The KSC handbook outlines a three-stage disciplinary process for violations of safety instructions."
         />
@@ -788,11 +821,26 @@ export default function HSE() {
             Back to HSE Policy <span>↑</span>
           </a>
         </div>
-        <div className="hse-final-mark">
-          <span>HSE</span>
-          <strong>2025</strong>
-          <small>KNOWLEDGE · SERVICE · COMMITMENT</small>
-        </div>
+        <a
+  href="/images/KSC-Health-Safety-Handbook-2026.pdf"
+  download="KSC-Health-Safety-Handbook-2025.pdf"
+  className="hse-brochure-card"
+  aria-label="Download KSC HSE 2025 brochure"
+>
+  <span className="hse-brochure-label">DOWNLOAD BROCHURE</span>
+
+  <span className="hse-brochure-title">HSE</span>
+  <span className="hse-brochure-year">2026</span>
+
+  <span className="hse-brochure-caption">
+    KNOWLEDGE · SERVICE · COMMITMENT
+  </span>
+
+  <span className="hse-brochure-action">
+    <span>Download PDF</span>
+    <span className="hse-download-icon">↓</span>
+  </span>
+</a>
       </section>
     </main>
   );

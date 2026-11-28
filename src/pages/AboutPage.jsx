@@ -68,6 +68,7 @@ const services = [
 
 const aboutImages = [
   "/images/KSC Office1.png",
+  "/images/KSC Office7.png",
   "/images/KSC Office2.png",
   "/images/KSC Office3.png",
   "/images/KSC Office4.png",
